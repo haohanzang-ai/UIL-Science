@@ -1,0 +1,25 @@
+[
+  {
+    "source": "2009 District 5A — Set A",
+    "year": 2009,
+    "question_number": 23,
+    "subject": "chemistry",
+    "topic": "Acids and Bases",
+    "subtopic": "pH calculations",
+    "difficulty": "medium",
+    "textbook_chapter": "Ch. 15 — Acids and Bases",
+    "stem": "REPLACE WITH THE REAL QUESTION STEM TEXT",
+    "choices": ["REPLACE A", "REPLACE B", "REPLACE C", "REPLACE D", "REPLACE E"],
+    "correct_answer": "C",
+    "explanation": "REPLACE WITH A VERIFIED EXPLANATION, or omit to leave it unlinked",
+    "ocr_extracted": true,
+    "answer_key_matched": true,
+    "ai_topic_tagged": true,
+    "coach_reviewed": false,
+    "approved_for_practice": false,
+    "extraction_confidence": 0.97,
+    "topic_tag_confidence": 0.88,
+    "answer_key_match_status": "matched",
+    "scan_crop_url": ""
+  }
+]
