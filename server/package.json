@@ -2,17 +2,16 @@
   "name": "uil-science-platform",
   "version": "0.1.0",
   "private": true,
-  "description": "UIL Science Team Study Platform — real-data backend (Express + SQLite)",
+  "description": "UIL Science Team Study Platform — real-data backend (Express + libSQL/Turso)",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
-    "import": "node import.js",
-    "reset-db": "node -e \"require('fs').rmSync('./data/uil.db',{force:true}); console.log('DB removed. It will be recreated empty on next start.')\""
+    "import": "node import.js"
   },
   "dependencies": {
-    "better-sqlite3": "^11.3.0",
+    "@libsql/client": "^0.14.0",
     "express": "^4.19.2"
   },
-  "engines": { "node": ">=18" }
+  "engines": { "node": ">=18 <23" }
 }
