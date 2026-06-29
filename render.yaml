@@ -1,0 +1,12 @@
+# Render Blueprint — optional, for clean re-creation of the service.
+# (An already-manually-created service won't auto-adopt this; use it via
+#  Render → New → Blueprint, or just set the same values in Settings.)
+services:
+  - type: web
+    name: uil-science
+    runtime: node
+    rootDir: server
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
