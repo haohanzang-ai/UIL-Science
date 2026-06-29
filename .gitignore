@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+server/node_modules/
+
+# Database (created at runtime — never commit real student data)
+server/data/
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.*
+
+# Build / temp
+dist/
+.cache/
+*.tmp
+
+# Local archive exports (large zips)
+*.zip

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dashboard · UIL Science</title>
+<link rel="stylesheet" href="assets/uil.css" />
+</head>
+<body data-page="dashboard" data-title="Dashboard">
+<div class="app">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <div class="page">
+      <div class="pagehead">
+        <div class="row">
+          <div>
+            <h1 id="greet">Your study room</h1>
+            <div class="subtitle" id="sub"></div>
+          </div>
+          <div class="btnrow">
+            <a class="btn" href="competitor-guide.html"><span class="ic">📘</span> Guide</a>
+            <a class="btn primary" href="practice.html"><span class="ic">▶</span> Take Practice</a>
+          </div>
+        </div>
+      </div>
+      <div id="root"><div class="empty"><div class="emo">⏳</div><div class="h">Loading…</div></div></div>
+    </div>
+  </div>
+</div>
+
+<script src="assets/api.js"></script>
+<script src="assets/uil.js"></script>
+<script>
+(function(){
+  var root=document.getElementById('root');
+
+  async function boot(){
+    if(!(await API.health())){ API.offlineBanner(); root.innerHTML=offlineCard(); return; }
+    var me=await API.me().catch(()=>null);
+    if(!me){ root.innerHTML=setupCard(); return; }
+    document.getElementById('greet').textContent='Welcome back, '+me.name+' 👋';
+    document.getElementById('sub').innerHTML = new Date().toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'}) + ' · <span class="faint">role: '+me.role+'</span>';
+
+    var [overview, subjects, sessions, guessing] = await Promise.all([
+      API.overview(me.id).catch(()=>({empty:true})),
+      API.subjects(me.id).catch(()=>[]),
+      API.sessions().catch(()=>[]),
+      API.guessing(me.id).catch(()=>({empty:true}))
+    ]);
+    var integrity = API.isCoach() ? await API.integritySummary().catch(()=>null) : null;
+
+    render(me, overview, subjects, sessions, guessing, integrity);
+  }
+
+  function render(me, ov, subjects, sessions, guessing, integrity){
+    var hasTests = ov && !ov.empty;
+    var last = sessions && sessions[0];
+
+    // next step (data-driven)
+    var next = hasTests
+      ? {lbl:'Your next step', txt:'Review your last practice test', sub:'See exactly where you lost points.', btn:'Review Mistakes', href:'review.html?session='+last.id}
+      : {lbl:'Get started', txt:'Take your first practice test', sub:'Your dashboard fills in with real data once you do.', btn:'Take Practice', href:'practice.html'};
+
+    var html =
+      '<div class="nextstep"><div class="l"><span class="ic">⚡</span><div><div class="lbl">'+next.lbl+'</div>'+
+        '<div class="txt">'+next.txt+'<small>'+next.sub+'</small></div></div></div>'+
+        '<a class="btn primary" href="'+next.href+'"><span class="ic">▶</span> '+next.btn+'</a></div>';
+
+    // row: score overview + subject strengths
+    html += '<div class="grid g2" style="margin-top:18px">';
+    if(hasTests){
+      html += '<div class="card hover"><div class="cardhead"><h3><span class="ic">📈</span> Your Scores</h3><span class="tag neutral">'+ov.tests+' real test'+(ov.tests>1?'s':'')+'</span></div>'+
+        '<div style="display:flex;gap:18px;align-items:center"><div class="ring" id="ring"><div class="val"><b>'+ov.lastScore+'</b><small>last score</small></div></div>'+
+        '<div style="flex:1">'+row('Average score','<b>'+ov.avgScore+'</b>')+row('Most recent','<b>'+ov.lastScore+'</b>')+row('Tests taken','<b>'+ov.tests+'</b>')+'</div></div></div>';
+    } else {
+      html += emptyCard('📈','Your Scores','No tests yet — your score history appears here after your first practice.');
+    }
+
+    var subjRows = (subjects||[]).filter(function(s){return s.subject;});
+    if(subjRows.length){
+      var bars = subjRows.map(function(s){
+        var cls=s.subject==='biology'?'bio':s.subject==='chemistry'?'chem':'phys';
+        var acc=s.accuracy===null?0:s.accuracy;
+        return '<div class="meterline" style="margin-top:12px"><span class="tag '+cls+'">'+cap(s.subject)+'</span><b>'+(s.accuracy===null?'—':s.accuracy+'%')+'</b></div><div class="meter '+cls+'"><i style="width:'+acc+'%"></i></div>';
+      }).join('');
+      html += '<div class="card hover"><div class="cardhead"><h3><span class="ic">🧬</span> Subject Strengths</h3><a class="faint" style="font-size:12px" href="insights.html">Insights →</a></div>'+bars+'</div>';
+    } else {
+      html += emptyCard('🧬','Subject Strengths','Per-subject accuracy appears once you have graded answers.');
+    }
+    html += '</div>';
+
+    // row: last practice + guessing snapshot + (coach) integrity
+    html += '<div class="grid g3" style="margin-top:16px">';
+    if(last){
+      html += '<div class="card hover"><div class="cardhead"><h3><span class="ic">📝</span> Last Practice</h3><span class="tag neutral">'+(last.submitted_at||'').slice(0,10)+'</span></div>'+
+        '<div class="kpi">'+last.score+'</div><p class="muted" style="font-size:13px;margin:4px 0 14px">'+last.questions+' questions · '+(last.mode==='subject'?cap(last.subject||''):'Full')+'</p>'+
+        '<a class="btn block" href="review.html?session='+last.id+'"><span class="ic">📊</span> See full review</a></div>';
+    } else {
+      html += emptyCard('📝','Last Practice','No attempts yet.','Take Practice','practice.html');
+    }
+
+    if(guessing && !guessing.empty){
+      var g=guessing.levels.guessed;
+      html += '<div class="card hover"><div class="cardhead"><h3><span class="ic">🎲</span> Guessing</h3><a class="faint" style="font-size:12px" href="insights.html">Detail →</a></div>'+
+        '<div class="kpi">'+(g.accuracy===null?'—':g.accuracy+'%')+'</div><p class="muted" style="font-size:13px;margin:4px 0 12px">guess accuracy · break-even 25%</p>'+
+        '<div class="note '+(g.accuracy!==null&&g.accuracy<25?'warn':'')+'" style="font-size:12.5px">'+ (guessing.advice[0]?escapeHtml(guessing.advice[0].text):'') +'</div></div>';
+    } else {
+      html += emptyCard('🎲','Guessing','Tag confidence on questions to unlock your guessing threshold.');
+    }
+
+    if(integrity){
+      if(integrity.total){
+        html += '<div class="card hover"><div class="cardhead"><h3><span class="ic">🛠</span> Data Integrity</h3><a class="faint" style="font-size:12px" href="admin-review.html">Review →</a></div>'+
+          row('<span class="bdg-mini" style="color:#7ef0a8">● Approved</span>', integrity.approved)+
+          row('<span style="color:#f8cd7a">● Needs review</span>', integrity.review)+
+          row('<span style="color:#f3a6ad">● Issue found</span>', integrity.issue)+
+          row('<span class="faint">● Not processed</span>', integrity.unprocessed)+'</div>';
+      } else {
+        html += emptyCard('🛠','Data Integrity','No questions imported yet.','Open Admin Review','admin-review.html');
+      }
+    } else {
+      // student: show a guide/CTA card instead
+      html += '<div class="card hover"><div class="cardhead"><h3><span class="ic">📘</span> Competitor Guide</h3></div><p class="muted" style="font-size:13px;margin:0 0 12px">Rules, scoring, and meet-day prep.</p><a class="btn block" href="competitor-guide.html">Open guide</a></div>';
+    }
+    html += '</div>';
+
+    // recent sessions
+    if(sessions && sessions.length){
+      html += '<div class="card hover" style="margin-top:16px"><div class="cardhead"><h3><span class="ic">🗓</span> Recent Practice</h3></div>'+
+        sessions.slice(0,6).map(function(s){ return '<div class="rowline"><div><div class="t">'+(s.mode==='subject'?cap(s.subject||''):'Full test')+' · '+s.questions+' questions</div><div class="s">'+(s.submitted_at||'')+'</div></div><a class="btn sm" href="review.html?session='+s.id+'">Score '+s.score+' →</a></div>'; }).join('')+'</div>';
+    }
+
+    root.innerHTML = html;
+    if(hasTests){ var ring=document.getElementById('ring'); if(ring) UIL.ring(ring, Math.max(0,ov.lastScore)/(Math.max(ov.lastScore,360))*100, 'var(--accent)'); }
+  }
+
+  function row(l,v){ return '<div class="rowline"><div class="t">'+l+'</div><b class="num">'+v+'</b></div>'; }
+  function emptyCard(emo,title,d,btn,href){ return '<div class="card"><div class="cardhead"><h3>'+emo+' '+title+'</h3></div><div class="empty" style="padding:22px 10px"><div class="d">'+d+'</div>'+(btn?'<a class="btn primary" style="margin-top:10px" href="'+href+'">'+btn+'</a>':'')+'</div></div>'; }
+  function setupCard(){ return '<div class="empty"><div class="emo">👋</div><div class="h">Welcome to your study room</div><div class="d">Create your profile (on the Practice page) to start tracking real attempts and analytics.</div><a class="btn primary" href="practice.html">Get started</a></div>'; }
+  function offlineCard(){ return '<div class="empty"><div class="emo">⚠️</div><div class="h">Backend not connected</div><div class="d">Start the server: <code>cd server &amp;&amp; npm install &amp;&amp; npm start</code>, then open http://localhost:3000.</div></div>'; }
+  function cap(s){ return s?s.charAt(0).toUpperCase()+s.slice(1):s; }
+  function escapeHtml(s){ return String(s).replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
+
+  boot();
+})();
+</script>
+</body>
+</html>

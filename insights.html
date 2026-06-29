@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>My Insights · UIL Science</title>
+<link rel="stylesheet" href="assets/uil.css" />
+</head>
+<body data-page="insights" data-title="My Insights">
+<div class="app">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <div class="page narrow">
+      <div class="pagehead">
+        <div class="row">
+          <div>
+            <h1>My Insights</h1>
+            <div class="subtitle">Your personal guessing threshold — built only from your real practice attempts.</div>
+          </div>
+          <a class="btn primary" href="practice.html"><span class="ic">▶</span> Take Practice</a>
+        </div>
+      </div>
+      <div id="root"><div class="empty"><div class="emo">⏳</div><div class="h">Loading…</div></div></div>
+    </div>
+  </div>
+</div>
+
+<script src="assets/api.js"></script>
+<script src="assets/uil.js"></script>
+<script>
+(function(){
+  var root=document.getElementById('root');
+  async function boot(){
+    if(!(await API.health())){ API.offlineBanner(); return empty('⚠️','Backend not connected','Start the server, then reload.'); }
+    var me=await API.me().catch(()=>null);
+    if(!me) return empty('📭','No profile yet','Take a practice test to create your record and start tracking.','Take Practice','practice.html');
+    var d;
+    try { d=await API.guessing(me.id); } catch(e){ return empty('⚠️','Could not load',e.message); }
+    if(d.empty) return empty('📭','No attempts yet','Your guessing threshold appears after you submit a practice test with confidence ratings.','Take Practice','practice.html');
+    render(d);
+  }
+  function empty(emo,h,dd,btn,href){ root.innerHTML='<div class="empty"><div class="emo">'+emo+'</div><div class="h">'+h+'</div><div class="d">'+dd+'</div>'+(btn?'<a class="btn primary" href="'+href+'">'+btn+'</a>':'')+'</div>'; }
+
+  function render(d){
+    var L=d.levels;
+    root.innerHTML =
+      '<div class="grid g3">'+
+        levelCard('🎲','Guessed', L.guessed, 'var(--bad)')+
+        levelCard('🤔','Somewhat sure', L.somewhat, 'var(--warn)')+
+        levelCard('💪','Confident', L.confident, 'var(--good)')+
+      '</div>'+
+      '<div class="card" style="margin-top:16px"><div class="cardhead"><h3><span class="ic">📐</span> The math</h3><span class="tag neutral">Break-even p &gt; 25%</span></div>'+
+        '<p class="muted" style="font-size:14px;margin:0 0 6px">Expected value of an answer: <b style="color:var(--ink);font-family:ui-monospace,monospace">'+d.formula+'</b></p>'+
+        '<p class="muted" style="font-size:13.5px;margin:0">If your accuracy at a confidence level beats 25%, answering adds points on average. Below 25%, leaving it blank is better.</p>'+
+      '</div>'+
+      '<div class="card" style="margin-top:16px"><div class="cardhead"><h3><span class="ic">🧭</span> What you should do</h3><span class="saved">From your real attempts</span></div>'+
+        '<ul class="clean">'+d.advice.map(function(a){ var e=a.tone==='good'?'✅':a.tone==='warn'?'⚠️':'ℹ️'; return '<li>'+e+' '+escapeHtml(a.text)+'</li>'; }).join('')+'</ul>'+
+      '</div>'+
+      '<p class="faint" style="font-size:12px;margin-top:14px">'+d.blanks+' blank answer(s) recorded across your attempts. Tag your confidence on every question to keep this accurate.</p>';
+  }
+
+  function levelCard(emo,name,lv,color){
+    var acc = lv.accuracy===null?'—':lv.accuracy+'%';
+    var ev  = lv.avgPoints===null?'—':(lv.avgPoints>0?'+':'')+lv.avgPoints;
+    var verdict = lv.accuracy===null ? '<span class="faint">no data</span>'
+      : (lv.accuracy>25 ? '<span style="color:var(--good)">above break-even</span>' : '<span style="color:var(--bad)">below break-even</span>');
+    return '<div class="card hover"><div class="cardhead"><h3>'+emo+' '+name+'</h3></div>'+
+      '<div class="kpi" style="color:'+color+'">'+acc+'</div>'+
+      '<div class="muted" style="font-size:12.5px;margin-top:2px">accuracy · '+lv.correct+'/'+lv.attempts+' correct</div>'+
+      '<div class="rowline" style="margin-top:10px"><div class="t">Avg points / answer</div><b class="num">'+ev+'</b></div>'+
+      '<div class="rowline"><div class="t">Verdict</div><b>'+verdict+'</b></div></div>';
+  }
+  function escapeHtml(s){ return String(s).replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
+  boot();
+})();
+</script>
+</body>
+</html>

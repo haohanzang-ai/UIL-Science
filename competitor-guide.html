@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Competitor Guide · UIL Science</title>
+<style>
+  :root{
+    --bg:#0a1020;
+    --bg-soft:#0e1528;
+    --surface:#121b33;
+    --surface-2:#0f1830;
+    --surface-3:#16203c;
+    --line:#243352;
+    --line-soft:#1b2742;
+    --ink:#eaf0ff;
+    --ink-dim:#a6b6d6;
+    --ink-faint:#6f82a6;
+    --accent:#4f8cff;
+    --accent-2:#22d3a6;
+    /* subject system */
+    --bio:#34d399;      /* Biology = green */
+    --chem:#a78bfa;     /* Chemistry = blue/purple */
+    --phys:#f59e0b;     /* Physics = orange/amber */
+    --team:#7d8db3;     /* Team/coach = neutral navy */
+    --good:#22c55e; --warn:#f59e0b; --bad:#ef4444;
+    --radius:16px;
+    --shadow:0 8px 28px rgba(0,0,0,.38);
+    --shadow-sm:0 3px 12px rgba(0,0,0,.28);
+    --sidebar:248px;
+    --rail:300px;
+    --topgap:74px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;
+    background:
+      radial-gradient(1100px 520px at 88% -8%, #16264d 0%, transparent 55%),
+      radial-gradient(820px 460px at 6% -4%, #122a4a 0%, transparent 52%),
+      var(--bg);
+  }
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3,h4{margin:0;line-height:1.2;letter-spacing:-.01em}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-2)}
+  .eyebrow::before{content:"";width:20px;height:2px;background:var(--accent-2);border-radius:2px}
+
+  /* ============ App shell ============ */
+  .app{display:flex;min-height:100vh}
+  .sidebar{
+    width:var(--sidebar);flex:none;position:fixed;inset:0 auto 0 0;z-index:60;
+    background:linear-gradient(180deg,#0c1428,#0a1020);border-right:1px solid var(--line-soft);
+    display:flex;flex-direction:column;padding:16px 14px;overflow-y:auto;
+  }
+  .logo{display:flex;align-items:center;gap:11px;padding:6px 8px 16px;border-bottom:1px solid var(--line-soft);margin-bottom:12px}
+  .logo .mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:#06101f;font-weight:900;font-size:13px;flex:none}
+  .logo .txt{font-weight:800;font-size:15px;letter-spacing:.02em}
+  .logo .txt small{display:block;font-weight:600;font-size:11px;color:var(--ink-faint);letter-spacing:.08em}
+  .nav{display:flex;flex-direction:column;gap:3px}
+  .nav a{display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:11px;color:var(--ink-dim);font-size:13.5px;font-weight:600;transition:.14s}
+  .nav a svg{width:19px;height:19px;flex:none;stroke:currentColor;fill:none;stroke-width:1.8}
+  .nav a:hover{background:var(--surface-2);color:var(--ink)}
+  .nav a.active{background:linear-gradient(135deg,rgba(79,140,255,.22),rgba(34,211,166,.12));color:#fff;box-shadow:inset 0 0 0 1px rgba(79,140,255,.4)}
+  .nav a.active svg{stroke:var(--accent-2)}
+  .nav .sep{height:1px;background:var(--line-soft);margin:10px 6px}
+  .nav .grouplbl{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);padding:6px 12px 4px}
+  .side-foot{margin-top:auto;padding:12px 10px 4px;font-size:11px;color:var(--ink-faint)}
+  .badge-lock{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:5px 10px;font-size:11px;color:var(--ink-dim)}
+
+  .main{flex:1;margin-left:var(--sidebar);min-width:0}
+
+  /* mobile top bar */
+  .mtop{display:none;position:sticky;top:0;z-index:55;align-items:center;justify-content:space-between;
+    height:56px;padding:0 14px;background:rgba(9,14,28,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-soft)}
+  .mtop .mtitle{font-weight:800;font-size:15px;display:flex;align-items:center;gap:9px}
+  .mtop .mtitle .mark{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:#06101f;font-weight:900;font-size:11px}
+  .hamb{width:42px;height:38px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:18px;cursor:pointer;display:grid;place-items:center}
+  .scrim{display:none;position:fixed;inset:0;background:rgba(4,8,18,.6);z-index:58}
+
+  .page{max-width:1320px;margin:0 auto;padding:22px 26px 40px}
+
+  /* ============ Hero ============ */
+  .hero{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:22px;
+    background:linear-gradient(135deg,#122046 0%, #0e1830 70%);
+    padding:34px 30px;box-shadow:var(--shadow)}
+  .hero .deco{position:absolute;inset:0;opacity:.5;pointer-events:none}
+  .hero-inner{position:relative;max-width:62ch}
+  .hero h1{font-size:clamp(26px,4.4vw,42px);font-weight:900;letter-spacing:-.02em;margin-top:12px}
+  .hero .tag{font-size:clamp(14px,2.2vw,18px);color:#86b0ff;font-weight:700;margin-top:10px}
+  .hero p{color:var(--ink-dim);font-size:15.5px;margin:14px 0 22px}
+  .btnrow{display:flex;flex-wrap:wrap;gap:10px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:11px;font-weight:700;font-size:13.5px;
+    border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;transition:.14s}
+  .btn:hover{transform:translateY(-2px);border-color:var(--accent)}
+  .btn.primary{background:linear-gradient(135deg,var(--accent),#3b6fe0);border-color:transparent;color:#fff}
+  .btn.primary:hover{box-shadow:0 8px 22px rgba(79,140,255,.4)}
+  .btn.sm{padding:9px 12px;font-size:12.5px;width:100%;justify-content:flex-start}
+  .btn .ic{font-size:15px}
+
+  /* ============ Coach notice ============ */
+  .coach{display:flex;gap:13px;align-items:flex-start;margin-top:18px;
+    background:linear-gradient(180deg,#15213f,#111a32);border:1px solid var(--line);border-left:3px solid var(--team);
+    border-radius:14px;padding:15px 17px}
+  .coach .ic{font-size:20px}
+  .coach b{color:#fff}
+  .coach .t{font-size:13.5px;color:var(--ink-dim)}
+
+  /* ============ Stat cards ============ */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+  .stat{background:linear-gradient(180deg,var(--surface),#101a32);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
+  .stat::after{content:"";position:absolute;top:0;right:0;width:110px;height:110px;background:radial-gradient(circle at 100% 0,rgba(79,140,255,.16),transparent 70%)}
+  .stat .big{font-size:27px;font-weight:900;letter-spacing:-.02em}
+  .stat .lbl{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-2);margin-top:2px}
+  .stat .desc{color:var(--ink-dim);font-size:13px;margin-top:7px}
+  .stat .pill{display:inline-block;font-size:10.5px;font-weight:700;background:#1d2c4f;border:1px solid var(--line);border-radius:999px;padding:2px 8px;margin:4px 4px 0 0}
+
+  /* ============ Content grid + rail ============ */
+  .layout{display:grid;grid-template-columns:1fr var(--rail);gap:24px;margin-top:26px;align-items:start}
+  .content{min-width:0}
+  .rail{position:sticky;top:var(--topgap);display:flex;flex-direction:column;gap:14px;max-height:calc(100vh - 92px);overflow:auto;padding-right:2px}
+  .rail::-webkit-scrollbar{width:8px}.rail::-webkit-scrollbar-thumb{background:#1f2c49;border-radius:8px}
+
+  .railcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--shadow-sm)}
+  .railcard h4{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:11px}
+  .qa{display:flex;flex-direction:column;gap:7px}
+
+  /* section nav (scrollspy) */
+  .secnav{display:flex;flex-direction:column;gap:1px}
+  .secnav a{display:flex;align-items:center;gap:9px;padding:7px 10px;border-radius:9px;font-size:13px;color:var(--ink-dim);border-left:2px solid transparent}
+  .secnav a:hover{background:var(--surface-2);color:var(--ink)}
+  .secnav a.active{color:#fff;background:var(--surface-2);border-left-color:var(--accent-2);font-weight:700}
+  .secnav .dot{width:6px;height:6px;border-radius:50%;background:var(--line);flex:none}
+  .secnav a.active .dot{background:var(--accent-2)}
+
+  /* readiness meter */
+  .meter{height:9px;border-radius:999px;background:#0e1830;border:1px solid var(--line);overflow:hidden;margin:4px 0 8px}
+  .meter > i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width .35s ease}
+  .meter-row{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-dim)}
+  .meter-row b{color:#fff}
+
+  /* mobile section menu */
+  .mobsec{display:none;margin-top:22px;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .mobsec summary{list-style:none;cursor:pointer;padding:14px 16px;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:space-between}
+  .mobsec summary::-webkit-details-marker{display:none}
+  .mobsec[open] summary{border-bottom:1px solid var(--line)}
+  .mobsec .secnav{padding:8px}
+
+  /* ============ Sections ============ */
+  section.block{padding:34px 0;border-top:1px solid var(--line-soft);scroll-margin-top:var(--topgap)}
+  section.block:first-child{border-top:none;padding-top:8px}
+  h2.title{font-size:clamp(19px,3vw,25px);margin:6px 0 4px}
+  .sub{color:var(--ink-dim);font-size:14.5px;max-width:66ch;margin:0 0 22px}
+
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow-sm)}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .cols-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .card h3{font-size:15.5px;margin-bottom:10px;display:flex;align-items:center;gap:9px}
+  .card h3 .ic{font-size:17px}
+
+  /* subject cards */
+  .subj{border-top:3px solid var(--line)}
+  .subj.bio{border-top-color:var(--bio)} .subj.chem{border-top-color:var(--chem)} .subj.phys{border-top-color:var(--phys)}
+  .subj .head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+  .subj .name{font-size:17px;font-weight:800}
+  .subj .qr{font-size:11.5px;font-weight:800;color:#06101f;padding:4px 10px;border-radius:999px}
+  .subj.bio .qr{background:var(--bio)} .subj.chem .qr{background:var(--chem)} .subj.phys .qr{background:var(--phys)}
+  .topics{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .topic{font-size:12px;color:var(--ink-dim);background:#0e1830;border:1px solid var(--line);border-radius:8px;padding:4px 8px}
+
+  .note{display:flex;gap:11px;align-items:flex-start;background:#10203a;border:1px solid #1f3b63;border-left:3px solid var(--accent);border-radius:12px;padding:13px 15px;font-size:13.5px;color:var(--ink-dim);margin-top:16px}
+  .note b{color:var(--ink)} .note .ic{font-size:17px}
+  .note.warn{background:#2a1e10;border-color:#5a4011;border-left-color:var(--warn)}
+  .note.warn .ic{color:var(--warn)}
+
+  /* formula */
+  .formula{background:linear-gradient(135deg,#10254a,#0e1830);border:1px solid #28457a;border-radius:14px;padding:20px;text-align:center;box-shadow:inset 0 0 40px rgba(79,140,255,.08)}
+  .formula .f{font-size:clamp(20px,3.4vw,28px);font-weight:900;letter-spacing:.01em;font-family:"SFMono-Regular",ui-monospace,Menlo,Consolas,monospace}
+  .formula .f .pos{color:var(--good)} .formula .f .neg{color:var(--bad)}
+  .formula .cap{color:var(--ink-faint);font-size:12px;margin-top:8px;letter-spacing:.06em;text-transform:uppercase}
+
+  .score{display:flex;gap:10px}
+  .score .box{flex:1;text-align:center;border:1px solid var(--line);border-radius:12px;padding:12px 6px;background:#0e1830}
+  .score .v{font-size:22px;font-weight:900}
+  .score .v.g{color:var(--good)} .score .v.n{color:var(--ink-dim)} .score .v.b{color:var(--bad)}
+  .score .t{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-faint);margin-top:3px}
+
+  table{width:100%;border-collapse:collapse;font-size:13px;margin-top:4px}
+  th,td{padding:9px 8px;text-align:left;border-bottom:1px solid var(--line-soft)}
+  th{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-faint)}
+  .verdict{font-weight:800}.v-skip{color:var(--bad)}.v-even{color:var(--warn)}.v-go{color:var(--good)}
+
+  ul.check{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+  ul.check li{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--ink-dim)}
+  ul.check li::before{content:"✓";color:var(--accent-2);font-weight:900;margin-top:1px}
+  ul.check.x li::before{content:"✕";color:var(--bad)}
+  ul.check b{color:var(--ink);font-weight:700}
+
+  .callist{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+  .callist li{display:flex;align-items:center;gap:10px;font-size:13.5px;background:#0e1830;border:1px solid var(--line);border-radius:10px;padding:9px 12px}
+  .callist li .k{font-weight:800;color:#fff}
+
+  /* numbered cards */
+  .rooms{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
+  .room{display:flex;gap:13px;background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:15px}
+  .room .n{flex:none;width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#06101f;font-weight:900;display:grid;place-items:center}
+  .room .h{font-weight:800;font-size:14px}
+  .room .d{font-size:12.8px;color:var(--ink-dim);margin-top:3px}
+
+  /* advancement feature cards */
+  .adv{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .acard{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:var(--shadow-sm);border-top:3px solid var(--team)}
+  .acard.bio{border-top-color:var(--bio)} .acard.chem{border-top-color:var(--chem)} .acard.phys{border-top-color:var(--phys)}
+  .acard .ic{font-size:22px}.acard .h{font-weight:800;margin-top:7px}.acard .d{font-size:13px;color:var(--ink-dim);margin-top:5px}
+
+  .trackgrid{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+  .trackgrid span{font-size:12.5px;color:var(--ink);background:#13213f;border:1px solid var(--line);border-radius:999px;padding:5px 11px}
+
+  /* workflow steps */
+  .flow{display:grid;gap:12px}
+  .fstep{display:flex;gap:15px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;align-items:flex-start}
+  .fstep .n{flex:none;width:38px;height:38px;border-radius:11px;background:#0e1830;border:1px solid var(--line);display:grid;place-items:center;font-weight:900;color:var(--accent-2)}
+  .fstep .h{font-weight:800;font-size:15px}
+  .fstep .h small{color:var(--ink-faint);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:10.5px;display:block;margin-bottom:1px}
+  .fstep .d{font-size:13.3px;color:var(--ink-dim);margin-top:3px}
+
+  /* interactive checklists */
+  .clbox{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:var(--shadow-sm)}
+  .clbox h3{font-size:15px;margin-bottom:12px;display:flex;align-items:center;gap:9px}
+  .clist{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+  .clist li{display:flex}
+  .clist label{display:flex;gap:11px;align-items:flex-start;font-size:13.5px;color:var(--ink-dim);cursor:pointer;padding:8px 10px;border-radius:10px;width:100%;transition:.12s}
+  .clist label:hover{background:var(--surface-2)}
+  .clist input{appearance:none;-webkit-appearance:none;width:19px;height:19px;flex:none;border:1.8px solid var(--line);border-radius:6px;margin-top:1px;cursor:pointer;position:relative;transition:.12s}
+  .clist input:checked{background:linear-gradient(135deg,var(--accent),var(--accent-2));border-color:transparent}
+  .clist input:checked::after{content:"✓";position:absolute;inset:0;display:grid;place-items:center;color:#06101f;font-size:12px;font-weight:900}
+  .clist input:checked + span{color:var(--ink-faint);text-decoration:line-through}
+
+  /* great competitors */
+  .gc{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+  .gcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:17px;box-shadow:var(--shadow-sm)}
+  .gcard .ic{width:38px;height:38px;border-radius:11px;background:#10203a;display:grid;place-items:center;font-size:19px}
+  .gcard .h{font-weight:800;margin-top:10px;font-size:14.5px}
+  .gcard .d{font-size:13px;color:var(--ink-dim);margin-top:5px}
+
+  footer{margin-top:30px;border-top:1px solid var(--line-soft);padding:24px 0 8px;color:var(--ink-faint);font-size:12.5px}
+  footer .disc{max-width:84ch}
+  footer a{color:var(--ink-dim);text-decoration:underline}
+
+  /* ============ Responsive ============ */
+  @media(max-width:1080px){
+    .layout{grid-template-columns:1fr}
+    .rail{display:none}
+    .mobsec{display:block}
+    .stats{grid-template-columns:repeat(2,1fr)}
+  }
+  @media(max-width:1080px){
+    .sidebar{transform:translateX(-105%);transition:transform .22s ease;box-shadow:var(--shadow)}
+    .sidebar.open{transform:none}
+    .main{margin-left:0}
+    .mtop{display:flex}
+    .scrim.show{display:block}
+  }
+  @media(max-width:760px){
+    .cols,.cols-3,.rooms,.adv,.gc{grid-template-columns:1fr}
+    .checkcols{grid-template-columns:1fr}
+    .page{padding:16px 16px 36px}
+    .hero{padding:24px 20px}
+    .btn{flex:1;justify-content:center}
+  }
+  @media(max-width:520px){.stats{grid-template-columns:1fr}}
+  .checkcols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ===== Sidebar ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="logo">
+      <div class="mark">Sci</div>
+      <div class="txt">UIL Science<small>Team Study Platform</small></div>
+    </div>
+    <nav class="nav">
+      <a href="dashboard.html"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg> Dashboard</a>
+      <a href="practice.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg> Practice</a>
+      <a href="#"><svg viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><circle cx="9" cy="13" r="1.4"/><circle cx="14" cy="9" r="1.4"/><circle cx="19" cy="12" r="1.4"/></svg> Pattern Explorer</a>
+      <a href="#"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="14" height="12" rx="2"/><path d="M7 3h14v12"/></svg> Flashcards</a>
+      <a href="review.html"><svg viewBox="0 0 24 24"><path d="M5 4h12a2 2 0 0 1 2 2v14H7a2 2 0 0 1-2-2z"/><path d="M9 8h7M9 12h7"/></svg> Mistake Journal</a>
+      <a href="#"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 9h16M9 3v4M15 3v4"/></svg> Study Plans</a>
+      <a href="competitor-guide.html" class="active"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9.5 12l2 2 3.5-4"/></svg> Competitor Guide</a>
+      <div class="sep"></div>
+      <div class="grouplbl">Team</div>
+      <a href="team.html"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><circle cx="17" cy="9" r="2.2"/><path d="M15.5 14.5c2.5.3 4.5 2 4.5 4.5"/></svg> Team Dashboard</a>
+      <a href="team.html#admin"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M12 8v4M12 15.5v.5"/></svg> Admin Review</a>
+    </nav>
+    <div class="side-foot">
+      <span class="badge-lock">🔒 Private · Team access</span>
+    </div>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+
+  <!-- ===== Main ===== -->
+  <div class="main">
+    <div class="mtop">
+      <div class="mtitle"><span class="mark">Sci</span> Competitor Guide</div>
+      <button class="hamb" id="hamb" aria-label="Open menu">☰</button>
+    </div>
+
+    <div class="page">
+
+      <!-- ===== Hero ===== -->
+      <div class="hero">
+        <svg class="deco" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="#3a6cff" stroke-opacity="0.18" fill="none" stroke-width="1.4">
+            <circle cx="660" cy="60" r="46"/><circle cx="720" cy="120" r="22"/>
+            <line x1="660" y1="60" x2="720" y2="120"/><line x1="660" y1="60" x2="600" y2="120"/>
+            <circle cx="600" cy="120" r="14"/><circle cx="660" cy="60" r="6" fill="#22d3a6" fill-opacity="0.5" stroke="none"/>
+            <path d="M40 200 q40 -60 80 0 t80 0 t80 0"/>
+            <circle cx="540" cy="190" r="30"/><path d="M540 160v60M510 190h60"/>
+          </g>
+        </svg>
+        <div class="hero-inner">
+          <span class="eyebrow">Competition Briefing</span>
+          <h1>UIL Science Competitor Guide</h1>
+          <div class="tag">Know the rules. Maximize the score. Help the team win.</div>
+          <p>UIL Science rewards knowledge, speed, smart skipping, subject specialization, and team strategy. This guide explains the format, scoring, allowed materials, contest rules, and how to use this platform effectively.</p>
+          <div class="btnrow">
+            <a class="btn primary" href="practice.html"><span class="ic">▶</span> Start Practice Test</a>
+            <a class="btn" href="#"><span class="ic">🗺</span> View Study Plan</a>
+            <a class="btn" href="review.html"><span class="ic">📓</span> Open Mistake Journal</a>
+            <a class="btn" href="#materials"><span class="ic">🧮</span> Check Calculator Rules</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Coach notice ===== -->
+      <div class="coach">
+        <span class="ic">📣</span>
+        <div class="t"><b>Coach notice:</b> Rules summarized here follow the official UIL Science contest information and Section 952 of the Constitution &amp; Contest Rules (reviewed June 2026). Numbers, approved calculators, and the Physics Study Text change yearly — always confirm against the latest UIL Science Handbook and your contest director's instructions before a meet.</div>
+      </div>
+
+      <!-- ===== Quick stat cards ===== -->
+      <div class="stats">
+        <div class="stat"><div class="big">60</div><div class="lbl">Questions</div><div class="desc">20 Biology, 20 Chemistry, 20 Physics — one combined exam.</div></div>
+        <div class="stat"><div class="big">2 Hours</div><div class="lbl">Time Limit</div><div class="desc">Use the full time. Papers not turned in before the 30-min mark.</div></div>
+        <div class="stat"><div class="big">+6 / 0 / −2</div><div class="lbl">Scoring</div><div class="desc">+6 correct, 0 blank, −2 wrong. Wrong answers cost you.</div></div>
+        <div class="stat"><div class="big">Team Matters</div><div class="lbl">Three Ways to Win</div><div class="desc">Your result counts three ways:</div><span class="pill">Individual</span><span class="pill">Subject top scorer</span><span class="pill">Team</span></div>
+      </div>
+
+      <!-- ===== Mobile section menu ===== -->
+      <details class="mobsec">
+        <summary>Jump to section ▾</summary>
+        <nav class="secnav" id="secnav-mobile"></nav>
+      </details>
+
+      <!-- ===== Layout: content + rail ===== -->
+      <div class="layout">
+        <main class="content">
+
+          <!-- Quick Facts -->
+          <section class="block" id="facts">
+            <span class="eyebrow">At a glance</span>
+            <h2 class="title">Quick Facts</h2>
+            <p class="sub">The four numbers that shape every decision you make on the test.</p>
+            <div class="cols-3">
+              <div class="card"><h3><span class="ic">📋</span> Format</h3><div class="sub" style="margin:0">A two-hour objective test, 60 multiple-choice questions split evenly across biology, chemistry, and physics.</div></div>
+              <div class="card"><h3><span class="ic">⏱</span> Pacing</h3><div class="sub" style="margin:0">≈ 2 minutes per question. Lead with your strongest subject, flag hard items, and use the full clock.</div></div>
+              <div class="card"><h3><span class="ic">🎯</span> What wins</h3><div class="sub" style="margin:0">Accuracy over volume. Protect easy points, skip blind guesses, and specialize for subject awards.</div></div>
+            </div>
+          </section>
+
+          <!-- Test Structure -->
+          <section class="block" id="structure">
+            <span class="eyebrow">What's on the test</span>
+            <h2 class="title">Test Structure</h2>
+            <p class="sub">One booklet, three subjects, 20 questions each, in order. Know where your strengths sit so you can route your time.</p>
+            <div class="cols-3">
+              <div class="card subj bio">
+                <div class="head"><span class="name">Biology</span><span class="qr">Q 1–20</span></div>
+                <div class="topics">
+                  <span class="topic">Cell biology</span><span class="topic">Genetics</span><span class="topic">Evolution</span><span class="topic">Ecology</span><span class="topic">Anatomy / physiology</span><span class="topic">Taxonomy</span><span class="topic">Plants</span><span class="topic">Molecular biology</span><span class="topic">Discoveries</span><span class="topic">Lab reasoning</span>
+                </div>
+              </div>
+              <div class="card subj chem">
+                <div class="head"><span class="name">Chemistry</span><span class="qr">Q 21–40</span></div>
+                <div class="topics">
+                  <span class="topic">Stoichiometry</span><span class="topic">Atomic structure</span><span class="topic">Bonding</span><span class="topic">Thermodynamics</span><span class="topic">Kinetics</span><span class="topic">Equilibrium</span><span class="topic">Acids / bases</span><span class="topic">Electrochemistry</span><span class="topic">Gas laws</span><span class="topic">Solutions</span><span class="topic">Periodic trends</span><span class="topic">Lab calculations</span>
+                </div>
+              </div>
+              <div class="card subj phys">
+                <div class="head"><span class="name">Physics</span><span class="qr">Q 41–60</span></div>
+                <div class="topics">
+                  <span class="topic">Mechanics</span><span class="topic">Energy</span><span class="topic">Momentum</span><span class="topic">Waves</span><span class="topic">Sound</span><span class="topic">Optics</span><span class="topic">Electricity</span><span class="topic">Magnetism</span><span class="topic">Circuits</span><span class="topic">Thermodynamics</span><span class="topic">Modern physics</span><span class="topic">Astronomy</span><span class="topic">Physics Study Text</span>
+                </div>
+              </div>
+            </div>
+            <div class="note"><span class="ic">📅</span><div><b>Physics Study Text changes yearly.</b> A portion of physics questions comes from the assigned book. <b>2025–2026:</b> <i>Radioactivity: A History of a Mysterious Science</i> (Malley). <b>2026–2027:</b> <i>Quantum Supremacy</i> (Michio Kaku). Confirm the current text in the latest handbook.</div></div>
+          </section>
+
+          <!-- Scoring -->
+          <section class="block" id="scoring">
+            <span class="eyebrow">Points &amp; penalties</span>
+            <h2 class="title">Scoring Strategy</h2>
+            <p class="sub">Because wrong answers are penalized, every blank is a deliberate choice. Here's the math that should drive it.</p>
+            <div class="formula">
+              <div class="f">Score = <span class="pos">6 × correct</span> − <span class="neg">2 × wrong</span></div>
+              <div class="cap">Blank answers count as 0</div>
+            </div>
+            <div class="cols" style="margin-top:16px">
+              <div class="card">
+                <h3><span class="ic">🎯</span> How points work</h3>
+                <div class="score">
+                  <div class="box"><div class="v g">+6</div><div class="t">Correct</div></div>
+                  <div class="box"><div class="v n">0</div><div class="t">Blank</div></div>
+                  <div class="box"><div class="v b">−2</div><div class="t">Wrong</div></div>
+                </div>
+                <ul class="check" style="margin-top:14px">
+                  <li>A blank answer is worth <b>0</b> — it never hurts you.</li>
+                  <li>A wrong answer <b>loses 2 points</b> (an 8-point swing versus correct).</li>
+                  <li><b>Random guessing can hurt your score.</b> Don't fill bubbles just to fill them.</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h3><span class="ic">🧠</span> Guessing Rule (5 answer choices)</h3>
+                <table>
+                  <thead><tr><th>Choices eliminated</th><th>Decision</th></tr></thead>
+                  <tbody>
+                    <tr><td>0 eliminated</td><td class="verdict v-skip">Usually skip</td></tr>
+                    <tr><td>1 eliminated</td><td class="verdict v-even">Close to break-even</td></tr>
+                    <tr><td>2+ eliminated</td><td class="verdict v-go">Usually worth considering</td></tr>
+                    <tr><td>High confidence</td><td class="verdict v-go">Answer</td></tr>
+                  </tbody>
+                </table>
+                <div class="formula" style="margin-top:14px;text-align:left;padding:14px 16px">
+                  <div class="f" style="font-size:16px">EV = 6p − 2(1 − p) = <span class="pos">8p − 2</span></div>
+                  <div style="font-size:13px;color:var(--ink-dim);margin-top:8px">Guessing becomes positive when <b style="color:#fff">p &gt; 25%</b> &nbsp;(<span style="color:var(--ink-faint)">p = your chance of being correct</span>)</div>
+                </div>
+              </div>
+            </div>
+            <div class="note warn"><span class="ic">⚠️</span><div><b>This is a strategy rule, not a UIL rule.</b> Each student's personal guessing threshold should be based on their own practice data — the platform tracks how your guesses actually pay off.</div></div>
+          </section>
+
+          <!-- Materials -->
+          <section class="block" id="materials">
+            <span class="eyebrow">What you can bring</span>
+            <h2 class="title">Allowed Materials</h2>
+            <p class="sub">Bring the right calculator and a backup. When in doubt, defer to the official approved list.</p>
+            <div class="cols">
+              <div class="card">
+                <h3><span class="ic">✅</span> Allowed</h3>
+                <ul class="check">
+                  <li>Approved <b>scientific calculator</b> only</li>
+                  <li>Up to <b>two</b> approved calculators</li>
+                  <li>Spare batteries</li>
+                  <li>Silent timing device with <b>no audible signal</b></li>
+                  <li>Scratch paper <b>provided by contest officials</b></li>
+                  <li>Writing on the test booklet and scratch paper</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h3><span class="ic">🚫</span> Not allowed</h3>
+                <ul class="check x">
+                  <li>Cell phones</li>
+                  <li>Smart watches</li>
+                  <li>Tablets</li>
+                  <li>Internet-connected devices</li>
+                  <li>Music players or headphones</li>
+                  <li>Using the <b>answer sheet</b> for calculations</li>
+                  <li>Opening the test before instructed</li>
+                </ul>
+              </div>
+            </div>
+            <div class="card" style="margin-top:16px">
+              <h3><span class="ic">🧮</span> Approved calculator examples</h3>
+              <ul class="callist">
+                <li><span class="k">Casio FX-260</span></li>
+                <li><span class="k">Sharp EL-501X</span></li>
+                <li><span class="k">TI-30Xa</span></li>
+                <li><span class="k">TI-30XIIS</span></li>
+                <li><span class="k">Simple 4-function calculator</span> — if no approved model is available</li>
+              </ul>
+            </div>
+            <div class="note warn"><span class="ic">🎒</span><div><b>Bring the correct calculator to every practice and every meet.</b> Practicing with an illegal calculator can create habits that do not transfer to the real contest. Verify your exact model against the current UIL-approved Science calculator list each season.</div></div>
+          </section>
+
+          <!-- Room Rules -->
+          <section class="block" id="room">
+            <span class="eyebrow">In the room</span>
+            <h2 class="title">Contest Room Rules</h2>
+            <p class="sub">Know these cold so nothing on meet day surprises you.</p>
+            <div class="rooms">
+              <div class="room"><div class="n">1</div><div><div class="h">Wait for the start signal</div><div class="d">Do not open the test until told to begin.</div></div></div>
+              <div class="room"><div class="n">2</div><div><div class="h">Use your contestant number</div><div class="d">Write the assigned contestant number on the test and answer sheet. Do not write your name or school on the answer sheet.</div></div></div>
+              <div class="room"><div class="n">3</div><div><div class="h">Use the answer sheet correctly</div><div class="d">Only answers written on the answer sheet count.</div></div></div>
+              <div class="room"><div class="n">4</div><div><div class="h">Write clearly</div><div class="d">Use clear capital letters. If graders cannot read an answer, it can be marked wrong.</div></div></div>
+              <div class="room"><div class="n">5</div><div><div class="h">Know the time rules</div><div class="d">A 30-minute notification is given. No other oral time warnings are required — use a silent timing device.</div></div></div>
+              <div class="room"><div class="n">6</div><div><div class="h">Stop immediately</div><div class="d">When time is called, stop working.</div></div></div>
+              <div class="room"><div class="n">7</div><div><div class="h">Stay official</div><div class="d">Do not discuss or share confidential contest material before official release.</div></div></div>
+            </div>
+          </section>
+
+          <!-- Advancement -->
+          <section class="block" id="advancement">
+            <span class="eyebrow">How you advance</span>
+            <h2 class="title">How Advancement Works</h2>
+            <p class="sub">There are multiple ways to matter in UIL Science — individual, subject specialist, and team.</p>
+            <div class="adv">
+              <div class="acard"><div class="ic">🥇</div><div class="h">Overall Individual</div><div class="d">The highest total scores place individually and advance to the next level.</div></div>
+              <div class="acard chem"><div class="ic">🔬</div><div class="h">Subject Top Scorer</div><div class="d">Biology, Chemistry, and Physics are also scored separately — the top scorer in each subject advances too.</div></div>
+              <div class="acard"><div class="ic">👥</div><div class="h">Team Score</div><div class="d">A school's team score depends on its top overall performers. The best team isn't four identical students — strong subject specialists can raise the whole team.</div></div>
+            </div>
+            <div class="card" style="margin-top:16px">
+              <h3><span class="ic">📊</span> Team strategy — what our platform tracks</h3>
+              <div class="trackgrid">
+                <span>Overall score</span><span>Biology score</span><span>Chemistry score</span><span>Physics score</span>
+                <span>Accuracy by topic</span><span>Risky guessing</span><span>Blank patterns</span>
+                <span>Top-three team score projection</span><span>Subject specialist potential</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Platform Workflow -->
+          <section class="block" id="workflow">
+            <span class="eyebrow">Train smart</span>
+            <h2 class="title">How to Use This Platform</h2>
+            <p class="sub">A repeatable loop: measure, review, study what matters most, drill, and retest under real rules.</p>
+            <div class="flow">
+              <div class="fstep"><div class="n">1</div><div><div class="h"><small>Step 1</small> Take a Baseline Test</div><div class="d">Start with a full 60-question practice test. Do not study first — measure your true starting point.</div></div></div>
+              <div class="fstep"><div class="n">2</div><div><div class="h"><small>Step 2</small> Review the Mistake Journal</div><div class="d">Every missed or skipped question is tagged by subject, topic, skill, difficulty, and misconception.</div></div></div>
+              <div class="fstep"><div class="n">3</div><div><div class="h"><small>Step 3</small> Study High-ROI Topics</div><div class="d">The platform ranks topics by frequency, difficulty, and your personal weakness.</div></div></div>
+              <div class="fstep"><div class="n">4</div><div><div class="h"><small>Step 4</small> Drill Flashcards &amp; Mini-Quizzes</div><div class="d">Use spaced repetition for formulas, vocabulary, scientists, discoveries, and common traps.</div></div></div>
+              <div class="fstep"><div class="n">5</div><div><div class="h"><small>Step 5</small> Retest Under Real Rules</div><div class="d">Use real UIL timing and scoring. Track score improvement and adjust your plan.</div></div></div>
+            </div>
+          </section>
+
+          <!-- Checklists -->
+          <section class="block" id="checklists">
+            <span class="eyebrow">Run the list</span>
+            <h2 class="title">Competitor Checklist</h2>
+            <p class="sub">Check items off — your progress saves on this device and feeds the readiness meter.</p>
+            <div class="checkcols">
+              <div class="clbox">
+                <h3><span class="ic">🧪</span> Before practice</h3>
+                <ul class="clist" data-group="practice">
+                  <li><label><input type="checkbox"><span>I have an approved calculator.</span></label></li>
+                  <li><label><input type="checkbox"><span>I know the scoring rule.</span></label></li>
+                  <li><label><input type="checkbox"><span>I know when to skip.</span></label></li>
+                  <li><label><input type="checkbox"><span>I reviewed my last mistake journal.</span></label></li>
+                  <li><label><input type="checkbox"><span>I know my weakest subject.</span></label></li>
+                  <li><label><input type="checkbox"><span>I know my next high-ROI topic.</span></label></li>
+                </ul>
+              </div>
+              <div class="clbox">
+                <h3><span class="ic">🏁</span> Before meet day</h3>
+                <ul class="clist" data-group="meet">
+                  <li><label><input type="checkbox"><span>I packed an approved calculator.</span></label></li>
+                  <li><label><input type="checkbox"><span>I packed a backup approved calculator if possible.</span></label></li>
+                  <li><label><input type="checkbox"><span>I packed spare batteries.</span></label></li>
+                  <li><label><input type="checkbox"><span>I know the contest start time and location.</span></label></li>
+                  <li><label><input type="checkbox"><span>I won't bring out a phone, smartwatch, tablet, or headphones.</span></label></li>
+                  <li><label><input type="checkbox"><span>I'll use only my contestant number.</span></label></li>
+                  <li><label><input type="checkbox"><span>I know that only the answer sheet counts.</span></label></li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Great Competitors -->
+          <section class="block" id="great">
+            <span class="eyebrow">The edge</span>
+            <h2 class="title">What Great Competitors Do Differently</h2>
+            <p class="sub">The habits that separate strong scorers from the rest.</p>
+            <div class="gc">
+              <div class="gcard"><div class="ic">⏭</div><div class="h">They skip intelligently</div><div class="d">They do not turn uncertain guesses into negative points.</div></div>
+              <div class="gcard"><div class="ic">🛡</div><div class="h">They protect easy points</div><div class="d">They do not miss basic formulas, units, vocabulary, or graph-reading questions.</div></div>
+              <div class="gcard"><div class="ic">🔬</div><div class="h">They specialize</div><div class="d">A student can become extremely valuable by dominating Biology, Chemistry, or Physics.</div></div>
+              <div class="gcard"><div class="ic">📓</div><div class="h">They review mistakes</div><div class="d">They fix the reason they missed the question — not just the answer.</div></div>
+              <div class="gcard"><div class="ic">⚙️</div><div class="h">They practice under real rules</div><div class="d">Same calculator, same time pressure, same scoring, every time.</div></div>
+            </div>
+          </section>
+
+          <!-- Archive Note -->
+          <section class="block" id="archive">
+            <span class="eyebrow">Data coverage</span>
+            <h2 class="title">Archive Note</h2>
+            <div class="note"><span class="ic">🗂</span><div>Our database currently analyzes historical tests <b>through 2009</b>. Pattern predictions are strongest for that archive range. As newer tests are added, the <b>Pattern Explorer</b> will update. Always cross-check old-test patterns against current rules in the latest UIL Science Handbook.</div></div>
+          </section>
+
+          <footer>
+            <div class="disc">
+              <p><b>Disclaimer.</b> This is a private school-team study platform. UIL rules, procedures, and approved materials may change. Always follow the latest official <a href="https://www.uiltexas.org/academics/stem/science">UIL Science Handbook</a> and the instructions given by contest officials at the meet. This page does not display full copyrighted past tests.</p>
+              <p style="margin-top:8px;color:var(--ink-faint)">Sources: UIL Science contest page &amp; Section 952, Constitution &amp; Contest Rules. Last reviewed June 2026.</p>
+            </div>
+          </footer>
+
+        </main>
+
+        <!-- ===== Right rail ===== -->
+        <aside class="rail">
+          <div class="railcard">
+            <h4>Quick Actions</h4>
+            <div class="qa">
+              <a class="btn primary sm" href="practice.html"><span class="ic">▶</span> Start Full Practice</a>
+              <a class="btn sm" href="practice.html?mode=subject"><span class="ic">🧫</span> Start Subject Drill</a>
+              <a class="btn sm" href="review.html"><span class="ic">📓</span> Review Mistakes</a>
+              <a class="btn sm" href="#"><span class="ic">📈</span> Study High-ROI Topics</a>
+              <a class="btn sm" href="#"><span class="ic">🃏</span> Open Flashcards</a>
+              <a class="btn sm" href="team.html"><span class="ic">👥</span> View Team Assignments</a>
+            </div>
+          </div>
+
+          <div class="railcard">
+            <h4>Your Readiness</h4>
+            <div class="meter"><i id="meter-fill"></i></div>
+            <div class="meter-row"><span>Checklist complete</span><b id="meter-pct">0%</b></div>
+            <div class="meter-row" style="margin-top:4px;font-size:11.5px;color:var(--ink-faint)"><span id="meter-count">0 of 13 done</span></div>
+          </div>
+
+          <div class="railcard">
+            <h4>On This Page</h4>
+            <nav class="secnav" id="secnav"></nav>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // ----- Section nav (build from sections) -----
+  var sections = [
+    ['facts','Quick Facts'],['structure','Test Structure'],['scoring','Scoring'],
+    ['materials','Materials'],['room','Room Rules'],['advancement','Advancement'],
+    ['workflow','Platform Workflow'],['checklists','Checklists'],['great','Great Competitors'],
+    ['archive','Archive Note']
+  ];
+  function buildNav(el){
+    if(!el) return;
+    sections.forEach(function(s){
+      var a=document.createElement('a');
+      a.href='#'+s[0]; a.dataset.target=s[0];
+      a.innerHTML='<span class="dot"></span>'+s[1];
+      el.appendChild(a);
+    });
+  }
+  buildNav(document.getElementById('secnav'));
+  buildNav(document.getElementById('secnav-mobile'));
+
+  // close mobile <details> on link click
+  document.querySelectorAll('#secnav-mobile a').forEach(function(a){
+    a.addEventListener('click',function(){ var d=document.querySelector('.mobsec'); if(d) d.open=false; });
+  });
+
+  // ----- Scrollspy -----
+  var links = Array.prototype.slice.call(document.querySelectorAll('.secnav a'));
+  var secEls = sections.map(function(s){return document.getElementById(s[0]);});
+  function onScroll(){
+    var y = window.scrollY + 120, current = sections[0][0];
+    secEls.forEach(function(el,i){ if(el && el.offsetTop <= y) current = sections[i][0]; });
+    links.forEach(function(a){ a.classList.toggle('active', a.dataset.target===current); });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // ----- Mobile drawer -----
+  var sb=document.getElementById('sidebar'), scrim=document.getElementById('scrim'), hamb=document.getElementById('hamb');
+  function openSb(){ sb.classList.add('open'); scrim.classList.add('show'); }
+  function closeSb(){ sb.classList.remove('open'); scrim.classList.remove('show'); }
+  if(hamb) hamb.addEventListener('click', openSb);
+  if(scrim) scrim.addEventListener('click', closeSb);
+  document.querySelectorAll('.sidebar .nav a').forEach(function(a){a.addEventListener('click',closeSb);});
+
+  // ----- Checklist persistence + readiness meter -----
+  var KEY='uil-guide-checklist';
+  var saved={};
+  try{ saved=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){ saved={}; }
+  var boxes=Array.prototype.slice.call(document.querySelectorAll('.clist input[type=checkbox]'));
+  boxes.forEach(function(b,i){
+    var id=(b.closest('.clist').dataset.group||'g')+'-'+i;
+    b.dataset.id=id;
+    if(saved[id]) b.checked=true;
+    b.addEventListener('change',function(){
+      saved[b.dataset.id]=b.checked;
+      try{ localStorage.setItem(KEY,JSON.stringify(saved)); }catch(e){}
+      updateMeter();
+    });
+  });
+  function updateMeter(){
+    var total=boxes.length, done=boxes.filter(function(b){return b.checked;}).length;
+    var pct= total? Math.round(done/total*100):0;
+    var f=document.getElementById('meter-fill'); if(f) f.style.width=pct+'%';
+    var p=document.getElementById('meter-pct'); if(p) p.textContent=pct+'%';
+    var c=document.getElementById('meter-count'); if(c) c.textContent=done+' of '+total+' done';
+  }
+  updateMeter();
+})();
+</script>
+</body>
+</html>

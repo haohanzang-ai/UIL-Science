@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin Review · UIL Science</title>
+<link rel="stylesheet" href="assets/uil.css" />
+<style>
+  .ar{display:grid;grid-template-columns:380px 1fr;gap:18px;align-items:start}
+  .qlist{display:flex;flex-direction:column;gap:8px;max-height:calc(100vh - 200px);overflow:auto;padding-right:4px}
+  .qitem{display:flex;gap:11px;align-items:flex-start;padding:12px 13px;border:1px solid var(--line);border-radius:12px;background:var(--surface);cursor:pointer;transition:.13s}
+  .qitem:hover{border-color:#3a5a92}
+  .qitem.sel{border-color:var(--accent);background:rgba(79,140,255,.08)}
+  .qitem .qn{font-size:11px;color:var(--ink-faint);font-weight:700}
+  .qitem .qs{font-size:13px;color:var(--ink);margin-top:2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .bdg{font-size:10px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:3px 9px;white-space:nowrap;flex:none}
+  .bdg.approved{background:rgba(34,197,94,.15);color:#7ef0a8;border:1px solid #2c5b4a}
+  .bdg.review{background:rgba(245,158,11,.15);color:#f8cd7a;border:1px solid #5a4011}
+  .bdg.issue{background:rgba(239,68,68,.15);color:#f3a6ad;border:1px solid #5a2330}
+  .bdg.unprocessed{background:#1a2436;color:var(--ink-faint);border:1px solid var(--line)}
+  .field{margin-bottom:13px}
+  .field label{display:block;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:5px}
+  .field input,.field select,.field textarea{width:100%;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;color:var(--ink);padding:10px 12px;font-family:inherit;font-size:14px}
+  .field textarea{resize:vertical;min-height:70px}
+  .frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .frow3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+  .choice-edit{display:flex;gap:8px;align-items:center;margin-bottom:7px}
+  .choice-edit .k{width:30px;height:30px;border-radius:8px;background:#0e1830;border:1px solid var(--line);display:grid;place-items:center;font-weight:800;flex:none;font-size:13px}
+  .choice-edit input{flex:1}
+  .choice-edit input[type=radio]{flex:none;width:18px;height:18px;accent-color:var(--accent-2)}
+  .integrity{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+  .ibit{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+  .ibit .l{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint)}
+  .ibit .v{font-weight:800;font-size:14px;margin-top:3px}
+  .scan{width:100%;border:1px dashed var(--line);border-radius:12px;background:var(--surface-2);min-height:120px;display:grid;place-items:center;color:var(--ink-faint);font-size:13px;overflow:hidden;margin-bottom:14px}
+  .scan img{width:100%;display:block}
+  @media(max-width:900px){.ar{grid-template-columns:1fr}.qlist{max-height:none}}
+</style>
+</head>
+<body data-page="admin" data-title="Admin Review">
+<div class="app">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <div class="page">
+
+      <div class="pagehead">
+        <div class="row">
+          <div>
+            <h1>Admin Review</h1>
+            <div class="subtitle">Coach approval workflow — questions are gated from students until you approve them.</div>
+          </div>
+          <span class="badge-lock" id="roleTag">👤 Coach view</span>
+        </div>
+      </div>
+
+      <!-- Integrity summary -->
+      <div class="grid g4" id="summary" style="margin-bottom:16px"></div>
+
+      <!-- Filters -->
+      <div class="lbtoolbar" id="filters">
+        <button class="chip on" data-badge="">All</button>
+        <button class="chip" data-badge="review">Needs Review</button>
+        <button class="chip" data-badge="issue">Issue Found</button>
+        <button class="chip" data-badge="unprocessed">Not Processed</button>
+        <button class="chip" data-badge="approved">Approved</button>
+      </div>
+
+      <div class="ar">
+        <!-- list -->
+        <div>
+          <div class="qlist" id="qlist"></div>
+        </div>
+        <!-- detail -->
+        <div class="card" id="detail">
+          <div class="empty">
+            <div class="emo">🗂️</div>
+            <div class="h">Select a question to review</div>
+            <div class="d">Pick an item on the left to view its scan, edit fields, and approve or reject it.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="assets/api.js"></script>
+<script src="assets/uil.js"></script>
+<script>
+(function(){
+  // prototype: assume coach role for this page (replace with real auth)
+  if (!API.isCoach()) API.setRole('coach');
+
+  var BADGE_LABEL = { approved:'Approved', review:'Needs Review', issue:'Issue Found', unprocessed:'Not Processed' };
+  var KEYS = ['A','B','C','D','E','F'];
+  var current = null, filterBadge = '';
+
+  var elList = document.getElementById('qlist'),
+      elDetail = document.getElementById('detail'),
+      elSummary = document.getElementById('summary');
+
+  async function boot(){
+    if (!(await API.health())) { API.offlineBanner(); renderEmptyAll(); return; }
+    try { await loadSummary(); await loadList(); }
+    catch(e){ showError(e); }
+  }
+
+  function renderEmptyAll(){
+    elSummary.innerHTML = '';
+    elList.innerHTML = emptyCard('🗂️','No questions yet','Import real questions (server/import.js) to begin reviewing.');
+  }
+  function emptyCard(emo,h,d){ return '<div class="empty" style="grid-column:1/-1"><div class="emo">'+emo+'</div><div class="h">'+h+'</div><div class="d">'+d+'</div></div>'; }
+  function showError(e){ elList.innerHTML = '<div class="errorbox"><span class="ic">⚠️</span><div><b>Couldn\'t load.</b> '+(e.message||e)+'</div></div>'; }
+
+  async function loadSummary(){
+    var s = await API.integritySummary();
+    if (!s.total){ elSummary.innerHTML=''; return; }
+    elSummary.innerHTML =
+      kpi('Approved', s.approved, 'approved') +
+      kpi('Needs Review', s.review, 'review') +
+      kpi('Issue Found', s.issue, 'issue') +
+      kpi('Not Processed', s.unprocessed, 'unprocessed');
+  }
+  function kpi(label,n,badge){
+    return '<div class="card"><div class="cardhead"><span class="bdg '+badge+'">'+label+'</span></div><div class="kpi">'+n+'</div></div>';
+  }
+
+  async function loadList(){
+    var qs = filterBadge ? ('?badge='+filterBadge) : '';
+    var rows = await API.questions(qs);
+    if (!rows.length){ elList.innerHTML = '<div class="empty"><div class="emo">📭</div><div class="h">Nothing here</div><div class="d">'+(filterBadge?'No questions with this status.':'No questions imported yet.')+'</div></div>'; return; }
+    elList.innerHTML = rows.map(function(q){
+      return '<div class="qitem" data-id="'+q.id+'">'+
+        '<div style="flex:1;min-width:0"><div class="qn">'+(q.subject||'—')+' · '+(q.source||'no source')+(q.question_number?(' · Q'+q.question_number):'')+'</div>'+
+        '<div class="qs">'+escapeHtml(q.stem||'(no stem)')+'</div></div>'+
+        '<span class="bdg '+q.integrity+'">'+BADGE_LABEL[q.integrity]+'</span></div>';
+    }).join('');
+    Array.prototype.forEach.call(elList.querySelectorAll('.qitem'), function(el){
+      el.addEventListener('click', function(){ select(parseInt(el.dataset.id,10)); });
+    });
+  }
+
+  async function select(id){
+    Array.prototype.forEach.call(elList.querySelectorAll('.qitem'), function(el){ el.classList.toggle('sel', parseInt(el.dataset.id,10)===id); });
+    var q = await API.question(id); current = q;
+    renderDetail(q);
+  }
+
+  function renderDetail(q){
+    var choices = q.choices && q.choices.length ? q.choices : ['','','',''];
+    var scan = q.scan_crop_url ? '<div class="scan"><img src="'+q.scan_crop_url+'" alt="scan crop"></div>'
+                               : '<div class="scan">No scan crop linked</div>';
+    elDetail.innerHTML =
+      '<div class="cardhead"><h3><span class="ic">📝</span> Review question</h3><span class="bdg '+q.integrity+'">'+BADGE_LABEL[q.integrity]+'</span></div>'+
+      scan +
+      // integrity detail (Feature 1)
+      '<div class="integrity">'+
+        ibit('Extraction confidence', conf(q.extraction_confidence)) +
+        ibit('Answer-key match', q.answer_key_match_status || '—') +
+        ibit('Explanation', q.explanation_linked ? 'Linked' : 'Missing') +
+        ibit('Topic-tag confidence', conf(q.topic_tag_confidence)) +
+        ibit('Last reviewed by', q.last_reviewed_by || '—') +
+        ibit('Last reviewed', q.last_reviewed_at || '—') +
+      '</div>'+
+      '<div class="divider"></div>'+
+      // editable fields (Feature 4)
+      '<div class="frow3">'+
+        sel('subject','Subject',q.subject,['biology','chemistry','physics']) +
+        field('topic','Topic',q.topic) +
+        sel('difficulty','Difficulty',q.difficulty,['easy','medium','hard']) +
+      '</div>'+
+      '<div class="frow">'+ field('subtopic','Subtopic',q.subtopic) + field('textbook_chapter','Textbook chapter',q.textbook_chapter) +'</div>'+
+      '<div class="field"><label>Question stem (OCR text — editable)</label><textarea id="f-stem">'+escapeHtml(q.stem||'')+'</textarea></div>'+
+      '<div class="field"><label>Answer choices &amp; correct answer</label><div id="f-choices">'+
+        choices.map(function(c,i){ return choiceRow(i,c,String(q.correct_answer||'').toUpperCase()===KEYS[i]); }).join('')+
+      '</div></div>'+
+      '<div class="field"><label>Explanation</label><textarea id="f-explanation" placeholder="Verified explanation (leave blank to keep unlinked)">'+escapeHtml(q.explanation||'')+'</textarea></div>'+
+      sel('answer_key_match_status','Answer-key match status',q.answer_key_match_status,['matched','mismatch','unmatched','manual'])+
+      '<div class="field"><label>Coach notes</label><textarea id="f-coach_notes" placeholder="Internal notes">'+escapeHtml(q.coach_notes||'')+'</textarea></div>'+
+      '<div class="btnrow" style="margin-top:6px">'+
+        '<button class="btn" id="btn-save">💾 Save edits</button>'+
+        '<button class="btn primary" id="btn-approve">✅ Approve for practice</button>'+
+        '<button class="btn" id="btn-flag">🚩 Flag issue</button>'+
+        '<button class="btn" id="btn-reject" style="color:#f3a6ad;border-color:#5a2330">✕ Reject</button>'+
+      '</div>'+
+      '<p class="faint" style="font-size:12px;margin-top:12px">Students see this question only after <b>Approve for practice</b>.</p>';
+
+    document.getElementById('btn-save').onclick = save;
+    document.getElementById('btn-approve').onclick = function(){ act(API.approve, 'Approved for practice'); };
+    document.getElementById('btn-reject').onclick = function(){ act(API.reject, 'Rejected'); };
+    document.getElementById('btn-flag').onclick = function(){ act(function(id){return API.flag(id, gv('f-coach_notes'));}, 'Flagged'); };
+  }
+
+  function collect(){
+    var choices = Array.prototype.map.call(document.querySelectorAll('#f-choices .choice-edit input[type=text]'), function(i){return i.value;});
+    var correctIdx = -1;
+    Array.prototype.forEach.call(document.querySelectorAll('#f-choices input[type=radio]'), function(r,i){ if(r.checked) correctIdx=i; });
+    return {
+      subject: gv('f-subject'), topic: gv('f-topic'), subtopic: gv('f-subtopic'),
+      difficulty: gv('f-difficulty'), textbook_chapter: gv('f-textbook_chapter'),
+      stem: gv('f-stem'), choices: choices, correct_answer: correctIdx>=0?KEYS[correctIdx]:current.correct_answer,
+      explanation: gv('f-explanation'), answer_key_match_status: gv('f-answer_key_match_status'),
+      coach_notes: gv('f-coach_notes')
+    };
+  }
+  async function save(){
+    try { await API.editQuestion(current.id, collect()); UIL.toast('Saved edits'); await refresh(); }
+    catch(e){ UIL.toast('Save failed: '+e.message, '⚠️'); }
+  }
+  async function act(fn, msg){
+    try { await API.editQuestion(current.id, collect()); await fn(current.id); UIL.toast(msg); await refresh(); }
+    catch(e){ UIL.toast('Failed: '+e.message, '⚠️'); }
+  }
+  async function refresh(){ await loadSummary(); await loadList(); if(current){ try{ await select(current.id); }catch(e){} } }
+
+  // helpers
+  function gv(id){ var el=document.getElementById(id); return el?el.value:''; }
+  function field(name,label,val){ return '<div class="field"><label>'+label+'</label><input id="f-'+name+'" type="text" value="'+escapeAttr(val||'')+'"></div>'; }
+  function sel(name,label,val,opts){ return '<div class="field"><label>'+label+'</label><select id="f-'+name+'">'+
+      ['<option value="">—</option>'].concat(opts.map(function(o){return '<option '+(o===val?'selected':'')+'>'+o+'</option>';})).join('')+'</select></div>'; }
+  function choiceRow(i,val,checked){ return '<div class="choice-edit"><span class="k">'+KEYS[i]+'</span>'+
+      '<input type="text" value="'+escapeAttr(val||'')+'"><input type="radio" name="correct" title="Mark correct" '+(checked?'checked':'')+'></div>'; }
+  function ibit(l,v){ return '<div class="ibit"><div class="l">'+l+'</div><div class="v">'+v+'</div></div>'; }
+  function conf(c){ return (c===null||c===undefined)?'—':(Math.round(c*100)+'%'); }
+  function escapeHtml(s){ return String(s).replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
+  function escapeAttr(s){ return escapeHtml(s).replace(/"/g,'&quot;'); }
+
+  document.getElementById('filters').addEventListener('click', function(e){
+    var b=e.target.closest('.chip'); if(!b) return;
+    this.querySelectorAll('.chip').forEach(function(c){c.classList.remove('on');});
+    b.classList.add('on'); filterBadge=b.dataset.badge; loadList();
+  });
+
+  boot();
+})();
+</script>
+</body>
+</html>

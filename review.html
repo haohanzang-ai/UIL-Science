@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Practice Review · UIL Science</title>
+<link rel="stylesheet" href="assets/uil.css" />
+</head>
+<body data-page="mistakes" data-title="Review">
+<div class="app">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <div class="page narrow">
+      <div class="pagehead">
+        <div class="row">
+          <div>
+            <h1>Practice Review</h1>
+            <div class="subtitle" id="sub">Why did I lose points?</div>
+          </div>
+          <a class="btn" href="dashboard.html">← Dashboard</a>
+        </div>
+      </div>
+      <div id="root">
+        <div class="empty"><div class="emo">⏳</div><div class="h">Loading…</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="assets/api.js"></script>
+<script src="assets/uil.js"></script>
+<script>
+(function(){
+  var root=document.getElementById('root');
+  var params=new URLSearchParams(location.search);
+  var sessionId=params.get('session');
+
+  async function boot(){
+    if(!(await API.health())){ API.offlineBanner(); return empty('⚠️','Backend not connected','Start the server, then reload.'); }
+    var me=await API.me().catch(()=>null);
+    if(!sessionId){
+      // fall back to latest session for current student
+      if(!me) return empty('📭','No practice attempts yet','Take a practice test to start your mistake journal.','Take a practice test','practice.html');
+      var sessions=await API.sessions();
+      if(!sessions.length) return empty('📭','No practice attempts yet','Take a practice test to start your mistake journal.','Take a practice test','practice.html');
+      sessionId=sessions[0].id;
+    }
+    var data;
+    try { data=await API.scoreLoss(sessionId); } catch(e){ return empty('⚠️','Could not load review',e.message); }
+    if(data.empty) return empty('📭','This attempt has no answers','Take a practice test to generate a review.','Take a practice test','practice.html');
+    render(data);
+  }
+
+  function empty(emo,h,d,btn,href){
+    root.innerHTML='<div class="empty"><div class="emo">'+emo+'</div><div class="h">'+h+'</div><div class="d">'+d+'</div>'+
+      (btn?'<a class="btn primary" href="'+href+'">'+btn+'</a>':'')+'</div>';
+  }
+
+  function render(d){
+    var c=d.counts, s=d.score, r=d.risk;
+    document.getElementById('sub').textContent='Submitted '+(d.session.submitted_at||'')+' · '+(d.session.mode==='subject'?cap(d.session.subject||''):'Full')+' test · '+c.total+' questions';
+
+    var insights = d.insights.length
+      ? '<ul class="clean">'+d.insights.map(function(x){return '<li>💡 '+escapeHtml(x)+'</li>';}).join('')+'</ul>'
+      : '<p class="muted" style="font-size:13.5px;margin:0">Not enough data for insights on this attempt.</p>';
+
+    var subjLoss = d.subjectLoss.length
+      ? d.subjectLoss.map(function(x){return rowLine(tag(x.key)+' '+cap(x.key), '−'+x.lost+' pts');}).join('')
+      : '<p class="muted" style="font-size:13px">No wrong answers — nothing lost.</p>';
+    var topicLoss = d.topicLoss.length
+      ? d.topicLoss.slice(0,6).map(function(x){return rowLine(escapeHtml(x.key), '−'+x.lost+' pts');}).join('')
+      : '<p class="muted" style="font-size:13px">No topic losses.</p>';
+
+    root.innerHTML =
+      // next step
+      '<div class="nextstep"><div class="l"><span class="ic">⚡</span><div><div class="lbl">Your next step</div>'+
+        '<div class="txt">'+(c.wrong?('Fix your '+c.wrong+' wrong answer'+(c.wrong>1?'s':'')):'Keep your accuracy up')+
+        '<small>'+(d.topSubjectLoss?('Biggest leak: '+cap(d.topSubjectLoss.key)+(d.topTopicLoss?(' · '+d.topTopicLoss.key):'')):'Great discipline this attempt.')+'</small></div></div>'+
+        '<button class="btn primary" onclick="UIL.toast(\'Flashcards come from your real mistakes once the flashcards module is wired\',\'🃏\')"><span class="ic">🃏</span> Create Flashcards</button></div>'+
+
+      '<div class="grid g2" style="margin-top:18px">'+
+        // score
+        '<div class="card"><div class="cardhead"><h3><span class="ic">🎯</span> Your Score</h3><span class="tag neutral">+6 / 0 / −2</span></div>'+
+          '<div style="display:flex;align-items:center;gap:20px"><div class="ring" id="ring"><div class="val"><b>'+s.actual+'</b><small>/ '+s.possible+'</small></div></div>'+
+          '<div style="flex:1">'+
+            rowLine('<span style="color:#7ff0c4">✓ Correct</span>', c.correct+' <span class="faint">= +'+s.gained+'</span>')+
+            rowLine('<span style="color:#f3a6ad">✕ Wrong</span>', c.wrong+' <span class="faint">= −'+s.lostFromWrong+'</span>')+
+            rowLine('<span class="faint">○ Blank</span>', c.blank+' <span class="faint">= '+s.blankImpact+'</span>')+
+          '</div></div></div>'+
+        // risk
+        '<div class="card"><div class="cardhead"><h3><span class="ic">🩸</span> Score Lost to Risk</h3></div>'+
+          (r.wrongGuessed?('<div class="errorbox" style="margin-bottom:12px"><span class="ic">⚠️</span><div><b>−'+(r.wrongGuessed*2)+' points</b> from wrong guesses'+(r.guessedAccuracy!==null?(' · guessed answers were '+r.guessedAccuracy+'% correct'):'')+'.</div></div>'):'')+
+          rowLine('Risky guesses made', r.riskyGuesses)+
+          rowLine('Guessed &amp; correct', r.guessedCorrect)+
+          rowLine('Wrong while "confident"', '<b style="color:'+(r.wrongConfident?'var(--bad)':'var(--ink)')+'">'+r.wrongConfident+'</b>')+
+        '</div>'+
+      '</div>'+
+
+      // insights
+      '<div class="card" style="margin-top:16px"><div class="cardhead"><h3><span class="ic">🧠</span> Why you lost points</h3><span class="saved">From your real answers</span></div>'+insights+'</div>'+
+
+      // subject + topic loss
+      '<div class="grid g2" style="margin-top:16px">'+
+        '<div class="card"><div class="cardhead"><h3><span class="ic">🧬</span> Point loss by subject</h3></div>'+subjLoss+'</div>'+
+        '<div class="card"><div class="cardhead"><h3><span class="ic">🔍</span> Point loss by topic</h3></div>'+topicLoss+'</div>'+
+      '</div>'+
+
+      // hardest / easiest missed
+      '<div class="grid g2" style="margin-top:16px">'+
+        missedCard('🧗','Hardest missed', d.hardestMissed)+
+        missedCard('🪙','Easiest missed', d.easiestMissed)+
+      '</div>';
+
+    UIL.ring(document.getElementById('ring'), s.possible? Math.max(0,s.actual)/s.possible*100 : 0, 'var(--accent)');
+  }
+
+  function missedCard(emo,title,list){
+    var body = list.length
+      ? '<ul class="clean">'+list.map(function(q){ return '<li>'+tag(q.subject)+' <span>'+escapeHtml((q.stem||'').slice(0,90))+((q.stem||'').length>90?'…':'')+' <span class="faint">· '+(q.difficulty||'')+'</span></span></li>'; }).join('')+'</ul>'
+      : '<p class="muted" style="font-size:13px;margin:0">None 🎉</p>';
+    return '<div class="card"><div class="cardhead"><h3><span class="ic">'+emo+'</span> '+title+'</h3></div>'+body+'</div>';
+  }
+  function rowLine(l,v){ return '<div class="rowline"><div class="t">'+l+'</div><b class="num">'+v+'</b></div>'; }
+  function tag(sub){ sub=(sub||'').toLowerCase(); var c=sub==='biology'?'bio':sub==='chemistry'?'chem':sub==='physics'?'phys':'neutral'; return '<span class="tag '+c+'">'+cap(sub||'—')+'</span>'; }
+  function cap(s){ return s?s.charAt(0).toUpperCase()+s.slice(1):s; }
+  function escapeHtml(s){ return String(s).replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
+
+  boot();
+})();
+</script>
+</body>
+</html>

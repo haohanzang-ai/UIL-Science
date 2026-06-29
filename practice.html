@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Practice · UIL Science</title>
+<link rel="stylesheet" href="assets/uil.css" />
+<style>
+  .study-top{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:16px;padding:12px 20px;background:rgba(9,14,28,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-soft)}
+  .study-top .exit{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:var(--ink-dim);border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+  .study-top .exit:hover{color:var(--ink);border-color:var(--accent)}
+  .study-top .prog{flex:1;min-width:0}
+  .study-top .progmeta{display:flex;justify-content:space-between;font-size:11.5px;color:var(--ink-faint);margin-bottom:5px}
+  .timer{font-variant-numeric:tabular-nums;font-weight:900;font-size:18px}
+  .timer.warn{color:var(--warn)}
+  .calcrem{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;color:#f8cd7a;background:rgba(245,158,11,.12);border:1px solid #5a4011;border-radius:999px;padding:6px 11px;white-space:nowrap}
+  .qwrap{max-width:760px;margin:0 auto;padding:34px 20px 60px}
+  .qmeta{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .qnum{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+  .qtext{font-size:20px;font-weight:700;line-height:1.45;margin-bottom:22px}
+  .choices{display:grid;gap:11px}
+  .choice{display:flex;align-items:flex-start;gap:13px;padding:15px 16px;border:1.5px solid var(--line);border-radius:13px;background:var(--surface);cursor:pointer;transition:.13s;font-size:15px}
+  .choice:hover{border-color:#3a5a92;transform:translateY(-1px)}
+  .choice .key{flex:none;width:28px;height:28px;border-radius:8px;background:#0e1830;border:1px solid var(--line);display:grid;place-items:center;font-weight:800;font-size:13px;color:var(--ink-dim)}
+  .choice.sel{border-color:var(--accent);background:rgba(79,140,255,.1)}
+  .choice.sel .key{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#06101f;border-color:transparent}
+  .confbar{margin-top:24px}
+  .conflbl{font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:9px}
+  .confopts{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+  .conf{display:flex;flex-direction:column;align-items:center;gap:4px;padding:12px 8px;border:1.5px solid var(--line);border-radius:12px;background:var(--surface-2);cursor:pointer;transition:.13s;text-align:center}
+  .conf .emo{font-size:18px}.conf .t{font-size:12.5px;font-weight:700}
+  .conf:hover{border-color:#3a5a92}
+  .conf.sel[data-c="guessed"]{border-color:var(--bad);background:rgba(239,68,68,.1)}
+  .conf.sel[data-c="somewhat"]{border-color:var(--warn);background:rgba(245,158,11,.1)}
+  .conf.sel[data-c="confident"]{border-color:var(--good);background:rgba(34,197,94,.1)}
+  .qfoot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:26px;flex-wrap:wrap}
+  .markbtn{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--ink-dim);border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:transparent;cursor:pointer}
+  .markbtn.on{color:#f8cd7a;border-color:#5a4011;background:rgba(245,158,11,.1)}
+  .gate{max-width:460px;margin:60px auto;padding:0 20px}
+  @media(max-width:620px){.study-top .calcrem{display:none}.qtext{font-size:18px}}
+</style>
+</head>
+<body data-chrome="minimal">
+  <div id="root">
+    <div class="qwrap"><div class="empty"><div class="emo">⏳</div><div class="h">Loading…</div></div></div>
+  </div>
+
+<script src="assets/api.js"></script>
+<script src="assets/uil.js"></script>
+<script>
+(function(){
+  var root = document.getElementById('root');
+  var KEYS = ['A','B','C','D','E','F'];
+  var QS = [], state = [], i = 0, timerId = null, me = null;
+  var params = new URLSearchParams(location.search);
+  var subject = params.get('subject') || '';
+
+  async function boot(){
+    if (!(await API.health())) { API.offlineBanner(); return gate('Backend not connected','Start the server (see README), then reload.'); }
+    me = await API.me().catch(()=>null);
+    if (!me) return identityGate();
+    await loadQuestions();
+  }
+
+  function identityGate(){
+    root.innerHTML =
+      '<div class="gate"><div class="card"><h3 style="margin-bottom:8px">Set up your profile</h3>'+
+      '<p class="muted" style="font-size:13.5px;margin:0 0 14px">Your attempts are saved to your real record so your analytics are accurate.</p>'+
+      '<div class="field" style="margin-bottom:12px"><input id="nm" placeholder="Your name" style="width:100%;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;color:var(--ink);padding:11px 13px;font-size:14px"></div>'+
+      '<button class="btn primary block" id="go">Continue</button>'+
+      '<p class="faint" style="font-size:12px;margin-top:12px">Prototype identity — replace with your team login in production.</p></div></div>';
+    document.getElementById('go').onclick = async function(){
+      var name = document.getElementById('nm').value.trim(); if(!name) return;
+      var s = await API.createStudent({ name: name, role: 'student' });
+      API.setStudent(s.id); me = s; await loadQuestions();
+    };
+  }
+
+  function gate(h,d){ root.innerHTML = '<div class="gate"><div class="empty"><div class="emo">⚠️</div><div class="h">'+h+'</div><div class="d">'+d+'</div></div></div>'; }
+
+  async function loadQuestions(){
+    var qs = '?limit=' + (subject ? '20' : '60') + (subject ? '&subject='+subject : '');
+    QS = await API.practiceQuestions(qs);
+    if (!QS.length){
+      root.innerHTML = '<div class="gate"><div class="empty"><div class="emo">📭</div>'+
+        '<div class="h">No approved questions yet</div>'+
+        '<div class="d">There are no questions approved for practice'+(subject?(' in '+subject):'')+'. A coach approves questions in Admin Review before they appear here.</div>'+
+        '<a class="btn primary" href="admin-review.html">Open Admin Review</a>'+
+        '<div style="margin-top:10px"><a class="btn" href="dashboard.html">Back to dashboard</a></div></div></div>';
+      return;
+    }
+    state = QS.map(function(){ return { ans:null, conf:null, marked:false }; });
+    i = 0; renderShell(); render(); startTimer();
+  }
+
+  function renderShell(){
+    root.innerHTML =
+      '<div class="study-top">'+
+        '<a class="exit" href="dashboard.html">✕ Exit</a>'+
+        '<div class="prog"><div class="progmeta"><span id="pm-left"></span><span id="pm-right"></span></div><div class="meter"><i id="pbar"></i></div></div>'+
+        '<span class="calcrem">🧮 Approved calculator only</span>'+
+        '<div class="timer" id="timer">2:00:00</div>'+
+      '</div>'+
+      '<div class="qwrap">'+
+        '<div class="qmeta"><span class="qnum" id="qnum"></span><span id="qtag" class="tag"></span></div>'+
+        '<div class="qtext" id="qtext"></div>'+
+        '<div class="choices" id="choices"></div>'+
+        '<div class="confbar"><div class="conflbl">How sure are you?</div>'+
+          '<div class="confopts" id="conf">'+
+            '<div class="conf" data-c="guessed"><span class="emo">🎲</span><span class="t">Guessed</span></div>'+
+            '<div class="conf" data-c="somewhat"><span class="emo">🤔</span><span class="t">Somewhat sure</span></div>'+
+            '<div class="conf" data-c="confident"><span class="emo">💪</span><span class="t">Confident</span></div>'+
+          '</div></div>'+
+        '<div class="qfoot"><button class="markbtn" id="mark">🚩 Mark for review</button>'+
+          '<div class="btnrow" style="gap:9px"><button class="btn" id="prev">← Previous</button><button class="btn primary" id="next">Next →</button></div></div>'+
+        '<p class="faint" style="font-size:12px;text-align:center;margin-top:24px">Real approved questions. A blank scores 0; a wrong answer is −2 — skip blind guesses.</p>'+
+      '</div>';
+
+    document.getElementById('conf').addEventListener('click', function(e){ var c=e.target.closest('.conf'); if(!c)return; state[i].conf = state[i].conf===c.dataset.c?null:c.dataset.c; render(); });
+    document.getElementById('mark').addEventListener('click', function(){ state[i].marked=!state[i].marked; render(); });
+    document.getElementById('prev').addEventListener('click', function(){ if(i>0){i--;render();} });
+    document.getElementById('next').addEventListener('click', nextOrFinish);
+  }
+
+  function render(){
+    var Q=QS[i], S=state[i];
+    var sub = (Q.subject||'').toLowerCase();
+    document.getElementById('qnum').textContent='Question '+(i+1);
+    var tag=document.getElementById('qtag'); tag.textContent=cap(Q.subject||'—'); tag.className='tag '+(sub==='biology'?'bio':sub==='chemistry'?'chem':sub==='physics'?'phys':'neutral');
+    document.getElementById('qtext').textContent=Q.stem;
+    var ch=document.getElementById('choices'); ch.innerHTML='';
+    (Q.choices||[]).forEach(function(c,idx){
+      var d=document.createElement('div'); d.className='choice'+(S.ans===KEYS[idx]?' sel':'');
+      d.innerHTML='<span class="key">'+KEYS[idx]+'</span><span>'+escapeHtml(c)+'</span>';
+      d.addEventListener('click', function(){ S.ans=KEYS[idx]; render(); progress(); });
+      ch.appendChild(d);
+    });
+    Array.prototype.forEach.call(document.getElementById('conf').children, function(c){ c.classList.toggle('sel', S.conf===c.dataset.c); });
+    document.getElementById('mark').classList.toggle('on', S.marked);
+    document.getElementById('pm-left').textContent='Question '+(i+1)+' of '+QS.length;
+    document.getElementById('prev').disabled = i===0;
+    document.getElementById('next').textContent = i===QS.length-1 ? 'Finish ✓' : 'Next →';
+    progress();
+  }
+  function progress(){
+    var answered=state.filter(function(s){return s.ans!==null;}).length;
+    UIL.fill(document.getElementById('pbar'), answered/QS.length*100);
+    document.getElementById('pm-right').textContent=answered+' answered';
+  }
+  async function nextOrFinish(){
+    if (i<QS.length-1){ i++; render(); return; }
+    var answers = QS.map(function(q,idx){ return { question_id:q.id, selected:state[idx].ans, confidence:state[idx].conf }; });
+    try {
+      var r = await API.submit({ student_id: me.id, mode: subject?'subject':'full', subject: subject||null, answers: answers });
+      if (timerId) clearInterval(timerId);
+      UIL.toast('Test submitted','✓');
+      setTimeout(function(){ location.href='review.html?session='+r.session_id; }, 700);
+    } catch(e){ UIL.toast('Submit failed: '+e.message,'⚠️'); }
+  }
+  function startTimer(){
+    var t=2*3600, el=document.getElementById('timer');
+    timerId=setInterval(function(){ if(t<=0){clearInterval(timerId);return;} t--;
+      var h=Math.floor(t/3600),m=Math.floor((t%3600)/60),s=t%60;
+      el.textContent=h+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0'); if(t<=300) el.classList.add('warn'); },1000);
+  }
+  document.addEventListener('keydown', function(e){
+    if(!QS.length) return;
+    var k=e.key.toUpperCase(), idx=KEYS.indexOf(k);
+    if(idx>=0 && idx<(QS[i].choices||[]).length){ state[i].ans=KEYS[idx]; render(); }
+    if(e.key==='ArrowRight') nextOrFinish();
+    if(e.key==='ArrowLeft' && i>0){ i--; render(); }
+  });
+  function cap(s){ return s?s.charAt(0).toUpperCase()+s.slice(1):s; }
+  function escapeHtml(s){ return String(s).replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
+
+  boot();
+})();
+</script>
+</body>
+</html>
