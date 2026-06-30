@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>USMDO Master Guide</title>
+<style>
+:root{
+  --bg:#0a1020; --surface:#121b33; --surface-2:#0f1830; --surface-3:#16203c;
+  --line:#243352; --line-soft:#1b2742;
+  --ink:#eaf0ff; --ink-dim:#a6b6d6; --ink-faint:#6f82a6;
+  --accent:#4f8cff; --accent-2:#22d3a6;
+  --cell:#34d399; --physio:#a78bfa; --disease:#f59e0b;
+  --good:#22c55e; --warn:#f59e0b; --bad:#ef4444;
+  --radius:16px; --shadow:0 8px 28px rgba(0,0,0,.38); --shadow-sm:0 3px 12px rgba(0,0,0,.28);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.55;background:radial-gradient(1100px 520px at 88% -8%,#16264d 0%,transparent 55%),radial-gradient(820px 460px at 6% -4%,#122a4a 0%,transparent 52%),var(--bg);min-height:100vh}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{margin:0;line-height:1.25;letter-spacing:-.01em}
+.muted{color:var(--ink-dim)} .faint{color:var(--ink-faint)}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(9,14,28,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-soft)}
+.topbar-inner{max-width:1280px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:16px;flex:none}
+.brand .mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;font-size:16px}
+.tabs{display:flex;gap:4px;flex-wrap:wrap;flex:1}
+.tabs a{padding:9px 13px;border-radius:10px;font-size:13px;font-weight:700;color:var(--ink-dim);white-space:nowrap}
+.tabs a:hover{background:var(--surface-2);color:var(--ink)}
+.tabs a.active{background:linear-gradient(135deg,rgba(79,140,255,.22),rgba(34,211,166,.12));color:#fff;box-shadow:inset 0 0 0 1px rgba(79,140,255,.4)}
+.page{max-width:1280px;margin:0 auto;padding:26px 24px 70px}
+.pagehead{margin-bottom:20px}
+.pagehead h1{font-size:clamp(22px,3.2vw,30px);font-weight:900}
+.pagehead .sub{color:var(--ink-dim);font-size:14.5px;margin-top:6px}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow-sm)}
+.card.hover:hover{transform:translateY(-2px);border-color:#33507f}
+.cardhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;gap:10px}
+.cardhead h3{font-size:14.5px;display:flex;align-items:center;gap:8px}
+.kpi{font-size:32px;font-weight:900;letter-spacing:-.02em}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:10px 15px;border-radius:11px;font-weight:700;font-size:13px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink);cursor:pointer;transition:.14s}
+.btn:hover{border-color:var(--accent);transform:translateY(-1px)}
+.btn.primary{background:linear-gradient(135deg,var(--accent),#3b6fe0);border-color:transparent;color:#fff}
+.btn.sm{padding:7px 11px;font-size:12px}
+.btnrow{display:flex;gap:9px;flex-wrap:wrap}
+.tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:800;border-radius:999px;padding:3px 10px}
+.tag::before{content:"";width:7px;height:7px;border-radius:50%}
+.tag.cell{background:rgba(52,211,153,.14);color:#7ff0c4}.tag.cell::before{background:var(--cell)}
+.tag.physio{background:rgba(167,139,250,.14);color:#c9bafb}.tag.physio::before{background:var(--physio)}
+.tag.disease{background:rgba(245,158,11,.14);color:#f8cd7a}.tag.disease::before{background:var(--disease)}
+.tag.neutral{background:#1d2c4f;color:var(--ink-dim)}.tag.neutral::before{background:#7d8db3}
+.meter{height:9px;border-radius:999px;background:#0e1830;border:1px solid var(--line);overflow:hidden}
+.meter>i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width .4s}
+.meterline{display:flex;align-items:center;justify-content:space-between;font-size:12.5px;margin-bottom:6px}
+.ring{--p:0;--c:var(--accent);position:relative;width:118px;height:118px;border-radius:50%;flex:none;background:conic-gradient(var(--c) calc(var(--p)*1%),#1a2745 0);display:grid;place-items:center}
+.ring::before{content:"";position:absolute;inset:9px;border-radius:50%;background:var(--surface)}
+.ring .val{position:relative;text-align:center}
+.ring .val b{font-size:26px;font-weight:900;display:block}
+.ring .val small{font-size:10px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.07em}
+.rowline{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line-soft)}
+.rowline:last-child{border-bottom:none}
+.rowline .t{font-size:13px} .rowline .s{font-size:11.5px;color:var(--ink-faint)}
+.note{display:flex;gap:10px;align-items:flex-start;background:#10203a;border:1px solid #1f3b63;border-left:3px solid var(--accent);border-radius:12px;padding:12px 14px;font-size:13px;color:var(--ink-dim)}
+.note.warn{background:#2a1e10;border-color:#5a4011;border-left-color:var(--warn)}
+.note b{color:var(--ink)}
+.empty{text-align:center;padding:30px 18px;border:1px dashed var(--line);border-radius:14px;background:var(--surface-2)}
+.empty .emo{font-size:26px} .empty .h{font-weight:800;margin-top:8px;font-size:13.5px} .empty .d{color:var(--ink-dim);font-size:12.5px;margin-top:4px}
+table.tracker{width:100%;border-collapse:collapse;font-size:13px}
+table.tracker th,table.tracker td{padding:10px 11px;text-align:left;border-bottom:1px solid var(--line-soft);vertical-align:middle}
+table.tracker th{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);position:sticky;top:0;background:var(--surface)}
+table.tracker tbody tr:hover{background:var(--surface-2)}
+.masterybar{width:90px;height:8px;border-radius:999px;background:#0e1830;border:1px solid var(--line);overflow:hidden;display:inline-block;vertical-align:middle;margin-right:8px}
+.masterybar>i{display:block;height:100%}
+.filterbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.chip{font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--surface-2);color:var(--ink-dim);border-radius:999px;padding:6px 12px;cursor:pointer}
+.chip.on{background:linear-gradient(135deg,var(--accent),#3b6fe0);color:#fff;border-color:transparent}
+.topiclist{display:grid;gap:10px}
+.topicrow{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:14px 16px;cursor:pointer;transition:.14s}
+.topicrow:hover{border-color:#3a5a92;transform:translateX(2px)}
+.topicrow .tt{font-weight:700;font-size:14px}
+.topicrow .ts{font-size:11.5px;color:var(--ink-faint);margin-top:2px}
+.lp-block{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:14px}
+.lp-block h3{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--accent-2);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.lp-block ul{margin:0;padding-left:20px;display:grid;gap:7px;font-size:14px;color:var(--ink-dim)}
+.lp-block ul li::marker{color:var(--accent)}
+.lp-block p{font-size:14.5px;color:var(--ink-dim);margin:0}
+.backlink{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--ink-faint);margin-bottom:14px}
+.backlink:hover{color:var(--ink)}
+.quizq{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:10px;background:var(--surface-2)}
+.quizq .qt{font-weight:700;font-size:13.5px;margin-bottom:10px}
+.quizopts{display:grid;gap:7px}
+.quizopt{padding:9px 12px;border:1px solid var(--line);border-radius:9px;font-size:13px;cursor:pointer;background:var(--surface)}
+.quizopt:hover{border-color:var(--accent)}
+.quizopt.sel{border-color:var(--accent);background:rgba(79,140,255,.1)}
+.quizopt.correct{border-color:var(--good);background:rgba(34,197,94,.12)}
+.quizopt.wrong{border-color:var(--bad);background:rgba(239,68,68,.12)}
+.quizexp{font-size:12.5px;color:var(--ink-dim);margin-top:9px;padding-top:9px;border-top:1px dashed var(--line-soft);display:none}
+.quizexp.show{display:block}
+.disease-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:17px 19px}
+.disease-card h4{font-size:15px;margin-bottom:10px}
+.disease-card dl{display:grid;grid-template-columns:84px 1fr;gap:5px 10px;font-size:12.5px;margin:0}
+.disease-card dt{color:var(--ink-faint);font-weight:800;text-transform:uppercase;font-size:10px;letter-spacing:.05em;padding-top:2px}
+.disease-card dd{margin:0;color:var(--ink-dim)}
+.disease-card dd.trap{color:#f8cd7a}
+.systemgrid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(310px,1fr))}
+.section-jump{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:18px}
+.field-date{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;color:var(--ink);padding:9px 12px;font-size:13.5px;font-family:inherit}
+footer.site{max-width:1280px;margin:0 auto;padding:20px 24px 50px;color:var(--ink-faint);font-size:12px;border-top:1px solid var(--line-soft)}
+@media(max-width:880px){.g2,.g3,.g4{grid-template-columns:1fr}.disease-card dl{grid-template-columns:74px 1fr}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand"><div class="mark">🧬</div> USMDO Master Guide</div>
+    <nav class="tabs" id="tabs">
+      <a href="#dashboard" data-r="dashboard">Dashboard</a>
+      <a href="#syllabus" data-r="syllabus">Syllabus Tracker</a>
+      <a href="#learn/cell" data-r="learn/cell">Cell Biology & Genetics</a>
+      <a href="#learn/physio" data-r="learn/physio">Human Physiology</a>
+      <a href="#learn/disease" data-r="learn/disease">Human Disease</a>
+      <a href="#atlas" data-r="atlas">Disease Atlas</a>
+    </nav>
+  </div>
+</div>
+<main class="page" id="app"></main>
+<footer class="site">
+  This is an independent, self-study guide for USMDO preparation. It does not contain, copy, or reproduce any official USMDO exam questions, and is not affiliated with or endorsed by USMDO. All mini-check and quiz questions are original practice items written for self-assessment. Content is compiled from general, publicly available biology/physiology/medicine knowledge for educational use only and is not medical advice.
+  <div style="margin-top:10px"><button class="btn sm" id="resetBtn">Reset all local progress</button></div>
+</footer>
+
+<script>
+/* ===================== DATA: will be populated by SYLLABUS / LEARN / DISEASES ===================== */
+</script>
+<script src="usmdo-data.js"></script>
+<script src="usmdo-app.js"></script>
+</body>
+</html>
