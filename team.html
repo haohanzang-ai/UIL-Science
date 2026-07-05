@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Team Dashboard · UIL Science</title>
+<title>Team Dashboard - UIL Science</title>
 <link rel="stylesheet" href="assets/uil.css" />
 </head>
 <body data-page="team" data-title="Team Dashboard">
@@ -11,147 +11,206 @@
   <aside class="sidebar" id="sidebar"></aside>
   <div class="main">
     <div class="page">
-
       <div class="pagehead">
         <div class="row">
           <div>
             <h1>Team Dashboard</h1>
-            <div class="subtitle">Westfield High · UIL Science · 8 active competitors</div>
+            <div class="subtitle" id="team-subtitle">Live team records from practice attempts and the verified question bank.</div>
           </div>
           <div class="btnrow">
-            <button class="btn" onclick="UIL.toast('Practice assigned to 8 students','✓')"><span class="ic">📨</span> Assign Practice</button>
-            <button class="btn primary" onclick="document.getElementById('noticeBox').showModal && document.getElementById('noticeBox').showModal()"><span class="ic">📣</span> Update Coach Notice</button>
+            <a class="btn" href="admin-review.html">Review Bank</a>
+            <a class="btn primary" href="practice.html">Practice Mode</a>
           </div>
         </div>
       </div>
 
-      <!-- Coach actions -->
-      <div class="grid g4" style="margin-bottom:18px">
-        <a class="card hover" href="#" onclick="UIL.toast('Opening full team dashboard','📊');return false;"><h3><span class="ic">📊</span> Team Dashboard</h3><p class="muted" style="font-size:12.5px;margin:8px 0 0">Scores, trends, readiness.</p></a>
-        <a class="card hover" href="#" onclick="UIL.toast('Assign practice flow','📨');return false;"><h3><span class="ic">📨</span> Assign Practice</h3><p class="muted" style="font-size:12.5px;margin:8px 0 0">Push drills to students.</p></a>
-        <a class="card hover" href="#admin"><h3><span class="ic">🔎</span> Review OCR Issues</h3><p class="muted" style="font-size:12.5px;margin:8px 0 0">Fix scanned-test errors. <span class="tag" style="background:rgba(245,158,11,.14);color:#f8cd7a">3</span></p></a>
-        <a class="card hover" href="#" onclick="UIL.toast('Opening student progress','📈');return false;"><h3><span class="ic">📈</span> Student Progress</h3><p class="muted" style="font-size:12.5px;margin:8px 0 0">Per-student detail.</p></a>
-      </div>
-
-      <!-- Team readiness + weekly goals -->
-      <div class="grid g2">
-        <div class="card hover">
-          <div class="cardhead"><h3><span class="ic">🚦</span> Team Readiness</h3><span class="tag neutral">District in 9 days</span></div>
-          <div style="display:flex;align-items:center;gap:20px">
-            <div class="ring" id="team-ring"><div class="val"><b>74%</b><small>Ready</small></div></div>
-            <div style="flex:1">
-              <div class="rowline"><div class="t">Top-3 team score (proj.)</div><b class="num">918 / 1080</b></div>
-              <div class="rowline"><div class="t">Specialists assigned</div><b>2 of 3 <span class="faint">(Physics open)</span></b></div>
-              <div class="rowline"><div class="t">Students on track</div><b>6 of 8</b></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card hover">
-          <div class="cardhead"><h3><span class="ic">🎯</span> Weekly Team Goals</h3><b class="faint" style="font-size:12px">3 of 4 on track</b></div>
-          <div class="rowline"><div><div class="t">Every student completes 1 full test</div><div class="s">6 of 8 done</div></div><span class="tag bio">On track</span></div>
-          <div class="rowline"><div><div class="t">Team Chemistry accuracy ≥ 65%</div><div class="s">Now 62%</div></div><span class="tag chem">Close</span></div>
-          <div class="rowline"><div><div class="t">Fill Physics specialist seat</div><div class="s">2 candidates</div></div><span class="tag phys">Action needed</span></div>
-          <div class="rowline"><div><div class="t">Clear team mistake backlog</div><div class="s">41 remaining</div></div><span class="tag neutral">In progress</span></div>
-        </div>
-      </div>
-
-      <!-- Leaderboard -->
-      <div class="card hover" style="margin-top:16px">
-        <div class="cardhead"><h3><span class="ic">🏆</span> Leaderboard</h3><span class="faint" style="font-size:12px">Filter by subject</span></div>
-        <div class="lbtoolbar" id="lbfilter">
-          <button class="chip on" data-k="overall">Overall</button>
-          <button class="chip" data-k="bio">Biology</button>
-          <button class="chip" data-k="chem">Chemistry</button>
-          <button class="chip" data-k="phys">Physics</button>
-        </div>
-        <div style="overflow-x:auto">
-          <table class="lb">
-            <thead><tr><th>#</th><th>Student</th><th>Score</th><th>Accuracy</th><th>Specialty</th></tr></thead>
-            <tbody id="lbbody"></tbody>
-          </table>
-        </div>
-        <div class="note" style="margin-top:14px"><span class="ic">ℹ️</span><div>Leaderboards are optional and can be turned off per team. <button class="btn sm" style="margin-left:6px" onclick="UIL.toast('Leaderboard hidden for students','✓')">Hide from students</button></div></div>
-      </div>
-
-      <!-- Specialist badges -->
-      <div class="card hover" id="badges" style="margin-top:16px">
-        <div class="cardhead"><h3><span class="ic">🏅</span> Subject Specialist Badges</h3><span class="faint" style="font-size:12px">Earned across the team</span></div>
-        <div class="badges">
-          <div class="badge earned"><div class="emo">🧬</div><div class="bn">Biology Specialist</div><div class="bs">Maya R.</div></div>
-          <div class="badge earned"><div class="emo">🧪</div><div class="bn">Chemistry Specialist</div><div class="bs">Haohan Z.</div></div>
-          <div class="badge locked"><div class="emo">⚛️</div><div class="bn">Physics Specialist</div><div class="bs">Open seat</div></div>
-          <div class="badge earned"><div class="emo">⏭</div><div class="bn">Smart Skipper</div><div class="bs">3 students</div></div>
-          <div class="badge earned"><div class="emo">📐</div><div class="bn">Formula Master</div><div class="bs">Leo P.</div></div>
-          <div class="badge earned"><div class="emo">🔧</div><div class="bn">Mistake Fixer</div><div class="bs">Maya R.</div></div>
-          <div class="badge earned"><div class="emo">🏁</div><div class="bn">Full Test Finisher</div><div class="bs">6 students</div></div>
-          <div class="badge locked"><div class="emo">📈</div><div class="bn">High-ROI Studier</div><div class="bs">2 to go</div></div>
-        </div>
-      </div>
-
-      <!-- Coach assignments -->
-      <div class="card hover" style="margin-top:16px">
-        <div class="cardhead"><h3><span class="ic">📋</span> Coach Assignments</h3><button class="btn sm primary" onclick="UIL.toast('New assignment created','✓')"><span class="ic">➕</span> New</button></div>
-        <div class="rowline"><div><div class="t"><b>Haohan Z.</b> — Chemistry equilibrium drill + 1 full test</div><div class="s">Due Fri Jun 26 · assigned today</div></div><span class="tag chem">Chemistry</span></div>
-        <div class="rowline"><div><div class="t"><b>Leo P.</b> — Physics circuits + study text reading</div><div class="s">Due Fri Jun 26</div></div><span class="tag phys">Physics</span></div>
-        <div class="rowline"><div><div class="t"><b>Maya R.</b> — Maintain Biology, mentor 2 juniors</div><div class="s">Ongoing</div></div><span class="tag bio">Biology</span></div>
-        <div class="rowline"><div><div class="t"><b>Team</b> — Everyone: clear mistake journal</div><div class="s">Rolling</div></div><span class="tag neutral">All</span></div>
-      </div>
-
-      <!-- Admin / OCR review -->
-      <div class="card hover" id="admin" style="margin-top:16px">
-        <div class="cardhead"><h3><span class="ic">🛠</span> Admin Review — OCR Issues</h3><span class="tag" style="background:rgba(245,158,11,.14);color:#f8cd7a">3 need review</span></div>
-        <div class="rowline"><div><div class="t">2003 Physics · Q34 — unreadable scan of answer key</div><div class="s">Imported Jun 20</div></div><button class="btn sm" onclick="this.closest('.rowline').style.opacity=.5;UIL.toast('Marked resolved','✓')">Resolve</button></div>
-        <div class="rowline"><div><div class="t">2007 Chemistry · Q12 — duplicate option text</div><div class="s">Imported Jun 20</div></div><button class="btn sm" onclick="this.closest('.rowline').style.opacity=.5;UIL.toast('Marked resolved','✓')">Resolve</button></div>
-        <div class="rowline"><div><div class="t">2009 Biology · Q51 — diagram missing</div><div class="s">Imported Jun 21</div></div><button class="btn sm" onclick="this.closest('.rowline').style.opacity=.5;UIL.toast('Marked resolved','✓')">Resolve</button></div>
-        <div class="note" style="margin-top:14px"><span class="ic">🗂</span><div>Archive coverage currently runs <b>through 2009</b>. Resolving OCR issues improves Pattern Explorer accuracy.</div></div>
-      </div>
-
+      <div id="root"><div class="empty"><div class="h">Loading team data...</div></div></div>
     </div>
   </div>
 </div>
 
-<!-- Coach notice modal -->
-<dialog id="noticeBox" style="border:1px solid var(--line);border-radius:16px;background:var(--surface);color:var(--ink);max-width:480px;width:92%;padding:0">
-  <form method="dialog" style="padding:22px" onsubmit="UIL.toast('Coach notice published to team','📣')">
-    <h3 style="font-size:17px;margin-bottom:6px">Update Coach Notice</h3>
-    <p class="muted" style="font-size:13px;margin:0 0 14px">Shown at the top of every student's dashboard and guide.</p>
-    <textarea style="width:100%;min-height:110px;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;color:var(--ink);padding:12px;font-family:inherit;font-size:14px;resize:vertical" placeholder="Write a short message to the team…">Great work this week — district is 9 days out. Specialists: lock in your subject. Everyone: one full timed test before Friday.</textarea>
-    <div class="btnrow" style="margin-top:14px;justify-content:flex-end">
-      <button class="btn" value="cancel" formnovalidate>Cancel</button>
-      <button class="btn primary" value="ok"><span class="ic">📣</span> Publish</button>
-    </div>
-  </form>
-</dialog>
-
+<script src="assets/api.js"></script>
 <script src="assets/uil.js"></script>
 <script>
 (function(){
-  document.addEventListener('DOMContentLoaded',function(){ UIL.ring(document.getElementById('team-ring'),74,'var(--accent-2)'); });
+  var root = document.getElementById('root');
+  var state = { subject: 'overall', summary: null, subjects: [], leaderboard: [] };
 
-  var DATA = {
-    overall:[['Maya R.',312,'88%','Biology','bio',1],['Haohan Z.',286,'82%','Chemistry','chem',1,true],['Leo P.',278,'79%','Physics','phys',1],['Aria K.',254,'76%','—','neutral',0],['Devin S.',239,'71%','—','neutral',0]],
-    bio:[['Maya R.',96,'94%','Biology','bio'],['Aria K.',88,'85%','—','neutral'],['Haohan Z.',84,'82%','Chemistry','chem',true],['Leo P.',80,'78%','Physics','phys'],['Devin S.',74,'72%','—','neutral']],
-    chem:[['Haohan Z.',92,'85%','Chemistry','chem',true],['Maya R.',86,'80%','Biology','bio'],['Leo P.',78,'74%','Physics','phys'],['Devin S.',70,'68%','—','neutral'],['Aria K.',66,'64%','—','neutral']],
-    phys:[['Leo P.',94,'90%','Physics','phys'],['Haohan Z.',82,'80%','Chemistry','chem',true],['Maya R.',80,'77%','Biology','bio'],['Aria K.',72,'70%','—','neutral'],['Devin S.',68,'66%','—','neutral']]
-  };
-  function rowFor(r){
-    var me = r[5]===true || r[6]===true;
-    return '<tr class="'+(me?'me':'')+'"><td class="rank">'+'</td><td class="who">'+r[0]+(me?' <span class="pill">you</span>':'')+'</td>'+
-           '<td class="num">'+r[1]+'</td><td class="num">'+r[2]+'</td><td>'+(r[3]==='—'?'<span class="faint">—</span>':'<span class="tag '+r[4]+'">'+r[3]+'</span>')+'</td></tr>';
+  async function boot(){
+    if(!(await API.health())){ API.offlineBanner(); root.innerHTML = offlineCard(); return; }
+    try {
+      var data = await Promise.all([
+        API.teamSummary(),
+        API.teamSubjects(),
+        API.teamLeaderboard(state.subject)
+      ]);
+      state.summary = data[0];
+      state.subjects = data[1] || [];
+      state.leaderboard = data[2] || [];
+      render();
+    } catch(err) {
+      if(err.status === 403){ root.innerHTML = coachGate(); return; }
+      root.innerHTML = errorCard(err.message || 'Could not load team data.');
+    }
   }
-  function render(k){
-    var rows=DATA[k]||DATA.overall, tb=document.getElementById('lbbody');
-    tb.innerHTML=rows.map(rowFor).join('');
-    // fill ranks
-    Array.prototype.forEach.call(tb.querySelectorAll('.rank'),function(c,i){ c.textContent=(i+1); });
+
+  async function loadLeaderboard(subject){
+    state.subject = subject;
+    var body = document.getElementById('lbbody');
+    if(body) body.innerHTML = '<tr><td colspan="5" class="faint">Loading...</td></tr>';
+    try {
+      state.leaderboard = await API.teamLeaderboard(subject);
+      renderLeaderboard();
+    } catch(err) {
+      if(body) body.innerHTML = '<tr><td colspan="5" class="faint">'+escapeHtml(err.message || 'Could not load leaderboard.')+'</td></tr>';
+    }
   }
-  document.getElementById('lbfilter').addEventListener('click',function(e){
-    var b=e.target.closest('.chip'); if(!b) return;
-    this.querySelectorAll('.chip').forEach(function(c){c.classList.remove('on');});
-    b.classList.add('on'); render(b.dataset.k);
-  });
-  render('overall');
+
+  function render(){
+    var s = state.summary || {};
+    document.getElementById('team-subtitle').textContent =
+      s.students ? s.students + ' competitors, ' + s.sessions + ' submitted sessions, ' + s.questions + ' questions in the bank.' :
+      'No team records yet. This page fills in after students and practice attempts exist.';
+
+    var html = '';
+    html += '<div class="grid g4" style="margin-bottom:18px">';
+    html += metricCard('Competitors', s.students || 0, (s.activeStudents || 0) + ' active with submitted practice');
+    html += metricCard('Practice Sessions', s.sessions || 0, 'Submitted attempts only');
+    html += metricCard('Question Bank', s.questions || 0, 'Imported database records');
+    html += metricCard('Review Queue', s.reviewPending || 0, (s.integrityIssues || 0) + ' integrity issues');
+    html += '</div>';
+
+    if(!s.students && !s.questions){
+      html += '<div class="empty" style="margin-bottom:18px"><div class="h">No live team data yet</div><div class="d">Create student profiles, import approved questions, and submit practice attempts to populate this dashboard.</div><a class="btn primary" href="admin-review.html">Open Admin Review</a></div>';
+    }
+
+    html += '<div class="grid g2">';
+    html += readinessCard(s);
+    html += subjectCard(state.subjects);
+    html += '</div>';
+
+    html += '<div class="card hover" style="margin-top:16px">';
+    html += '<div class="cardhead"><h3>Leaderboard</h3><span class="faint" style="font-size:12px">Real submitted answers only</span></div>';
+    html += '<div class="lbtoolbar" id="lbfilter">';
+    html += filterButton('overall','Overall') + filterButton('biology','Biology') + filterButton('chemistry','Chemistry') + filterButton('physics','Physics');
+    html += '</div><div style="overflow-x:auto"><table class="lb"><thead><tr><th>#</th><th>Student</th><th>Score</th><th>Accuracy</th><th>Answered</th></tr></thead><tbody id="lbbody"></tbody></table></div>';
+    html += '</div>';
+
+    html += '<div class="card hover" style="margin-top:16px">';
+    html += '<div class="cardhead"><h3>Coach Workflow</h3><a class="btn sm" href="admin-review.html">Review questions</a></div>';
+    html += row('Question records waiting for review', '<b>'+Number(s.reviewPending || 0)+'</b>');
+    html += row('Flagged, rejected, or mismatched records', '<b>'+Number(s.integrityIssues || 0)+'</b>');
+    html += row('Top-3 cumulative team score', '<b class="num">'+Number(s.topThreeScore || 0)+'</b>');
+    html += '<div class="note" style="margin-top:14px"><div>Team pages intentionally show empty states instead of sample data. Coaches only see what has been imported, approved, and submitted.</div></div>';
+    html += '</div>';
+
+    root.innerHTML = html;
+    bindFilters();
+    renderLeaderboard();
+    var ring = document.getElementById('team-ring');
+    if(ring) UIL.ring(ring, readinessPct(s), 'var(--accent-2)');
+  }
+
+  function metricCard(title, value, detail){
+    return '<div class="card hover"><div class="cardhead"><h3>'+title+'</h3></div><div class="kpi">'+Number(value || 0)+'</div><p class="muted" style="font-size:13px;margin:4px 0 0">'+escapeHtml(detail)+'</p></div>';
+  }
+
+  function readinessCard(s){
+    var pct = readinessPct(s);
+    if(!(s.students || s.sessions || s.questions)){
+      return emptyCard('Team Readiness','Readiness appears after the team has students, question-bank records, and submitted practice.');
+    }
+    return '<div class="card hover"><div class="cardhead"><h3>Team Readiness</h3><span class="tag neutral">Derived</span></div>'+
+      '<div style="display:flex;align-items:center;gap:20px"><div class="ring" id="team-ring"><div class="val"><b>'+pct+'%</b><small>ready</small></div></div>'+
+      '<div style="flex:1">'+
+      row('Active competitors', '<b>'+Number(s.activeStudents || 0)+' / '+Number(s.students || 0)+'</b>')+
+      row('Submitted sessions', '<b>'+Number(s.sessions || 0)+'</b>')+
+      row('Approved bank coverage', '<b>'+Math.max(0, Number(s.questions || 0) - Number(s.reviewPending || 0))+' / '+Number(s.questions || 0)+'</b>')+
+      '</div></div></div>';
+  }
+
+  function readinessPct(s){
+    var studentPart = s.students ? (Number(s.activeStudents || 0) / Number(s.students || 1)) * 45 : 0;
+    var practicePart = Math.min(Number(s.sessions || 0), Math.max(Number(s.students || 0), 1)) / Math.max(Number(s.students || 0), 1) * 30;
+    var bankPart = s.questions ? ((Number(s.questions || 0) - Number(s.reviewPending || 0)) / Number(s.questions || 1)) * 25 : 0;
+    return Math.round(Math.max(0, Math.min(100, studentPart + practicePart + bankPart)));
+  }
+
+  function subjectCard(subjects){
+    if(!subjects.length) return emptyCard('Subject Coverage','Subject accuracy appears after students submit answers from approved questions.');
+    var rows = subjects.map(function(s){
+      var cls = subjectClass(s.subject);
+      var label = cap(s.subject);
+      var acc = s.accuracy === null ? 'No attempts' : s.accuracy + '%';
+      return '<div class="rowline"><div><div class="t"><span class="tag '+cls+'">'+label+'</span></div><div class="s">'+Number(s.seen || 0)+' answers seen</div></div><b>'+acc+'</b></div>';
+    }).join('');
+    return '<div class="card hover"><div class="cardhead"><h3>Subject Coverage</h3><span class="faint" style="font-size:12px">Team aggregate</span></div>'+rows+'</div>';
+  }
+
+  function renderLeaderboard(){
+    var body = document.getElementById('lbbody');
+    if(!body) return;
+    if(!state.leaderboard.length){
+      body.innerHTML = '<tr><td colspan="5" class="faint">No submitted answers for this filter yet.</td></tr>';
+      return;
+    }
+    body.innerHTML = state.leaderboard.map(function(r){
+      return '<tr><td class="rank">'+r.rank+'</td><td class="who">'+escapeHtml(r.name)+'</td><td class="num">'+Number(r.score || 0)+'</td><td class="num">'+(r.accuracy === null ? '-' : r.accuracy + '%')+'</td><td class="num">'+Number(r.attempted || 0)+'</td></tr>';
+    }).join('');
+  }
+
+  function bindFilters(){
+    var filter = document.getElementById('lbfilter');
+    if(!filter) return;
+    filter.addEventListener('click', function(e){
+      var b = e.target.closest('.chip');
+      if(!b) return;
+      filter.querySelectorAll('.chip').forEach(function(c){ c.classList.remove('on'); });
+      b.classList.add('on');
+      loadLeaderboard(b.dataset.k);
+    });
+  }
+
+  function filterButton(key, label){
+    return '<button class="chip '+(state.subject === key ? 'on' : '')+'" data-k="'+key+'">'+label+'</button>';
+  }
+
+  function coachGate(){
+    return '<div class="empty"><div class="h">Coach access required</div><div class="d">This prototype uses the local role header. Switch this browser to coach mode to view team records.</div><button class="btn primary" onclick="localStorage.setItem(\'uil-role\',\'coach\');location.reload()">Use coach mode</button></div>';
+  }
+
+  function offlineCard(){
+    return '<div class="empty"><div class="h">Backend not connected</div><div class="d">Start the server, then reopen this page from the app origin. No sample data is shown here.</div></div>';
+  }
+
+  function errorCard(message){
+    return '<div class="errorbox"><div>'+escapeHtml(message)+'</div></div>';
+  }
+
+  function emptyCard(title, detail){
+    return '<div class="card"><div class="cardhead"><h3>'+title+'</h3></div><div class="empty" style="padding:22px 10px"><div class="d">'+escapeHtml(detail)+'</div></div></div>';
+  }
+
+  function row(label, value){
+    return '<div class="rowline"><div class="t">'+label+'</div><div>'+value+'</div></div>';
+  }
+
+  function subjectClass(subject){
+    return subject === 'biology' ? 'bio' : subject === 'chemistry' ? 'chem' : subject === 'physics' ? 'phys' : 'neutral';
+  }
+
+  function cap(s){
+    s = String(s || '');
+    return s ? s.charAt(0).toUpperCase() + s.slice(1) : '';
+  }
+
+  function escapeHtml(s){
+    return String(s == null ? '' : s).replace(/[&<>"']/g,function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  boot().catch(function(e){ root.innerHTML = errorCard(e.message || 'Could not load team data.'); });
 })();
 </script>
 </body>

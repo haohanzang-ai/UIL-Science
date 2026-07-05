@@ -47,10 +47,12 @@ h1,h2,h3,h4{margin:0;line-height:1.2;letter-spacing:-.01em}
 .logo .txt small{display:block;font-weight:600;font-size:11px;color:var(--ink-faint);letter-spacing:.08em}
 .nav{display:flex;flex-direction:column;gap:3px}
 .nav a{display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:11px;color:var(--ink-dim);font-size:13.5px;font-weight:600;transition:.14s}
-.nav a svg{width:19px;height:19px;flex:none;stroke:currentColor;fill:none;stroke-width:1.8}
+.nav a svg,.nav span.disabled svg{width:19px;height:19px;flex:none;stroke:currentColor;fill:none;stroke-width:1.8}
 .nav a:hover{background:var(--surface-2);color:var(--ink);transform:translateX(2px)}
 .nav a.active{background:linear-gradient(135deg,rgba(79,140,255,.22),rgba(34,211,166,.12));color:#fff;box-shadow:inset 0 0 0 1px rgba(79,140,255,.4)}
 .nav a.active svg{stroke:var(--accent-2)}
+.nav span.disabled{display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:11px;color:var(--ink-faint);font-size:13.5px;font-weight:600;opacity:.72;cursor:not-allowed}
+.nav span.disabled small{margin-left:auto;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-faint)}
 .nav .sep{height:1px;background:var(--line-soft);margin:10px 6px}
 .nav .grouplbl{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);padding:6px 12px 4px}
 .side-foot{margin-top:auto;padding:12px 10px 4px;font-size:11px;color:var(--ink-faint)}
@@ -79,6 +81,7 @@ body[data-chrome="minimal"] .main{margin-left:0}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:11px;font-weight:700;font-size:13.5px;
   border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;transition:.14s}
 .btn:hover{transform:translateY(-2px);border-color:var(--accent)}
+.btn:disabled{opacity:.62;cursor:not-allowed;transform:none;box-shadow:none}
 .btn.primary{background:linear-gradient(135deg,var(--accent),#3b6fe0);border-color:transparent;color:#fff}
 .btn.primary:hover{box-shadow:0 8px 22px rgba(79,140,255,.4)}
 .btn.ghost{background:transparent}

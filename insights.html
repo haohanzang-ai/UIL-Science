@@ -33,6 +33,7 @@
   async function boot(){
     if(!(await API.health())){ API.offlineBanner(); return empty('⚠️','Backend not connected','Start the server, then reload.'); }
     var me=await API.me().catch(()=>null);
+    if(!me && API.studentId()) API.clearStudent();
     if(!me) return empty('📭','No profile yet','Take a practice test to create your record and start tracking.','Take Practice','practice.html');
     var d;
     try { d=await API.guessing(me.id); } catch(e){ return empty('⚠️','Could not load',e.message); }
@@ -71,7 +72,7 @@
       '<div class="rowline"><div class="t">Verdict</div><b>'+verdict+'</b></div></div>';
   }
   function escapeHtml(s){ return String(s).replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
-  boot();
+  boot().catch(function(e){ empty('!','Could not load insights',e.message || 'Unexpected startup error.'); });
 })();
 </script>
 </body>

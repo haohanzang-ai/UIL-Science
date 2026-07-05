@@ -38,10 +38,12 @@
   async function boot(){
     if(!(await API.health())){ API.offlineBanner(); return empty('⚠️','Backend not connected','Start the server, then reload.'); }
     var me=await API.me().catch(()=>null);
+    if(!me && API.studentId()) API.clearStudent();
     if(!sessionId){
       // fall back to latest session for current student
       if(!me) return empty('📭','No practice attempts yet','Take a practice test to start your mistake journal.','Take a practice test','practice.html');
-      var sessions=await API.sessions();
+      var sessions=await API.sessions().catch(function(e){ return empty('!','Could not load attempts',e.message || 'Session request failed.'); });
+      if(!Array.isArray(sessions)) return;
       if(!sessions.length) return empty('📭','No practice attempts yet','Take a practice test to start your mistake journal.','Take a practice test','practice.html');
       sessionId=sessions[0].id;
     }
@@ -125,7 +127,7 @@
   function cap(s){ return s?s.charAt(0).toUpperCase()+s.slice(1):s; }
   function escapeHtml(s){ return String(s).replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
 
-  boot();
+  boot().catch(function(e){ empty('!','Could not load review',e.message || 'Unexpected startup error.'); });
 })();
 </script>
 </body>

@@ -88,8 +88,7 @@
 <script src="assets/uil.js"></script>
 <script>
 (function(){
-  // prototype: assume coach role for this page (replace with real auth)
-  if (!API.isCoach()) API.setRole('coach');
+  // Prototype role handling only. Real production auth remains a separate requirement.
 
   var BADGE_LABEL = { approved:'Approved', review:'Needs Review', issue:'Issue Found', unprocessed:'Not Processed' };
   var KEYS = ['A','B','C','D','E','F'];
@@ -101,6 +100,7 @@
 
   async function boot(){
     if (!(await API.health())) { API.offlineBanner(); renderEmptyAll(); return; }
+    if (!API.isCoach()) { renderCoachGate(); return; }
     try { await loadSummary(); await loadList(); }
     catch(e){ showError(e); }
   }
@@ -111,6 +111,13 @@
   }
   function emptyCard(emo,h,d){ return '<div class="empty" style="grid-column:1/-1"><div class="emo">'+emo+'</div><div class="h">'+h+'</div><div class="d">'+d+'</div></div>'; }
   function showError(e){ elList.innerHTML = '<div class="errorbox"><span class="ic">⚠️</span><div><b>Couldn\'t load.</b> '+(e.message||e)+'</div></div>'; }
+
+  function renderCoachGate(){
+    elSummary.innerHTML = '';
+    elList.innerHTML = '';
+    elDetail.innerHTML = '<div class="empty"><div class="emo">!</div><div class="h">Coach access required</div><div class="d">This prototype uses a local role header for coach tools. Student profiles are not promoted automatically.</div><button class="btn primary" id="coach-mode">Use coach mode</button></div>';
+    document.getElementById('coach-mode').onclick = function(){ API.setRole('coach'); location.reload(); };
+  }
 
   async function loadSummary(){
     var s = await API.integritySummary();
@@ -231,7 +238,7 @@
     b.classList.add('on'); filterBadge=b.dataset.badge; loadList();
   });
 
-  boot();
+  boot().catch(function(e){ showError(e); });
 })();
 </script>
 </body>

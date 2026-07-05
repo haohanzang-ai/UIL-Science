@@ -37,6 +37,7 @@
   async function boot(){
     if(!(await API.health())){ API.offlineBanner(); root.innerHTML=offlineCard(); return; }
     var me=await API.me().catch(()=>null);
+    if(!me && API.studentId()) API.clearStudent();
     if(!me){ root.innerHTML=setupCard(); return; }
     document.getElementById('greet').textContent='Welcome back, '+me.name+' 👋';
     document.getElementById('sub').innerHTML = new Date().toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'}) + ' · <span class="faint">role: '+me.role+'</span>';
@@ -141,7 +142,9 @@
   function cap(s){ return s?s.charAt(0).toUpperCase()+s.slice(1):s; }
   function escapeHtml(s){ return String(s).replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
 
-  boot();
+  boot().catch(function(e){
+    root.innerHTML = '<div class="errorbox"><span class="ic">!</span><div><b>Could not load dashboard.</b> '+escapeHtml(e.message || e)+'</div></div>';
+  });
 })();
 </script>
 </body>

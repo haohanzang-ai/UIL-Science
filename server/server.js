@@ -9,6 +9,21 @@ const { db, init, all, get, run, integrityBadge } = require('./db');
 const { grade, scoreLoss, guessingThreshold } = require('./scoring');
 
 const app = express();
+const allowedOrigins = (process.env.CORS_ORIGINS || 'https://haohanzang-ai.github.io,http://localhost:3000,http://127.0.0.1:3000')
+  .split(',')
+  .map(s => s.trim())
+  .filter(Boolean);
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  if (origin && allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Vary', 'Origin');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type,x-student-id,x-role');
+    res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PATCH,OPTIONS');
+  }
+  if (req.method === 'OPTIONS') return res.sendStatus(204);
+  next();
+});
 app.use(express.json({ limit: '2mb' }));
 
 // ---- tiny identity middleware (replace with real auth in production) ----
@@ -35,6 +50,9 @@ async function reviewerName(req) {
 }
 
 /* ============================ IDENTITY ============================ */
+app.get('/api/health', (req, res) => {
+  res.json({ ok: true, service: 'uil-science', db: 'initialized' });
+});
 app.get('/api/me', wrap(async (req, res) => {
   if (!req.studentId) return res.json(null);
   res.json(await get('SELECT * FROM students WHERE id=?', [req.studentId]));
@@ -220,7 +238,114 @@ app.get('/api/analytics/overview/:studentId', wrap(async (req, res) => {
   res.json({ empty: false, tests: sessions.length, lastScore: sessions[0].score, avgScore: avg, last: sessions[0] });
 }));
 
+/* ============================ TEAM ============================ */
+function subjectWhere(subject, args) {
+  if (!subject || subject === 'overall') return '';
+  args.push(subject);
+  return ' AND q.subject=?';
+}
+
+app.get('/api/team/summary', requireCoach, wrap(async (req, res) => {
+  const students = await get(`SELECT COUNT(*) AS count FROM students WHERE role='student'`);
+  const sessions = await get(`
+    SELECT COUNT(*) AS count
+    FROM sessions
+    WHERE submitted_at IS NOT NULL
+  `);
+  const questions = await get('SELECT COUNT(*) AS count FROM questions');
+  const integrity = await get(`
+    SELECT
+      SUM(CASE WHEN flagged=1 OR rejected=1 OR answer_key_match_status='mismatch' THEN 1 ELSE 0 END) AS issues,
+      SUM(CASE WHEN approved_for_practice=0 AND rejected=0 THEN 1 ELSE 0 END) AS pending
+    FROM questions
+  `);
+  const top = await all(`
+    SELECT st.id, st.name, COALESCE(SUM(a.points),0) AS score
+    FROM students st
+    JOIN sessions s ON s.student_id=st.id AND s.submitted_at IS NOT NULL
+    JOIN attempt_answers a ON a.session_id=s.id
+    WHERE st.role='student'
+    GROUP BY st.id, st.name
+    ORDER BY score DESC, st.name ASC
+    LIMIT 3
+  `);
+  const active = await get(`
+    SELECT COUNT(DISTINCT student_id) AS count
+    FROM sessions
+    WHERE submitted_at IS NOT NULL
+  `);
+
+  res.json({
+    empty: !students.count,
+    students: students.count || 0,
+    activeStudents: active.count || 0,
+    sessions: sessions.count || 0,
+    questions: questions.count || 0,
+    topThreeScore: top.reduce((sum, row) => sum + Number(row.score || 0), 0),
+    integrityIssues: integrity.issues || 0,
+    reviewPending: integrity.pending || 0
+  });
+}));
+
+app.get('/api/team/leaderboard', requireCoach, wrap(async (req, res) => {
+  const args = [];
+  const where = subjectWhere(req.query.subject, args);
+  const rows = await all(`
+    SELECT
+      st.id,
+      st.name,
+      COALESCE(SUM(a.points),0) AS score,
+      SUM(CASE WHEN a.selected IS NOT NULL AND a.selected <> '' THEN 1 ELSE 0 END) AS attempted,
+      SUM(CASE WHEN a.is_correct=1 THEN 1 ELSE 0 END) AS correct,
+      COUNT(a.id) AS seen
+    FROM students st
+    JOIN sessions s ON s.student_id=st.id AND s.submitted_at IS NOT NULL
+    JOIN attempt_answers a ON a.session_id=s.id
+    JOIN questions q ON q.id=a.question_id
+    WHERE st.role='student'${where}
+    GROUP BY st.id, st.name
+    ORDER BY score DESC, correct DESC, st.name ASC
+    LIMIT 25
+  `, args);
+  res.json(rows.map((row, index) => ({
+    rank: index + 1,
+    id: row.id,
+    name: row.name,
+    score: row.score || 0,
+    attempted: row.attempted || 0,
+    correct: row.correct || 0,
+    seen: row.seen || 0,
+    accuracy: row.attempted > 0 ? Math.round((row.correct / row.attempted) * 1000) / 10 : null
+  })));
+}));
+
+app.get('/api/team/subjects', requireCoach, wrap(async (req, res) => {
+  const rows = await all(`
+    SELECT
+      q.subject,
+      COALESCE(SUM(a.points),0) AS score,
+      SUM(CASE WHEN a.selected IS NOT NULL AND a.selected <> '' THEN 1 ELSE 0 END) AS attempted,
+      SUM(CASE WHEN a.is_correct=1 THEN 1 ELSE 0 END) AS correct,
+      COUNT(a.id) AS seen
+    FROM attempt_answers a
+    JOIN sessions s ON s.id=a.session_id AND s.submitted_at IS NOT NULL
+    JOIN questions q ON q.id=a.question_id
+    WHERE q.subject IS NOT NULL AND q.subject <> ''
+    GROUP BY q.subject
+    ORDER BY q.subject
+  `);
+  res.json(rows.map(row => ({
+    subject: row.subject,
+    score: row.score || 0,
+    attempted: row.attempted || 0,
+    correct: row.correct || 0,
+    seen: row.seen || 0,
+    accuracy: row.attempted > 0 ? Math.round((row.correct / row.attempted) * 1000) / 10 : null
+  })));
+}));
+
 /* ============================ STATIC FRONTEND ============================ */
+app.use('/server', (req, res) => res.status(404).send('Not found'));
 app.use(express.static(path.join(__dirname, '..')));
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, '..', 'index.html')));
 
