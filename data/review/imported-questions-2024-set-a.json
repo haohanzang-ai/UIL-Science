@@ -1,0 +1,288 @@
+{
+  "schemaVersion": 1,
+  "examId": "uil-2024-invitational-a",
+  "importedAt": "2026-07-11T01:28:36.273Z",
+  "totalParsed": 60,
+  "publishedQuestionOnly": 43,
+  "review": [
+    {
+      "questionId": "uil-2024-invitational-a-b01",
+      "qid": "B01",
+      "page": 2,
+      "blockers": [],
+      "explanationStatus": "missing-explanation"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-b02",
+      "qid": "B02",
+      "page": 2,
+      "blockers": [],
+      "explanationStatus": "missing-explanation"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-b03",
+      "qid": "B03",
+      "page": 2,
+      "blockers": [],
+      "explanationStatus": "missing-explanation"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-b04",
+      "qid": "B04",
+      "page": 2,
+      "blockers": [],
+      "explanationStatus": "missing-explanation"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-b05",
+      "qid": "B05",
+      "page": 2,
+      "blockers": [],
+      "explanationStatus": "missing-explanation"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-b06",
+      "qid": "B06",
+      "page": 2,
+      "blockers": [],
+      "explanationStatus": "missing-explanation"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-b07",
+      "qid": "B07",
+      "page": 2,
+      "blockers": [],
+      "explanationStatus": "missing-explanation"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-b08",
+      "qid": "B08",
+      "page": 2,
+      "blockers": [],
+      "explanationStatus": "missing-explanation"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-b09",
+      "qid": "B09",
+      "page": 3,
+      "blockers": [
+        "possible figure/table/diagram dependency requires visual crop validation"
+      ],
+      "explanationStatus": "missing-explanation"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-b10",
+      "qid": "B10",
+      "page": 3,
+      "blockers": [],
+      "explanationStatus": "missing-explanation"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-b11",
+      "qid": "B11",
+      "page": 3,
+      "blockers": [],
+      "explanationStatus": "missing-explanation"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-b12",
+      "qid": "B12",
+      "page": 3,
+      "blockers": [],
+      "explanationStatus": "missing-explanation"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-b13",
+      "qid": "B13",
+      "page": 3,
+      "blockers": [],
+      "explanationStatus": "missing-explanation"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-b14",
+      "qid": "B14",
+      "page": 3,
+      "blockers": [],
+      "explanationStatus": "missing-explanation"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-b15",
+      "qid": "B15",
+      "page": 3,
+      "blockers": [
+        "possible figure/table/diagram dependency requires visual crop validation"
+      ],
+      "explanationStatus": "missing-explanation"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-b16",
+      "qid": "B16",
+      "page": 3,
+      "blockers": [],
+      "explanationStatus": "missing-explanation"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-b17",
+      "qid": "B17",
+      "page": 3,
+      "blockers": [],
+      "explanationStatus": "missing-explanation"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-b18",
+      "qid": "B18",
+      "page": 3,
+      "blockers": [],
+      "explanationStatus": "missing-explanation"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-b19",
+      "qid": "B19",
+      "page": 4,
+      "blockers": [],
+      "explanationStatus": "missing-explanation"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-b20",
+      "qid": "B20",
+      "page": 4,
+      "blockers": [],
+      "explanationStatus": "missing-explanation"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-c02",
+      "qid": "C02",
+      "page": 6,
+      "blockers": [
+        "possible figure/table/diagram dependency requires visual crop validation"
+      ],
+      "explanationStatus": "key-solution-imported-needs-claim-review"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-c04",
+      "qid": "C04",
+      "page": 6,
+      "blockers": [
+        "possible figure/table/diagram dependency requires visual crop validation"
+      ],
+      "explanationStatus": "key-solution-imported-needs-claim-review"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-c08",
+      "qid": "C08",
+      "page": 6,
+      "blockers": [
+        "possible figure/table/diagram dependency requires visual crop validation"
+      ],
+      "explanationStatus": "key-solution-imported-needs-claim-review"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-c09",
+      "qid": "C09",
+      "page": 7,
+      "blockers": [
+        "possible figure/table/diagram dependency requires visual crop validation"
+      ],
+      "explanationStatus": "key-solution-imported-needs-claim-review"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-c13",
+      "qid": "C13",
+      "page": 7,
+      "blockers": [
+        "possible figure/table/diagram dependency requires visual crop validation"
+      ],
+      "explanationStatus": "key-solution-imported-needs-claim-review"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-c15",
+      "qid": "C15",
+      "page": 7,
+      "blockers": [
+        "possible figure/table/diagram dependency requires visual crop validation"
+      ],
+      "explanationStatus": "key-solution-imported-needs-claim-review"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-p07",
+      "qid": "P07",
+      "page": 9,
+      "blockers": [
+        "possible figure/table/diagram dependency requires visual crop validation"
+      ],
+      "explanationStatus": "key-solution-imported-needs-claim-review"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-p09",
+      "qid": "P09",
+      "page": 9,
+      "blockers": [
+        "possible figure/table/diagram dependency requires visual crop validation"
+      ],
+      "explanationStatus": "key-solution-imported-needs-claim-review"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-p12",
+      "qid": "P12",
+      "page": 10,
+      "blockers": [
+        "possible figure/table/diagram dependency requires visual crop validation"
+      ],
+      "explanationStatus": "key-solution-imported-needs-claim-review"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-p13",
+      "qid": "P13",
+      "page": 10,
+      "blockers": [
+        "possible figure/table/diagram dependency requires visual crop validation"
+      ],
+      "explanationStatus": "key-solution-imported-needs-claim-review"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-p14",
+      "qid": "P14",
+      "page": 10,
+      "blockers": [
+        "possible figure/table/diagram dependency requires visual crop validation"
+      ],
+      "explanationStatus": "key-solution-imported-needs-claim-review"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-p16",
+      "qid": "P16",
+      "page": 10,
+      "blockers": [
+        "possible figure/table/diagram dependency requires visual crop validation"
+      ],
+      "explanationStatus": "key-solution-imported-needs-claim-review"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-p17",
+      "qid": "P17",
+      "page": 11,
+      "blockers": [
+        "possible figure/table/diagram dependency requires visual crop validation"
+      ],
+      "explanationStatus": "key-solution-imported-needs-claim-review"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-p19",
+      "qid": "P19",
+      "page": 11,
+      "blockers": [
+        "possible figure/table/diagram dependency requires visual crop validation"
+      ],
+      "explanationStatus": "key-solution-imported-needs-claim-review"
+    },
+    {
+      "questionId": "uil-2024-invitational-a-p20",
+      "qid": "P20",
+      "page": 11,
+      "blockers": [
+        "possible figure/table/diagram dependency requires visual crop validation"
+      ],
+      "explanationStatus": "key-solution-imported-needs-claim-review"
+    }
+  ]
+}

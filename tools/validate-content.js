@@ -28,7 +28,10 @@ function validatePublishedQuestions() {
     if (q.published === true && q.verificationStatus !== 'verified') fail(`Published question is not verified: ${q.questionId}`);
     if (q.published === true && (!Array.isArray(q.citations) || !q.citations.length)) fail(`Published question lacks citations: ${q.questionId}`);
     if (q.published === true && !Array.isArray(q.choices)) fail(`Published question lacks choices: ${q.questionId}`);
-    if (q.published === true && q.choices.indexOf(q.officialAnswer) === -1) fail(`Official answer absent from choices: ${q.questionId}`);
+    if (q.published === true) {
+      const labels = q.choices.map(choice => typeof choice === 'string' ? choice : choice && choice.label);
+      if (!labels.includes(q.officialAnswer)) fail(`Official answer absent from choices: ${q.questionId}`);
+    }
   }
 }
 

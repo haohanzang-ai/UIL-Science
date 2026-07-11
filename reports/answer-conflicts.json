@@ -1,1 +1,7 @@
-[]
+[
+  {
+    "examId": "uil-2024-invitational-a",
+    "failedCheck": "source header inconsistency",
+    "evidence": "Physics page headers in the extracted test text show Invitational A 2023 while the cover and key identify Invitational A 2024. Records retain 2024 based on cover/key and should receive human source review."
+  }
+]

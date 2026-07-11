@@ -165,7 +165,12 @@
   function subjectView(def){
     var rows = catalog.questions.filter(function(q){ return q.subject === def.subject; });
     if (!rows.length) return unavailable(def.title, 'No '+def.title+' questions are published because no repository source has passed the source, transcription, answer, figure, categorization, and explanation gates.');
-    root.innerHTML = '<div class="grid g2">'+rows.map(function(q){ return '<div class="card"><h3>'+escapeHtml(q.questionId)+'</h3><p>'+escapeHtml(q.stem)+'</p></div>'; }).join('')+'</div>';
+    root.innerHTML = '<div class="grid g2">'+rows.map(function(q){
+      var choices = (q.choices || []).map(function(c){
+        return '<li><b>'+escapeHtml(c.label || '')+'.</b> '+escapeHtml(c.text || c)+'</li>';
+      }).join('');
+      return '<div class="card"><div class="cardhead"><h3>'+escapeHtml(q.sourceQuestionCode || q.questionId)+'</h3><span class="tag neutral">Official source</span></div><p>'+escapeHtml(q.stem)+'</p><ul class="clean">'+choices+'</ul><p class="faint" style="font-size:12px;margin-top:12px">Answer and explanation stay hidden until an attempt/review flow is enabled.</p></div>';
+    }).join('')+'</div>';
   }
 
   function examView(){

@@ -1,4 +1,65 @@
 {
   "schemaVersion": 1,
-  "sources": []
+  "sources": [
+    {
+      "sourceId": "uil-2024-invitational-a-test",
+      "title": "UIL High School Science Contest Invitational A 2024 Test",
+      "authorOrOrganization": "University Interscholastic League",
+      "publisher": "University Interscholastic League",
+      "edition": "",
+      "publicationYear": 2024,
+      "documentVersion": "Invitational A 2024",
+      "sourceType": "uil",
+      "repositoryPath": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+      "approved": true,
+      "approvedForSubjects": [
+        "biology",
+        "chemistry",
+        "physics"
+      ],
+      "verifiedOn": "2026-07-11",
+      "sha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+      "notes": "Imported from user-approved archive; identity verified from PDF title text."
+    },
+    {
+      "sourceId": "uil-2024-invitational-a-answer-key",
+      "title": "UIL High School Science Contest Answer Key 2024 Invitational A",
+      "authorOrOrganization": "University Interscholastic League",
+      "publisher": "University Interscholastic League",
+      "edition": "",
+      "publicationYear": 2024,
+      "documentVersion": "Invitational A 2024",
+      "sourceType": "uil",
+      "repositoryPath": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+      "approved": true,
+      "approvedForSubjects": [
+        "biology",
+        "chemistry",
+        "physics"
+      ],
+      "verifiedOn": "2026-07-11",
+      "sha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+      "notes": "Official answer table contains B01-B20, C01-C20, P01-P20."
+    },
+    {
+      "sourceId": "uil-science-handbook-2025-2026",
+      "title": "Science Handbook 2025-2026",
+      "authorOrOrganization": "University Interscholastic League",
+      "publisher": "University Interscholastic League",
+      "edition": "",
+      "publicationYear": 2025,
+      "documentVersion": "2025-2026",
+      "sourceType": "uil",
+      "repositoryPath": "references/uil/science-handbook-2025-2026.pdf",
+      "approved": true,
+      "approvedForSubjects": [
+        "biology",
+        "chemistry",
+        "physics"
+      ],
+      "verifiedOn": "2026-07-11",
+      "sha256": "a0e4e64bec7988461005274cb222e9f899a7e06083dea5d7abf306acde01f881",
+      "notes": "Imported from user-approved archive for rules/guide review."
+    }
+  ]
 }

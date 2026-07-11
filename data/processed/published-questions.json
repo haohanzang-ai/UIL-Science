@@ -1,5 +1,3360 @@
 {
   "schemaVersion": 1,
-  "generatedAt": null,
-  "questions": []
+  "generatedAt": "2026-07-11T01:28:36.269Z",
+  "questions": [
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-b01",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "B01",
+      "questionNumber": 1,
+      "originalSubjectNumber": 1,
+      "subject": "biology",
+      "stem": "Where are proteins designated for export\nsynthesized?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "smooth endoplasmic reticulum"
+        },
+        {
+          "label": "B",
+          "text": "rough endoplasmic reticulum"
+        },
+        {
+          "label": "C",
+          "text": "peroxisome"
+        },
+        {
+          "label": "D",
+          "text": "cytosolic ribosomes"
+        },
+        {
+          "label": "E",
+          "text": "lysosome"
+        }
+      ],
+      "officialAnswer": "B",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "missing-explanation",
+      "explanation": "",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 2,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "2",
+          "section": "B01",
+          "supportingExcerpt": "B01. Where are proteins designated for export\nsynthesized?\nA) smooth endoplasmic reticulum\nB) rough endoplasmic reticulum\nC) peroxisome\nD) cytosolic ribosomes\nE) lysosome",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "B01. B",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-b02",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "B02",
+      "questionNumber": 2,
+      "originalSubjectNumber": 2,
+      "subject": "biology",
+      "stem": "If P is purple and p is white, what percentage of the\nsecond filial generation would be white after\ncrossing PP x pp?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "0%"
+        },
+        {
+          "label": "B",
+          "text": "25%"
+        },
+        {
+          "label": "C",
+          "text": "50%"
+        },
+        {
+          "label": "D",
+          "text": "75%"
+        },
+        {
+          "label": "E",
+          "text": "100%"
+        }
+      ],
+      "officialAnswer": "B",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "missing-explanation",
+      "explanation": "",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 2,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "2",
+          "section": "B02",
+          "supportingExcerpt": "B02. If P is purple and p is white, what percentage of the\nsecond filial generation would be white after\ncrossing PP x pp?\nA) 0%\nB) 25%\nC) 50%\nD) 75%\nE) 100%",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "B02. B",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-b03",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "B03",
+      "questionNumber": 3,
+      "originalSubjectNumber": 3,
+      "subject": "biology",
+      "stem": "Bacterial genomes are typically arranged as",
+      "choices": [
+        {
+          "label": "A",
+          "text": "multiple circular chromosomes."
+        },
+        {
+          "label": "B",
+          "text": "one linear chromosome."
+        },
+        {
+          "label": "C",
+          "text": "a mix of both linear and circular chromosomes\nwithin the same cell."
+        },
+        {
+          "label": "D",
+          "text": "multiple linear chromosomes."
+        },
+        {
+          "label": "E",
+          "text": "a single, circular chromosome."
+        }
+      ],
+      "officialAnswer": "E",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "missing-explanation",
+      "explanation": "",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 2,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "2",
+          "section": "B03",
+          "supportingExcerpt": "B03. Bacterial genomes are typically arranged as\nA) multiple circular chromosomes.\nB) one linear chromosome.\nC) a mix of both linear and circular chromosomes\nwithin the same cell.\nD) multiple linear chromosomes.\nE) a single, circular chromosome.",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "B03. E",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-b04",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "B04",
+      "questionNumber": 4,
+      "originalSubjectNumber": 4,
+      "subject": "biology",
+      "stem": "Enterobacteriaceae are differentiated from non-\nEnterobacteriaceae by",
+      "choices": [
+        {
+          "label": "A",
+          "text": "the presence of a thin layer of peptidoglycan in\nonly the Enterobacteriaceae."
+        },
+        {
+          "label": "B",
+          "text": "the presence of two membranes in the non-\nEnterobacteriaceae, the cytoplasmic membrane\nand the outer membrane."
+        },
+        {
+          "label": "C",
+          "text": "Enterobacteriaceae typically lack an electron\ntransport chain enzyme called cytochrome c\noxidase."
+        },
+        {
+          "label": "D",
+          "text": "the presence of lipopolysaccharide (LPS) in\nEnterobacteriaceae only."
+        },
+        {
+          "label": "E",
+          "text": "Enterobacteriaceae are disease-causing in\nhumans but the non-Enterobacteriaceae are not.\nUniversity Interscho"
+        }
+      ],
+      "officialAnswer": "C",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "missing-explanation",
+      "explanation": "",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 2,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "2",
+          "section": "B04",
+          "supportingExcerpt": "B04. Enterobacteriaceae are differentiated from non-\nEnterobacteriaceae by\nA) the presence of a thin layer of peptidoglycan in\nonly the Enterobacteriaceae.\nB) the presence of two membranes in the non-\nEnterobacteriaceae, the cytoplasmic membrane\nand the outer membrane.\nC) Enterob",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "B04. C",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-b05",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "B05",
+      "questionNumber": 5,
+      "originalSubjectNumber": 5,
+      "subject": "biology",
+      "stem": "Carbon dioxide is first produced in of\naerobic respiration.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "glycolysis"
+        },
+        {
+          "label": "B",
+          "text": "the citric acid cycle"
+        },
+        {
+          "label": "C",
+          "text": "chemiosmosis."
+        },
+        {
+          "label": "D",
+          "text": "pyruvate oxidation"
+        },
+        {
+          "label": "E",
+          "text": "electron transport chain"
+        }
+      ],
+      "officialAnswer": "D",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "missing-explanation",
+      "explanation": "",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 2,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "2",
+          "section": "B05",
+          "supportingExcerpt": "B05. Carbon dioxide is first produced in of\naerobic respiration.\nA) glycolysis\nB) the citric acid cycle\nC) chemiosmosis.\nD) pyruvate oxidation\nE) electron transport chain",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "B05. D",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-b06",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "B06",
+      "questionNumber": 6,
+      "originalSubjectNumber": 6,
+      "subject": "biology",
+      "stem": "In October 2023, the Centers for Disease Control\nand Prevention issued a food safety warning for\ndiced onions linked to",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Salmonella."
+        },
+        {
+          "label": "B",
+          "text": "Hepatitis virus."
+        },
+        {
+          "label": "C",
+          "text": "Listeria."
+        },
+        {
+          "label": "D",
+          "text": "Escherichia coli."
+        },
+        {
+          "label": "E",
+          "text": "Shiga-toxin producing Escherichia coli."
+        }
+      ],
+      "officialAnswer": "A",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "missing-explanation",
+      "explanation": "",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 2,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "2",
+          "section": "B06",
+          "supportingExcerpt": "B06. In October 2023, the Centers for Disease Control\nand Prevention issued a food safety warning for\ndiced onions linked to\nA) Salmonella.\nB) Hepatitis virus.\nC) Listeria.\nD) Escherichia coli.\nE) Shiga-toxin producing Escherichia coli.",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "B06. A",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-b07",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "B07",
+      "questionNumber": 7,
+      "originalSubjectNumber": 7,
+      "subject": "biology",
+      "stem": "Epithelial cells are found in all of the following\nplaces except",
+      "choices": [
+        {
+          "label": "A",
+          "text": "skin."
+        },
+        {
+          "label": "B",
+          "text": "esophagus."
+        },
+        {
+          "label": "C",
+          "text": "inside of the bladder wall."
+        },
+        {
+          "label": "D",
+          "text": "the middle or distal end of a hair strand."
+        },
+        {
+          "label": "E",
+          "text": "kidney tubules."
+        }
+      ],
+      "officialAnswer": "D",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "missing-explanation",
+      "explanation": "",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 2,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "2",
+          "section": "B07",
+          "supportingExcerpt": "B07. Epithelial cells are found in all of the following\nplaces except\nA) skin.\nB) esophagus.\nC) inside of the bladder wall.\nD) the middle or distal end of a hair strand.\nE) kidney tubules.",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "B07. D",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-b08",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "B08",
+      "questionNumber": 8,
+      "originalSubjectNumber": 8,
+      "subject": "biology",
+      "stem": "All of the following processes regulate gene\nexpression except",
+      "choices": [
+        {
+          "label": "A",
+          "text": "attenuation."
+        },
+        {
+          "label": "B",
+          "text": "repressors binding to operators."
+        },
+        {
+          "label": "C",
+          "text": "specific sigma factors binding to RNA\npolymerase in bacteria."
+        },
+        {
+          "label": "D",
+          "text": "activators binding upstream of a promoter."
+        },
+        {
+          "label": "E",
+          "text": "RNA polymerase binding to a start codon.\nolastic League × page 2"
+        }
+      ],
+      "officialAnswer": "E",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "missing-explanation",
+      "explanation": "",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 2,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "2",
+          "section": "B08",
+          "supportingExcerpt": "B08. All of the following processes regulate gene\nexpression except\nA) attenuation.\nB) repressors binding to operators.\nC) specific sigma factors binding to RNA\npolymerase in bacteria.\nD) activators binding upstream of a promoter.\nE) RNA polymerase binding to a start codon.\nolast",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "B08. E",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-b10",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "B10",
+      "questionNumber": 10,
+      "originalSubjectNumber": 10,
+      "subject": "biology",
+      "stem": "Signaling through the use of acetylcholine\noccurs via the system.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "nervous"
+        },
+        {
+          "label": "B",
+          "text": "endocrine"
+        },
+        {
+          "label": "C",
+          "text": "reproductive"
+        },
+        {
+          "label": "D",
+          "text": "digestive"
+        },
+        {
+          "label": "E",
+          "text": "respiratory"
+        }
+      ],
+      "officialAnswer": "A",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "missing-explanation",
+      "explanation": "",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 3,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "3",
+          "section": "B10",
+          "supportingExcerpt": "B10. Signaling through the use of acetylcholine\noccurs via the system.\nA) nervous\nB) endocrine\nC) reproductive\nD) digestive\nE) respiratory",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "B10. A",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-b11",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "B11",
+      "questionNumber": 11,
+      "originalSubjectNumber": 11,
+      "subject": "biology",
+      "stem": "Organisms that are are only found in one\nlocation, such as Puerto Rico or Galapagos.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "epidemic"
+        },
+        {
+          "label": "B",
+          "text": "introduced"
+        },
+        {
+          "label": "C",
+          "text": "pandemic"
+        },
+        {
+          "label": "D",
+          "text": "migratory"
+        },
+        {
+          "label": "E",
+          "text": "endemic"
+        }
+      ],
+      "officialAnswer": "E",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "missing-explanation",
+      "explanation": "",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 3,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "3",
+          "section": "B11",
+          "supportingExcerpt": "B11. Organisms that are are only found in one\nlocation, such as Puerto Rico or Galapagos.\nA) epidemic\nB) introduced\nC) pandemic\nD) migratory\nE) endemic",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "B11. E",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-b12",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "B12",
+      "questionNumber": 12,
+      "originalSubjectNumber": 12,
+      "subject": "biology",
+      "stem": "Transcription for almost all genes in the eukaryotic\ngenome occurs",
+      "choices": [
+        {
+          "label": "A",
+          "text": "in the cytosol."
+        },
+        {
+          "label": "B",
+          "text": "in the nucleus."
+        },
+        {
+          "label": "C",
+          "text": "within mitochondria."
+        },
+        {
+          "label": "D",
+          "text": "on the rough endoplasmic reticulum."
+        },
+        {
+          "label": "E",
+          "text": "on ribosomes."
+        }
+      ],
+      "officialAnswer": "B",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "missing-explanation",
+      "explanation": "",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 3,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "3",
+          "section": "B12",
+          "supportingExcerpt": "B12. Transcription for almost all genes in the eukaryotic\ngenome occurs\nA) in the cytosol.\nB) in the nucleus.\nC) within mitochondria.\nD) on the rough endoplasmic reticulum.\nE) on ribosomes.",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "B12. B",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-b13",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "B13",
+      "questionNumber": 13,
+      "originalSubjectNumber": 13,
+      "subject": "biology",
+      "stem": "Which of the following organic molecules functions\nin long-term energy storage?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "triglycerides"
+        },
+        {
+          "label": "B",
+          "text": "phospholipids"
+        },
+        {
+          "label": "C",
+          "text": "amino acids"
+        },
+        {
+          "label": "D",
+          "text": "nucleotides"
+        },
+        {
+          "label": "E",
+          "text": "monosaccharides\nUniversity Interscho"
+        }
+      ],
+      "officialAnswer": "A",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "missing-explanation",
+      "explanation": "",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 3,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "3",
+          "section": "B13",
+          "supportingExcerpt": "B13. Which of the following organic molecules functions\nin long-term energy storage?\nA) triglycerides\nB) phospholipids\nC) amino acids\nD) nucleotides\nE) monosaccharides\nUniversity Interscho",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "B13. A",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-b14",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "B14",
+      "questionNumber": 14,
+      "originalSubjectNumber": 14,
+      "subject": "biology",
+      "stem": "The type of fermentation that produces a mixture of\nethanol, carbon dioxide, lactate, formate, succinate,\nhydrogen gas, and acetate is called",
+      "choices": [
+        {
+          "label": "A",
+          "text": "alcohol fermentation."
+        },
+        {
+          "label": "B",
+          "text": "homolactic acid fermentation."
+        },
+        {
+          "label": "C",
+          "text": "heterolactic acid fermentation."
+        },
+        {
+          "label": "D",
+          "text": "mixed acid fermentation."
+        },
+        {
+          "label": "E",
+          "text": "2,3-butanediol fermentation."
+        }
+      ],
+      "officialAnswer": "D",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "missing-explanation",
+      "explanation": "",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 3,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "3",
+          "section": "B14",
+          "supportingExcerpt": "B14. The type of fermentation that produces a mixture of\nethanol, carbon dioxide, lactate, formate, succinate,\nhydrogen gas, and acetate is called\nA) alcohol fermentation.\nB) homolactic acid fermentation.\nC) heterolactic acid fermentation.\nD) mixed acid fermentation.\nE) 2,3-butan",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "B14. D",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-b16",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "B16",
+      "questionNumber": 16,
+      "originalSubjectNumber": 16,
+      "subject": "biology",
+      "stem": "If the frequency of the recessive allele is 0.931, what\npercent of the population is heterozygous?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "0.48%"
+        },
+        {
+          "label": "B",
+          "text": "6.9%"
+        },
+        {
+          "label": "C",
+          "text": "12.8%"
+        },
+        {
+          "label": "D",
+          "text": "86.7%"
+        },
+        {
+          "label": "E",
+          "text": "96.5%"
+        }
+      ],
+      "officialAnswer": "C",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "missing-explanation",
+      "explanation": "",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 3,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "3",
+          "section": "B16",
+          "supportingExcerpt": "B16. If the frequency of the recessive allele is 0.931, what\npercent of the population is heterozygous?\nA) 0.48%\nB) 6.9%\nC) 12.8%\nD) 86.7%\nE) 96.5%",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "B16. C",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-b17",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "B17",
+      "questionNumber": 17,
+      "originalSubjectNumber": 17,
+      "subject": "biology",
+      "stem": "________ isolation is to time as ________ is to\nlocation.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Temporal; behavioral"
+        },
+        {
+          "label": "B",
+          "text": "Mechanical; ecological"
+        },
+        {
+          "label": "C",
+          "text": "Geographic; temporal"
+        },
+        {
+          "label": "D",
+          "text": "Behavioral; ecological"
+        },
+        {
+          "label": "E",
+          "text": "Temporal; geographic"
+        }
+      ],
+      "officialAnswer": "E",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "missing-explanation",
+      "explanation": "",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 3,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "3",
+          "section": "B17",
+          "supportingExcerpt": "B17. ________ isolation is to time as ________ is to\nlocation.\nA) Temporal; behavioral\nB) Mechanical; ecological\nC) Geographic; temporal\nD) Behavioral; ecological\nE) Temporal; geographic",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "B17. E",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-b18",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "B18",
+      "questionNumber": 18,
+      "originalSubjectNumber": 18,
+      "subject": "biology",
+      "stem": "Pine trees belong to Division (plant phylum) ____.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Magnoliophyta"
+        },
+        {
+          "label": "B",
+          "text": "Ginkgophyta"
+        },
+        {
+          "label": "C",
+          "text": "Coniferophyta"
+        },
+        {
+          "label": "D",
+          "text": "Gnetophyta"
+        },
+        {
+          "label": "E",
+          "text": "Bryophyta\nolastic League × page 3"
+        }
+      ],
+      "officialAnswer": "C",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "missing-explanation",
+      "explanation": "",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 3,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "3",
+          "section": "B18",
+          "supportingExcerpt": "B18. Pine trees belong to Division (plant phylum) ____.\nA) Magnoliophyta\nB) Ginkgophyta\nC) Coniferophyta\nD) Gnetophyta\nE) Bryophyta\nolastic League × page 3",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "B18. C",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-b19",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "B19",
+      "questionNumber": 19,
+      "originalSubjectNumber": 19,
+      "subject": "biology",
+      "stem": "Plants turning or moving towards a light source is\ncalled",
+      "choices": [
+        {
+          "label": "A",
+          "text": "phototropism."
+        },
+        {
+          "label": "B",
+          "text": "gravitropism."
+        },
+        {
+          "label": "C",
+          "text": "photomorphogenesis."
+        },
+        {
+          "label": "D",
+          "text": "nutation."
+        },
+        {
+          "label": "E",
+          "text": "twining."
+        }
+      ],
+      "officialAnswer": "A",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "missing-explanation",
+      "explanation": "",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 4,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "4",
+          "section": "B19",
+          "supportingExcerpt": "B19. Plants turning or moving towards a light source is\ncalled\nA) phototropism.\nB) gravitropism.\nC) photomorphogenesis.\nD) nutation.\nE) twining.",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "B19. A",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-b20",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "B20",
+      "questionNumber": 20,
+      "originalSubjectNumber": 20,
+      "subject": "biology",
+      "stem": "Which statement is incorrect?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The basic unit of life is the cell."
+        },
+        {
+          "label": "B",
+          "text": "Viruses are made of cells."
+        },
+        {
+          "label": "C",
+          "text": "All organisms have ribosomes."
+        },
+        {
+          "label": "D",
+          "text": "All organisms are made of cells."
+        },
+        {
+          "label": "E",
+          "text": "All cells come from pre-existing cells.\nUniversity Interscho"
+        }
+      ],
+      "officialAnswer": "B",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "missing-explanation",
+      "explanation": "",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 4,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "4",
+          "section": "B20",
+          "supportingExcerpt": "B20. Which statement is incorrect?\nA) The basic unit of life is the cell.\nB) Viruses are made of cells.\nC) All organisms have ribosomes.\nD) All organisms are made of cells.\nE) All cells come from pre-existing cells.\nUniversity Interscho",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "B20. B",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-c01",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "C01",
+      "questionNumber": 21,
+      "originalSubjectNumber": 1,
+      "subject": "chemistry",
+      "stem": "If 1/8 of a mole of helium is added to a latex\nballoon at 25°C and 1.1 atm pressure, how\nmany helium atoms are in the balloon?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "0.125 atoms"
+        },
+        {
+          "label": "B",
+          "text": "6.02 × 1023 atoms"
+        },
+        {
+          "label": "C",
+          "text": "7.53 × 1024 atoms"
+        },
+        {
+          "label": "D",
+          "text": "4.82 × 1024 atoms"
+        },
+        {
+          "label": "E",
+          "text": "7.53 × 1022 atoms"
+        }
+      ],
+      "officialAnswer": "E",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "key-solution-imported-needs-claim-review",
+      "explanation": "C01. (E) 1 mole = 6.022 × 1023 atoms. (1/8)(6.022 × 1023) = 7.53 × 1022 atoms",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 6,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "6",
+          "section": "C01",
+          "supportingExcerpt": "C01. If 1/8 of a mole of helium is added to a latex\nballoon at 25°C and 1.1 atm pressure, how\nmany helium atoms are in the balloon?\nA) 0.125 atoms\nB) 6.02 × 1023 atoms\nC) 7.53 × 1024 atoms\nD) 4.82 × 1024 atoms\nE) 7.53 × 1022 atoms",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "C01. E",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-c03",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "C03",
+      "questionNumber": 23,
+      "originalSubjectNumber": 3,
+      "subject": "chemistry",
+      "stem": "How many electrons are there in a Se2– ion?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "2"
+        },
+        {
+          "label": "B",
+          "text": "36"
+        },
+        {
+          "label": "C",
+          "text": "34"
+        },
+        {
+          "label": "D",
+          "text": "33"
+        },
+        {
+          "label": "E",
+          "text": "32"
+        }
+      ],
+      "officialAnswer": "B",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "key-solution-imported-needs-claim-review",
+      "explanation": "C03. (B) A selenium atom has atomic number 34 so it has 34 protons and 34 neutrons, so a Se2– ion has\ntwo extra electrons, or 36.",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 6,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "6",
+          "section": "C03",
+          "supportingExcerpt": "C03. How many electrons are there in a Se2– ion?\nA) 2 B) 36 C) 34 D) 33 E) 32",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "C03. B",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-c05",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "C05",
+      "questionNumber": 25,
+      "originalSubjectNumber": 5,
+      "subject": "chemistry",
+      "stem": "A SCUBA diver takes a 1.0 L balloon from the\nsurface of the ocean to 33 feet underwater,\nwhere the pressure is 2.0 atm. What would the\nvolume of the balloon be at 33 feet of depth?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "2.0 L"
+        },
+        {
+          "label": "B",
+          "text": "1.0 L"
+        },
+        {
+          "label": "C",
+          "text": "0.5 L"
+        },
+        {
+          "label": "D",
+          "text": "3.33 L"
+        },
+        {
+          "label": "E",
+          "text": "0.33 L"
+        }
+      ],
+      "officialAnswer": "C",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "key-solution-imported-needs-claim-review",
+      "explanation": "C05. (C) P V = P V , so doubling the pressure reduces the volume by half.\n1 1 2 2",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 6,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "6",
+          "section": "C05",
+          "supportingExcerpt": "C05. A SCUBA diver takes a 1.0 L balloon from the\nsurface of the ocean to 33 feet underwater,\nwhere the pressure is 2.0 atm. What would the\nvolume of the balloon be at 33 feet of depth?\nA) 2.0 L\nB) 1.0 L\nC) 0.5 L\nD) 3.33 L\nE) 0.33 L",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "C05. C",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-c06",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "C06",
+      "questionNumber": 26,
+      "originalSubjectNumber": 6,
+      "subject": "chemistry",
+      "stem": "What type(s) of intermolecular forces\nwould you expect to find in a sample of\nliquid chloroform, CHCl ?\n3",
+      "choices": [
+        {
+          "label": "A",
+          "text": "dispersion forces only"
+        },
+        {
+          "label": "B",
+          "text": "dipole-dipole and dispersion forces"
+        },
+        {
+          "label": "C",
+          "text": "hydrogen bonding and dispersion forces"
+        },
+        {
+          "label": "D",
+          "text": "hydrogen bonding, dipole-dipole, and\ndispersion forces"
+        },
+        {
+          "label": "E",
+          "text": "dipole-dipole forces only"
+        }
+      ],
+      "officialAnswer": "B",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "key-solution-imported-needs-claim-review",
+      "explanation": "C06. (B) CHCl is a polar molecule, so it will have dipole-dipole and dispersion forces.\n3",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 6,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "6",
+          "section": "C06",
+          "supportingExcerpt": "C06. What type(s) of intermolecular forces\nwould you expect to find in a sample of\nliquid chloroform, CHCl ?\n3\nA) dispersion forces only\nB) dipole-dipole and dispersion forces\nC) hydrogen bonding and dispersion forces\nD) hydrogen bonding, dipole-dipole, and\ndispersion forces\nE) d",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "C06. B",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-c07",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "C07",
+      "questionNumber": 27,
+      "originalSubjectNumber": 7,
+      "subject": "chemistry",
+      "stem": "Changes in the internal energy of a system are\nevident in the form of which two types of\nenergy?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "heat and work"
+        },
+        {
+          "label": "B",
+          "text": "heat and entropy"
+        },
+        {
+          "label": "C",
+          "text": "work and entropy"
+        },
+        {
+          "label": "D",
+          "text": "heat and enthalpy"
+        },
+        {
+          "label": "E",
+          "text": "enthalpy and entropy"
+        }
+      ],
+      "officialAnswer": "A",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "key-solution-imported-needs-claim-review",
+      "explanation": "C07. (A) ΔU = q + w. Changes in internal energy are equal to the heat and work associated with the\nchange.",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 6,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "6",
+          "section": "C07",
+          "supportingExcerpt": "C07. Changes in the internal energy of a system are\nevident in the form of which two types of\nenergy?\nA) heat and work\nB) heat and entropy\nC) work and entropy\nD) heat and enthalpy\nE) enthalpy and entropy",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "C07. A",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-c10",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "C10",
+      "questionNumber": 30,
+      "originalSubjectNumber": 10,
+      "subject": "chemistry",
+      "stem": "The following gas phase reaction has an\nequilibrium constant K of 16.0\nP\nA (g) + B (g) ⇋ 2 AB(g)\n2 2\nIn a system at equilibrium the partial pressures\nof A and B are 0.50 atm. What is the partial\n2 2\npressure of the AB gas?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "1.0 atm"
+        },
+        {
+          "label": "B",
+          "text": "2.0 atm"
+        },
+        {
+          "label": "C",
+          "text": "0.50 atm"
+        },
+        {
+          "label": "D",
+          "text": "4.0 atm"
+        },
+        {
+          "label": "E",
+          "text": "0.25 atm"
+        }
+      ],
+      "officialAnswer": "B",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "key-solution-imported-needs-claim-review",
+      "explanation": "C10. (B) K = 16 = P2 / (P )(P ) therefore P2 = 16×(0.5)(0.5) = 4, so P = 2 atm. The partial\nP AB A2 B2 AB AB\npressure of a gas in a mixture is the same as the pressure of that gas.",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 7,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "7",
+          "section": "C10",
+          "supportingExcerpt": "C10. The following gas phase reaction has an\nequilibrium constant K of 16.0\nP\nA (g) + B (g) ⇋ 2 AB(g)\n2 2\nIn a system at equilibrium the partial pressures\nof A and B are 0.50 atm. What is the partial\n2 2\npressure of the AB gas?\nA) 1.0 atm\nB) 2.0 atm\nC) 0.50 atm\nD) 4.0 atm\nE) 0.25",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "C10. B",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-c11",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "C11",
+      "questionNumber": 31,
+      "originalSubjectNumber": 11,
+      "subject": "chemistry",
+      "stem": "What is the pH of a 3.46 × 10–4 M solution of\nHCl?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "3.46"
+        },
+        {
+          "label": "B",
+          "text": "3.25"
+        },
+        {
+          "label": "C",
+          "text": "3.75"
+        },
+        {
+          "label": "D",
+          "text": "3.60"
+        },
+        {
+          "label": "E",
+          "text": "3.33\nUniversity Interschola"
+        }
+      ],
+      "officialAnswer": "A",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "key-solution-imported-needs-claim-review",
+      "explanation": "C11. (A) pH = –log[H+] = –log (3.46 × 10–4) = 3.46. (Yes, I chose the numbers like that on purpose.)",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 7,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "7",
+          "section": "C11",
+          "supportingExcerpt": "C11. What is the pH of a 3.46 × 10–4 M solution of\nHCl?\nA) 3.46\nB) 3.25\nC) 3.75\nD) 3.60\nE) 3.33\nUniversity Interschola",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "C11. A",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-c12",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "C12",
+      "questionNumber": 32,
+      "originalSubjectNumber": 12,
+      "subject": "chemistry",
+      "stem": "The K for Ni(OH) is 2.8 × 10–16. What is the\nsp 2\nconcentration of Ni2+ in a saturated solution of\nNi(OH) ?\n2",
+      "choices": [
+        {
+          "label": "A",
+          "text": "1.7 × 10–8 M"
+        },
+        {
+          "label": "B",
+          "text": "1.2 × 10–8 M"
+        },
+        {
+          "label": "C",
+          "text": "1.6 × 10–6 M"
+        },
+        {
+          "label": "D",
+          "text": "4.2 × 10–6 M"
+        },
+        {
+          "label": "E",
+          "text": "6.3 × 10–6 M"
+        }
+      ],
+      "officialAnswer": "D",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "key-solution-imported-needs-claim-review",
+      "explanation": "C12. (D) K = [Ni2+][OH–]2 = [x][2x]2 = 4x3. x = (2.8 × 10–16/4)⅓ = 4.2 × 10–6 = [Ni2+].\nsp",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 7,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "7",
+          "section": "C12",
+          "supportingExcerpt": "C12. The K for Ni(OH) is 2.8 × 10–16. What is the\nsp 2\nconcentration of Ni2+ in a saturated solution of\nNi(OH) ?\n2\nA) 1.7 × 10–8 M\nB) 1.2 × 10–8 M\nC) 1.6 × 10–6 M\nD) 4.2 × 10–6 M\nE) 6.3 × 10–6 M",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "C12. D",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-c14",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "C14",
+      "questionNumber": 34,
+      "originalSubjectNumber": 14,
+      "subject": "chemistry",
+      "stem": "If a reaction rate is second order with respect to\nreactant A and you triple the concentration of\nA, how much faster will the reaction go?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Twice as fast"
+        },
+        {
+          "label": "B",
+          "text": "Four times faster"
+        },
+        {
+          "label": "C",
+          "text": "Six times faster"
+        },
+        {
+          "label": "D",
+          "text": "Nine times faster"
+        },
+        {
+          "label": "E",
+          "text": "Eighteen times faster"
+        }
+      ],
+      "officialAnswer": "D",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "key-solution-imported-needs-claim-review",
+      "explanation": "C14. (D) If rate = k[A]2 and you triple [A], the reaction will go [3]2 = 9 times faster.",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 7,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "7",
+          "section": "C14",
+          "supportingExcerpt": "C14. If a reaction rate is second order with respect to\nreactant A and you triple the concentration of\nA, how much faster will the reaction go?\nA) Twice as fast\nB) Four times faster\nC) Six times faster\nD) Nine times faster\nE) Eighteen times faster",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "C14. D",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-c16",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "C16",
+      "questionNumber": 36,
+      "originalSubjectNumber": 16,
+      "subject": "chemistry",
+      "stem": "What is the energy of a photon of visible\nlight that has a wavelength of 610 nm?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "3.04 × 10–22 J"
+        },
+        {
+          "label": "B",
+          "text": "3.26 × 10–19 J"
+        },
+        {
+          "label": "C",
+          "text": "4.51 × 10–20 J"
+        },
+        {
+          "label": "D",
+          "text": "9.92 × 10–18 J"
+        },
+        {
+          "label": "E",
+          "text": "7.58 × 10–19 J"
+        }
+      ],
+      "officialAnswer": "B",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "key-solution-imported-needs-claim-review",
+      "explanation": "C16. (B) νλ = c and E = hν, so E = hc/λ.\nE = (6.626 × 10–34 J·s)(3.00 × 108 m/sec)/(610 × 10–9 m) = 3.26 × 10–19 J",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 8,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "8",
+          "section": "C16",
+          "supportingExcerpt": "C16. What is the energy of a photon of visible\nlight that has a wavelength of 610 nm?\nA) 3.04 × 10–22 J\nB) 3.26 × 10–19 J\nC) 4.51 × 10–20 J\nD) 9.92 × 10–18 J\nE) 7.58 × 10–19 J",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "C16. B",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-c17",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "C17",
+      "questionNumber": 37,
+      "originalSubjectNumber": 17,
+      "subject": "chemistry",
+      "stem": "How many fluorine atoms are in a 10.0 L\nsample of fluorine gas at STP?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "2.69 × 1023 F atoms"
+        },
+        {
+          "label": "B",
+          "text": "3.47 × 1023 F atoms"
+        },
+        {
+          "label": "C",
+          "text": "4.91 × 1023 F atoms"
+        },
+        {
+          "label": "D",
+          "text": "5.38 × 1023 F atoms"
+        },
+        {
+          "label": "E",
+          "text": "6.73 × 1023 F atoms"
+        }
+      ],
+      "officialAnswer": "D",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "key-solution-imported-needs-claim-review",
+      "explanation": "C17. (D) PV = nRT, so n = PV/RT. P = 1 atm, V = 10.0 L, T = 273K, R = 0.08206 L·atm/mol·K\nn = (1)(10.0)/(0.08206)(273) = 0.4464 moles F . (Alternatively, n = 10.0/22.4 = 0.4464 moles F )\n2 2\n0.4464 moles F × 6.022 × 1023 molecules/mol = 2.688 × 1023 F molecules\n2 2\n2.688 × 1023 F molecules × 2 F atoms/1 F molecule = 5.38 × 1023 F atoms.\n2 2",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 8,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "8",
+          "section": "C17",
+          "supportingExcerpt": "C17. How many fluorine atoms are in a 10.0 L\nsample of fluorine gas at STP?\nA) 2.69 × 1023 F atoms\nB) 3.47 × 1023 F atoms\nC) 4.91 × 1023 F atoms\nD) 5.38 × 1023 F atoms\nE) 6.73 × 1023 F atoms",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "C17. D",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-c18",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "C18",
+      "questionNumber": 38,
+      "originalSubjectNumber": 18,
+      "subject": "chemistry",
+      "stem": "The compressibility factor Z for one mole of\ngas is calculated as\n𝑃𝑉\n𝑍 =\n𝑅𝑇\nWhich of the following statements about\ncompressibility factor is true?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "As you decrease the pressure of an ideal\ngas, Z increases"
+        },
+        {
+          "label": "B",
+          "text": "As you increase the pressure of an ideal\ngas, Z increases"
+        },
+        {
+          "label": "C",
+          "text": "As you increase the temperature of an ideal\ngas, Z increases"
+        },
+        {
+          "label": "D",
+          "text": "As you decrease the volume of an ideal\ngas, Z increases"
+        },
+        {
+          "label": "E",
+          "text": "Z for an ideal gas is always equal to 1\nUniversity Interschola"
+        }
+      ],
+      "officialAnswer": "E",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "key-solution-imported-needs-claim-review",
+      "explanation": "C18. (E) For an ideal gas it is always true that PV=nRT. Therefore if n=1, it is always true that PV=RT,\nand PV/RT always equals 1, no matter what the pressure, volume, or temperature are.",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 8,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "8",
+          "section": "C18",
+          "supportingExcerpt": "C18. The compressibility factor Z for one mole of\ngas is calculated as\n𝑃𝑉\n𝑍 =\n𝑅𝑇\nWhich of the following statements about\ncompressibility factor is true?\nA) As you decrease the pressure of an ideal\ngas, Z increases\nB) As you increase the pressure of an ideal\ngas, Z increases\n",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "C18. E",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-c19",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "C19",
+      "questionNumber": 39,
+      "originalSubjectNumber": 19,
+      "subject": "chemistry",
+      "stem": "What is the limiting reactant in a chemical\nreaction?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The reactant that slows down the reaction\nrate."
+        },
+        {
+          "label": "B",
+          "text": "The reactant that is the most expensive or\nthe most difficult to obtain."
+        },
+        {
+          "label": "C",
+          "text": "The reactant that runs out first, causing the\nreaction to stop."
+        },
+        {
+          "label": "D",
+          "text": "A reactant that is in the solid or liquid\nphase."
+        },
+        {
+          "label": "E",
+          "text": "The reactant that you have the most of,\nwhich limits how small of a reaction vessel\nyou can use for the reaction."
+        }
+      ],
+      "officialAnswer": "C",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "key-solution-imported-needs-claim-review",
+      "explanation": "C19. (C)",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 8,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "8",
+          "section": "C19",
+          "supportingExcerpt": "C19. What is the limiting reactant in a chemical\nreaction?\nA) The reactant that slows down the reaction\nrate.\nB) The reactant that is the most expensive or\nthe most difficult to obtain.\nC) The reactant that runs out first, causing the\nreaction to stop.\nD) A reactant that is in th",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "C19. C",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-c20",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "C20",
+      "questionNumber": 40,
+      "originalSubjectNumber": 20,
+      "subject": "chemistry",
+      "stem": "What is the percent yield of nickel(II) sulfide\nif the actual yield is 345.7 grams and the\ntheoretical yield is 360.5 grams?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "95.89%"
+        },
+        {
+          "label": "B",
+          "text": "96.33%"
+        },
+        {
+          "label": "C",
+          "text": "97.95%"
+        },
+        {
+          "label": "D",
+          "text": "94.42%"
+        },
+        {
+          "label": "E",
+          "text": "91.11%\nl\nastic League ∙ page 8"
+        }
+      ],
+      "officialAnswer": "A",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "key-solution-imported-needs-claim-review",
+      "explanation": "C20. (A) % yield = (actual/theoretical)×100%\n2\nPHYSICS SOLUTIONS – UIL INVITATIONAL A 2024",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 8,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "8",
+          "section": "C20",
+          "supportingExcerpt": "C20. What is the percent yield of nickel(II) sulfide\nif the actual yield is 345.7 grams and the\ntheoretical yield is 360.5 grams?\nA) 95.89%\nB) 96.33%\nC) 97.95%\nD) 94.42%\nE) 91.11%\nl\nastic League ∙ page 8",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "C20. A",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-p01",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "P01",
+      "questionNumber": 41,
+      "originalSubjectNumber": 1,
+      "subject": "physics",
+      "stem": "According to Guillen, Isaac Newton did\nnot publish his ideas concerning light until\nafter one his rivals had died in 1704. Who\nwas this rival?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Nicolaus Copernicus"
+        },
+        {
+          "label": "B",
+          "text": "Michael Faraday"
+        },
+        {
+          "label": "C",
+          "text": "Robert Hooke"
+        },
+        {
+          "label": "D",
+          "text": "Wilhelm Leibniz"
+        },
+        {
+          "label": "E",
+          "text": "Thomas Young"
+        }
+      ],
+      "officialAnswer": "C",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "key-solution-imported-needs-claim-review",
+      "explanation": "P01. (C) page 55: “…had decided to withhold from this magnum opus any mention of his ideas concerning\nlight; he would not publish those until the bully Hooke had died – which would not happen until\n1704…”",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 9,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "UIL-Specific or Beyond-AP",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "9",
+          "section": "P01",
+          "supportingExcerpt": "P01. According to Guillen, Isaac Newton did\nnot publish his ideas concerning light until\nafter one his rivals had died in 1704. Who\nwas this rival?\nA) Nicolaus Copernicus\nB) Michael Faraday\nC) Robert Hooke\nD) Wilhelm Leibniz\nE) Thomas Young",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "P01. C",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-p02",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "P02",
+      "questionNumber": 42,
+      "originalSubjectNumber": 2,
+      "subject": "physics",
+      "stem": "According to Guillen, Isaac Newton was\ncheered on by Edmund Halley. Halley was\noverjoyed about Newton’s equation of gravity\nbecause it helped make sense of…",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The retrograde motion of planets"
+        },
+        {
+          "label": "B",
+          "text": "The orbits of the moons of Jupiter"
+        },
+        {
+          "label": "C",
+          "text": "The behavior of comets"
+        },
+        {
+          "label": "D",
+          "text": "The motion of the Moon"
+        },
+        {
+          "label": "E",
+          "text": "The motions within star clusters"
+        }
+      ],
+      "officialAnswer": "C",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "key-solution-imported-needs-claim-review",
+      "explanation": "P02. (C) page 54: “Halley had been overjoyed to hear of Newton’s equation of gravity; with it, he finally\nhad been able to make sense of cometary behavior.”",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 9,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "UIL-Specific or Beyond-AP",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "9",
+          "section": "P02",
+          "supportingExcerpt": "P02. According to Guillen, Isaac Newton was\ncheered on by Edmund Halley. Halley was\noverjoyed about Newton’s equation of gravity\nbecause it helped make sense of…\nA) The retrograde motion of planets\nB) The orbits of the moons of Jupiter\nC) The behavior of comets\nD) The motion of t",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "P02. C",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-p03",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "P03",
+      "questionNumber": 43,
+      "originalSubjectNumber": 3,
+      "subject": "physics",
+      "stem": "According to Guillen, one particular\napplication of Newton’s Laws is impossible to\ncompute exactly. The best one can do is\napproximate an answer. What is this\ncomplicated problem?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The centrifugal force problem"
+        },
+        {
+          "label": "B",
+          "text": "The light spectrum problem"
+        },
+        {
+          "label": "C",
+          "text": "The retrograde motion problem"
+        },
+        {
+          "label": "D",
+          "text": "The escape velocity problem"
+        },
+        {
+          "label": "E",
+          "text": "The three-body problem"
+        }
+      ],
+      "officialAnswer": "E",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "key-solution-imported-needs-claim-review",
+      "explanation": "P03. (E) page 60: “Theirs was a dreadfully complicated task, because it required applying Newton’s\nequation to three objects simultaneously – earth, moon, and spaceship – not just two. It was what\nscientists referred to as a three-body problem.”, “…predicting the net effect of three objects pulling\non one another, was impossible to compute exactly….the best one could hope to do was approximate\nan answer…”",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 9,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "UIL-Specific or Beyond-AP",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "9",
+          "section": "P03",
+          "supportingExcerpt": "P03. According to Guillen, one particular\napplication of Newton’s Laws is impossible to\ncompute exactly. The best one can do is\napproximate an answer. What is this\ncomplicated problem?\nA) The centrifugal force problem\nB) The light spectrum problem\nC) The retrograde motion problem",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "P03. E",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-p04",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "P04",
+      "questionNumber": 44,
+      "originalSubjectNumber": 4,
+      "subject": "physics",
+      "stem": "Only one moon in our solar system has a thick\natmosphere. It is also the only nitrogen-rich\ndense atmosphere found anywhere in the solar\nsystem. Which moon does this describe?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Titan"
+        },
+        {
+          "label": "B",
+          "text": "Io"
+        },
+        {
+          "label": "C",
+          "text": "Triton"
+        },
+        {
+          "label": "D",
+          "text": "Earth’s Moon"
+        },
+        {
+          "label": "E",
+          "text": "Europa"
+        }
+      ],
+      "officialAnswer": "A",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "key-solution-imported-needs-claim-review",
+      "explanation": "P04. (A) Most moons in the solar system have little or no atmosphere at all. However, Titan, the largest\nmoon on Saturn, has a thick atmosphere that is 95% nitrogen and 5% methane. The surface of Titan\nis shrouded by the hazy atmosphere and cannot be seen with visible light. Titan is the only moon in\nthe solar system with a thick atmosphere.",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 9,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "UIL-Specific or Beyond-AP",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "9",
+          "section": "P04",
+          "supportingExcerpt": "P04. Only one moon in our solar system has a thick\natmosphere. It is also the only nitrogen-rich\ndense atmosphere found anywhere in the solar\nsystem. Which moon does this describe?\nA) Titan\nB) Io\nC) Triton\nD) Earth’s Moon\nE) Europa",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "P04. A",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-p05",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "P05",
+      "questionNumber": 45,
+      "originalSubjectNumber": 5,
+      "subject": "physics",
+      "stem": "A domestic cat is chased across a yard by a\ndomestic dog. You observe that the cat\ncrosses the entire 18.0m length of the yard in a\ntime of 4.50 seconds. How fast was the cat\nrunning in miles per hour?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "1.79 mph"
+        },
+        {
+          "label": "B",
+          "text": "4.00 mph"
+        },
+        {
+          "label": "C",
+          "text": "6.40 mph"
+        },
+        {
+          "label": "D",
+          "text": "8.95 mph"
+        },
+        {
+          "label": "E",
+          "text": "14.4 mph\nUniversity Intersch"
+        }
+      ],
+      "officialAnswer": "D",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "key-solution-imported-needs-claim-review",
+      "explanation": "P05. (D) The cat moves 18.0m in a time of 4.50sec. This means that the speed of the cat is\n𝑑 18.0\n𝑣 = = = 4.00m/s. Now we need to convert this speed into miles per hour:\n𝑡 4.50\n𝑚 𝑠 𝑚𝑖𝑛 1 𝑚𝑖𝑙𝑒𝑠\n4.00 ∗60 ∗60 ∗ = 8.95mph.\n𝑠 𝑚𝑖𝑛 ℎ𝑟 1609 𝑚",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 9,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "UIL-Specific or Beyond-AP",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "9",
+          "section": "P05",
+          "supportingExcerpt": "P05. A domestic cat is chased across a yard by a\ndomestic dog. You observe that the cat\ncrosses the entire 18.0m length of the yard in a\ntime of 4.50 seconds. How fast was the cat\nrunning in miles per hour?\nA) 1.79 mph\nB) 4.00 mph\nC) 6.40 mph\nD) 8.95 mph\nE) 14.4 mph\nUniversity In",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "P05. D",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-p06",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "P06",
+      "questionNumber": 46,
+      "originalSubjectNumber": 6,
+      "subject": "physics",
+      "stem": "A domestic cat, starting from rest, accelerates at\n3.50m/s2. The cat reaches its final speed after\ntravelling a distance of 2.60m. What is the final\nspeed of the cat?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "4.27 m/s"
+        },
+        {
+          "label": "B",
+          "text": "4.86 m/s"
+        },
+        {
+          "label": "C",
+          "text": "9.10 m/s"
+        },
+        {
+          "label": "D",
+          "text": "11.8 m/s"
+        },
+        {
+          "label": "E",
+          "text": "18.2 m/s"
+        }
+      ],
+      "officialAnswer": "A",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "key-solution-imported-needs-claim-review",
+      "explanation": "P06. (A) We don’t know how long the cat took to reach its final speed, so we will use the kinematic\nequation that doesn’t involve time: 𝑣2 = 𝑣2 +2𝑎(𝑥 -𝑥 ). The initial velocity is zero, and we are\n𝑓 𝑖 𝑓 𝑖\ngiven the acceleration and the distance, so: 𝑣2 = 02 +2(3.50)(2.60) = 18.2 → 𝑣 = 4.27m/s.\n𝑓 𝑓",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 9,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "UIL-Specific or Beyond-AP",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "9",
+          "section": "P06",
+          "supportingExcerpt": "P06. A domestic cat, starting from rest, accelerates at\n3.50m/s2. The cat reaches its final speed after\ntravelling a distance of 2.60m. What is the final\nspeed of the cat?\nA) 4.27 m/s\nB) 4.86 m/s\nC) 9.10 m/s\nD) 11.8 m/s\nE) 18.2 m/s",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "P06. A",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-p08",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "P08",
+      "questionNumber": 48,
+      "originalSubjectNumber": 8,
+      "subject": "physics",
+      "stem": "A cat toy with a mass of 220g slides across a\nhorizontal floor. The coefficient of friction\nbetween the cat toy and the floor is 0.320. The\ntoy slides a distance of 4.50m before coming to\nrest. How much work was done on the toy by the\nforce of friction?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "9.70 J"
+        },
+        {
+          "label": "B",
+          "text": "5.31 J"
+        },
+        {
+          "label": "C",
+          "text": "3.10 J"
+        },
+        {
+          "label": "D",
+          "text": "2.16 J"
+        },
+        {
+          "label": "E",
+          "text": "0.690 J"
+        }
+      ],
+      "officialAnswer": "C",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "key-solution-imported-needs-claim-review",
+      "explanation": "P08. (C) Work is defined as force multiplied by distance multiplied by the cosine of the angle between the\nforce and the displacement, 𝑊 = 𝐹𝑑cos𝜃. In this problem, to find the work done by friction, we\nfirst need the magnitude of the frictional force. This requires us to draw a force diagram. There are\nthree forces acting on the toy: gravity (𝑚𝑔, downward, in the negative y-direction), the normal force\n(𝐹 , upward, in the positive y-direction), and the frictional force (𝐹 , horizontal, opposite of the\n𝑁 𝑓\nmotion, in the negative x-direction). There is no motion in the y-direction, so the forces in the\ny-direction (gravity and the normal force) must sum to zero:\n∑𝐹 = 𝐹 -𝑚𝑔 = 0 → 𝐹 = 𝑚𝑔 = (0.220)(9.80) = 2.16N. Now that we have the normal\n𝑦 𝑁 𝑁\nforce, we can find the frictional force: 𝐹 = 𝜇𝐹 = (0.320)(2.16) = 0.690N.\n𝑓 𝑁\nFinally, we can calculate the work done by friction. Because the frictional force and the motion are\nboth horizontal, we’ll use 𝜃 = 0°. Thus, the work can be calculated:\n𝑊 = 𝐹 𝑑cos𝜃 = (0.690𝑁)(4.50𝑚)cos0° = 3.10J. Note: Technically, the displacement and\n𝑓\nfrictional force are pointed in opposite directions (𝜃 = 180°), so this work would be negative –\nwhich means that the toy loses energy.\n3",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 9,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "UIL-Specific or Beyond-AP",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "9",
+          "section": "P08",
+          "supportingExcerpt": "P08. A cat toy with a mass of 220g slides across a\nhorizontal floor. The coefficient of friction\nbetween the cat toy and the floor is 0.320. The\ntoy slides a distance of 4.50m before coming to\nrest. How much work was done on the toy by the\nforce of friction?\nA) 9.70 J\nB) 5.31 J\nC",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "P08. C",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-p10",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "P10",
+      "questionNumber": 50,
+      "originalSubjectNumber": 10,
+      "subject": "physics",
+      "stem": "You create a pendulum by tying a 150.0g mass\nto a long string. You attach the string to a\nbranch on a tree and start the pendulum\nswinging. You observe that ten complete\noscillations of the pendulum take 28.0seconds.\nWhat is the length of the pendulum?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "6.54 m"
+        },
+        {
+          "label": "B",
+          "text": "5.29 m"
+        },
+        {
+          "label": "C",
+          "text": "4.11 m"
+        },
+        {
+          "label": "D",
+          "text": "2.38 m"
+        },
+        {
+          "label": "E",
+          "text": "1.95 m"
+        }
+      ],
+      "officialAnswer": "E",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "key-solution-imported-needs-claim-review",
+      "explanation": "P10. (E) First, we find the period, T, of a single oscillation of the pendulum by using the time given for ten\n𝑡 28.0\noscillations: 𝑇 = = = 2.80sec. Now we go to the equation relating the period of oscillation to\n10 10\n𝐿 𝐿 2.80 𝐿\nthe length of the pendulum: 𝑇 = 2𝜋√ → 2.80 = 2𝜋√ → = 0.4456 = √ .\n𝑔 9.80 2𝜋 9.80\nThus, 𝐿 = 9.80(0.4456)2 = 1.95m.",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 10,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "UIL-Specific or Beyond-AP",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "10",
+          "section": "P10",
+          "supportingExcerpt": "P10. You create a pendulum by tying a 150.0g mass\nto a long string. You attach the string to a\nbranch on a tree and start the pendulum\nswinging. You observe that ten complete\noscillations of the pendulum take 28.0seconds.\nWhat is the length of the pendulum?\nA) 6.54 m\nB) 5.29 m\nC)",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "P10. E",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-p11",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "P11",
+      "questionNumber": 51,
+      "originalSubjectNumber": 11,
+      "subject": "physics",
+      "stem": "A cube of steel, 8.00cm on a side, is heated to\n750.0°C. At this temperature, the steel glows\na bright red color. If the emissivity of the steel\nis 0.750, then how much power is emitted by\nthe heated cube as electromagnetic radiation?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "296 W"
+        },
+        {
+          "label": "B",
+          "text": "517 W"
+        },
+        {
+          "label": "C",
+          "text": "1080 W"
+        },
+        {
+          "label": "D",
+          "text": "1780 W"
+        },
+        {
+          "label": "E",
+          "text": "2380 W"
+        }
+      ],
+      "officialAnswer": "D",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "key-solution-imported-needs-claim-review",
+      "explanation": "P11. (D) The power lost as electromagnetic radiation by a hot object is given by 𝑃 = 𝜎𝐴𝑒(𝑇4-𝑇4). Here,\n0\n𝜎 is the Stephan-Boltzmann constant, 𝐴 is the surface area of the object, 𝑒 is the emissivity of the\nobject, 𝑇 is the temperature of the object in Kelvin, and 𝑇 is the ambient (room) temperature around\n0\nthe object (also in Kelvin). Our object has a temperature of 𝑇 = 750+273 = 1023K, while the\nroom can be assumed to be about 𝑇 = 20+273 = 293K. Our object is a cube, so it has six sides,\n0\nand each side has a surface area of 𝐴 = (8.00𝑐𝑚)2 = (0.0800𝑚)2 = 0.00640m2. So, the total\n𝑠𝑖𝑑𝑒\nsurface area is 𝐴 = 6𝐴 = 6(0.00640) = 0.0384m2. Thus, the total power output as\n𝑠𝑖𝑑𝑒\nelectromagnetic radiation from the heated cube is\n𝑃 = (5.67×10-8)(0.0384)(0.750)[(1023)4 -(293)4] = 1776𝑊 ≈ 1780𝑊. Note: the ambient\n(room) temperature doesn’t make much difference in this problem since the cube is so hot. You will\nstill get the right answer even if you ignore the room temperature contribution.",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 10,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "UIL-Specific or Beyond-AP",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "10",
+          "section": "P11",
+          "supportingExcerpt": "P11. A cube of steel, 8.00cm on a side, is heated to\n750.0°C. At this temperature, the steel glows\na bright red color. If the emissivity of the steel\nis 0.750, then how much power is emitted by\nthe heated cube as electromagnetic radiation?\nA) 296 W\nB) 517 W\nC) 1080 W\nD) 1780 W\nE)",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "P11. D",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-p15",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "P15",
+      "questionNumber": 55,
+      "originalSubjectNumber": 15,
+      "subject": "physics",
+      "stem": "A laser beam, which is naturally vertically\npolarized, has an intensity of 500W/m2. The beam\nis sent through a polarizer whose axis is oriented\nat 32.0° with respect to vertical. What is the\nintensity of the laser beam after passing through\nthe polarizer?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "500 W/m2"
+        },
+        {
+          "label": "B",
+          "text": "420 W/m2"
+        },
+        {
+          "label": "C",
+          "text": "360 W/m2"
+        },
+        {
+          "label": "D",
+          "text": "260 W/m2"
+        },
+        {
+          "label": "E",
+          "text": "140 W/m2"
+        }
+      ],
+      "officialAnswer": "C",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "key-solution-imported-needs-claim-review",
+      "explanation": "P15. (C) Since the laser beam is initially vertically polarized, we only need to use Malus’ Law once to\ncalculate the intensity of the beam after it passes through the tilted polarizer. Malus’ Law is\n𝐼 = 𝐼 (cos𝜃)2 where 𝜃 is the angle between the initial polarization of the beam and the polarizer.\n0\nIn this case that is given as 𝜃 = 32.0°. So, the final intensity is 𝐼 = (500)(cos32)2 = 360W/m2.\n1 1 1",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 10,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "UIL-Specific or Beyond-AP",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "10",
+          "section": "P15",
+          "supportingExcerpt": "P15. A laser beam, which is naturally vertically\npolarized, has an intensity of 500W/m2. The beam\nis sent through a polarizer whose axis is oriented\nat 32.0° with respect to vertical. What is the\nintensity of the laser beam after passing through\nthe polarizer?\nA) 500 W/m2\nB) 420 ",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "P15. C",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    },
+    {
+      "schemaVersion": 1,
+      "questionId": "uil-2024-invitational-a-p18",
+      "examId": "uil-2024-invitational-a",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "sourceQuestionCode": "P18",
+      "questionNumber": 58,
+      "originalSubjectNumber": 18,
+      "subject": "physics",
+      "stem": "Positronium is the bound state of an electron\nand its antiparticle, a positron. It exists for\nonly a brief time, after which the electron and\npositron annihilate one another, producing a\npair of gamma rays. Which of the\nfundamental forces is responsible for the\nexistence and decay of positronium?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The Electromagnetic Force"
+        },
+        {
+          "label": "B",
+          "text": "The Gravitational Force"
+        },
+        {
+          "label": "C",
+          "text": "The Strong Force"
+        },
+        {
+          "label": "D",
+          "text": "The Higgs Force"
+        },
+        {
+          "label": "E",
+          "text": "The Weak Force"
+        }
+      ],
+      "officialAnswer": "A",
+      "verificationStatus": "verified",
+      "published": true,
+      "explanationStatus": "key-solution-imported-needs-claim-review",
+      "explanation": "P18. (A) When a particle and its antiparticle interact, it will end with the particles annihilating one another\nand producing gamma rays. It does not matter if they are hadrons or leptons, massive or light, charged\nor uncharged: matter-antimatter interactions always end the same way. The products of this\ninteraction, gamma rays, represent pure electromagnetic energy. This result also tells us which force\nis responsible: The Electromagnetic Force.",
+      "sourceRefs": {
+        "testPdf": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+        "testSha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+        "keyPdf": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+        "keySha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+        "testPage": 11,
+        "keyPage": 1
+      },
+      "categorization": {
+        "framework": "UIL-Specific or Beyond-AP",
+        "unitCode": "",
+        "unitName": "",
+        "topicCode": "",
+        "topicName": "",
+        "secondaryTopicCodes": [],
+        "uilSpecificCategory": "",
+        "categorizationEvidence": [],
+        "categorizationStatus": "needs-review"
+      },
+      "citations": [
+        {
+          "sourceId": "uil-2024-invitational-a-test",
+          "page": "11",
+          "section": "P18",
+          "supportingExcerpt": "P18. Positronium is the bound state of an electron\nand its antiparticle, a positron. It exists for\nonly a brief time, after which the electron and\npositron annihilate one another, producing a\npair of gamma rays. Which of the\nfundamental forces is responsible for the\nexistence and",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        },
+        {
+          "sourceId": "uil-2024-invitational-a-answer-key",
+          "page": "1",
+          "section": "Official answer table",
+          "supportingExcerpt": "P18. A",
+          "supportType": "direct",
+          "verificationStatus": "verified"
+        }
+      ],
+      "publicationNotes": "Question text and official answer are source-paired. Explanations and AP categorization remain hidden/review-needed."
+    }
+  ]
 }

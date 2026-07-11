@@ -1,6 +1,7 @@
 # Publication Blockers
 
-- No approved source registry entries exist.
-- No official UIL exam PDFs or answer keys have been validated inside the repository.
-- No College Board CED files are registered for AP topic mapping.
-- OCR, figure crop validation, categorization, and explanation evidence gates are not passed.
+- Full exam mode remains blocked because not all 60 questions passed publication checks.
+- Biology explanations are missing from the imported answer key.
+- AP CED topic-code evidence is still missing from repository sources.
+- Figure-dependent questions remain blocked until crop validation is implemented.
+- Claim-level explanation citations remain required before showing explanations as verified.

@@ -1,4 +1,27 @@
 {
-  "repoRoot": "",
-  "files": []
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-11T01:29:31.758Z",
+  "files": [
+    {
+      "sourceId": "uil-2024-invitational-a-test",
+      "repositoryPath": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
+      "sha256": "da7774470dab7eac73d258c5ccb65a586c605dbfc201a6931f5746a704ee159c",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2024-invitational-a-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
+      "sha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-science-handbook-2025-2026",
+      "repositoryPath": "references/uil/science-handbook-2025-2026.pdf",
+      "sha256": "a0e4e64bec7988461005274cb222e9f899a7e06083dea5d7abf306acde01f881",
+      "approved": true,
+      "sourceType": "uil"
+    }
+  ]
 }

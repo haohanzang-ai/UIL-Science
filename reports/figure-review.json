@@ -1,1 +1,155 @@
-[]
+[
+  {
+    "examId": "uil-2024-invitational-a",
+    "question": "B09",
+    "page": 3,
+    "failedCheck": "figure/crop validation required",
+    "evidence": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ]
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "question": "B15",
+    "page": 3,
+    "failedCheck": "figure/crop validation required",
+    "evidence": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ]
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "question": "C02",
+    "page": 6,
+    "failedCheck": "figure/crop validation required",
+    "evidence": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ]
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "question": "C04",
+    "page": 6,
+    "failedCheck": "figure/crop validation required",
+    "evidence": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ]
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "question": "C08",
+    "page": 6,
+    "failedCheck": "figure/crop validation required",
+    "evidence": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ]
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "question": "C09",
+    "page": 7,
+    "failedCheck": "figure/crop validation required",
+    "evidence": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ]
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "question": "C13",
+    "page": 7,
+    "failedCheck": "figure/crop validation required",
+    "evidence": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ]
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "question": "C15",
+    "page": 7,
+    "failedCheck": "figure/crop validation required",
+    "evidence": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ]
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "question": "P07",
+    "page": 9,
+    "failedCheck": "figure/crop validation required",
+    "evidence": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ]
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "question": "P09",
+    "page": 9,
+    "failedCheck": "figure/crop validation required",
+    "evidence": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ]
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "question": "P12",
+    "page": 10,
+    "failedCheck": "figure/crop validation required",
+    "evidence": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ]
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "question": "P13",
+    "page": 10,
+    "failedCheck": "figure/crop validation required",
+    "evidence": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ]
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "question": "P14",
+    "page": 10,
+    "failedCheck": "figure/crop validation required",
+    "evidence": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ]
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "question": "P16",
+    "page": 10,
+    "failedCheck": "figure/crop validation required",
+    "evidence": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ]
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "question": "P17",
+    "page": 11,
+    "failedCheck": "figure/crop validation required",
+    "evidence": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ]
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "question": "P19",
+    "page": 11,
+    "failedCheck": "figure/crop validation required",
+    "evidence": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ]
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "question": "P20",
+    "page": 11,
+    "failedCheck": "figure/crop validation required",
+    "evidence": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ]
+  }
+]
