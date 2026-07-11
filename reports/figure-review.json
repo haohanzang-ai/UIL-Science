@@ -1,155 +1,1418 @@
 [
   {
-    "examId": "uil-2024-invitational-a",
-    "question": "B09",
+    "examId": "uil-2022-set-a",
+    "qid": "B15",
     "page": 3,
-    "failedCheck": "figure/crop validation required",
-    "evidence": [
-      "possible figure/table/diagram dependency requires visual crop validation"
+    "blockers": [
+      "Expected 5 choices, found 4"
     ]
   },
   {
-    "examId": "uil-2024-invitational-a",
-    "question": "B15",
+    "examId": "uil-2022-set-a",
+    "qid": "C16",
+    "page": 7,
+    "blockers": [
+      "Expected 5 choices, found 0"
+    ]
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-b17",
+    "qid": "B17",
     "page": 3,
-    "failedCheck": "figure/crop validation required",
-    "evidence": [
+    "blockers": [
       "possible figure/table/diagram dependency requires visual crop validation"
-    ]
+    ],
+    "explanationStatus": "missing-explanation"
   },
   {
-    "examId": "uil-2024-invitational-a",
-    "question": "C02",
-    "page": 6,
-    "failedCheck": "figure/crop validation required",
-    "evidence": [
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-b18",
+    "qid": "B18",
+    "page": 4,
+    "blockers": [
       "possible figure/table/diagram dependency requires visual crop validation"
-    ]
+    ],
+    "explanationStatus": "missing-explanation"
   },
   {
-    "examId": "uil-2024-invitational-a",
-    "question": "C04",
-    "page": 6,
-    "failedCheck": "figure/crop validation required",
-    "evidence": [
-      "possible figure/table/diagram dependency requires visual crop validation"
-    ]
-  },
-  {
-    "examId": "uil-2024-invitational-a",
-    "question": "C08",
-    "page": 6,
-    "failedCheck": "figure/crop validation required",
-    "evidence": [
-      "possible figure/table/diagram dependency requires visual crop validation"
-    ]
-  },
-  {
-    "examId": "uil-2024-invitational-a",
-    "question": "C09",
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-c18",
+    "qid": "C18",
     "page": 7,
-    "failedCheck": "figure/crop validation required",
-    "evidence": [
+    "blockers": [
       "possible figure/table/diagram dependency requires visual crop validation"
-    ]
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
   },
   {
-    "examId": "uil-2024-invitational-a",
-    "question": "C13",
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-c19",
+    "qid": "C19",
     "page": 7,
-    "failedCheck": "figure/crop validation required",
-    "evidence": [
+    "blockers": [
       "possible figure/table/diagram dependency requires visual crop validation"
-    ]
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
   },
   {
-    "examId": "uil-2024-invitational-a",
-    "question": "C15",
-    "page": 7,
-    "failedCheck": "figure/crop validation required",
-    "evidence": [
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-p02",
+    "qid": "P02",
+    "page": 8,
+    "blockers": [
       "possible figure/table/diagram dependency requires visual crop validation"
-    ]
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
   },
   {
-    "examId": "uil-2024-invitational-a",
-    "question": "P07",
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-p07",
+    "qid": "P07",
+    "page": 8,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-p08",
+    "qid": "P08",
+    "page": 8,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-p12",
+    "qid": "P12",
     "page": 9,
-    "failedCheck": "figure/crop validation required",
-    "evidence": [
+    "blockers": [
       "possible figure/table/diagram dependency requires visual crop validation"
-    ]
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
   },
   {
-    "examId": "uil-2024-invitational-a",
-    "question": "P09",
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-p13",
+    "qid": "P13",
     "page": 9,
-    "failedCheck": "figure/crop validation required",
-    "evidence": [
+    "blockers": [
       "possible figure/table/diagram dependency requires visual crop validation"
-    ]
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
   },
   {
-    "examId": "uil-2024-invitational-a",
-    "question": "P12",
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-p16",
+    "qid": "P16",
     "page": 10,
-    "failedCheck": "figure/crop validation required",
-    "evidence": [
+    "blockers": [
       "possible figure/table/diagram dependency requires visual crop validation"
-    ]
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
   },
   {
-    "examId": "uil-2024-invitational-a",
-    "question": "P13",
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-p17",
+    "qid": "P17",
     "page": 10,
-    "failedCheck": "figure/crop validation required",
-    "evidence": [
+    "blockers": [
       "possible figure/table/diagram dependency requires visual crop validation"
-    ]
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
   },
   {
-    "examId": "uil-2024-invitational-a",
-    "question": "P14",
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-p19",
+    "qid": "P19",
     "page": 10,
-    "failedCheck": "figure/crop validation required",
-    "evidence": [
+    "blockers": [
       "possible figure/table/diagram dependency requires visual crop validation"
-    ]
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
   },
   {
-    "examId": "uil-2024-invitational-a",
-    "question": "P16",
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-p20",
+    "qid": "P20",
     "page": 10,
-    "failedCheck": "figure/crop validation required",
-    "evidence": [
+    "blockers": [
       "possible figure/table/diagram dependency requires visual crop validation"
-    ]
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
   },
   {
     "examId": "uil-2024-invitational-a",
-    "question": "P17",
+    "questionId": "uil-2024-invitational-a-b09",
+    "qid": "B09",
+    "page": 3,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-b15",
+    "qid": "B15",
+    "page": 3,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-c02",
+    "qid": "C02",
+    "page": 6,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-c04",
+    "qid": "C04",
+    "page": 6,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-c08",
+    "qid": "C08",
+    "page": 6,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-c09",
+    "qid": "C09",
+    "page": 7,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-c13",
+    "qid": "C13",
+    "page": 7,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-c15",
+    "qid": "C15",
+    "page": 7,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-p07",
+    "qid": "P07",
+    "page": 9,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-p09",
+    "qid": "P09",
+    "page": 9,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-p12",
+    "qid": "P12",
+    "page": 10,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-p13",
+    "qid": "P13",
+    "page": 10,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-p14",
+    "qid": "P14",
+    "page": 10,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-p16",
+    "qid": "P16",
+    "page": 10,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-p17",
+    "qid": "P17",
     "page": 11,
-    "failedCheck": "figure/crop validation required",
-    "evidence": [
+    "blockers": [
       "possible figure/table/diagram dependency requires visual crop validation"
-    ]
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
   },
   {
     "examId": "uil-2024-invitational-a",
-    "question": "P19",
+    "questionId": "uil-2024-invitational-a-p19",
+    "qid": "P19",
     "page": 11,
-    "failedCheck": "figure/crop validation required",
-    "evidence": [
+    "blockers": [
       "possible figure/table/diagram dependency requires visual crop validation"
-    ]
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
   },
   {
     "examId": "uil-2024-invitational-a",
-    "question": "P20",
+    "questionId": "uil-2024-invitational-a-p20",
+    "qid": "P20",
     "page": 11,
-    "failedCheck": "figure/crop validation required",
-    "evidence": [
+    "blockers": [
       "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "qid": "P15",
+    "page": 10,
+    "blockers": [
+      "Expected 5 choices, found 1"
     ]
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-b11",
+    "qid": "B11",
+    "page": 3,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-b16",
+    "qid": "B16",
+    "page": 3,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-b17",
+    "qid": "B17",
+    "page": 3,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-c04",
+    "qid": "C04",
+    "page": 5,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-c14",
+    "qid": "C14",
+    "page": 6,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-c17",
+    "qid": "C17",
+    "page": 7,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-p04",
+    "qid": "P04",
+    "page": 9,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-p06",
+    "qid": "P06",
+    "page": 9,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-p07",
+    "qid": "P07",
+    "page": 9,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-p12",
+    "qid": "P12",
+    "page": 10,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-p13",
+    "qid": "P13",
+    "page": 10,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-p16",
+    "qid": "P16",
+    "page": 11,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-p19",
+    "qid": "P19",
+    "page": 11,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-p20",
+    "qid": "P20",
+    "page": 11,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "qid": "B20",
+    "page": 4,
+    "blockers": [
+      "Expected 5 choices, found 4"
+    ]
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "qid": "C06",
+    "page": 5,
+    "blockers": [
+      "Expected 5 choices, found 2"
+    ]
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "qid": "C17",
+    "page": 7,
+    "blockers": [
+      "Expected 5 choices, found 3"
+    ]
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-b05",
+    "qid": "B05",
+    "page": 2,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-b13",
+    "qid": "B13",
+    "page": 3,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-c11",
+    "qid": "C11",
+    "page": 6,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-c12",
+    "qid": "C12",
+    "page": 6,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-p06",
+    "qid": "P06",
+    "page": 8,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-p07",
+    "qid": "P07",
+    "page": 8,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-p08",
+    "qid": "P08",
+    "page": 8,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-p12",
+    "qid": "P12",
+    "page": 9,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-p13",
+    "qid": "P13",
+    "page": 9,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-p16",
+    "qid": "P16",
+    "page": 9,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-p19",
+    "qid": "P19",
+    "page": 10,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-p20",
+    "qid": "P20",
+    "page": 10,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-b12",
+    "qid": "B12",
+    "page": 3,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-c19",
+    "qid": "C19",
+    "page": 7,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-p07",
+    "qid": "P07",
+    "page": 8,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-p09",
+    "qid": "P09",
+    "page": 9,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-p12",
+    "qid": "P12",
+    "page": 9,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-p13",
+    "qid": "P13",
+    "page": 9,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-p15",
+    "qid": "P15",
+    "page": 10,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-p16",
+    "qid": "P16",
+    "page": 10,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-p17",
+    "qid": "P17",
+    "page": 10,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-p19",
+    "qid": "P19",
+    "page": 10,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-p20",
+    "qid": "P20",
+    "page": 10,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-c06",
+    "qid": "C06",
+    "page": 5,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-c08",
+    "qid": "C08",
+    "page": 5,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-c10",
+    "qid": "C10",
+    "page": 6,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-c14",
+    "qid": "C14",
+    "page": 6,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-c16",
+    "qid": "C16",
+    "page": 7,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-p05",
+    "qid": "P05",
+    "page": 8,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-p07",
+    "qid": "P07",
+    "page": 8,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-p12",
+    "qid": "P12",
+    "page": 9,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-p13",
+    "qid": "P13",
+    "page": 9,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-p14",
+    "qid": "P14",
+    "page": 9,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-p16",
+    "qid": "P16",
+    "page": 9,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-p19",
+    "qid": "P19",
+    "page": 10,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-p20",
+    "qid": "P20",
+    "page": 10,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "questionId": "uil-2026-set-b-b02",
+    "qid": "B02",
+    "page": 2,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "questionId": "uil-2026-set-b-b06",
+    "qid": "B06",
+    "page": 2,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "questionId": "uil-2026-set-b-c03",
+    "qid": "C03",
+    "page": 5,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "questionId": "uil-2026-set-b-c09",
+    "qid": "C09",
+    "page": 6,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "questionId": "uil-2026-set-b-c10",
+    "qid": "C10",
+    "page": 6,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "questionId": "uil-2026-set-b-c14",
+    "qid": "C14",
+    "page": 6,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "questionId": "uil-2026-set-b-c16",
+    "qid": "C16",
+    "page": 7,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "questionId": "uil-2026-set-b-p16",
+    "qid": "P16",
+    "page": 9,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "questionId": "uil-2026-set-b-p19",
+    "qid": "P19",
+    "page": 10,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "qid": "B01",
+    "page": 4,
+    "blockers": [
+      "Expected 5 choices, found 4"
+    ]
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "qid": "B02",
+    "page": 4,
+    "blockers": [
+      "Expected 5 choices, found 4"
+    ]
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "qid": "B03",
+    "page": 4,
+    "blockers": [
+      "Expected 5 choices, found 4"
+    ]
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "qid": "B04",
+    "page": 4,
+    "blockers": [
+      "Expected 5 choices, found 4"
+    ]
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "qid": "B05",
+    "page": 4,
+    "blockers": [
+      "Expected 5 choices, found 4"
+    ]
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "qid": "B06",
+    "page": 4,
+    "blockers": [
+      "Expected 5 choices, found 4"
+    ]
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "qid": "B07",
+    "page": 4,
+    "blockers": [
+      "Expected 5 choices, found 4"
+    ]
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "qid": "B08",
+    "page": 4,
+    "blockers": [
+      "Expected 5 choices, found 4"
+    ]
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "qid": "B09",
+    "page": 4,
+    "blockers": [
+      "Expected 5 choices, found 4"
+    ]
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "qid": "B10",
+    "page": 5,
+    "blockers": [
+      "Expected 5 choices, found 4"
+    ]
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "qid": "B11",
+    "page": 5,
+    "blockers": [
+      "Expected 5 choices, found 4"
+    ]
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "qid": "B12",
+    "page": 5,
+    "blockers": [
+      "Expected 5 choices, found 4"
+    ]
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "qid": "B13",
+    "page": 5,
+    "blockers": [
+      "Expected 5 choices, found 4"
+    ]
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "qid": "B14",
+    "page": 5,
+    "blockers": [
+      "Expected 5 choices, found 4"
+    ]
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "qid": "B15",
+    "page": 5,
+    "blockers": [
+      "Expected 5 choices, found 4"
+    ]
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "qid": "B16",
+    "page": 5,
+    "blockers": [
+      "Expected 5 choices, found 4"
+    ]
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "qid": "B17",
+    "page": 5,
+    "blockers": [
+      "Expected 5 choices, found 4"
+    ]
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "qid": "B18",
+    "page": 5,
+    "blockers": [
+      "Expected 5 choices, found 4"
+    ]
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "qid": "B19",
+    "page": 6,
+    "blockers": [
+      "Expected 5 choices, found 1"
+    ]
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "qid": "B01",
+    "page": 6,
+    "blockers": [
+      "Expected 5 choices, found 0"
+    ]
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "qid": "B01",
+    "page": 6,
+    "blockers": [
+      "Expected 5 choices, found 0"
+    ]
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "qid": "B01",
+    "page": 6,
+    "blockers": [
+      "Expected 5 choices, found 0"
+    ]
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "qid": "B01",
+    "page": 6,
+    "blockers": [
+      "Expected 5 choices, found 4"
+    ]
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-c13",
+    "qid": "C13",
+    "page": 7,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-c19",
+    "qid": "C19",
+    "page": 7,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-p04",
+    "qid": "P04",
+    "page": 8,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-p07",
+    "qid": "P07",
+    "page": 8,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-p08",
+    "qid": "P08",
+    "page": 9,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-p12",
+    "qid": "P12",
+    "page": 9,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-p15",
+    "qid": "P15",
+    "page": 10,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "qid": "B08",
+    "page": 4,
+    "blockers": [
+      "Expected 5 choices, found 4"
+    ]
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "qid": "B13",
+    "page": 5,
+    "blockers": [
+      "Expected 5 choices, found 4"
+    ]
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-b12",
+    "qid": "B12",
+    "page": 5,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-b16",
+    "qid": "B16",
+    "page": 5,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-c19",
+    "qid": "C19",
+    "page": 8,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-p03",
+    "qid": "P03",
+    "page": 8,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-p08",
+    "qid": "P08",
+    "page": 9,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-p09",
+    "qid": "P09",
+    "page": 9,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-p10",
+    "qid": "P10",
+    "page": 9,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-p12",
+    "qid": "P12",
+    "page": 9,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-p14",
+    "qid": "P14",
+    "page": 10,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "qid": "C10",
+    "page": 6,
+    "blockers": [
+      "Expected 5 choices, found 3"
+    ]
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-b08",
+    "qid": "B08",
+    "page": 2,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-b14",
+    "qid": "B14",
+    "page": 3,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-c12",
+    "qid": "C12",
+    "page": 6,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-c16",
+    "qid": "C16",
+    "page": 7,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-p07",
+    "qid": "P07",
+    "page": 8,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-p12",
+    "qid": "P12",
+    "page": 9,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-p15",
+    "qid": "P15",
+    "page": 9,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-p16",
+    "qid": "P16",
+    "page": 10,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-p17",
+    "qid": "P17",
+    "page": 10,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-p19",
+    "qid": "P19",
+    "page": 10,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-p20",
+    "qid": "P20",
+    "page": 10,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "key-solution-imported-needs-claim-review"
   }
 ]

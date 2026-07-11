@@ -1,5 +1,1055 @@
 [
   {
+    "examId": "uil-2016-invitational-a",
+    "question": "C01",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "C02",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "C03",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "C04",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "C05",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "C06",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "C07",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "C08",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "C09",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "C10",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "C11",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "C12",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "C14",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "C15",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "C16",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "C17",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "C18",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "C20",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "P01",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "P02",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "P03",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "P05",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "P06",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "P09",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "P10",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "P11",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "P13",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "P14",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "P16",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "P17",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "P18",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "P19",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "question": "P20",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "B01",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "B02",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "B03",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "B04",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "B05",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "B06",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "B07",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "B09",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "B10",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "B11",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "B14",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "B15",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "B17",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "B18",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "B19",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "B20",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "C01",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "C02",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "C03",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "C04",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "C05",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "C06",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "C07",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "C08",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "C09",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "C10",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "C11",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "C12",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "C13",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "C14",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "C15",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "C16",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "C17",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "C18",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "C20",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "P01",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "P02",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "P04",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "P05",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "P06",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "P07",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "P11",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "P13",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "P15",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "P16",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "P17",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "P18",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "P19",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "question": "P20",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "B01",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "B02",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "B03",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "B04",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "B05",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "B06",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "B07",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "B09",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "B10",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "B11",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "B12",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "B13",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "B15",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "B16",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "B17",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "B18",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "B19",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "B20",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "C01",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "C02",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "C03",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "C04",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "C05",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "C06",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "C07",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "C08",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "C09",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "C11",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "C13",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "C14",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "C15",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "C17",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "C18",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "C19",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "C20",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "P01",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "P02",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "P03",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "P04",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "P05",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "P06",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "P08",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "P09",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "P10",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "P11",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "P13",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "P14",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "question": "P18",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "B01",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "B02",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "B03",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "B04",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "B05",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "B06",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "B07",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "B08",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "B09",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "B10",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "B11",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "B12",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "B13",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "B14",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "B16",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "B19",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "B20",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "C01",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "C02",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "C03",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "C04",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "C05",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "C06",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "C07",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "C08",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "C09",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "C10",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "C11",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "C12",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "C13",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "C14",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "C15",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "C17",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "C20",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "P01",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "P03",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "P04",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "P05",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "P06",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "P09",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "P10",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "P11",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "P14",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "P15",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "question": "P18",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
     "examId": "uil-2024-invitational-a",
     "question": "B01",
     "failedCheck": "AP/UIL categorization needs CED/framework evidence",
@@ -254,6 +1304,1422 @@
   {
     "examId": "uil-2024-invitational-a",
     "question": "P18",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "B01",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "B02",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "B03",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "B04",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "B05",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "B06",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "B07",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "B08",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "B09",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "B10",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "B12",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "B13",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "B14",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "B15",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "B18",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "B20",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "C01",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "C02",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "C03",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "C05",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "C06",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "C07",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "C08",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "C09",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "C10",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "C11",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "C12",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "C13",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "C15",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "C16",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "C18",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "C19",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "C20",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "P01",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "P02",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "P03",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "P05",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "P08",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "P09",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "P10",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "P11",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "P14",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "P17",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "question": "P18",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "B01",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "B02",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "B03",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "B04",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "B06",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "B07",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "B08",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "B09",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "B10",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "B11",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "B12",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "B14",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "B15",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "B16",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "B17",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "B18",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "B19",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "C01",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "C02",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "C03",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "C04",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "C05",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "C07",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "C08",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "C09",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "C10",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "C13",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "C14",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "C15",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "C16",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "C18",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "C19",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "C20",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "P01",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "P02",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "P03",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "P04",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "P05",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "P09",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "P10",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "P11",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "P14",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "P15",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "P17",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "question": "P18",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "B01",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "B02",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "B03",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "B04",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "B05",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "B06",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "B07",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "B08",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "B09",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "B10",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "B11",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "B13",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "B14",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "B15",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "B16",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "B17",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "B18",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "B19",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "B20",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "C01",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "C02",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "C03",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "C04",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "C05",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "C06",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "C07",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "C08",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "C09",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "C10",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "C11",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "C12",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "C13",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "C14",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "C15",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "C16",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "C17",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "C18",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "C20",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "P01",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "P02",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "P03",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "P04",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "P05",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "P06",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "P08",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "P10",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "P11",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "P14",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "question": "P18",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "B01",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "B02",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "B03",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "B04",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "B05",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "B06",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "B07",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "B08",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "B09",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "B10",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "B11",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "B12",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "B13",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "B14",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "B15",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "B16",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "B17",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "B18",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "B19",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "B20",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "C01",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "C02",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "C03",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "C04",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "C05",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "C07",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "C09",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "C11",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "C12",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "C13",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "C15",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "C17",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "C18",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "C19",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "C20",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "P01",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "P02",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "P03",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "P04",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "P06",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "P08",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "P09",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "P10",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "P11",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "P15",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "P17",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "question": "P18",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "B01",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "B03",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "B04",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "B05",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "B07",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "B08",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "B09",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "B10",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "B11",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "B12",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "B13",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "B14",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "B15",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "B16",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "B17",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "B18",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "B19",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "B20",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "C01",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "C02",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "C04",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "C05",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "C06",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "C07",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "C08",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "C11",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "C12",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "C13",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "C15",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "C17",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "C18",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "C19",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "C20",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "P01",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "P02",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "P03",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "P04",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "P05",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "P06",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "P07",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "P08",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "P09",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "P10",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "P11",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "P12",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "P13",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "P14",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "P15",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "P17",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "P18",
+    "failedCheck": "AP/UIL categorization needs CED/framework evidence",
+    "evidence": "needs-review"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "question": "P20",
     "failedCheck": "AP/UIL categorization needs CED/framework evidence",
     "evidence": "needs-review"
   }

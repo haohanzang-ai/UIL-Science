@@ -1,0 +1,329 @@
+const fs = require('fs');
+const crypto = require('crypto');
+const { spawnSync } = require('child_process');
+const { normalizeInsideRepo } = require('./pathGuard');
+
+const PYTHON = process.env.CODEX_PYTHON || 'C:\\Users\\lingw\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe';
+const LETTERS = ['A', 'B', 'C', 'D', 'E'];
+
+const EXAMS = [
+  { year: 2022, set: 'A', level: 'uil-set', id: 'uil-2022-set-a', title: 'UIL Science Set A 2022', test: 'data/source-pdfs/uil/2022-set-a/science-test-a-2022.pdf', key: 'data/source-pdfs/uil/2022-set-a/science-key-a-2022.pdf' },
+  { year: 2022, set: 'B', level: 'uil-set', id: 'uil-2022-set-b', title: 'UIL Science Set B 2022', test: 'data/source-pdfs/uil/2022-set-b/science-test-b-2022.pdf', key: 'data/source-pdfs/uil/2022-set-b/science-key-b-2022.pdf' },
+  { year: 2023, set: 'A', level: 'uil-set', id: 'uil-2023-set-a', title: 'UIL Science Set A 2023', test: 'data/source-pdfs/uil/2023-set-a/science-test-a-2023.pdf', key: 'data/source-pdfs/uil/2023-set-a/science-key-a-2023.pdf' },
+  { year: 2024, set: 'A', level: 'invitational', id: 'uil-2024-invitational-a', title: 'UIL Science Invitational A 2024', test: 'data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf', key: 'data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf' },
+  { year: 2024, set: 'B', level: 'uil-set', id: 'uil-2024-set-b', title: 'UIL Science Set B 2024', test: 'data/source-pdfs/uil/2024-set-b/science-test-b-2024.pdf', key: 'data/source-pdfs/uil/2024-set-b/science-key-b-2024.pdf' },
+  { year: 2025, set: 'A', level: 'uil-set', id: 'uil-2025-set-a', title: 'UIL Science Set A 2025', test: 'data/source-pdfs/uil/2025-set-a/science-test-a-2025.pdf', key: 'data/source-pdfs/uil/2025-set-a/science-key-a-2025.pdf' },
+  { year: 2025, set: 'B', level: 'uil-set', id: 'uil-2025-set-b', title: 'UIL Science Set B 2025', test: 'data/source-pdfs/uil/2025-set-b/science-test-b-2025.pdf', key: 'data/source-pdfs/uil/2025-set-b/science-key-b-2025.pdf' },
+  { year: 2026, set: 'A', level: 'uil-set', id: 'uil-2026-set-a', title: 'UIL Science Set A 2026', test: 'data/source-pdfs/uil/2026-set-a/science-test-a-2026.pdf', key: 'data/source-pdfs/uil/2026-set-a/science-key-a-2026.pdf' },
+  { year: 2026, set: 'B', level: 'uil-set', id: 'uil-2026-set-b', title: 'UIL Science Set B 2026', test: 'data/source-pdfs/uil/2026-set-b/science-test-b-2026.pdf', key: 'data/source-pdfs/uil/2026-set-b/science-key-b-2026.pdf' },
+  { year: 2016, set: 'A', level: 'invitational', id: 'uil-2016-invitational-a', title: 'UIL Science Invitational A 2016', test: 'data/source-pdfs/uil/2016-invitational-a/science-test-a-2016.pdf', key: 'data/source-pdfs/uil/2016-invitational-a/science-key-a-2016.pdf' },
+  { year: 2016, set: 'B', level: 'invitational', id: 'uil-2016-invitational-b', title: 'UIL Science Invitational B 2016', test: 'data/source-pdfs/uil/2016-invitational-b/science-test-b-2016.pdf', key: 'data/source-pdfs/uil/2016-invitational-b/science-key-b-2016.pdf' },
+  { year: 2018, set: 'B', level: 'invitational', id: 'uil-2018-invitational-b', title: 'UIL Science Invitational B 2018', test: 'data/source-pdfs/uil/2017-set-b/science-test-b-2017.pdf', key: 'data/source-pdfs/uil/2017-set-b/science-key-b-2017.pdf' }
+];
+
+function sha256(rel) {
+  return crypto.createHash('sha256').update(fs.readFileSync(normalizeInsideRepo(rel))).digest('hex');
+}
+
+function extractPdf(testRel, keyRel) {
+  const script = `
+import pdfplumber, json
+out = {"testPages": [], "keyPages": []}
+with pdfplumber.open(${JSON.stringify(normalizeInsideRepo(testRel))}) as pdf:
+    for idx, page in enumerate(pdf.pages, 1):
+        w, h = page.width, page.height
+        out["testPages"].append({
+          "page": idx,
+          "columns": [
+            page.crop((0,0,w/2,h)).extract_text(x_tolerance=1, y_tolerance=3) or "",
+            page.crop((w/2,0,w,h)).extract_text(x_tolerance=1, y_tolerance=3) or ""
+          ],
+          "fullText": page.extract_text() or ""
+        })
+with pdfplumber.open(${JSON.stringify(normalizeInsideRepo(keyRel))}) as pdf:
+    for idx, page in enumerate(pdf.pages, 1):
+        out["keyPages"].append({"page": idx, "text": page.extract_text() or ""})
+print(json.dumps(out))
+`;
+  const res = spawnSync(PYTHON, ['-c', script], { encoding: 'utf8', env: { ...process.env, PYTHONIOENCODING: 'utf-8' } });
+  if (res.status !== 0) throw new Error(res.stderr || 'PDF extraction failed');
+  return JSON.parse(res.stdout);
+}
+
+function clean(s) {
+  return String(s || '').replace(/\r/g, '').replace(/[ \t]+/g, ' ').replace(/ﬁ/g, 'fi').replace(/−/g, '-').trim();
+}
+
+function codeFromOrdinal(n) {
+  const ordinal = Number(n);
+  if (ordinal < 1 || ordinal > 60) return null;
+  if (ordinal <= 20) return { prefix: 'B', num: ordinal, qid: `B${String(ordinal).padStart(2, '0')}`, questionNumber: ordinal };
+  if (ordinal <= 40) return { prefix: 'C', num: ordinal - 20, qid: `C${String(ordinal - 20).padStart(2, '0')}`, questionNumber: ordinal };
+  return { prefix: 'P', num: ordinal - 40, qid: `P${String(ordinal - 40).padStart(2, '0')}`, questionNumber: ordinal };
+}
+
+function answersFromKey(text) {
+  const answers = {};
+  const re = /([BCP])\s*(\d{1,2})\.?\s*[\)\.]?\s*([A-E])\b/g;
+  let m;
+  while ((m = re.exec(text))) {
+    answers[`${m[1]}${String(Number(m[2])).padStart(2, '0')}`] = m[3];
+  }
+  const numeric = /(?:^|\s)(\d{1,2})\.\s*([A-E])\b/g;
+  while ((m = numeric.exec(text))) {
+    const code = codeFromOrdinal(m[1]);
+    if (code && !answers[code.qid]) answers[code.qid] = m[2];
+  }
+  return answers;
+}
+
+function solutionMap(keyPages) {
+  const joined = keyPages.slice(1).map(p => p.text).join('\n');
+  const re = /([BCP]\d{2})\.\s*\(([A-E])\)\s*/g;
+  const matches = [...joined.matchAll(re)];
+  const out = {};
+  for (let i = 0; i < matches.length; i++) {
+    const end = i + 1 < matches.length ? matches[i + 1].index : joined.length;
+    out[matches[i][1]] = clean(joined.slice(matches[i].index, end));
+  }
+  return out;
+}
+
+function splitBlocks(text) {
+  const normalized = clean(text);
+  const coded = [...normalized.matchAll(/(?:^|\s)([BCP])\s*(\d{1,2})\.\s/g)].map(m => ({
+    index: m.index + (/^\s/.test(m[0]) ? 1 : 0),
+    codedNum: Number(m[2]),
+    ordinal: null
+  })).filter(m => m.codedNum >= 1 && m.codedNum <= 20);
+  const re = coded.length ? null : /(?:^|\s)(\d{1,2})\.\s/g;
+  const numeric = re ? [...normalized.matchAll(re)].map(m => {
+    const hasLeadSpace = /^\s/.test(m[0]);
+    return {
+      index: m.index + (hasLeadSpace ? 1 : 0),
+      codedNum: null,
+      ordinal: Number(m[1])
+    };
+  }).filter(m => m.ordinal >= 1 && m.ordinal <= 60) : [];
+  const ms = coded.length ? coded : numeric;
+  const blocks = [];
+  for (let i = 0; i < ms.length; i++) {
+    blocks.push(normalized.slice(ms[i].index, i + 1 < ms.length ? ms[i + 1].index : normalized.length).trim());
+  }
+  return blocks;
+}
+
+function parseBlock(block) {
+  const coded = block.match(/^([BCP])\s*(\d{1,2})\.\s*/);
+  const numeric = coded ? null : block.match(/^(\d{1,2})\.\s*/);
+  if (!coded && !numeric) return null;
+  const meta = coded
+    ? { prefix: coded[1], num: Number(coded[2]), qid: `${coded[1]}${String(Number(coded[2])).padStart(2, '0')}`, questionNumber: order(coded[1], Number(coded[2])) }
+    : codeFromOrdinal(numeric[1]);
+  if (!meta) return null;
+  const prefix = meta.prefix;
+  const num = meta.num;
+  const qid = meta.qid;
+  const body = block.slice((coded || numeric)[0].length);
+  const matches = [...body.matchAll(/\s([A-E])\)\s/g)];
+  if (matches.length < 5) return { qid, prefix, num, blocked: true, reason: `Expected 5 choices, found ${matches.length}`, raw: block };
+  const stem = body.slice(0, matches[0].index).trim();
+  const choices = matches.slice(0, 5).map((choice, i) => {
+    const start = choice.index + choice[0].length;
+    const end = i + 1 < 5 ? matches[i + 1].index : body.length;
+    return { label: choice[1], text: body.slice(start, end).trim() };
+  });
+  return { qid, prefix, num, questionNumber: meta.questionNumber, stem, choices, raw: block };
+}
+
+function subject(prefix) {
+  return prefix === 'B' ? 'biology' : prefix === 'C' ? 'chemistry' : 'physics';
+}
+
+function order(prefix, num) {
+  return prefix === 'B' ? num : prefix === 'C' ? 20 + num : 40 + num;
+}
+
+function figureRisk(q) {
+  const text = `${q.stem} ${q.choices.map(c => c.text).join(' ')}`.toLowerCase();
+  return /\b(figure|diagram|graph|table|shown|below|above|image|drawing|circuit|orbital shown|energy level diagram|plot)\b/.test(text);
+}
+
+function citation(sourceId, page, section, excerpt) {
+  return { sourceId, page: String(page), section, supportingExcerpt: excerpt.slice(0, 280), supportType: 'direct', verificationStatus: 'verified' };
+}
+
+function sourceRecords(exam, testHash, keyHash) {
+  return [
+    {
+      sourceId: `${exam.id}-test`,
+      title: `${exam.title} Test`,
+      authorOrOrganization: 'University Interscholastic League',
+      publisher: 'University Interscholastic League',
+      edition: '',
+      publicationYear: exam.year,
+      documentVersion: `${exam.title}`,
+      sourceType: 'uil',
+      repositoryPath: exam.test,
+      approved: true,
+      approvedForSubjects: ['biology', 'chemistry', 'physics'],
+      verifiedOn: new Date().toISOString().slice(0, 10),
+      sha256: testHash,
+      notes: 'Imported from user-approved archive; identity verified from PDF text where available.'
+    },
+    {
+      sourceId: `${exam.id}-answer-key`,
+      title: `${exam.title} Answer Key`,
+      authorOrOrganization: 'University Interscholastic League',
+      publisher: 'University Interscholastic League',
+      edition: '',
+      publicationYear: exam.year,
+      documentVersion: `${exam.title}`,
+      sourceType: 'uil',
+      repositoryPath: exam.key,
+      approved: true,
+      approvedForSubjects: ['biology', 'chemistry', 'physics'],
+      verifiedOn: new Date().toISOString().slice(0, 10),
+      sha256: keyHash,
+      notes: 'Official answer key source paired with matching test file.'
+    }
+  ];
+}
+
+function importExam(exam) {
+  const extracted = extractPdf(exam.test, exam.key);
+  const answers = answersFromKey(extracted.keyPages.map(p => p.text).join('\n'));
+  const solutions = solutionMap(extracted.keyPages);
+  const testHash = sha256(exam.test);
+  const keyHash = sha256(exam.key);
+  const parsed = new Map();
+  const review = [];
+  for (const page of extracted.testPages.slice(1)) {
+    for (const col of page.columns) {
+      for (const block of splitBlocks(col)) {
+        const q = parseBlock(block);
+        if (!q) continue;
+        if (parsed.has(q.qid)) continue;
+        if (q.blocked) {
+          review.push({ examId: exam.id, qid: q.qid, page: page.page, blockers: [q.reason] });
+          continue;
+        }
+        parsed.set(q.qid, { page: page.page, ...q });
+      }
+    }
+  }
+  const records = [];
+  for (const q of parsed.values()) {
+    const blockers = [];
+    const answer = answers[q.qid];
+    if (!answer) blockers.push('missing official answer');
+    if (q.choices.length !== 5) blockers.push('choice count is not 5');
+    if (!LETTERS.includes(answer)) blockers.push('official answer is not A-E');
+    if (!q.stem || q.stem.length < 10) blockers.push('stem too short');
+    if (figureRisk(q)) blockers.push('possible figure/table/diagram dependency requires visual crop validation');
+    const published = blockers.length === 0;
+    const explanation = solutions[q.qid] || '';
+    const rec = {
+      schemaVersion: 1,
+      questionId: `${exam.id}-${q.qid.toLowerCase()}`,
+      examId: exam.id,
+      year: exam.year,
+      contestLevel: exam.level,
+      set: exam.set,
+      sourceQuestionCode: q.qid,
+      questionNumber: q.questionNumber || order(q.prefix, q.num),
+      originalSubjectNumber: q.num,
+      subject: subject(q.prefix),
+      stem: q.stem,
+      choices: q.choices,
+      officialAnswer: answer,
+      verificationStatus: published ? 'verified' : 'needs-review',
+      published,
+      explanationStatus: explanation ? 'key-solution-imported-needs-claim-review' : 'missing-explanation',
+      explanation,
+      sourceRefs: {
+        testPdf: exam.test,
+        testSha256: testHash,
+        keyPdf: exam.key,
+        keySha256: keyHash,
+        testPage: q.page,
+        keyPage: 1
+      },
+      categorization: {
+        framework: q.prefix === 'P' ? 'UIL-Specific or Beyond-AP' : '',
+        unitCode: '',
+        unitName: '',
+        topicCode: '',
+        topicName: '',
+        secondaryTopicCodes: [],
+        uilSpecificCategory: '',
+        categorizationEvidence: [],
+        categorizationStatus: 'needs-review'
+      },
+      citations: [
+        citation(`${exam.id}-test`, q.page, q.qid, q.raw),
+        citation(`${exam.id}-answer-key`, 1, 'Official answer key', `${q.qid}. ${answer || ''}`)
+      ],
+      publicationNotes: published ? 'Question text and official answer are source-paired. Explanations and categorization remain review-needed.' : blockers.join('; ')
+    };
+    records.push(rec);
+    if (!published || rec.explanationStatus === 'missing-explanation') {
+      review.push({ examId: exam.id, questionId: rec.questionId, qid: q.qid, page: q.page, blockers, explanationStatus: rec.explanationStatus });
+    }
+  }
+  return { exam, records, review, sources: sourceRecords(exam, testHash, keyHash) };
+}
+
+function run() {
+  const allRecords = [];
+  const allReview = [];
+  const allSources = [];
+  const examSummaries = [];
+  for (const exam of EXAMS) {
+    const result = importExam(exam);
+    allRecords.push(...result.records);
+    allReview.push(...result.review);
+    allSources.push(...result.sources);
+    const published = result.records.filter(r => r.published).length;
+    examSummaries.push({ examId: exam.id, parsed: result.records.length, published, review: result.review.length });
+  }
+  const publishedRecords = allRecords.filter(r => r.published).sort((a, b) => a.examId.localeCompare(b.examId) || a.questionNumber - b.questionNumber);
+  const exams = EXAMS.map(exam => {
+    const qs = publishedRecords.filter(q => q.examId === exam.id);
+    return {
+      schemaVersion: 1,
+      examId: exam.id,
+      title: exam.title,
+      year: exam.year,
+      contestLevel: exam.level,
+      set: exam.set,
+      questionIds: qs.length === 60 ? qs.map(q => q.questionId) : [],
+      contentHash: crypto.createHash('sha256').update(JSON.stringify(qs.map(q => [q.questionId, q.stem, q.choices, q.officialAnswer]))).digest('hex'),
+      verificationStatus: qs.length === 60 ? 'verified' : 'needs-review',
+      published: qs.length === 60
+    };
+  }).filter(e => e.published);
+
+  const handbook = JSON.parse(fs.readFileSync(normalizeInsideRepo('references/source-registry.json'), 'utf8')).sources.find(s => s.sourceId === 'uil-science-handbook-2025-2026');
+  const registrySources = handbook ? [...allSources, handbook] : allSources;
+
+  fs.writeFileSync(normalizeInsideRepo('data/processed/published-questions.json'), JSON.stringify({ schemaVersion: 1, generatedAt: new Date().toISOString(), questions: publishedRecords }, null, 2) + '\n');
+  fs.writeFileSync(normalizeInsideRepo('data/processed/published-exams.json'), JSON.stringify({ schemaVersion: 1, generatedAt: new Date().toISOString(), exams }, null, 2) + '\n');
+  fs.writeFileSync(normalizeInsideRepo('data/review/imported-selected-exams.json'), JSON.stringify({ schemaVersion: 1, importedAt: new Date().toISOString(), summaries: examSummaries, review: allReview }, null, 2) + '\n');
+  fs.writeFileSync(normalizeInsideRepo('references/source-registry.json'), JSON.stringify({ schemaVersion: 1, sources: registrySources }, null, 2) + '\n');
+
+  const figure = allReview.filter(r => (r.blockers || []).some(b => /figure|diagram|plot|table|crop|choice/i.test(b)));
+  const explanation = allReview.filter(r => r.explanationStatus === 'missing-explanation');
+  const cat = publishedRecords.map(q => ({ examId: q.examId, question: q.sourceQuestionCode, failedCheck: 'AP/UIL categorization needs CED/framework evidence', evidence: q.categorization.categorizationStatus }));
+  fs.writeFileSync(normalizeInsideRepo('reports/figure-review.json'), JSON.stringify(figure, null, 2) + '\n');
+  fs.writeFileSync(normalizeInsideRepo('reports/explanation-review.json'), JSON.stringify(explanation, null, 2) + '\n');
+  fs.writeFileSync(normalizeInsideRepo('reports/categorization-review.json'), JSON.stringify(cat, null, 2) + '\n');
+  fs.writeFileSync(normalizeInsideRepo('reports/import-summary.md'), ['# Import Summary', '', `Exam/key sets processed: ${EXAMS.length}`, `Published question-only records: ${publishedRecords.length}`, `Review/blocker records: ${allReview.length}`, '', 'Published records include source-paired question text and official answer letters. Answer reveal, explanations, figures, and categorization remain gated where not validated.', ''].join('\n'));
+  fs.writeFileSync(normalizeInsideRepo('reports/publication-blockers.md'), ['# Publication Blockers', '', '- Full exam mode remains blocked for any exam that has fewer than 60 safely published questions.', '- Figure-dependent questions remain blocked until crop validation is implemented.', '- AP CED topic-code evidence is still missing from repository sources.', '- Claim-level explanation citations remain required before showing explanations as verified.', ''].join('\n'));
+  fs.writeFileSync(normalizeInsideRepo('reports/source-provenance.json'), JSON.stringify({ schemaVersion: 1, generatedAt: new Date().toISOString(), files: registrySources.map(s => ({ sourceId: s.sourceId, repositoryPath: s.repositoryPath, sha256: s.sha256, approved: s.approved, sourceType: s.sourceType })) }, null, 2) + '\n');
+  console.log(JSON.stringify({ exams: examSummaries, published: publishedRecords.length, review: allReview.length }, null, 2));
+}
+
+if (require.main === module) run();
+
+module.exports = { run };

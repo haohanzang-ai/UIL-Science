@@ -169,6 +169,18 @@ ul.clean{list-style:none;margin:0;padding:0;display:grid;gap:9px}
 ul.clean li{display:flex;gap:11px;align-items:flex-start;font-size:13.5px;color:var(--ink-dim)}
 ul.clean.check li::before{content:"✓";color:var(--accent-2);font-weight:900;margin-top:1px}
 ul.clean b{color:var(--ink);font-weight:700}
+.question-card{display:flex;flex-direction:column}
+.question-card > p{font-size:14px}
+.choices{display:grid;gap:9px;margin-top:12px}
+.choice.pick{
+  width:100%;min-height:44px;display:grid;grid-template-columns:auto 1fr;align-items:flex-start;gap:10px;
+  text-align:left;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;color:var(--ink-dim);
+  padding:10px 12px;font:inherit;font-size:13.5px;line-height:1.45;cursor:pointer;transition:.14s
+}
+.choice.pick b{color:var(--ink);font-weight:800}
+.choice.pick:hover{border-color:var(--accent);background:#14213d;color:var(--ink)}
+.choice.pick.sel{border-color:var(--accent-2);background:rgba(34,211,166,.12);color:var(--ink);box-shadow:inset 0 0 0 1px rgba(34,211,166,.2)}
+.choice.pick.sel b{color:#9ff8d8}
 .rowline{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px solid var(--line-soft)}
 .rowline:last-child{border-bottom:none}
 .rowline .t{font-size:13.5px}.rowline .s{font-size:12px;color:var(--ink-faint)}

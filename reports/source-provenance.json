@@ -1,7 +1,49 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-11T01:29:31.758Z",
+  "generatedAt": "2026-07-11T17:52:08.744Z",
   "files": [
+    {
+      "sourceId": "uil-2022-set-a-test",
+      "repositoryPath": "data/source-pdfs/uil/2022-set-a/science-test-a-2022.pdf",
+      "sha256": "d10452f5bcef638b6681a4b4acae2a9eba932391dd5dde7c067b8b76f30927e4",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2022-set-a-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2022-set-a/science-key-a-2022.pdf",
+      "sha256": "86878d92bf70e4ad96959eccbb1aa7d162650c9ce103badd832b7b9662e5b460",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2022-set-b-test",
+      "repositoryPath": "data/source-pdfs/uil/2022-set-b/science-test-b-2022.pdf",
+      "sha256": "3ae73880f079bd41cfc0102a00e93eb28a5fe03dad74760979ea711753662c9c",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2022-set-b-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2022-set-b/science-key-b-2022.pdf",
+      "sha256": "870edd94b191ee8c6e7f28f91bac71fe8b9d049c048d755676ea637fbc8e053c",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2023-set-a-test",
+      "repositoryPath": "data/source-pdfs/uil/2023-set-a/science-test-a-2023.pdf",
+      "sha256": "1d4cdcf9bbce8fcf10d79358d2fdd867e5b57a4675ee3b1e21835efe955df96d",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2023-set-a-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2023-set-a/science-key-a-2023.pdf",
+      "sha256": "55f6af5b313236a9bd93b4c6951447b3a5739cdd84a1b512bc32f7df3271ee61",
+      "approved": true,
+      "sourceType": "uil"
+    },
     {
       "sourceId": "uil-2024-invitational-a-test",
       "repositoryPath": "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf",
@@ -13,6 +55,118 @@
       "sourceId": "uil-2024-invitational-a-answer-key",
       "repositoryPath": "data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf",
       "sha256": "cf8882e21e64be20d808137a6e4108bad1782458ffaf265224a465dd6be63409",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2024-set-b-test",
+      "repositoryPath": "data/source-pdfs/uil/2024-set-b/science-test-b-2024.pdf",
+      "sha256": "ea2e1d0c32e9c9f9c189dc55be77520c29a9d9212c3200fd581bf6c533450ee0",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2024-set-b-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2024-set-b/science-key-b-2024.pdf",
+      "sha256": "a1122e6baa12879c2f66458ca9a0384fefa1e6e3b63487e943c6534d92f2d635",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2025-set-a-test",
+      "repositoryPath": "data/source-pdfs/uil/2025-set-a/science-test-a-2025.pdf",
+      "sha256": "c2d84788a32fe8171063d7b787889c885c92f3c0a9bae53f18077e00b91f0364",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2025-set-a-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2025-set-a/science-key-a-2025.pdf",
+      "sha256": "40391b6797fcc14f6656259f2e759ec439d0b496812e6955e6017fc7b1181494",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2025-set-b-test",
+      "repositoryPath": "data/source-pdfs/uil/2025-set-b/science-test-b-2025.pdf",
+      "sha256": "845a75f87210c3f178fe46d8d08ed100f5af586b3b7a72511af5c3ad2aeec019",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2025-set-b-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2025-set-b/science-key-b-2025.pdf",
+      "sha256": "49470242ef2647e7c8323553c2f04061af3ad93c2fee669866b8489e88ceaae0",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2026-set-a-test",
+      "repositoryPath": "data/source-pdfs/uil/2026-set-a/science-test-a-2026.pdf",
+      "sha256": "9c5d8cb20fff6b9004d15a2e08ab5ca17f80ada10119e9d96a1c79fca5802f20",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2026-set-a-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2026-set-a/science-key-a-2026.pdf",
+      "sha256": "e5486eb01135a4db961a630ac4e6adae2817875547bdf7d8854663cf0aa800b2",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2026-set-b-test",
+      "repositoryPath": "data/source-pdfs/uil/2026-set-b/science-test-b-2026.pdf",
+      "sha256": "dd3f345006aa1d2f2267c79b38832b88f21bd4b737ac5289bf21f290c954b980",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2026-set-b-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2026-set-b/science-key-b-2026.pdf",
+      "sha256": "3515f22606088875848275ee6a58189a11ddabeb72b1d381c4ec1f4e6fa0eae2",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2016-invitational-a-test",
+      "repositoryPath": "data/source-pdfs/uil/2016-invitational-a/science-test-a-2016.pdf",
+      "sha256": "6345ff9e08b016a8ceb1ef1a38157bb37d22c5ebcd45fbba05d3f8ec0e0dbed0",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2016-invitational-a-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2016-invitational-a/science-key-a-2016.pdf",
+      "sha256": "1730355e43f686ad458adcfc0c2b1bfc1a04d6a4b6c6c1244e918021cc1f58bd",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2016-invitational-b-test",
+      "repositoryPath": "data/source-pdfs/uil/2016-invitational-b/science-test-b-2016.pdf",
+      "sha256": "a03830dcac764a3ac948668939e74a52ad01a98e3b1d259ba14995c4a6af28a7",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2016-invitational-b-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2016-invitational-b/science-key-b-2016.pdf",
+      "sha256": "e8e6e7c82cfba11973d5ffae41a5a8391e3eda5a5cdca9e4dfc588939d44c0e5",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2018-invitational-b-test",
+      "repositoryPath": "data/source-pdfs/uil/2017-set-b/science-test-b-2017.pdf",
+      "sha256": "f93d085e236968aff1924b4d612643ac756f33c0b1969265e56faea4a184663d",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2018-invitational-b-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2017-set-b/science-key-b-2017.pdf",
+      "sha256": "f0e86e0b01fa33580540b7245017d254c28dfce4f1e79a6acd58b40ec4532e81",
       "approved": true,
       "sourceType": "uil"
     },

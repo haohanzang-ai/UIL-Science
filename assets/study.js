@@ -3,6 +3,7 @@
 
   var PROFILE_KEY = 'uil-public-profile-v1';
   var PROGRESS_KEY = 'uil-public-progress-v1';
+  var ANSWERS_KEY = 'uil-public-choice-selections-v1';
   var MAX_NAME = 40;
   var root = document.getElementById('root');
   var title = document.getElementById('page-title');
@@ -71,10 +72,26 @@
     return readJson(PROGRESS_KEY, { schemaVersion:1, attempts:[], bookmarks:[], reviewQueue:[] });
   }
 
+  function getSelections(){
+    return readJson(ANSWERS_KEY, { schemaVersion:1, selections:{} });
+  }
+
+  function setSelection(questionId, choice){
+    var state = getSelections();
+    state.selections = state.selections && typeof state.selections === 'object' ? state.selections : {};
+    state.selections[questionId] = { choice: choice, selectedAt: new Date().toISOString() };
+    saveJson(ANSWERS_KEY, state);
+  }
+
   function escapeHtml(s){
     return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
       return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
     });
+  }
+
+  function escapeCssValue(s){
+    if (window.CSS && CSS.escape) return CSS.escape(s);
+    return String(s).replace(/["\\]/g, '\\$&');
   }
 
   async function loadCatalog(){
@@ -165,12 +182,27 @@
   function subjectView(def){
     var rows = catalog.questions.filter(function(q){ return q.subject === def.subject; });
     if (!rows.length) return unavailable(def.title, 'No '+def.title+' questions are published because no repository source has passed the source, transcription, answer, figure, categorization, and explanation gates.');
+    var selections = getSelections().selections || {};
     root.innerHTML = '<div class="grid g2">'+rows.map(function(q){
       var choices = (q.choices || []).map(function(c){
-        return '<li><b>'+escapeHtml(c.label || '')+'.</b> '+escapeHtml(c.text || c)+'</li>';
+        var label = c.label || '';
+        var selected = selections[q.questionId] && selections[q.questionId].choice === label;
+        return '<button class="choice pick '+(selected ? 'sel' : '')+'" type="button" data-question-id="'+escapeHtml(q.questionId)+'" data-choice="'+escapeHtml(label)+'" aria-pressed="'+(selected ? 'true' : 'false')+'"><b>'+escapeHtml(label)+'.</b><span>'+escapeHtml(c.text || c)+'</span></button>';
       }).join('');
-      return '<div class="card"><div class="cardhead"><h3>'+escapeHtml(q.sourceQuestionCode || q.questionId)+'</h3><span class="tag neutral">Official source</span></div><p>'+escapeHtml(q.stem)+'</p><ul class="clean">'+choices+'</ul><p class="faint" style="font-size:12px;margin-top:12px">Answer and explanation stay hidden until an attempt/review flow is enabled.</p></div>';
+      return '<div class="card question-card"><div class="cardhead"><h3>'+escapeHtml(q.sourceQuestionCode || q.questionId)+'</h3><span class="tag neutral">Official source</span></div><p>'+escapeHtml(q.stem)+'</p><div class="choices">'+choices+'</div><p class="faint" style="font-size:12px;margin-top:12px">Selection is saved locally. Answer and explanation stay hidden until an attempt/review flow is enabled.</p></div>';
     }).join('')+'</div>';
+    root.querySelectorAll('.choice.pick').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var questionId = btn.getAttribute('data-question-id');
+        var choice = btn.getAttribute('data-choice');
+        setSelection(questionId, choice);
+        root.querySelectorAll('.choice.pick[data-question-id="'+escapeCssValue(questionId)+'"]').forEach(function(peer){
+          var selected = peer === btn;
+          peer.classList.toggle('sel', selected);
+          peer.setAttribute('aria-pressed', selected ? 'true' : 'false');
+        });
+      });
+    });
   }
 
   function examView(){

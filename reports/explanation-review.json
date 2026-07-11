@@ -1,142 +1,2112 @@
 [
   {
-    "examId": "uil-2024-invitational-a",
-    "question": "B01",
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-b01",
+    "qid": "B01",
     "page": 2,
-    "failedCheck": "explanation not verified",
-    "evidence": "missing-explanation"
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
   },
   {
-    "examId": "uil-2024-invitational-a",
-    "question": "B02",
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-b02",
+    "qid": "B02",
     "page": 2,
-    "failedCheck": "explanation not verified",
-    "evidence": "missing-explanation"
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
   },
   {
-    "examId": "uil-2024-invitational-a",
-    "question": "B03",
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-b03",
+    "qid": "B03",
     "page": 2,
-    "failedCheck": "explanation not verified",
-    "evidence": "missing-explanation"
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
   },
   {
-    "examId": "uil-2024-invitational-a",
-    "question": "B04",
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-b04",
+    "qid": "B04",
     "page": 2,
-    "failedCheck": "explanation not verified",
-    "evidence": "missing-explanation"
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
   },
   {
-    "examId": "uil-2024-invitational-a",
-    "question": "B05",
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-b05",
+    "qid": "B05",
     "page": 2,
-    "failedCheck": "explanation not verified",
-    "evidence": "missing-explanation"
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
   },
   {
-    "examId": "uil-2024-invitational-a",
-    "question": "B06",
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-b06",
+    "qid": "B06",
     "page": 2,
-    "failedCheck": "explanation not verified",
-    "evidence": "missing-explanation"
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
   },
   {
-    "examId": "uil-2024-invitational-a",
-    "question": "B07",
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-b07",
+    "qid": "B07",
     "page": 2,
-    "failedCheck": "explanation not verified",
-    "evidence": "missing-explanation"
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
   },
   {
-    "examId": "uil-2024-invitational-a",
-    "question": "B08",
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-b08",
+    "qid": "B08",
     "page": 2,
-    "failedCheck": "explanation not verified",
-    "evidence": "missing-explanation"
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
   },
   {
-    "examId": "uil-2024-invitational-a",
-    "question": "B09",
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-b09",
+    "qid": "B09",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-b10",
+    "qid": "B10",
     "page": 3,
-    "failedCheck": "explanation not verified",
-    "evidence": "missing-explanation"
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
   },
   {
-    "examId": "uil-2024-invitational-a",
-    "question": "B10",
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-b11",
+    "qid": "B11",
     "page": 3,
-    "failedCheck": "explanation not verified",
-    "evidence": "missing-explanation"
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
   },
   {
-    "examId": "uil-2024-invitational-a",
-    "question": "B11",
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-b12",
+    "qid": "B12",
     "page": 3,
-    "failedCheck": "explanation not verified",
-    "evidence": "missing-explanation"
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
   },
   {
-    "examId": "uil-2024-invitational-a",
-    "question": "B12",
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-b13",
+    "qid": "B13",
     "page": 3,
-    "failedCheck": "explanation not verified",
-    "evidence": "missing-explanation"
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
   },
   {
-    "examId": "uil-2024-invitational-a",
-    "question": "B13",
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-b14",
+    "qid": "B14",
     "page": 3,
-    "failedCheck": "explanation not verified",
-    "evidence": "missing-explanation"
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
   },
   {
-    "examId": "uil-2024-invitational-a",
-    "question": "B14",
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-b16",
+    "qid": "B16",
     "page": 3,
-    "failedCheck": "explanation not verified",
-    "evidence": "missing-explanation"
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
   },
   {
-    "examId": "uil-2024-invitational-a",
-    "question": "B15",
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-b17",
+    "qid": "B17",
     "page": 3,
-    "failedCheck": "explanation not verified",
-    "evidence": "missing-explanation"
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
   },
   {
-    "examId": "uil-2024-invitational-a",
-    "question": "B16",
-    "page": 3,
-    "failedCheck": "explanation not verified",
-    "evidence": "missing-explanation"
-  },
-  {
-    "examId": "uil-2024-invitational-a",
-    "question": "B17",
-    "page": 3,
-    "failedCheck": "explanation not verified",
-    "evidence": "missing-explanation"
-  },
-  {
-    "examId": "uil-2024-invitational-a",
-    "question": "B18",
-    "page": 3,
-    "failedCheck": "explanation not verified",
-    "evidence": "missing-explanation"
-  },
-  {
-    "examId": "uil-2024-invitational-a",
-    "question": "B19",
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-b18",
+    "qid": "B18",
     "page": 4,
-    "failedCheck": "explanation not verified",
-    "evidence": "missing-explanation"
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-b19",
+    "qid": "B19",
+    "page": 4,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2022-set-a",
+    "questionId": "uil-2022-set-a-b20",
+    "qid": "B20",
+    "page": 4,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
   },
   {
     "examId": "uil-2024-invitational-a",
-    "question": "B20",
+    "questionId": "uil-2024-invitational-a-b01",
+    "qid": "B01",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-b02",
+    "qid": "B02",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-b03",
+    "qid": "B03",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-b04",
+    "qid": "B04",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-b05",
+    "qid": "B05",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-b06",
+    "qid": "B06",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-b07",
+    "qid": "B07",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-b08",
+    "qid": "B08",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-b09",
+    "qid": "B09",
+    "page": 3,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-b10",
+    "qid": "B10",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-b11",
+    "qid": "B11",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-b12",
+    "qid": "B12",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-b13",
+    "qid": "B13",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-b14",
+    "qid": "B14",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-b15",
+    "qid": "B15",
+    "page": 3,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-b16",
+    "qid": "B16",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-b17",
+    "qid": "B17",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-b18",
+    "qid": "B18",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-b19",
+    "qid": "B19",
     "page": 4,
-    "failedCheck": "explanation not verified",
-    "evidence": "missing-explanation"
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-invitational-a",
+    "questionId": "uil-2024-invitational-a-b20",
+    "qid": "B20",
+    "page": 4,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-b01",
+    "qid": "B01",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-b02",
+    "qid": "B02",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-b03",
+    "qid": "B03",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-b04",
+    "qid": "B04",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-b05",
+    "qid": "B05",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-b06",
+    "qid": "B06",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-b07",
+    "qid": "B07",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-b08",
+    "qid": "B08",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-b09",
+    "qid": "B09",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-b10",
+    "qid": "B10",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-b11",
+    "qid": "B11",
+    "page": 3,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-b12",
+    "qid": "B12",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-b13",
+    "qid": "B13",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-b14",
+    "qid": "B14",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-b15",
+    "qid": "B15",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-b16",
+    "qid": "B16",
+    "page": 3,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-b17",
+    "qid": "B17",
+    "page": 3,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-b18",
+    "qid": "B18",
+    "page": 4,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-b19",
+    "qid": "B19",
+    "page": 4,
+    "blockers": [
+      "stem too short"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2024-set-b",
+    "questionId": "uil-2024-set-b-b20",
+    "qid": "B20",
+    "page": 4,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-b01",
+    "qid": "B01",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-b02",
+    "qid": "B02",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-b03",
+    "qid": "B03",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-b04",
+    "qid": "B04",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-b05",
+    "qid": "B05",
+    "page": 2,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-b06",
+    "qid": "B06",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-b07",
+    "qid": "B07",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-b08",
+    "qid": "B08",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-b09",
+    "qid": "B09",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-b10",
+    "qid": "B10",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-b11",
+    "qid": "B11",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-b12",
+    "qid": "B12",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-b13",
+    "qid": "B13",
+    "page": 3,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-b14",
+    "qid": "B14",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-b15",
+    "qid": "B15",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-b16",
+    "qid": "B16",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-b17",
+    "qid": "B17",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-b18",
+    "qid": "B18",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-a",
+    "questionId": "uil-2025-set-a-b19",
+    "qid": "B19",
+    "page": 4,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-b01",
+    "qid": "B01",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-b02",
+    "qid": "B02",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-b03",
+    "qid": "B03",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-b04",
+    "qid": "B04",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-b05",
+    "qid": "B05",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-b06",
+    "qid": "B06",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-b07",
+    "qid": "B07",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-b08",
+    "qid": "B08",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-b09",
+    "qid": "B09",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-b10",
+    "qid": "B10",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-b11",
+    "qid": "B11",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-b12",
+    "qid": "B12",
+    "page": 3,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-b13",
+    "qid": "B13",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-b14",
+    "qid": "B14",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-b15",
+    "qid": "B15",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-b16",
+    "qid": "B16",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-b17",
+    "qid": "B17",
+    "page": 4,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-b18",
+    "qid": "B18",
+    "page": 4,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-b19",
+    "qid": "B19",
+    "page": 4,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2025-set-b",
+    "questionId": "uil-2025-set-b-b20",
+    "qid": "B20",
+    "page": 4,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-b01",
+    "qid": "B01",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-b02",
+    "qid": "B02",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-b03",
+    "qid": "B03",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-b04",
+    "qid": "B04",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-b05",
+    "qid": "B05",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-b06",
+    "qid": "B06",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-b07",
+    "qid": "B07",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-b08",
+    "qid": "B08",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-b09",
+    "qid": "B09",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-b10",
+    "qid": "B10",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-b11",
+    "qid": "B11",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-b12",
+    "qid": "B12",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-b13",
+    "qid": "B13",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-b14",
+    "qid": "B14",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-b15",
+    "qid": "B15",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-b16",
+    "qid": "B16",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-b17",
+    "qid": "B17",
+    "page": 4,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-b18",
+    "qid": "B18",
+    "page": 4,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-b19",
+    "qid": "B19",
+    "page": 4,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-a",
+    "questionId": "uil-2026-set-a-b20",
+    "qid": "B20",
+    "page": 4,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "questionId": "uil-2026-set-b-b01",
+    "qid": "B01",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "questionId": "uil-2026-set-b-b02",
+    "qid": "B02",
+    "page": 2,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "questionId": "uil-2026-set-b-b03",
+    "qid": "B03",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "questionId": "uil-2026-set-b-b04",
+    "qid": "B04",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "questionId": "uil-2026-set-b-b05",
+    "qid": "B05",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "questionId": "uil-2026-set-b-b06",
+    "qid": "B06",
+    "page": 2,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "questionId": "uil-2026-set-b-b07",
+    "qid": "B07",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "questionId": "uil-2026-set-b-b08",
+    "qid": "B08",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "questionId": "uil-2026-set-b-b09",
+    "qid": "B09",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "questionId": "uil-2026-set-b-b10",
+    "qid": "B10",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "questionId": "uil-2026-set-b-b11",
+    "qid": "B11",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "questionId": "uil-2026-set-b-b12",
+    "qid": "B12",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "questionId": "uil-2026-set-b-b13",
+    "qid": "B13",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "questionId": "uil-2026-set-b-b14",
+    "qid": "B14",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "questionId": "uil-2026-set-b-b15",
+    "qid": "B15",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "questionId": "uil-2026-set-b-b16",
+    "qid": "B16",
+    "page": 4,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "questionId": "uil-2026-set-b-b17",
+    "qid": "B17",
+    "page": 4,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "questionId": "uil-2026-set-b-b18",
+    "qid": "B18",
+    "page": 4,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "questionId": "uil-2026-set-b-b19",
+    "qid": "B19",
+    "page": 4,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2026-set-b",
+    "questionId": "uil-2026-set-b-b20",
+    "qid": "B20",
+    "page": 4,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-c01",
+    "qid": "C01",
+    "page": 6,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-c02",
+    "qid": "C02",
+    "page": 6,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-c03",
+    "qid": "C03",
+    "page": 6,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-c04",
+    "qid": "C04",
+    "page": 6,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-c05",
+    "qid": "C05",
+    "page": 6,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-c06",
+    "qid": "C06",
+    "page": 6,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-c07",
+    "qid": "C07",
+    "page": 6,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-c08",
+    "qid": "C08",
+    "page": 6,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-c09",
+    "qid": "C09",
+    "page": 7,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-c10",
+    "qid": "C10",
+    "page": 7,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-c11",
+    "qid": "C11",
+    "page": 7,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-c12",
+    "qid": "C12",
+    "page": 7,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-c13",
+    "qid": "C13",
+    "page": 7,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-c14",
+    "qid": "C14",
+    "page": 7,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-c15",
+    "qid": "C15",
+    "page": 7,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-c16",
+    "qid": "C16",
+    "page": 7,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-c17",
+    "qid": "C17",
+    "page": 7,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-c18",
+    "qid": "C18",
+    "page": 7,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-c19",
+    "qid": "C19",
+    "page": 7,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-c20",
+    "qid": "C20",
+    "page": 8,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-p01",
+    "qid": "P01",
+    "page": 8,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-p02",
+    "qid": "P02",
+    "page": 8,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-p03",
+    "qid": "P03",
+    "page": 8,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-p04",
+    "qid": "P04",
+    "page": 8,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-p05",
+    "qid": "P05",
+    "page": 8,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-p06",
+    "qid": "P06",
+    "page": 8,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-p07",
+    "qid": "P07",
+    "page": 8,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-p08",
+    "qid": "P08",
+    "page": 9,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-p09",
+    "qid": "P09",
+    "page": 9,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-p10",
+    "qid": "P10",
+    "page": 9,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-p11",
+    "qid": "P11",
+    "page": 9,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-p12",
+    "qid": "P12",
+    "page": 9,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-p13",
+    "qid": "P13",
+    "page": 9,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-p14",
+    "qid": "P14",
+    "page": 9,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-p15",
+    "qid": "P15",
+    "page": 10,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-p16",
+    "qid": "P16",
+    "page": 10,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-p17",
+    "qid": "P17",
+    "page": 10,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-p18",
+    "qid": "P18",
+    "page": 10,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-p19",
+    "qid": "P19",
+    "page": 10,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-a",
+    "questionId": "uil-2016-invitational-a-p20",
+    "qid": "P20",
+    "page": 10,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-b01",
+    "qid": "B01",
+    "page": 4,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-b02",
+    "qid": "B02",
+    "page": 4,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-b03",
+    "qid": "B03",
+    "page": 4,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-b04",
+    "qid": "B04",
+    "page": 4,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-b05",
+    "qid": "B05",
+    "page": 4,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-b06",
+    "qid": "B06",
+    "page": 4,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-b07",
+    "qid": "B07",
+    "page": 4,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-b09",
+    "qid": "B09",
+    "page": 4,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-b10",
+    "qid": "B10",
+    "page": 5,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-b11",
+    "qid": "B11",
+    "page": 5,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-b12",
+    "qid": "B12",
+    "page": 5,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-b14",
+    "qid": "B14",
+    "page": 5,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-b15",
+    "qid": "B15",
+    "page": 5,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-b16",
+    "qid": "B16",
+    "page": 5,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-b17",
+    "qid": "B17",
+    "page": 6,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-b18",
+    "qid": "B18",
+    "page": 6,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-b19",
+    "qid": "B19",
+    "page": 6,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-b20",
+    "qid": "B20",
+    "page": 6,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-c01",
+    "qid": "C01",
+    "page": 6,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-c02",
+    "qid": "C02",
+    "page": 6,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-c03",
+    "qid": "C03",
+    "page": 6,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-c04",
+    "qid": "C04",
+    "page": 6,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-c05",
+    "qid": "C05",
+    "page": 6,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-c06",
+    "qid": "C06",
+    "page": 6,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-c07",
+    "qid": "C07",
+    "page": 6,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-c08",
+    "qid": "C08",
+    "page": 7,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-c09",
+    "qid": "C09",
+    "page": 7,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-c10",
+    "qid": "C10",
+    "page": 7,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-c11",
+    "qid": "C11",
+    "page": 7,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-c12",
+    "qid": "C12",
+    "page": 7,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-c13",
+    "qid": "C13",
+    "page": 7,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-c14",
+    "qid": "C14",
+    "page": 7,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-c15",
+    "qid": "C15",
+    "page": 7,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-c16",
+    "qid": "C16",
+    "page": 7,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-c17",
+    "qid": "C17",
+    "page": 7,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-c18",
+    "qid": "C18",
+    "page": 7,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-c19",
+    "qid": "C19",
+    "page": 8,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-c20",
+    "qid": "C20",
+    "page": 8,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-p01",
+    "qid": "P01",
+    "page": 8,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-p02",
+    "qid": "P02",
+    "page": 8,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-p03",
+    "qid": "P03",
+    "page": 8,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-p04",
+    "qid": "P04",
+    "page": 8,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-p05",
+    "qid": "P05",
+    "page": 8,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-p06",
+    "qid": "P06",
+    "page": 8,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-p07",
+    "qid": "P07",
+    "page": 8,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-p08",
+    "qid": "P08",
+    "page": 9,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-p09",
+    "qid": "P09",
+    "page": 9,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-p10",
+    "qid": "P10",
+    "page": 9,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-p11",
+    "qid": "P11",
+    "page": 9,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-p12",
+    "qid": "P12",
+    "page": 9,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-p13",
+    "qid": "P13",
+    "page": 9,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-p14",
+    "qid": "P14",
+    "page": 10,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-p15",
+    "qid": "P15",
+    "page": 10,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-p16",
+    "qid": "P16",
+    "page": 10,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-p17",
+    "qid": "P17",
+    "page": 10,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-p18",
+    "qid": "P18",
+    "page": 10,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-p19",
+    "qid": "P19",
+    "page": 10,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2016-invitational-b",
+    "questionId": "uil-2016-invitational-b-p20",
+    "qid": "P20",
+    "page": 10,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-b01",
+    "qid": "B01",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-b02",
+    "qid": "B02",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-b03",
+    "qid": "B03",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-b04",
+    "qid": "B04",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-b05",
+    "qid": "B05",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-b06",
+    "qid": "B06",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-b07",
+    "qid": "B07",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-b08",
+    "qid": "B08",
+    "page": 2,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-b09",
+    "qid": "B09",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-b10",
+    "qid": "B10",
+    "page": 2,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-b11",
+    "qid": "B11",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-b12",
+    "qid": "B12",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-b13",
+    "qid": "B13",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-b14",
+    "qid": "B14",
+    "page": 3,
+    "blockers": [
+      "possible figure/table/diagram dependency requires visual crop validation"
+    ],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-b15",
+    "qid": "B15",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-b16",
+    "qid": "B16",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-b17",
+    "qid": "B17",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-b18",
+    "qid": "B18",
+    "page": 3,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-b19",
+    "qid": "B19",
+    "page": 4,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
+  },
+  {
+    "examId": "uil-2018-invitational-b",
+    "questionId": "uil-2018-invitational-b-b20",
+    "qid": "B20",
+    "page": 4,
+    "blockers": [],
+    "explanationStatus": "missing-explanation"
   }
 ]
