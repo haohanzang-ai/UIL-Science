@@ -4,7 +4,10 @@
   "private": true,
   "description": "Root entry so hosts that build from the repo root still work. The app lives in /server.",
   "scripts": {
-    "start": "node server/server.js"
+    "start": "node server/server.js",
+    "test": "node tools/test-runner.js",
+    "validate:content": "node tools/validate-content.js",
+    "import:repo": "node tools/importer/importer.js"
   },
   "dependencies": {
     "@libsql/client": "^0.14.0",

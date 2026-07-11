@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://haohanzang-ai.github.io/UIL-Science/schemas/exam.schema.json",
+  "title": "Verified Historical UIL Science Exam",
+  "type": "object",
+  "required": ["schemaVersion", "examId", "year", "questionIds", "contentHash", "verificationStatus", "published"],
+  "additionalProperties": true,
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "examId": { "type": "string", "minLength": 1 },
+    "year": { "type": "integer" },
+    "contestLevel": { "type": "string" },
+    "set": { "type": "string" },
+    "questionIds": { "type": "array", "minItems": 60, "maxItems": 60, "items": { "type": "string" } },
+    "contentHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "verificationStatus": { "enum": ["verified", "needs-review"] },
+    "published": { "type": "boolean" }
+  }
+}

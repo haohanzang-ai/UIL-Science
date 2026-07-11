@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://haohanzang-ai.github.io/UIL-Science/schemas/progress.schema.json",
+  "title": "UIL Science Student Progress",
+  "type": "object",
+  "required": ["schemaVersion", "uid", "displayName", "attempts", "bookmarks", "reviewQueue", "updatedAt"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "uid": { "type": "string", "minLength": 16 },
+    "displayName": { "type": "string", "minLength": 1, "maxLength": 40 },
+    "attempts": { "type": "array" },
+    "bookmarks": { "type": "array" },
+    "reviewQueue": { "type": "array" },
+    "updatedAt": { "type": "string" }
+  }
+}

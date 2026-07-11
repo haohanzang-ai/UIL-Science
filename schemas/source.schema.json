@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://haohanzang-ai.github.io/UIL-Science/schemas/source.schema.json",
+  "title": "UIL Science Source Registry Record",
+  "type": "object",
+  "required": [
+    "sourceId",
+    "title",
+    "authorOrOrganization",
+    "publisher",
+    "edition",
+    "publicationYear",
+    "documentVersion",
+    "sourceType",
+    "repositoryPath",
+    "approved",
+    "approvedForSubjects",
+    "verifiedOn",
+    "sha256",
+    "notes"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "sourceId": { "type": "string", "minLength": 1 },
+    "title": { "type": "string" },
+    "authorOrOrganization": { "type": "string" },
+    "publisher": { "type": "string" },
+    "edition": { "type": "string" },
+    "publicationYear": { "type": ["integer", "null"] },
+    "documentVersion": { "type": "string" },
+    "sourceType": { "enum": ["uil", "college-board-ced", "textbook", "openstax", "university", "government"] },
+    "repositoryPath": { "type": "string", "pattern": "^(references|data/source-pdfs)/" },
+    "approved": { "type": "boolean" },
+    "approvedForSubjects": {
+      "type": "array",
+      "items": { "enum": ["biology", "chemistry", "physics", "astronomy", "directed-reading"] },
+      "uniqueItems": true
+    },
+    "verifiedOn": { "type": "string" },
+    "sha256": { "type": "string", "pattern": "^$|^[a-f0-9]{64}$" },
+    "notes": { "type": "string" }
+  }
+}

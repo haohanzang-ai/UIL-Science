@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "frameworks": [
+    "AP Physics 1",
+    "AP Physics 2",
+    "AP Physics C: Mechanics",
+    "AP Physics C: Electricity and Magnetism",
+    "UIL Astronomy",
+    "UIL Directed Reading",
+    "UIL-Specific or Beyond-AP"
+  ],
+  "topics": [],
+  "sourceStatus": "ced-and-uil-sources-missing",
+  "publicationStatus": "needs-review"
+}

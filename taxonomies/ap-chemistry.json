@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "framework": "AP Chemistry",
+  "sourceStatus": "ced-missing",
+  "units": [
+    "Atomic Structure and Properties",
+    "Compound Structure and Properties",
+    "Properties of Substances and Mixtures",
+    "Chemical Reactions",
+    "Kinetics",
+    "Thermochemistry",
+    "Equilibrium",
+    "Acids and Bases",
+    "Thermodynamics and Electrochemistry"
+  ],
+  "topics": [],
+  "publicationStatus": "needs-review"
+}

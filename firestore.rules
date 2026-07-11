@@ -1,0 +1,40 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function approvedDashboardUser() {
+      return signedIn()
+        && request.auth.token.email == "haohanzang@gmail.com"
+        && request.auth.token.email_verified == true;
+    }
+
+    match /students/{uid} {
+      allow create: if signedIn()
+        && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(["schemaVersion", "uid", "displayName", "attempts", "bookmarks", "reviewQueue", "updatedAt"])
+        && request.resource.data.uid == uid
+        && request.resource.data.displayName is string
+        && request.resource.data.displayName.size() > 0
+        && request.resource.data.displayName.size() <= 40;
+      allow read, update: if signedIn() && request.auth.uid == uid;
+      allow delete: if false;
+    }
+
+    match /dashboardAggregates/{docId} {
+      allow read: if approvedDashboardUser();
+      allow write: if false;
+    }
+
+    match /questions/{questionId} {
+      allow read: if resource.data.published == true && resource.data.verificationStatus == "verified";
+      allow write: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
