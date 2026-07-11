@@ -1,0 +1,28 @@
+# Uploaded Archive Coverage
+
+The uploaded UIL Science archive was scanned for source-paired science questions. Importable records require a readable test source and a paired official answer key.
+
+## Imported source groups
+
+- 2015 UIL combined Invitational/District/Region/State study packet
+- 2016 UIL combined District/Region study packet, plus separate Invitational A/B files
+- 2018 Invitational B
+- 2021 Invitational B
+- 2022 Set A and Virtual Challenge Meets 1-3
+- 2023 Invitational A/B, District, and State study packets
+- 2024 Invitational A/B and District
+- 2025 Set A/B
+- 2026 Set A/B
+
+## Blocked or partially blocked
+
+- 2022 Set B and 2023 Set A test PDFs contain no extractable text in the current repository toolchain.
+- 2018 Region question text extracted, but its answer-key page is not machine-readable enough to verify answer letters, so no questions from that set are published.
+- Some figure/table/diagram-dependent questions remain gated until visual crop review is implemented.
+- Some older packet questions remain in review when text extraction did not produce exactly five choices or an A-E official answer.
+
+## Not imported as published questions
+
+- Answer sheets, score spreadsheets, rules/manual PDFs, reading packets, and result files are provenance/supporting material, not question sources.
+- Third-party exams are not published into the official UIL question bank.
+- Older standalone 2009-2014 PDFs in the archive appear to be test-only without paired readable official keys in the uploaded material.

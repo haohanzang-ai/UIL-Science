@@ -1,7 +1,21 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-11T17:52:08.744Z",
+  "generatedAt": "2026-07-11T18:28:35.898Z",
   "files": [
+    {
+      "sourceId": "uil-2021-invitational-b-test",
+      "repositoryPath": "data/source-pdfs/uil/2021-invitational-b/science-test-b-2021.pdf",
+      "sha256": "f304112da903b532338c1114b87f623db97f387cb589a370d5b7c55a6d4c5723",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2021-invitational-b-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2021-invitational-b/science-key-b-2021.pdf",
+      "sha256": "bc69b502cb63e2a9d3389de4ff7963eb003a3acbea690c07f0b273e0a149a463",
+      "approved": true,
+      "sourceType": "uil"
+    },
     {
       "sourceId": "uil-2022-set-a-test",
       "repositoryPath": "data/source-pdfs/uil/2022-set-a/science-test-a-2022.pdf",
@@ -31,6 +45,48 @@
       "sourceType": "uil"
     },
     {
+      "sourceId": "uil-2022-vcm-1-test",
+      "repositoryPath": "data/source-docx/uil/2022-vcm-1/science-test-vcm-1-2022.docx",
+      "sha256": "708999eac733ed895ea1cb858690b9dede557d6d4e13883ead693ac242476062",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2022-vcm-1-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2022-vcm-1/science-key-vcm-1-2022.pdf",
+      "sha256": "2143346f803eca61e15f6baa5708b18561ffe09184e279a8cc0c8f4c82bd78f4",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2022-vcm-2-test",
+      "repositoryPath": "data/source-pdfs/uil/2022-vcm-2/science-test-vcm-2-2022.pdf",
+      "sha256": "1e879bdffd2bf20e1ba4391bc43735e488c613bb74e97b5bc26b89120a56c253",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2022-vcm-2-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2022-vcm-2/science-key-vcm-2-2022.pdf",
+      "sha256": "05d9254172bfda222d40371f93066e167af3bb52f4cb74a6d932783625cf573d",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2022-vcm-3-test",
+      "repositoryPath": "data/source-pdfs/uil/2022-vcm-3/science-test-vcm-3-2022.pdf",
+      "sha256": "ea91d03c73d5ed30b9719ef5a8107fb0be41af34f236be4314f59efd2bd1dec6",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2022-vcm-3-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2022-vcm-3/science-key-vcm-3-2022.pdf",
+      "sha256": "5911730f6c2657be7e36462ab8b8762e4b2c8c3c110c7b32bfd134a6d7a01d65",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
       "sourceId": "uil-2023-set-a-test",
       "repositoryPath": "data/source-pdfs/uil/2023-set-a/science-test-a-2023.pdf",
       "sha256": "1d4cdcf9bbce8fcf10d79358d2fdd867e5b57a4675ee3b1e21835efe955df96d",
@@ -41,6 +97,62 @@
       "sourceId": "uil-2023-set-a-answer-key",
       "repositoryPath": "data/source-pdfs/uil/2023-set-a/science-key-a-2023.pdf",
       "sha256": "55f6af5b313236a9bd93b4c6951447b3a5739cdd84a1b512bc32f7df3271ee61",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2023-invitational-a-test",
+      "repositoryPath": "data/source-pdfs/uil/2023-invitational-a/science-study-packet-a-2023.pdf",
+      "sha256": "e5e09edf9e662dd870da6154a71ed3566f848d788931d722a505f8771a0553e0",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2023-invitational-a-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2023-invitational-a/science-study-packet-a-2023.pdf",
+      "sha256": "e5e09edf9e662dd870da6154a71ed3566f848d788931d722a505f8771a0553e0",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2023-invitational-b-test",
+      "repositoryPath": "data/source-pdfs/uil/2023-invitational-b/science-study-packet-b-2023.pdf",
+      "sha256": "9a1acfea58426768d80143aff0cac82ab7c4f3cac1e6d3c55e822e734ca24dd3",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2023-invitational-b-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2023-invitational-b/science-study-packet-b-2023.pdf",
+      "sha256": "9a1acfea58426768d80143aff0cac82ab7c4f3cac1e6d3c55e822e734ca24dd3",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2023-district-test",
+      "repositoryPath": "data/source-pdfs/uil/2023-district/science-study-packet-district-2023.pdf",
+      "sha256": "13af0c0a455471a900e11a9e618a7f9bf3a769729b6ecdd10ad738ba88bda557",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2023-district-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2023-district/science-study-packet-district-2023.pdf",
+      "sha256": "13af0c0a455471a900e11a9e618a7f9bf3a769729b6ecdd10ad738ba88bda557",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2023-state-test",
+      "repositoryPath": "data/source-pdfs/uil/2023-state/science-study-packet-state-2023.pdf",
+      "sha256": "7ca26ab94c106b15321e685d03c2ebf3917b114f86f204de2306a591b89a3aa9",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2023-state-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2023-state/science-study-packet-state-2023.pdf",
+      "sha256": "7ca26ab94c106b15321e685d03c2ebf3917b114f86f204de2306a591b89a3aa9",
       "approved": true,
       "sourceType": "uil"
     },
@@ -69,6 +181,20 @@
       "sourceId": "uil-2024-set-b-answer-key",
       "repositoryPath": "data/source-pdfs/uil/2024-set-b/science-key-b-2024.pdf",
       "sha256": "a1122e6baa12879c2f66458ca9a0384fefa1e6e3b63487e943c6534d92f2d635",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2024-district-test",
+      "repositoryPath": "data/source-pdfs/uil/2024-district/science-study-packet-district-2024.pdf",
+      "sha256": "d591f35c0ea931141c7b98f47fa716626f951ae9b140f61e20f58ad1f94554fd",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2024-district-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2024-district/science-study-packet-district-2024.pdf",
+      "sha256": "d591f35c0ea931141c7b98f47fa716626f951ae9b140f61e20f58ad1f94554fd",
       "approved": true,
       "sourceType": "uil"
     },
@@ -157,6 +283,48 @@
       "sourceType": "uil"
     },
     {
+      "sourceId": "uil-2016-district-1-test",
+      "repositoryPath": "data/source-pdfs/uil/2016-combined/science-2016-inv-district-region-study.pdf",
+      "sha256": "44201f9fa3e16ded4a9ae14695b1b518c6adfce722a7ca5bda822f8e184e30b0",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2016-district-1-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2016-combined/science-2016-inv-district-region-study.pdf",
+      "sha256": "44201f9fa3e16ded4a9ae14695b1b518c6adfce722a7ca5bda822f8e184e30b0",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2016-district-2-test",
+      "repositoryPath": "data/source-pdfs/uil/2016-combined/science-2016-inv-district-region-study.pdf",
+      "sha256": "44201f9fa3e16ded4a9ae14695b1b518c6adfce722a7ca5bda822f8e184e30b0",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2016-district-2-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2016-combined/science-2016-inv-district-region-study.pdf",
+      "sha256": "44201f9fa3e16ded4a9ae14695b1b518c6adfce722a7ca5bda822f8e184e30b0",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2016-region-test",
+      "repositoryPath": "data/source-pdfs/uil/2016-combined/science-2016-inv-district-region-study.pdf",
+      "sha256": "44201f9fa3e16ded4a9ae14695b1b518c6adfce722a7ca5bda822f8e184e30b0",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2016-region-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2016-combined/science-2016-inv-district-region-study.pdf",
+      "sha256": "44201f9fa3e16ded4a9ae14695b1b518c6adfce722a7ca5bda822f8e184e30b0",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
       "sourceId": "uil-2018-invitational-b-test",
       "repositoryPath": "data/source-pdfs/uil/2017-set-b/science-test-b-2017.pdf",
       "sha256": "f93d085e236968aff1924b4d612643ac756f33c0b1969265e56faea4a184663d",
@@ -167,6 +335,104 @@
       "sourceId": "uil-2018-invitational-b-answer-key",
       "repositoryPath": "data/source-pdfs/uil/2017-set-b/science-key-b-2017.pdf",
       "sha256": "f0e86e0b01fa33580540b7245017d254c28dfce4f1e79a6acd58b40ec4532e81",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2018-region-test",
+      "repositoryPath": "data/source-pdfs/uil/2018-region/science-region-2018.pdf",
+      "sha256": "a60cd59e45872efce9865a52fdebb02345513ef9b91f63dd9abe08627deead3f",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2018-region-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2018-region/science-region-2018.pdf",
+      "sha256": "a60cd59e45872efce9865a52fdebb02345513ef9b91f63dd9abe08627deead3f",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2015-invitational-a-test",
+      "repositoryPath": "data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf",
+      "sha256": "86c97eb90a66f4c418a77cbf33f2822c976fdd5f69df7ae7fdc133f8cfd1933b",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2015-invitational-a-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf",
+      "sha256": "86c97eb90a66f4c418a77cbf33f2822c976fdd5f69df7ae7fdc133f8cfd1933b",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2015-invitational-b-test",
+      "repositoryPath": "data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf",
+      "sha256": "86c97eb90a66f4c418a77cbf33f2822c976fdd5f69df7ae7fdc133f8cfd1933b",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2015-invitational-b-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf",
+      "sha256": "86c97eb90a66f4c418a77cbf33f2822c976fdd5f69df7ae7fdc133f8cfd1933b",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2015-district-1-test",
+      "repositoryPath": "data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf",
+      "sha256": "86c97eb90a66f4c418a77cbf33f2822c976fdd5f69df7ae7fdc133f8cfd1933b",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2015-district-1-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf",
+      "sha256": "86c97eb90a66f4c418a77cbf33f2822c976fdd5f69df7ae7fdc133f8cfd1933b",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2015-district-2-test",
+      "repositoryPath": "data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf",
+      "sha256": "86c97eb90a66f4c418a77cbf33f2822c976fdd5f69df7ae7fdc133f8cfd1933b",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2015-district-2-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf",
+      "sha256": "86c97eb90a66f4c418a77cbf33f2822c976fdd5f69df7ae7fdc133f8cfd1933b",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2015-region-test",
+      "repositoryPath": "data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf",
+      "sha256": "86c97eb90a66f4c418a77cbf33f2822c976fdd5f69df7ae7fdc133f8cfd1933b",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2015-region-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf",
+      "sha256": "86c97eb90a66f4c418a77cbf33f2822c976fdd5f69df7ae7fdc133f8cfd1933b",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2015-state-test",
+      "repositoryPath": "data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf",
+      "sha256": "86c97eb90a66f4c418a77cbf33f2822c976fdd5f69df7ae7fdc133f8cfd1933b",
+      "approved": true,
+      "sourceType": "uil"
+    },
+    {
+      "sourceId": "uil-2015-state-answer-key",
+      "repositoryPath": "data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf",
+      "sha256": "86c97eb90a66f4c418a77cbf33f2822c976fdd5f69df7ae7fdc133f8cfd1933b",
       "approved": true,
       "sourceType": "uil"
     },

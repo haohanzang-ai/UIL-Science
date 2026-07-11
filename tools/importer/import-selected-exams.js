@@ -7,42 +7,86 @@ const PYTHON = process.env.CODEX_PYTHON || 'C:\\Users\\lingw\\.cache\\codex-runt
 const LETTERS = ['A', 'B', 'C', 'D', 'E'];
 
 const EXAMS = [
+  { year: 2021, set: 'B', level: 'invitational', id: 'uil-2021-invitational-b', title: 'UIL Science Invitational B 2021', test: 'data/source-pdfs/uil/2021-invitational-b/science-test-b-2021.pdf', key: 'data/source-pdfs/uil/2021-invitational-b/science-key-b-2021.pdf' },
   { year: 2022, set: 'A', level: 'uil-set', id: 'uil-2022-set-a', title: 'UIL Science Set A 2022', test: 'data/source-pdfs/uil/2022-set-a/science-test-a-2022.pdf', key: 'data/source-pdfs/uil/2022-set-a/science-key-a-2022.pdf' },
   { year: 2022, set: 'B', level: 'uil-set', id: 'uil-2022-set-b', title: 'UIL Science Set B 2022', test: 'data/source-pdfs/uil/2022-set-b/science-test-b-2022.pdf', key: 'data/source-pdfs/uil/2022-set-b/science-key-b-2022.pdf' },
+  { year: 2022, set: 'VCM 1', level: 'virtual-challenge', id: 'uil-2022-vcm-1', title: 'UIL Science Virtual Challenge Meet 1 2022', test: 'data/source-docx/uil/2022-vcm-1/science-test-vcm-1-2022.docx', key: 'data/source-pdfs/uil/2022-vcm-1/science-key-vcm-1-2022.pdf', skipFirstTestPage: false },
+  { year: 2022, set: 'VCM 2', level: 'virtual-challenge', id: 'uil-2022-vcm-2', title: 'UIL Science Virtual Challenge Meet 2 2022', test: 'data/source-pdfs/uil/2022-vcm-2/science-test-vcm-2-2022.pdf', key: 'data/source-pdfs/uil/2022-vcm-2/science-key-vcm-2-2022.pdf' },
+  { year: 2022, set: 'VCM 3', level: 'virtual-challenge', id: 'uil-2022-vcm-3', title: 'UIL Science Virtual Challenge Meet 3 2022', test: 'data/source-pdfs/uil/2022-vcm-3/science-test-vcm-3-2022.pdf', key: 'data/source-pdfs/uil/2022-vcm-3/science-key-vcm-3-2022.pdf' },
   { year: 2023, set: 'A', level: 'uil-set', id: 'uil-2023-set-a', title: 'UIL Science Set A 2023', test: 'data/source-pdfs/uil/2023-set-a/science-test-a-2023.pdf', key: 'data/source-pdfs/uil/2023-set-a/science-key-a-2023.pdf' },
+  { year: 2023, set: 'A', level: 'invitational', id: 'uil-2023-invitational-a', title: 'UIL Science Invitational A 2023', test: 'data/source-pdfs/uil/2023-invitational-a/science-study-packet-a-2023.pdf', key: 'data/source-pdfs/uil/2023-invitational-a/science-study-packet-a-2023.pdf', testPages: [1, 12], keyPages: [13, 18] },
+  { year: 2023, set: 'B', level: 'invitational', id: 'uil-2023-invitational-b', title: 'UIL Science Invitational B 2023', test: 'data/source-pdfs/uil/2023-invitational-b/science-study-packet-b-2023.pdf', key: 'data/source-pdfs/uil/2023-invitational-b/science-study-packet-b-2023.pdf', testPages: [1, 12], keyPages: [13, 19] },
+  { year: 2023, set: 'District', level: 'district', id: 'uil-2023-district', title: 'UIL Science District 2023', test: 'data/source-pdfs/uil/2023-district/science-study-packet-district-2023.pdf', key: 'data/source-pdfs/uil/2023-district/science-study-packet-district-2023.pdf', testPages: [1, 12], keyPages: [13, 19] },
+  { year: 2023, set: 'State', level: 'state', id: 'uil-2023-state', title: 'UIL Science State 2023', test: 'data/source-pdfs/uil/2023-state/science-study-packet-state-2023.pdf', key: 'data/source-pdfs/uil/2023-state/science-study-packet-state-2023.pdf', testPages: [1, 12], keyPages: [13, 23] },
   { year: 2024, set: 'A', level: 'invitational', id: 'uil-2024-invitational-a', title: 'UIL Science Invitational A 2024', test: 'data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf', key: 'data/source-pdfs/uil/2024-set-a/science-key-a-2024.pdf' },
   { year: 2024, set: 'B', level: 'uil-set', id: 'uil-2024-set-b', title: 'UIL Science Set B 2024', test: 'data/source-pdfs/uil/2024-set-b/science-test-b-2024.pdf', key: 'data/source-pdfs/uil/2024-set-b/science-key-b-2024.pdf' },
+  { year: 2024, set: 'District', level: 'district', id: 'uil-2024-district', title: 'UIL Science District 2024', test: 'data/source-pdfs/uil/2024-district/science-study-packet-district-2024.pdf', key: 'data/source-pdfs/uil/2024-district/science-study-packet-district-2024.pdf', testPages: [1, 12], keyPages: [13, 20] },
   { year: 2025, set: 'A', level: 'uil-set', id: 'uil-2025-set-a', title: 'UIL Science Set A 2025', test: 'data/source-pdfs/uil/2025-set-a/science-test-a-2025.pdf', key: 'data/source-pdfs/uil/2025-set-a/science-key-a-2025.pdf' },
   { year: 2025, set: 'B', level: 'uil-set', id: 'uil-2025-set-b', title: 'UIL Science Set B 2025', test: 'data/source-pdfs/uil/2025-set-b/science-test-b-2025.pdf', key: 'data/source-pdfs/uil/2025-set-b/science-key-b-2025.pdf' },
   { year: 2026, set: 'A', level: 'uil-set', id: 'uil-2026-set-a', title: 'UIL Science Set A 2026', test: 'data/source-pdfs/uil/2026-set-a/science-test-a-2026.pdf', key: 'data/source-pdfs/uil/2026-set-a/science-key-a-2026.pdf' },
   { year: 2026, set: 'B', level: 'uil-set', id: 'uil-2026-set-b', title: 'UIL Science Set B 2026', test: 'data/source-pdfs/uil/2026-set-b/science-test-b-2026.pdf', key: 'data/source-pdfs/uil/2026-set-b/science-key-b-2026.pdf' },
   { year: 2016, set: 'A', level: 'invitational', id: 'uil-2016-invitational-a', title: 'UIL Science Invitational A 2016', test: 'data/source-pdfs/uil/2016-invitational-a/science-test-a-2016.pdf', key: 'data/source-pdfs/uil/2016-invitational-a/science-key-a-2016.pdf' },
   { year: 2016, set: 'B', level: 'invitational', id: 'uil-2016-invitational-b', title: 'UIL Science Invitational B 2016', test: 'data/source-pdfs/uil/2016-invitational-b/science-test-b-2016.pdf', key: 'data/source-pdfs/uil/2016-invitational-b/science-key-b-2016.pdf' },
-  { year: 2018, set: 'B', level: 'invitational', id: 'uil-2018-invitational-b', title: 'UIL Science Invitational B 2018', test: 'data/source-pdfs/uil/2017-set-b/science-test-b-2017.pdf', key: 'data/source-pdfs/uil/2017-set-b/science-key-b-2017.pdf' }
+  { year: 2016, set: 'District 1', level: 'district', id: 'uil-2016-district-1', title: 'UIL Science District 1 2016', test: 'data/source-pdfs/uil/2016-combined/science-2016-inv-district-region-study.pdf', key: 'data/source-pdfs/uil/2016-combined/science-2016-inv-district-region-study.pdf', testPages: [29, 39], keyPages: [40, 43] },
+  { year: 2016, set: 'District 2', level: 'district', id: 'uil-2016-district-2', title: 'UIL Science District 2 2016', test: 'data/source-pdfs/uil/2016-combined/science-2016-inv-district-region-study.pdf', key: 'data/source-pdfs/uil/2016-combined/science-2016-inv-district-region-study.pdf', testPages: [45, 55], keyPages: [56, 59] },
+  { year: 2016, set: 'Region', level: 'region', id: 'uil-2016-region', title: 'UIL Science Region 2016', test: 'data/source-pdfs/uil/2016-combined/science-2016-inv-district-region-study.pdf', key: 'data/source-pdfs/uil/2016-combined/science-2016-inv-district-region-study.pdf', testPages: [61, 72], keyPages: [73, 77] },
+  { year: 2018, set: 'B', level: 'invitational', id: 'uil-2018-invitational-b', title: 'UIL Science Invitational B 2018', test: 'data/source-pdfs/uil/2017-set-b/science-test-b-2017.pdf', key: 'data/source-pdfs/uil/2017-set-b/science-key-b-2017.pdf' },
+  { year: 2018, set: 'Region', level: 'region', id: 'uil-2018-region', title: 'UIL Science Region 2018', test: 'data/source-pdfs/uil/2018-region/science-region-2018.pdf', key: 'data/source-pdfs/uil/2018-region/science-region-2018.pdf', testPages: [1, 12], keyPages: [13, 20] },
+  { year: 2015, set: 'A', level: 'invitational', id: 'uil-2015-invitational-a', title: 'UIL Science Invitational A 2015', test: 'data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf', key: 'data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf', testPages: [1, 11], keyPages: [13, 14] },
+  { year: 2015, set: 'B', level: 'invitational', id: 'uil-2015-invitational-b', title: 'UIL Science Invitational B 2015', test: 'data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf', key: 'data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf', testPages: [15, 25], keyPages: [27, 28] },
+  { year: 2015, set: 'District 1', level: 'district', id: 'uil-2015-district-1', title: 'UIL Science District 1 2015', test: 'data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf', key: 'data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf', testPages: [29, 39], keyPages: [41, 42] },
+  { year: 2015, set: 'District 2', level: 'district', id: 'uil-2015-district-2', title: 'UIL Science District 2 2015', test: 'data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf', key: 'data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf', testPages: [43, 53], keyPages: [55, 56] },
+  { year: 2015, set: 'Region', level: 'region', id: 'uil-2015-region', title: 'UIL Science Region 2015', test: 'data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf', key: 'data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf', testPages: [57, 67], keyPages: [69, 70] },
+  { year: 2015, set: 'State', level: 'state', id: 'uil-2015-state', title: 'UIL Science State 2015', test: 'data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf', key: 'data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf', testPages: [71, 83], keyPages: [85, 89] }
 ];
 
 function sha256(rel) {
   return crypto.createHash('sha256').update(fs.readFileSync(normalizeInsideRepo(rel))).digest('hex');
 }
 
-function extractPdf(testRel, keyRel) {
+function extractPdf(testRel, keyRel, testPages, keyPages) {
+  const testPageLiteral = testPages ? `[${testPages[0]}, ${testPages[1]}]` : 'None';
+  const keyPageLiteral = keyPages ? `[${keyPages[0]}, ${keyPages[1]}]` : 'None';
   const script = `
-import pdfplumber, json
+import json, zipfile
+from xml.etree import ElementTree as ET
+import pdfplumber
+
+def selected(page_num, pages):
+    if pages is None:
+        return True
+    return pages[0] <= page_num <= pages[1]
+
+def docx_text(path):
+    with zipfile.ZipFile(path) as z:
+        xml = z.read("word/document.xml")
+    root = ET.fromstring(xml)
+    ns = {"w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
+    return "\\n".join((node.text or "") for node in root.findall(".//w:t", ns))
+
+def extract_source(path, pages):
+    if path.lower().endswith(".docx"):
+        return [{"page": 1, "columns": [docx_text(path)], "fullText": docx_text(path)}]
+    out_pages = []
+    with pdfplumber.open(path) as pdf:
+        for idx, page in enumerate(pdf.pages, 1):
+            if not selected(idx, pages):
+                continue
+            w, h = page.width, page.height
+            out_pages.append({
+              "page": idx,
+              "columns": [
+                page.crop((0,0,w/2,h)).extract_text(x_tolerance=1, y_tolerance=3) or "",
+                page.crop((w/2,0,w,h)).extract_text(x_tolerance=1, y_tolerance=3) or ""
+              ],
+              "fullText": page.extract_text() or ""
+            })
+    return out_pages
+
 out = {"testPages": [], "keyPages": []}
-with pdfplumber.open(${JSON.stringify(normalizeInsideRepo(testRel))}) as pdf:
-    for idx, page in enumerate(pdf.pages, 1):
-        w, h = page.width, page.height
-        out["testPages"].append({
-          "page": idx,
-          "columns": [
-            page.crop((0,0,w/2,h)).extract_text(x_tolerance=1, y_tolerance=3) or "",
-            page.crop((w/2,0,w,h)).extract_text(x_tolerance=1, y_tolerance=3) or ""
-          ],
-          "fullText": page.extract_text() or ""
-        })
-with pdfplumber.open(${JSON.stringify(normalizeInsideRepo(keyRel))}) as pdf:
-    for idx, page in enumerate(pdf.pages, 1):
-        out["keyPages"].append({"page": idx, "text": page.extract_text() or ""})
+out["testPages"] = extract_source(${JSON.stringify(normalizeInsideRepo(testRel))}, ${testPageLiteral})
+for page in extract_source(${JSON.stringify(normalizeInsideRepo(keyRel))}, ${keyPageLiteral}):
+    out["keyPages"].append({"page": page["page"], "text": page["fullText"]})
 print(json.dumps(out))
 `;
   const res = spawnSync(PYTHON, ['-c', script], { encoding: 'utf8', env: { ...process.env, PYTHONIOENCODING: 'utf-8' } });
@@ -191,16 +235,18 @@ function sourceRecords(exam, testHash, keyHash) {
 }
 
 function importExam(exam) {
-  const extracted = extractPdf(exam.test, exam.key);
+  const extracted = extractPdf(exam.test, exam.key, exam.testPages, exam.keyPages);
   const answers = answersFromKey(extracted.keyPages.map(p => p.text).join('\n'));
   const solutions = solutionMap(extracted.keyPages);
   const testHash = sha256(exam.test);
   const keyHash = sha256(exam.key);
   const parsed = new Map();
   const review = [];
-  for (const page of extracted.testPages.slice(1)) {
-    for (const col of page.columns) {
-      for (const block of splitBlocks(col)) {
+  const testPages = exam.skipFirstTestPage === false ? extracted.testPages : extracted.testPages.slice(1);
+  for (const page of testPages) {
+    const segments = [...page.columns, page.fullText || ''];
+    for (const segment of segments) {
+      for (const block of splitBlocks(segment)) {
         const q = parseBlock(block);
         if (!q) continue;
         if (parsed.has(q.qid)) continue;
@@ -218,6 +264,7 @@ function importExam(exam) {
     const answer = answers[q.qid];
     if (!answer) blockers.push('missing official answer');
     if (q.choices.length !== 5) blockers.push('choice count is not 5');
+    if (!q.choices.some(choice => choice.label === answer)) blockers.push('official answer absent from extracted choices');
     if (!LETTERS.includes(answer)) blockers.push('official answer is not A-E');
     if (!q.stem || q.stem.length < 10) blockers.push('stem too short');
     if (figureRisk(q)) blockers.push('possible figure/table/diagram dependency requires visual crop validation');

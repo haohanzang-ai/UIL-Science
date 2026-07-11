@@ -94,6 +94,17 @@
     return String(s).replace(/["\\]/g, '\\$&');
   }
 
+  function formatScienceText(s){
+    var html = escapeHtml(s).replace(/\u2212/g, '-');
+    html = html.replace(/(?:\u00d7|x)\s*10\s*([+-]?\d+)/gi, '&times; 10<sup>$1</sup>');
+    html = html.replace(/\b10([+-]\d+)\b/g, '10<sup>$1</sup>');
+    html = html.replace(/([A-Z][a-z]?)(\d+)/g, '$1<sub>$2</sub>');
+    html = html.replace(/\)(\d+)/g, ')<sub>$1</sub>');
+    html = html.replace(/([a-zA-Z])\^([+-]?\d+)/g, '$1<sup>$2</sup>');
+    html = html.replace(/\b(deg|degrees?)\s*C\b/gi, '&deg;C');
+    return html;
+  }
+
   async function loadCatalog(){
     var q = fetch('data/processed/published-questions.json').then(function(r){ return r.ok ? r.json() : { questions:[] }; }).catch(function(){ return { questions:[] }; });
     var e = fetch('data/processed/published-exams.json').then(function(r){ return r.ok ? r.json() : { exams:[] }; }).catch(function(){ return { exams:[] }; });
@@ -187,9 +198,9 @@
       var choices = (q.choices || []).map(function(c){
         var label = c.label || '';
         var selected = selections[q.questionId] && selections[q.questionId].choice === label;
-        return '<button class="choice pick '+(selected ? 'sel' : '')+'" type="button" data-question-id="'+escapeHtml(q.questionId)+'" data-choice="'+escapeHtml(label)+'" aria-pressed="'+(selected ? 'true' : 'false')+'"><b>'+escapeHtml(label)+'.</b><span>'+escapeHtml(c.text || c)+'</span></button>';
+        return '<button class="choice pick '+(selected ? 'sel' : '')+'" type="button" data-question-id="'+escapeHtml(q.questionId)+'" data-choice="'+escapeHtml(label)+'" aria-pressed="'+(selected ? 'true' : 'false')+'"><b>'+escapeHtml(label)+'.</b><span>'+formatScienceText(c.text || c)+'</span></button>';
       }).join('');
-      return '<div class="card question-card"><div class="cardhead"><h3>'+escapeHtml(q.sourceQuestionCode || q.questionId)+'</h3><span class="tag neutral">Official source</span></div><p>'+escapeHtml(q.stem)+'</p><div class="choices">'+choices+'</div><p class="faint" style="font-size:12px;margin-top:12px">Selection is saved locally. Answer and explanation stay hidden until an attempt/review flow is enabled.</p></div>';
+      return '<div class="card question-card"><div class="cardhead"><h3>'+escapeHtml(q.sourceQuestionCode || q.questionId)+'</h3><span class="tag neutral">Official source</span></div><p class="qstem">'+formatScienceText(q.stem)+'</p><div class="choices">'+choices+'</div><p class="faint" style="font-size:12px;margin-top:12px">Selection is saved locally. Answer and explanation stay hidden until an attempt/review flow is enabled.</p></div>';
     }).join('')+'</div>';
     root.querySelectorAll('.choice.pick').forEach(function(btn){
       btn.addEventListener('click', function(){
@@ -227,18 +238,18 @@
 
   function guideView(){
     root.innerHTML =
-      '<div class="card"><div class="cardhead"><h3>UIL Science Guide</h3><span class="tag neutral">Needs official source review</span></div>'+
-      '<div class="note warn" style="margin-bottom:14px"><div>Authoritative UIL rules, calculator/material rules, advancement rules, and current procedures are not stored in the repository. They are recorded in reports/missing-sources.md and are not fabricated here.</div></div>'+
-      '<div class="grid g2">'+
-      '<div>'+guideBlock('Contest format','UIL Science uses a timed written contest with Biology, Chemistry, and Physics content. Exact current rules require official UIL source verification.')+
-      guideBlock('Scoring','Historical UIL Science scoring is commonly +6 correct, -2 incorrect, 0 blank. Current official confirmation is required before publishing as rule guidance.')+'</div>'+
-      '<div>'+guideBlock('Study strategy','Start with official released exams once validated. Review missed concepts, keep units and formulas organized, and do timed practice only from verified content.')+
-      guideBlock('Directed reading','Directed reading and astronomy topics must remain UIL-specific when they do not map cleanly to AP frameworks.')+'</div>'+
-      '</div></div>';
+      '<div class="guide-hero"><div><span class="eyebrow">Study guide</span><h2>UIL Science at a glance</h2><p>Use the verified question bank for practice, then review by subject and missed concepts.</p></div><span class="tag neutral">Source-gated</span></div>'+
+      '<div class="note warn" style="margin-bottom:16px"><div>Current official UIL procedures still need final source review before being presented as rule guidance.</div></div>'+
+      '<div class="grid g2 guide-grid">'+
+      guidePanel('Contest Format', ['Timed written science contest', 'Biology, Chemistry, and Physics sections', 'Questions are best practiced from released UIL-style exams', 'Figures, tables, and graph-heavy items stay gated until visually checked'])+
+      guidePanel('Scoring', ['Common historical scoring: +6 correct, -2 incorrect, 0 blank', 'Skip only when the penalty risk is higher than the educated-guess value', 'Track accuracy by subject, not just total score', 'Recheck official UIL rules before competition day'])+
+      guidePanel('Study Flow', ['Start with one subject page and select an answer for every question', 'Mark missed ideas in a notebook by concept, formula, or vocabulary term', 'Redo missed questions after a delay instead of immediately memorizing letters', 'Mix subjects during final review so switching costs feel normal'])+
+      guidePanel('Content Priorities', ['Biology: cell processes, genetics, evolution, ecology, and anatomy vocabulary', 'Chemistry: stoichiometry, gases, equilibrium, acids/bases, bonding, and periodic trends', 'Physics: mechanics, electricity, waves, optics, thermodynamics, and modern physics', 'Directed reading and astronomy should stay UIL-specific when they do not map cleanly to AP units'])+
+      '</div>';
   }
 
-  function guideBlock(h,d){
-    return '<section style="margin-bottom:16px"><h4>'+escapeHtml(h)+'</h4><p class="muted" style="font-size:14px">'+escapeHtml(d)+'</p></section>';
+  function guidePanel(h, items){
+    return '<section class="guide-panel"><h3>'+escapeHtml(h)+'</h3><ul>'+items.map(function(item){ return '<li>'+escapeHtml(item)+'</li>'; }).join('')+'</ul></section>';
   }
 
   function render(){

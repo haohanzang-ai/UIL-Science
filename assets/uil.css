@@ -171,6 +171,8 @@ ul.clean.check li::before{content:"✓";color:var(--accent-2);font-weight:900;ma
 ul.clean b{color:var(--ink);font-weight:700}
 .question-card{display:flex;flex-direction:column}
 .question-card > p{font-size:14px}
+.qstem sub,.qstem sup,.choice.pick sub,.choice.pick sup{line-height:0;font-size:.78em}
+.qstem sup,.choice.pick sup{vertical-align:super}.qstem sub,.choice.pick sub{vertical-align:sub}
 .choices{display:grid;gap:9px;margin-top:12px}
 .choice.pick{
   width:100%;min-height:44px;display:grid;grid-template-columns:auto 1fr;align-items:flex-start;gap:10px;
@@ -198,6 +200,13 @@ ul.clean b{color:var(--ink);font-weight:700}
 .study-card{display:flex;flex-direction:column;gap:10px;min-height:150px}
 .study-card .meta{font-size:12px;color:var(--ink-faint)}
 .study-card.unavailable{opacity:.86}
+.guide-hero{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:16px;padding:22px;border:1px solid #2c477a;border-radius:var(--radius);background:linear-gradient(135deg,rgba(79,140,255,.18),rgba(34,211,166,.09));box-shadow:var(--shadow-sm)}
+.guide-hero h2{font-size:28px;margin-top:8px}
+.guide-hero p{max-width:680px;margin:8px 0 0;color:var(--ink-dim)}
+.guide-panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow-sm)}
+.guide-panel h3{font-size:16px;margin-bottom:10px}
+.guide-panel ul{margin:0;padding-left:20px;color:var(--ink-dim);font-size:14px}
+.guide-panel li{margin:7px 0}
 .field label{display:block;font-size:12px;font-weight:800;color:var(--ink-faint);margin-bottom:6px;text-transform:uppercase;letter-spacing:.08em}
 .field input{width:100%;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;color:var(--ink);padding:11px 13px;font-size:14px}
 
