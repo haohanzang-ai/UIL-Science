@@ -6,7 +6,7 @@
 <title>UIL Science Study</title>
 <link rel="stylesheet" href="assets/uil.css" />
 </head>
-<body data-page="dashboard" data-title="UIL Science">
+<body data-page="study" data-title="UIL Science">
 <div class="app">
   <aside class="sidebar" id="sidebar"></aside>
   <main class="main">
@@ -15,7 +15,7 @@
         <div class="row">
           <div>
             <h1 id="page-title">UIL Science</h1>
-            <div class="subtitle" id="page-subtitle">Evidence-gated study tools for UIL Science.</div>
+            <div class="subtitle" id="page-subtitle">Focused study tools for UIL Science.</div>
           </div>
           <div class="btnrow">
             <button class="btn" id="switch-user" type="button">Switch student</button>
@@ -23,7 +23,13 @@
         </div>
       </div>
       <section id="root" aria-live="polite">
-        <div class="empty"><div class="h">Loading...</div></div>
+        <div class="loading-panel" role="status">
+          <div class="skeleton-line wide"></div>
+          <div class="skeleton-line"></div>
+          <div class="skeleton-grid">
+            <div></div><div></div><div></div>
+          </div>
+        </div>
       </section>
     </div>
   </main>

@@ -5,18 +5,15 @@
    ============================================================ */
 (function(){
   var NAV = [
-    {id:'dashboard',     href:'study.html',              label:'Study Home',       icon:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>'},
+    {id:'home',          href:'study.html',              label:'Study Home',       icon:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>'},
     {id:'exam',          href:'study.html?view=exam',    label:'Full UIL Exam',    icon:'<circle cx="12" cy="12" r="9"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/>'},
     {id:'biology',       href:'study.html?view=biology', label:'Biology',          icon:'<path d="M12 3c4 3 6 6 6 10a6 6 0 0 1-12 0c0-4 2-7 6-10z"/>'},
     {id:'chemistry',     href:'study.html?view=chemistry', label:'Chemistry',      icon:'<path d="M10 2v6l-5 9a3 3 0 0 0 2.6 4.5h8.8A3 3 0 0 0 19 17l-5-9V2"/><path d="M8 2h8M7 15h10"/>'},
     {id:'physics',       href:'study.html?view=physics', label:'Physics',          icon:'<circle cx="12" cy="12" r="2"/><path d="M4 12c2-5 14-5 16 0M4 12c2 5 14 5 16 0M12 4c5 2 5 14 0 16"/>'},
     {id:'weak',          href:'study.html?view=weak',    label:'Weak Topics',      icon:'<path d="M4 19V5"/><path d="M4 19h16"/><circle cx="9" cy="13" r="1.4"/><circle cx="14" cy="9" r="1.4"/><circle cx="19" cy="12" r="1.4"/>'},
     {id:'flashcards',    href:'study.html?view=flashcards', label:'Flashcards',    icon:'<rect x="3" y="6" width="14" height="12" rx="2"/><path d="M7 3h14v12"/>'},
-    {id:'insights',      href:'study.html?view=progress', label:'My Progress',     icon:'<path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10c.7.7 1 1.4 1 2h6c0-.6.3-1.3 1-2a6 6 0 0 0-4-10z"/>'},
-    {id:'guide',         href:'study.html?view=guide',   label:'UIL Science Guide', icon:'<path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9.5 12l2 2 3.5-4"/>'},
-    {sep:true, group:'Team'},
-    {id:'team',          href:'team.html',             label:'Team Dashboard',   icon:'<circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><circle cx="17" cy="9" r="2.2"/><path d="M15.5 14.5c2.5.3 4.5 2 4.5 4.5"/>'},
-    {id:'admin',         href:'admin-review.html',     label:'Admin Review',     icon:'<path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M12 8v4M12 15.5v.5"/>'}
+    {id:'progress',      href:'study.html?view=progress', label:'My Progress',     icon:'<path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10c.7.7 1 1.4 1 2h6c0-.6.3-1.3 1-2a6 6 0 0 0-4-10z"/>'},
+    {id:'guide',         href:'study.html?view=guide',   label:'UIL Science Guide', icon:'<path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9.5 12l2 2 3.5-4"/>'}
   ];
 
   function buildSidebar(active){
@@ -27,9 +24,9 @@
       return '<a href="'+n.href+'"'+cls+'><svg viewBox="0 0 24 24">'+n.icon+'</svg> '+n.label+'</a>';
     }).join('');
     return ''+
-      '<div class="logo"><div class="mark">Sci</div><div class="txt">UIL Science<small>Team Study Platform</small></div></div>'+
+      '<div class="logo"><div class="mark">Sci</div><div class="txt">UIL Science<small>Student Study</small></div></div>'+
       '<nav class="nav">'+items+'</nav>'+
-      '<div class="side-foot"><span class="badge-lock">🔒 Private · Team access</span></div>';
+      '<div class="side-foot"><span class="badge-lock">Student workspace</span></div>';
   }
 
   document.addEventListener('DOMContentLoaded', function(){
@@ -37,6 +34,10 @@
     if(body.dataset.chrome === 'minimal') return; // study mode: no shell
 
     var active = body.dataset.page || '';
+    if (active === 'study') {
+      try { active = new URLSearchParams(location.search).get('view') || 'home'; }
+      catch(e) { active = 'home'; }
+    }
     var title  = body.dataset.title || 'UIL Science';
 
     // sidebar
