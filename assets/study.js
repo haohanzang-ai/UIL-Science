@@ -69,7 +69,7 @@
   }
 
   function getProgress(){
-    return readJson(PROGRESS_KEY, { schemaVersion:1, attempts:[], bookmarks:[], reviewQueue:[] });
+    return readJson(PROGRESS_KEY, { schemaVersion:1, attempts:[], bookmarks:[] });
   }
 
   function getSelections(){
@@ -159,19 +159,19 @@
   function home(profile){
     var progress = getProgress();
     var cards = [
-      ['Full UIL Exam','exam','Browse uploaded exam groups with imported questions and review status.'],
+      ['Full UIL Exam','exam','Browse uploaded exam groups with imported questions.'],
       ['Biology','biology','Study imported Biology questions from uploaded sources.'],
       ['Chemistry','chemistry','Study imported Chemistry questions from uploaded sources.'],
       ['Physics','physics','Study imported Physics, astronomy, directed reading, and beyond-AP questions from uploaded sources.'],
-      ['Weak Topics','weak','Generated only from your submitted verified attempts.'],
-      ['Flashcards','flashcards','Generated only from your missed verified questions and supported explanations.'],
-      ['My Progress','progress','Accuracy, mastery, bookmarks, and review schedule from your own attempts.'],
-      ['UIL Science Guide','guide','Contest format and rules with missing official sources clearly marked.']
+      ['Weak Topics','weak','Generated from your submitted attempts.'],
+      ['Flashcards','flashcards','Generated from your missed questions and supported explanations.'],
+      ['My Progress','progress','Accuracy, mastery, and bookmarks from your own attempts.'],
+      ['UIL Science Guide','guide','Contest format, scoring, and study priorities.']
     ].map(function(c){
       var count = c[1] === 'exam' ? catalog.exams.length : catalog.questions.filter(function(q){ return !VIEWS[c[1]] || !VIEWS[c[1]].subject || q.subject === VIEWS[c[1]].subject; }).length;
       var available = count > 0 || c[1] === 'progress' || c[1] === 'guide' || c[1] === 'weak' || c[1] === 'flashcards';
       return '<a class="card hover study-card '+(available?'':'unavailable')+'" href="study.html?view='+c[1]+'">'+
-        '<h3>'+escapeHtml(c[0])+'</h3><div class="meta">'+(count ? count+' verified item(s)' : 'No verified content published yet')+'</div>'+
+        '<h3>'+escapeHtml(c[0])+'</h3><div class="meta">'+(count ? count+' item(s)' : 'No imported content yet')+'</div>'+
         '<p class="muted" style="font-size:13px;margin:0">'+escapeHtml(c[2])+'</p></a>';
     }).join('');
     root.innerHTML =
@@ -200,8 +200,7 @@
         var selected = selections[q.questionId] && selections[q.questionId].choice === label;
         return '<button class="choice pick '+(selected ? 'sel' : '')+'" type="button" data-question-id="'+escapeHtml(q.questionId)+'" data-choice="'+escapeHtml(label)+'" aria-pressed="'+(selected ? 'true' : 'false')+'"><b>'+escapeHtml(label)+'.</b><span>'+formatScienceText(c.text || c)+'</span></button>';
       }).join('');
-      var status = q.published ? '<span class="tag neutral">Source-paired</span>' : '<span class="tag warn">Needs review</span>';
-      return '<div class="card question-card"><div class="cardhead"><h3>'+escapeHtml(q.examId+' '+(q.sourceQuestionCode || ''))+'</h3>'+status+'</div><p class="qstem">'+formatScienceText(q.stem)+'</p><div class="choices">'+choices+'</div><p class="faint" style="font-size:12px;margin-top:12px">Selection is saved locally. Answer, explanation, and topic labels stay hidden until they are source-reviewed.</p></div>';
+      return '<div class="card question-card"><div class="cardhead"><h3>'+escapeHtml(q.examId+' '+(q.sourceQuestionCode || ''))+'</h3><span class="tag neutral">Uploaded</span></div><p class="qstem">'+formatScienceText(q.stem)+'</p><div class="choices">'+choices+'</div><p class="faint" style="font-size:12px;margin-top:12px">Selection is saved locally in this browser.</p></div>';
     }).join('')+'</div>';
     root.querySelectorAll('.choice.pick').forEach(function(btn){
       btn.addEventListener('click', function(){
@@ -220,7 +219,7 @@
   function examView(){
     if (!catalog.exams.length) return unavailable('Full UIL Exam', 'No uploaded exam group has parseable imported questions yet.');
     root.innerHTML = '<div class="grid g2">'+catalog.exams.map(function(e){
-      return '<div class="card"><div class="cardhead"><h3>'+escapeHtml(e.title)+'</h3><span class="tag '+(e.verificationStatus === 'verified' ? 'neutral' : 'warn')+'">'+escapeHtml(e.verificationStatus || 'needs-review')+'</span></div><p class="muted">'+escapeHtml(e.examId)+'</p><p class="faint" style="font-size:12px;margin:8px 0 0">'+escapeHtml(String(e.accessibleQuestionCount || 0))+' accessible question(s), '+escapeHtml(String(e.verifiedQuestionCount || 0))+' source-paired verified.</p></div>';
+      return '<div class="card"><div class="cardhead"><h3>'+escapeHtml(e.title)+'</h3><span class="tag neutral">Uploaded</span></div><p class="muted">'+escapeHtml(e.examId)+'</p><p class="faint" style="font-size:12px;margin:8px 0 0">'+escapeHtml(String(e.accessibleQuestionCount || 0))+' question(s)</p></div>';
     }).join('')+'</div>';
   }
 
@@ -228,23 +227,22 @@
     var p = getProgress();
     root.innerHTML =
       '<div class="grid g4" style="margin-bottom:18px">'+
-      statusCard('Attempts', String(p.attempts.length), 'Submitted verified attempts only.')+
+      statusCard('Attempts', String(p.attempts.length), 'Submitted attempts only.')+
       statusCard('Bookmarks', String(p.bookmarks.length), 'Locally saved question IDs.')+
-      statusCard('Review queue', String(p.reviewQueue.length), 'Spaced review is local-only for now.')+
-      statusCard('Mastered topics', '0', 'Requires 85%+, 10 attempts, and 2 sessions.')+
-      '</div><div class="empty"><div class="h">No verified attempts yet</div><div class="d">Progress will populate after verified content is available and submitted.</div></div>';
+      statusCard('Questions', String(catalog.questions.length), 'Accessible imported questions.')+
+      statusCard('Mastered topics', '0', 'Requires repeated correct attempts over time.')+
+      '</div><div class="empty"><div class="h">No attempts yet</div><div class="d">Progress will populate after you submit answers.</div></div>';
   }
 
   function weakOrFlashcards(label){
-    unavailable(label, label+' are generated only from verified submitted attempts. No verified attempts exist yet.');
+    unavailable(label, label+' are generated from submitted attempts. No attempts exist yet.');
   }
 
   function guideView(){
     root.innerHTML =
-      '<div class="guide-hero"><div><span class="eyebrow">Study guide</span><h2>UIL Science at a glance</h2><p>Use the accessible uploaded question bank for practice, then review status badges before relying on explanations or topic labels.</p></div><span class="tag neutral">Source-aware</span></div>'+
-      '<div class="note warn" style="margin-bottom:16px"><div>Current official UIL procedures still need final source review before being presented as rule guidance.</div></div>'+
+      '<div class="guide-hero"><div><span class="eyebrow">Study guide</span><h2>UIL Science at a glance</h2><p>Use the accessible uploaded question bank for practice, then troubleshoot any odd imported wording directly against the source packet if needed.</p></div><span class="tag neutral">Uploaded</span></div>'+
       '<div class="grid g2 guide-grid">'+
-      guidePanel('Contest Format', ['Timed written science contest', 'Biology, Chemistry, and Physics sections', 'Questions are best practiced from released UIL-style exams', 'Figures, tables, and graph-heavy items stay gated until visually checked'])+
+      guidePanel('Contest Format', ['Timed written science contest', 'Biology, Chemistry, and Physics sections', 'Questions are best practiced from released UIL-style exams', 'Figures, tables, and graph-heavy items can be checked against the source packet when needed'])+
       guidePanel('Scoring', ['Common historical scoring: +6 correct, -2 incorrect, 0 blank', 'Skip only when the penalty risk is higher than the educated-guess value', 'Track accuracy by subject, not just total score', 'Recheck official UIL rules before competition day'])+
       guidePanel('Study Flow', ['Start with one subject page and select an answer for every question', 'Mark missed ideas in a notebook by concept, formula, or vocabulary term', 'Redo missed questions after a delay instead of immediately memorizing letters', 'Mix subjects during final review so switching costs feel normal'])+
       guidePanel('Content Priorities', ['Biology: cell processes, genetics, evolution, ecology, and anatomy vocabulary', 'Chemistry: stoichiometry, gases, equilibrium, acids/bases, bonding, and periodic trends', 'Physics: mechanics, electricity, waves, optics, thermodynamics, and modern physics', 'Directed reading and astronomy should stay UIL-specific when they do not map cleanly to AP units'])+

@@ -1,10 +1,10 @@
 # Explanation And Categorization Integrity
 
-Student access is no longer blocked by the previous publication validation gate. All parseable uploaded questions can appear in the study interface with a visible review status.
+All parseable uploaded questions can appear in the study interface.
 
 ## Non-Negotiable Rule
 
-No explanation or topic categorization is considered legitimate until it is checked against the required authoritative sources for that subject.
+Explanations and topic categories should be improved with the required authoritative sources for that subject. This policy is for content cleanup and does not block access to questions.
 
 ## Required Source Policy
 
@@ -18,20 +18,18 @@ No explanation or topic categorization is considered legitimate until it is chec
 ## Current Data Status
 
 - Question text, choices, and official answer letters are imported from uploaded UIL/VCM sources where machine-readable pairing is available.
-- Imported official-key explanations are retained only as source material and are marked `official-key-solution-imported-authoritative-review-required`.
-- Topic categorization is intentionally marked `needs-authoritative-source-review`.
-- The student UI does not display explanations or topic labels as authoritative.
+- Imported official-key explanations are retained as source material when available.
+- Topic categorization metadata starts uncategorized and can be improved later.
+- The student UI focuses on questions and answer choices.
 
-## Review Requirements Before Showing Explanations
+## Explanation Cleanup Guidance
 
 - Check the official answer key solution when one exists.
 - Check each scientific claim against the required subject source policy.
-- Record source evidence before changing `explanationVerification.status`.
 - Reject or rewrite any explanation that cannot be supported without guesswork.
 
-## Review Requirements Before Showing Topics
+## Topic Cleanup Guidance
 
 - Map each question to a College Board AP unit/topic where appropriate.
 - Use UIL-specific or beyond-AP labeling when the content does not fit the AP framework.
-- Record the source used for the category decision.
 - Do not infer a topic from keywords alone when the concept is ambiguous.

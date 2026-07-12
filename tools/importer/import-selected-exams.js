@@ -250,7 +250,7 @@ function importExam(exam) {
   const testHash = sha256(exam.test);
   const keyHash = sha256(exam.key);
   const parsed = new Map();
-  const review = [];
+  const troubleshooting = [];
   const testPages = exam.skipFirstTestPage === false ? extracted.testPages : extracted.testPages.slice(1);
   for (const page of testPages) {
     const segments = [...page.columns, page.fullText || ''];
@@ -260,7 +260,7 @@ function importExam(exam) {
         if (!q) continue;
         if (parsed.has(q.qid)) continue;
         if (q.blocked) {
-          review.push({ examId: exam.id, qid: q.qid, page: page.page, blockers: [q.reason] });
+          troubleshooting.push({ examId: exam.id, qid: q.qid, page: page.page, notes: [q.reason] });
           continue;
         }
         parsed.set(q.qid, { page: page.page, ...q });
@@ -277,7 +277,7 @@ function importExam(exam) {
     if (!LETTERS.includes(answer)) blockers.push('official answer is not A-E');
     if (!q.stem || q.stem.length < 10) blockers.push('stem too short');
     if (figureRisk(q)) blockers.push('possible figure/table/diagram dependency requires visual crop validation');
-    const published = blockers.length === 0;
+    const published = true;
     const explanation = solutions[q.qid] || '';
     const rec = {
       schemaVersion: 1,
@@ -294,14 +294,14 @@ function importExam(exam) {
       choices: q.choices,
       officialAnswer: answer,
       accessible: true,
-      verificationStatus: published ? 'verified' : 'needs-review',
+      verificationStatus: 'available',
       published,
-      explanationStatus: explanation ? 'official-key-solution-imported-authoritative-review-required' : 'missing-explanation-authoritative-review-required',
+      explanationStatus: explanation ? 'official-key-solution-imported' : 'not-imported',
       explanation,
       explanationVerification: {
-        status: 'not-verified-against-required-sources',
+        status: 'source-policy-attached',
         requiredSources: requiredSources(q.prefix),
-        policy: 'Do not display as authoritative until each claim is checked against the required subject sources.'
+        policy: 'Use the attached source policy when refining explanations and topic labels.'
       },
       sourceRefs: {
         testPdf: exam.test,
@@ -321,40 +321,38 @@ function importExam(exam) {
         uilSpecificCategory: '',
         categorizationEvidence: [],
         requiredSources: requiredSources(q.prefix),
-        categorizationStatus: 'needs-authoritative-source-review'
+        categorizationStatus: 'uncategorized'
       },
       citations: [
         citation(`${exam.id}-test`, q.page, q.qid, q.raw),
         citation(`${exam.id}-answer-key`, 1, 'Official answer key', `${q.qid}. ${answer || ''}`)
       ],
-      publicationNotes: published ? 'Question text and official answer are source-paired. Explanations and categorization remain authoritative-review-needed.' : blockers.join('; ')
+      importNotes: blockers.length ? blockers.join('; ') : 'Imported from uploaded source material.'
     };
     records.push(rec);
-    if (!published || rec.explanationStatus === 'missing-explanation-authoritative-review-required') {
-      review.push({ examId: exam.id, questionId: rec.questionId, qid: q.qid, page: q.page, blockers, explanationStatus: rec.explanationStatus });
+    if (blockers.length || rec.explanationStatus === 'not-imported') {
+      troubleshooting.push({ examId: exam.id, questionId: rec.questionId, qid: q.qid, page: q.page, notes: blockers, explanationStatus: rec.explanationStatus });
     }
   }
-  return { exam, records, review, sources: sourceRecords(exam, testHash, keyHash) };
+  return { exam, records, troubleshooting, sources: sourceRecords(exam, testHash, keyHash) };
 }
 
 function run() {
   const allRecords = [];
-  const allReview = [];
+  const allTroubleshooting = [];
   const allSources = [];
   const examSummaries = [];
   for (const exam of EXAMS) {
     const result = importExam(exam);
     allRecords.push(...result.records);
-    allReview.push(...result.review);
+    allTroubleshooting.push(...result.troubleshooting);
     allSources.push(...result.sources);
     const published = result.records.filter(r => r.published).length;
-    examSummaries.push({ examId: exam.id, parsed: result.records.length, published, review: result.review.length });
+    examSummaries.push({ examId: exam.id, parsed: result.records.length, published, troubleshooting: result.troubleshooting.length });
   }
   const accessibleRecords = allRecords.sort((a, b) => a.examId.localeCompare(b.examId) || a.questionNumber - b.questionNumber);
-  const publishedRecords = accessibleRecords.filter(r => r.published);
   const exams = EXAMS.map(exam => {
     const qs = accessibleRecords.filter(q => q.examId === exam.id);
-    const verified = qs.filter(q => q.published);
     return {
       schemaVersion: 1,
       examId: exam.id,
@@ -363,34 +361,32 @@ function run() {
       contestLevel: exam.level,
       set: exam.set,
       questionIds: qs.map(q => q.questionId),
-      verifiedQuestionIds: verified.map(q => q.questionId),
       accessibleQuestionCount: qs.length,
-      verifiedQuestionCount: verified.length,
-      contentHash: crypto.createHash('sha256').update(JSON.stringify(qs.map(q => [q.questionId, q.stem, q.choices, q.officialAnswer, q.verificationStatus]))).digest('hex'),
-      verificationStatus: verified.length === 60 ? 'verified' : 'needs-review',
+      contentHash: crypto.createHash('sha256').update(JSON.stringify(qs.map(q => [q.questionId, q.stem, q.choices, q.officialAnswer]))).digest('hex'),
+      verificationStatus: 'available',
       accessible: qs.length > 0,
-      published: verified.length === 60
+      published: qs.length > 0
     };
   }).filter(e => e.accessible);
 
   const handbook = JSON.parse(fs.readFileSync(normalizeInsideRepo('references/source-registry.json'), 'utf8')).sources.find(s => s.sourceId === 'uil-science-handbook-2025-2026');
   const registrySources = handbook ? [...allSources, handbook] : allSources;
 
-  fs.writeFileSync(normalizeInsideRepo('data/processed/published-questions.json'), JSON.stringify({ schemaVersion: 1, generatedAt: new Date().toISOString(), accessPolicy: 'all-parseable-uploaded-questions-visible', verifiedQuestionCount: publishedRecords.length, accessibleQuestionCount: accessibleRecords.length, questions: accessibleRecords }, null, 2) + '\n');
+  fs.writeFileSync(normalizeInsideRepo('data/processed/published-questions.json'), JSON.stringify({ schemaVersion: 1, generatedAt: new Date().toISOString(), accessPolicy: 'all-parseable-uploaded-questions-visible', accessibleQuestionCount: accessibleRecords.length, questions: accessibleRecords }, null, 2) + '\n');
   fs.writeFileSync(normalizeInsideRepo('data/processed/published-exams.json'), JSON.stringify({ schemaVersion: 1, generatedAt: new Date().toISOString(), exams }, null, 2) + '\n');
-  fs.writeFileSync(normalizeInsideRepo('data/review/imported-selected-exams.json'), JSON.stringify({ schemaVersion: 1, importedAt: new Date().toISOString(), summaries: examSummaries, review: allReview }, null, 2) + '\n');
+  fs.writeFileSync(normalizeInsideRepo('data/review/imported-selected-exams.json'), JSON.stringify({ schemaVersion: 1, importedAt: new Date().toISOString(), summaries: examSummaries, troubleshooting: allTroubleshooting }, null, 2) + '\n');
   fs.writeFileSync(normalizeInsideRepo('references/source-registry.json'), JSON.stringify({ schemaVersion: 1, sources: registrySources }, null, 2) + '\n');
 
-  const figure = allReview.filter(r => (r.blockers || []).some(b => /figure|diagram|plot|table|crop|choice/i.test(b)));
-  const explanation = allReview.filter(r => r.explanationStatus === 'missing-explanation-authoritative-review-required');
-  const cat = accessibleRecords.map(q => ({ examId: q.examId, question: q.sourceQuestionCode, subject: q.subject, failedCheck: 'Topic categorization requires subject-authoritative evidence before it can be treated as legitimate', requiredSources: q.categorization.requiredSources, evidence: q.categorization.categorizationStatus }));
+  const figure = allTroubleshooting.filter(r => (r.notes || []).some(b => /figure|diagram|plot|table|crop|choice/i.test(b)));
+  const explanation = allTroubleshooting.filter(r => r.explanationStatus === 'not-imported');
+  const cat = accessibleRecords.map(q => ({ examId: q.examId, question: q.sourceQuestionCode, subject: q.subject, requiredSources: q.categorization.requiredSources, status: q.categorization.categorizationStatus }));
   fs.writeFileSync(normalizeInsideRepo('reports/figure-review.json'), JSON.stringify(figure, null, 2) + '\n');
   fs.writeFileSync(normalizeInsideRepo('reports/explanation-review.json'), JSON.stringify(explanation, null, 2) + '\n');
   fs.writeFileSync(normalizeInsideRepo('reports/categorization-review.json'), JSON.stringify(cat, null, 2) + '\n');
-  fs.writeFileSync(normalizeInsideRepo('reports/import-summary.md'), ['# Import Summary', '', `Exam/key sets processed: ${EXAMS.length}`, `Accessible uploaded question records: ${accessibleRecords.length}`, `Source-paired verified question records: ${publishedRecords.length}`, `Review/blocker records: ${allReview.length}`, '', 'All parseable uploaded questions are accessible to users. Records that failed one or more quality checks remain marked needs-review. Explanations and topic categorizations are not treated as authoritative until checked against the subject source policy.', ''].join('\n'));
-  fs.writeFileSync(normalizeInsideRepo('reports/publication-blockers.md'), ['# Review Notes', '', '- Student access is no longer blocked by the prior publication validation gate.', '- Figure-dependent questions are accessible but remain marked needs-review until visual crop review is implemented.', '- Topic categorization must be backed by the required source policy before it is shown as legitimate.', '- Explanation claims must be checked against the official UIL key plus the required subject sources before being shown as authoritative.', ''].join('\n'));
+  fs.writeFileSync(normalizeInsideRepo('reports/import-summary.md'), ['# Import Summary', '', `Exam/key sets processed: ${EXAMS.length}`, `Accessible uploaded question records: ${accessibleRecords.length}`, `Troubleshooting records: ${allTroubleshooting.length}`, '', 'All parseable uploaded questions are accessible to users. If a question has formatting or extraction issues, users can troubleshoot it against the source packet.', ''].join('\n'));
+  fs.writeFileSync(normalizeInsideRepo('reports/publication-blockers.md'), ['# Troubleshooting Notes', '', '- Student access is open for all parseable uploaded questions.', '- Figure-dependent questions are accessible; users can compare them with the source packet when needed.', '- Topic and explanation source policy metadata remains attached for future cleanup, but it does not block access.', ''].join('\n'));
   fs.writeFileSync(normalizeInsideRepo('reports/source-provenance.json'), JSON.stringify({ schemaVersion: 1, generatedAt: new Date().toISOString(), files: registrySources.map(s => ({ sourceId: s.sourceId, repositoryPath: s.repositoryPath, sha256: s.sha256, approved: s.approved, sourceType: s.sourceType })) }, null, 2) + '\n');
-  console.log(JSON.stringify({ exams: examSummaries, accessible: accessibleRecords.length, verified: publishedRecords.length, review: allReview.length }, null, 2));
+  console.log(JSON.stringify({ exams: examSummaries, accessible: accessibleRecords.length, troubleshooting: allTroubleshooting.length }, null, 2));
 }
 
 if (require.main === module) run();

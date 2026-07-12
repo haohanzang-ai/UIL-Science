@@ -8,7 +8,7 @@
 - Firebase rules deny all unspecified reads and writes.
 - Dashboard aggregate reads are restricted to the verified Google account `haohanzang@gmail.com`.
 - Importer path guard rejects parent traversal and repository escapes.
-- Published content validators fail closed on unresolved citations, duplicate IDs, incomplete exams, and `needs-review` publication.
+- Imported question access is open for all parseable uploaded records; troubleshooting metadata is retained for source comparison.
 
 ## Remaining Security Work
 
