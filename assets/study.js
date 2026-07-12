@@ -4,6 +4,7 @@
   var PROFILE_KEY = 'uil-public-profile-v1';
   var PROGRESS_KEY = 'uil-public-progress-v1';
   var ANSWERS_KEY = 'uil-public-choice-selections-v1';
+  var STUDY_STATE_KEY = 'uil-public-study-state-v1';
   var MAX_NAME = 40;
   var LOAD_TIMEOUT_MS = 12000;
   var root = document.getElementById('root');
@@ -13,7 +14,7 @@
   var params = new URLSearchParams(location.search);
   var view = params.get('view') || 'home';
   var catalog = { questions: [], exams: [], byId: {} };
-  var ui = { filters: {}, index: 0, submitted: false, showHint: false, showSolution: false, examId: params.get('exam') || '' };
+  var ui = { filters: {}, index: 0, submitted: false, showHint: false, showSolution: false, examId: params.get('exam') || '', examSubmitted: false };
 
   var SUBJECTS = {
     biology: { title:'Biology', accent:'bio', description:'Cells, genetics, evolution, ecology, anatomy, physiology, and UIL-specific life science vocabulary.' },
@@ -53,6 +54,26 @@
 
   function saveJson(key, value){
     try { localStorage.setItem(key, JSON.stringify(value)); } catch(e) {}
+  }
+
+  function restoreStudyState(){
+    var saved = readJson(STUDY_STATE_KEY, {});
+    ui.filters = saved.filters && typeof saved.filters === 'object' ? saved.filters : {};
+    if (!params.get('exam') && saved.examId && view === 'exam') ui.examId = saved.examId;
+    if (!params.get('q') && saved.last && saved.last.view === view && Number.isFinite(saved.last.index)) ui.index = saved.last.index;
+  }
+
+  function saveStudyState(extra){
+    var saved = readJson(STUDY_STATE_KEY, {});
+    saved.filters = ui.filters;
+    saved.examId = ui.examId || saved.examId || '';
+    saved.last = {
+      view: view,
+      index: ui.index,
+      questionId: extra && extra.questionId || '',
+      updatedAt: new Date().toISOString()
+    };
+    saveJson(STUDY_STATE_KEY, saved);
   }
 
   function getProfile(){
@@ -197,6 +218,12 @@
     return '<div class="topic-pills" aria-label="Mapped topics">'+topics.map(function(t){
       return '<span class="'+(t.role === 'primary' ? 'primary' : '')+'">'+escapeHtml(t.role === 'primary' ? 'Primary: '+t.unitName+' - '+t.topicName : t.unitName+' - '+t.topicName)+'</span>';
     }).join('')+'</div>';
+  }
+
+  function figureMarkup(q) {
+    var src = q.figureUrl || q.figure || q.imageUrl || q.diagramUrl || '';
+    if (!src) return '';
+    return '<figure class="question-figure"><button type="button" class="figure-zoom" data-figure-src="'+escapeHtml(src)+'" aria-label="Open figure larger"><img src="'+escapeHtml(src)+'" alt="Question figure" loading="lazy" /></button><figcaption>Question figure</figcaption><div class="figure-missing">Figure unavailable.</div></figure>';
   }
 
   function subjectClass(subject){
@@ -367,7 +394,7 @@
     var f = ui.filters[subject] || {};
     var secondaries = {};
     allRows.forEach(function(q){ secondaryTopics(q).forEach(function(t){ secondaries[t] = true; }); });
-    return '<form class="filter-panel" id="filter-form">'+
+    return '<details class="filter-shell" open><summary>Filters <span>'+rows.length+' result'+(rows.length === 1 ? '' : 's')+'</span></summary><form class="filter-panel" id="filter-form">'+
       '<div class="filter-head"><strong>'+rows.length+' result'+(rows.length === 1 ? '' : 's')+'</strong><button class="btn sm ghost" type="button" id="reset-filters">Reset</button></div>'+
       '<label>Unit<select name="unit">'+optionList(byUnique(allRows, unitName), f.unit, 'All units')+'</select></label>'+
       '<label>Primary topic<select name="topic">'+optionList(byUnique(allRows, topicName), f.topic, 'All topics')+'</select></label>'+
@@ -375,7 +402,16 @@
       '<label>Year<select name="year">'+optionList(byUnique(allRows, function(q){ return q.year ? String(q.year) : ''; }), f.year, 'All years')+'</select></label>'+
       '<label>Contest level<select name="level">'+optionList(byUnique(allRows, function(q){ return q.contestLevel || ''; }), f.level, 'All levels')+'</select></label>'+
       '<div class="filter-checks">'+check('unanswered','Unanswered',f.unanswered)+check('missed','Missed',f.missed)+check('bookmarked','Bookmarked',f.bookmarked)+check('due','Due for review',f.due)+'</div>'+
-    '</form>';
+    '</form>'+activeFilterChips(subject)+'</details>';
+  }
+
+  function activeFilterChips(subject){
+    var f = ui.filters[subject] || {};
+    var labels = { unit:'Unit', topic:'Topic', secondary:'Secondary', year:'Year', level:'Level', unanswered:'Unanswered', missed:'Missed', bookmarked:'Bookmarked', due:'Due for review' };
+    var chips = Object.keys(labels).filter(function(k){ return !!f[k]; }).map(function(k){
+      return '<button class="filter-chip" type="button" data-filter-key="'+k+'">'+escapeHtml(labels[k]+(f[k] === true ? '' : ': '+f[k]))+' <span aria-hidden="true">x</span></button>';
+    }).join('');
+    return chips ? '<div class="active-filters" aria-label="Active filters">'+chips+'</div>' : '';
   }
 
   function check(name, label, on){
@@ -417,10 +453,10 @@
       topicPills(q)+
       '<div class="question-top"><div><p class="overline">Question '+(index + 1)+' of '+rows.length+'</p><h2>'+escapeHtml(q.sourceQuestionCode || ('Question '+(q.questionNumber || index + 1)))+'</h2></div><button class="btn sm ghost" id="bookmark" type="button" aria-pressed="'+(bookmarked ? 'true' : 'false')+'">'+(bookmarked ? 'Bookmarked' : 'Bookmark')+'</button></div>'+
       '<div class="qstem">'+formatScienceText(q.stem || 'Question text unavailable.')+'</div>'+
-      '<div class="figure-fallback" hidden>Figure unavailable</div>'+
+      figureMarkup(q)+
       '<div class="choices" role="group" aria-label="Answer choices">'+choices+'</div>'+
       (submitted ? resultPanel(q, selected, latest) : '')+
-      '<div class="question-actions">'+
+      '<div class="question-actions sticky-actions">'+
         '<button class="btn primary" id="submit-answer" type="button" '+(!selected || submitted ? 'disabled' : '')+'>Submit Answer</button>'+
         '<button class="btn" id="prev-question" type="button" '+(index <= 0 ? 'disabled' : '')+'>Previous</button>'+
         '<button class="btn" id="next-question" type="button" '+(index >= rows.length - 1 ? 'disabled' : '')+'>Next Question</button>'+
@@ -429,7 +465,7 @@
       '</div>'+
       (ui.showHint ? hintPanel(q) : '')+
       (ui.showSolution ? solutionPanel(q) : '')+
-      (mode === 'exam' ? palette(rows, index) : '')+
+      palette(rows, index, mode)+
     '</article>';
   }
 
@@ -454,11 +490,28 @@
       '</aside>';
   }
 
-  function palette(rows, index){
+  function palette(rows, index, mode){
     var selections = getSelections().selections || {};
-    return '<nav class="question-palette" aria-label="Exam question palette">'+rows.map(function(q, i){
+    return '<nav class="question-palette '+(mode === 'exam' ? 'exam-palette' : 'subject-palette')+'" aria-label="'+(mode === 'exam' ? 'Exam' : 'Subject')+' question palette">'+rows.map(function(q, i){
       return '<button type="button" class="'+(i === index ? 'on ' : '')+(selections[q.questionId] ? 'answered' : '')+'" data-go="'+i+'">'+(i + 1)+'</button>';
     }).join('')+'</nav>';
+  }
+
+  function figureDialog(src) {
+    var existing = document.getElementById('figure-dialog');
+    if (existing) existing.remove();
+    var dialog = document.createElement('div');
+    dialog.id = 'figure-dialog';
+    dialog.className = 'figure-dialog';
+    dialog.setAttribute('role', 'dialog');
+    dialog.setAttribute('aria-modal', 'true');
+    dialog.setAttribute('aria-label', 'Question figure');
+    dialog.innerHTML = '<div class="figure-dialog-panel"><button class="btn" id="close-figure" type="button">Close</button><img src="'+escapeHtml(src)+'" alt="Question figure enlarged"></div>';
+    document.body.appendChild(dialog);
+    var close = function(){ dialog.remove(); };
+    document.getElementById('close-figure').addEventListener('click', close);
+    dialog.addEventListener('click', function(e){ if (e.target === dialog) close(); });
+    document.getElementById('close-figure').focus();
   }
 
   function subjectView(subject){
@@ -471,6 +524,7 @@
     }
     var rows = filteredSubjectRows(subject);
     if (ui.index >= rows.length) ui.index = Math.max(0, rows.length - 1);
+    saveStudyState({ questionId: rows[ui.index] && rows[ui.index].questionId });
     root.innerHTML =
       '<section class="subject-hero '+def.accent+'"><div><span class="tag '+def.accent+'">'+escapeHtml(def.title)+'</span><h2>'+escapeHtml(def.title)+'</h2><p>'+escapeHtml(def.description)+'</p></div>'+
       '<div class="subject-summary">'+stateCard('Questions', String(allRows.length), 'Available now')+stateCard('Progress', progressSummary(allRows), 'Submitted answers')+'</div></section>'+
@@ -502,16 +556,28 @@
           due: data.get('due') === 'on'
         };
         ui.index = 0; ui.submitted = false; ui.showHint = false; ui.showSolution = false;
+        saveStudyState();
         subjectView(subject);
       });
     }
     var reset = document.getElementById('reset-filters') || document.getElementById('empty-reset');
-    if (reset) reset.addEventListener('click', function(){ ui.filters[subject] = {}; ui.index = 0; subjectView(subject); });
+    if (reset) reset.addEventListener('click', function(){ ui.filters[subject] = {}; ui.index = 0; saveStudyState(); subjectView(subject); });
+    root.querySelectorAll('.filter-chip').forEach(function(chip){
+      chip.addEventListener('click', function(){
+        var key = chip.getAttribute('data-filter-key');
+        ui.filters[subject] = ui.filters[subject] || {};
+        delete ui.filters[subject][key];
+        ui.index = 0;
+        saveStudyState();
+        subjectView(subject);
+      });
+    });
     root.querySelectorAll('.unit-row').forEach(function(btn){
       btn.addEventListener('click', function(){
         ui.filters[subject] = ui.filters[subject] || {};
         ui.filters[subject].unit = btn.getAttribute('data-unit');
         ui.index = 0;
+        saveStudyState();
         subjectView(subject);
       });
     });
@@ -536,11 +602,15 @@
       recordAttempt(q, selected);
       ui.submitted = true;
       rerender();
+      setTimeout(function(){
+        var feedback = root.querySelector('.result-panel');
+        if (feedback) feedback.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 0);
     });
     var prev = document.getElementById('prev-question');
-    if (prev) prev.addEventListener('click', function(){ ui.index = Math.max(0, ui.index - 1); ui.submitted = false; ui.showHint = false; ui.showSolution = false; rerender(); });
+    if (prev) prev.addEventListener('click', function(){ ui.index = Math.max(0, ui.index - 1); ui.submitted = false; ui.showHint = false; ui.showSolution = false; saveStudyState({ questionId: rows[ui.index] && rows[ui.index].questionId }); rerender(); });
     var next = document.getElementById('next-question');
-    if (next) next.addEventListener('click', function(){ ui.index = Math.min(rows.length - 1, ui.index + 1); ui.submitted = false; ui.showHint = false; ui.showSolution = false; rerender(); });
+    if (next) next.addEventListener('click', function(){ ui.index = Math.min(rows.length - 1, ui.index + 1); ui.submitted = false; ui.showHint = false; ui.showSolution = false; saveStudyState({ questionId: rows[ui.index] && rows[ui.index].questionId }); rerender(); });
     var hint = document.getElementById('hint-button');
     if (hint) hint.addEventListener('click', function(){ ui.showHint = !ui.showHint; rerender(); });
     var solution = document.getElementById('solution-button');
@@ -550,7 +620,13 @@
     var bookmark = document.getElementById('bookmark');
     if (bookmark) bookmark.addEventListener('click', function(){ toggleBookmark(q.questionId); rerender(); });
     root.querySelectorAll('.question-palette button').forEach(function(btn){
-      btn.addEventListener('click', function(){ ui.index = Number(btn.getAttribute('data-go')) || 0; ui.submitted = false; ui.showHint = false; ui.showSolution = false; rerender(); });
+      btn.addEventListener('click', function(){ ui.index = Number(btn.getAttribute('data-go')) || 0; ui.submitted = false; ui.showHint = false; ui.showSolution = false; saveStudyState({ questionId: rows[ui.index] && rows[ui.index].questionId }); rerender(); });
+    });
+    root.querySelectorAll('.figure-zoom').forEach(function(btn){
+      btn.addEventListener('click', function(){ figureDialog(btn.getAttribute('data-figure-src')); });
+    });
+    root.querySelectorAll('.question-figure img').forEach(function(img){
+      img.addEventListener('error', function(){ var fig = img.closest('.question-figure'); if (fig) fig.classList.add('missing'); });
     });
   }
 
@@ -571,10 +647,13 @@
     var rows = (exam.questionIds || []).map(function(id){ return catalog.byId[id]; }).filter(Boolean);
     if (!rows.length) return unavailable('Exam unavailable', 'This exam set does not have available questions.');
     if (ui.index >= rows.length) ui.index = rows.length - 1;
+    ui.examId = examId;
+    saveStudyState({ questionId: rows[ui.index] && rows[ui.index].questionId });
     var selections = getSelections().selections || {};
     var answered = rows.filter(function(q){ return selections[q.questionId]; }).length;
     root.innerHTML =
       '<section class="exam-active-head"><div><p class="overline">Active exam</p><h2>'+escapeHtml(exam.title)+'</h2><p>Answer selections are saved automatically in this browser.</p></div><div class="exam-timer"><strong>120:00</strong><span>minutes</span></div><div class="exam-progress"><strong>'+answered+'/'+rows.length+'</strong><span>answered</span></div></section>'+
+      (ui.examSubmitted ? examSummary(rows) : '')+
       questionCard(rows[ui.index], rows, ui.index, 'exam')+
       '<div class="submit-exam-row"><button class="btn primary" id="submit-exam" type="button">Submit exam</button></div>';
     bindQuestion(rows, function(){ activeExam(examId); });
@@ -583,8 +662,16 @@
       var missing = rows.length - answered;
       if (missing && !confirm('You still have '+missing+' unanswered question'+(missing === 1 ? '' : 's')+'. Submit anyway?')) return;
       ui.submitted = true;
+      ui.examSubmitted = true;
       activeExam(examId);
     });
+  }
+
+  function examSummary(rows){
+    var selections = getSelections().selections || {};
+    var answeredRows = rows.filter(function(q){ return selections[q.questionId]; });
+    var correct = answeredRows.filter(function(q){ return selections[q.questionId].choice === q.officialAnswer; }).length;
+    return '<section class="exam-summary" tabindex="-1"><h2>Session summary</h2><p>'+answeredRows.length+' answered out of '+rows.length+'. '+correct+' correct among answered questions.</p></section>';
   }
 
   function progressView(){
@@ -694,6 +781,36 @@
     return home(profile);
   }
 
+  function bindKeyboardShortcuts(){
+    document.addEventListener('keydown', function(e){
+      var tag = e.target && e.target.tagName;
+      if (tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA' || e.target.isContentEditable) return;
+      var key = e.key.toLowerCase();
+      var map = { a:'A', b:'B', c:'C', d:'D', e:'E' };
+      if (map[key]) {
+        var choice = root.querySelector('.choice.pick[data-choice="'+map[key]+'"]');
+        if (choice) { e.preventDefault(); choice.click(); }
+        return;
+      }
+      if (key === 'enter') {
+        var submit = document.getElementById('submit-answer');
+        if (submit && !submit.disabled) { e.preventDefault(); submit.click(); }
+      } else if (key === 'arrowleft') {
+        var prev = document.getElementById('prev-question');
+        if (prev && !prev.disabled) { e.preventDefault(); prev.click(); }
+      } else if (key === 'arrowright') {
+        var next = document.getElementById('next-question');
+        if (next && !next.disabled) { e.preventDefault(); next.click(); }
+      } else if (key === 'h') {
+        var hint = document.getElementById('hint-button');
+        if (hint) { e.preventDefault(); hint.click(); }
+      } else if (key === 'b') {
+        var bookmark = document.getElementById('bookmark');
+        if (bookmark) { e.preventDefault(); bookmark.click(); }
+      }
+    });
+  }
+
   function start(){
     if (!navigator.onLine) {
       errorState('This page needs the local study files. Check your connection or reload the page.');
@@ -702,6 +819,8 @@
     loadCatalog().then(render).catch(function(e){ errorState(e.message || 'The study files could not be loaded.'); });
   }
 
+  restoreStudyState();
+  bindKeyboardShortcuts();
   window.addEventListener('online', function(){ if (!catalog.questions.length) start(); });
   start();
 })();
