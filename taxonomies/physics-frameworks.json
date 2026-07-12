@@ -9,7 +9,25 @@
     "UIL Directed Reading",
     "UIL-Specific or Beyond-AP"
   ],
-  "topics": [],
-  "sourceStatus": "ced-and-uil-sources-missing",
-  "publicationStatus": "needs-review"
+  "topics": [
+    "Kinematics",
+    "Force and Translational Dynamics",
+    "Work, Energy, and Power",
+    "Linear Momentum",
+    "Torque and Rotational Dynamics",
+    "Energy and Momentum of Rotating Systems",
+    "Oscillations",
+    "Fluids",
+    "Thermodynamics",
+    "Electric Force, Field, and Potential",
+    "Electric Circuits",
+    "Magnetism and Electromagnetism",
+    "Geometric Optics",
+    "Waves, Sound, and Physical Optics",
+    "Modern Physics",
+    "UIL Astronomy"
+  ],
+  "sourceStatus": "ap-course-framework-and-uil-specific-mapping",
+  "publicationStatus": "ap-aligned-needs-source-review",
+  "allowsMultipleTopics": true
 }

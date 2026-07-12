@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "framework": "AP Chemistry",
-  "sourceStatus": "ced-missing",
+  "sourceStatus": "ap-course-framework-referenced",
   "units": [
     "Atomic Structure and Properties",
     "Compound Structure and Properties",
@@ -13,6 +13,18 @@
     "Acids and Bases",
     "Thermodynamics and Electrochemistry"
   ],
-  "topics": [],
-  "publicationStatus": "needs-review"
+  "topics": [
+    "Atomic Structure and Properties: atomic structure, periodic trends, spectroscopy",
+    "Compound Structure and Properties: bonding, molecular structure, intermolecular forces",
+    "Properties of Substances and Mixtures: phases, gases, solutions, stoichiometry",
+    "Chemical Reactions: balancing, net ionic equations, reaction types, redox",
+    "Kinetics: rate laws, mechanisms, activation energy",
+    "Thermochemistry: enthalpy, calorimetry, phase-change energy",
+    "Equilibrium: K, Q, Le Chatelier, solubility equilibria",
+    "Acids and Bases: pH, Ka/Kb, buffers, titrations",
+    "Thermodynamics and Electrochemistry: entropy, Gibbs free energy, galvanic/electrolytic cells",
+    "UIL Chemistry: nomenclature and formula writing"
+  ],
+  "publicationStatus": "ap-aligned-needs-source-review",
+  "allowsMultipleTopics": true
 }

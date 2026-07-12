@@ -184,6 +184,14 @@
     return [q.year, q.contestLevel, q.set].filter(Boolean).join(' ');
   }
 
+  function topicPills(q) {
+    var topics = q.categorization && Array.isArray(q.categorization.topics) ? q.categorization.topics : [];
+    if (!topics.length) return '<div class="topic-pills"><span>Topic needs source review</span></div>';
+    return '<div class="topic-pills" aria-label="Mapped topics">'+topics.map(function(t){
+      return '<span class="'+(t.role === 'primary' ? 'primary' : '')+'">'+escapeHtml(t.role === 'primary' ? 'Primary: '+t.unitName+' - '+t.topicName : t.unitName+' - '+t.topicName)+'</span>';
+    }).join('')+'</div>';
+  }
+
   function subjectClass(subject){
     return subject === 'biology' ? 'bio' : subject === 'chemistry' ? 'chem' : subject === 'physics' ? 'phys' : 'neutral';
   }
@@ -399,6 +407,7 @@
     }).join('');
     return '<article class="focus-card" data-question-id="'+escapeHtml(q.questionId)+'">'+
       '<div class="question-meta"><span class="tag '+subjectClass(q.subject)+'">'+escapeHtml((SUBJECTS[q.subject] && SUBJECTS[q.subject].title) || q.subject)+'</span><span>'+escapeHtml(unitName(q))+'</span><span>'+escapeHtml(topicName(q))+'</span><span>'+escapeHtml(displaySet(q))+'</span></div>'+
+      topicPills(q)+
       '<div class="question-top"><div><p class="overline">Question '+(index + 1)+' of '+rows.length+'</p><h2>'+escapeHtml(q.sourceQuestionCode || ('Question '+(q.questionNumber || index + 1)))+'</h2></div><button class="btn sm ghost" id="bookmark" type="button" aria-pressed="'+(bookmarked ? 'true' : 'false')+'">'+(bookmarked ? 'Bookmarked' : 'Bookmark')+'</button></div>'+
       '<div class="qstem">'+formatScienceText(q.stem || 'Question text unavailable.')+'</div>'+
       '<div class="figure-fallback" hidden>Figure unavailable</div>'+

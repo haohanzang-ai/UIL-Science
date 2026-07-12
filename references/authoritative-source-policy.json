@@ -56,6 +56,6 @@
     "Question text and choices are accessible from uploaded source files.",
     "Official answer letters may be used only when parsed from a paired official answer key.",
     "Explanations must remain hidden or labeled non-authoritative until claim-level support is recorded.",
-    "Topic/unit labels must remain hidden or labeled needs-authoritative-source-review until mapped to required sources."
+    "Topic/unit labels may be displayed as AP-aligned study labels when they carry sourceReviewStatus=needs-authoritative-source-review; do not present them as authoritative verified classifications until mapped to required sources."
   ]
 }

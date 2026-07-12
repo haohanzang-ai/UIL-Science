@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "framework": "AP Biology",
-  "sourceStatus": "ced-missing",
+  "sourceStatus": "ap-course-framework-referenced",
   "units": [
     "Chemistry of Life",
     "Cells",
@@ -12,6 +12,17 @@
     "Natural Selection",
     "Ecology"
   ],
-  "topics": [],
-  "publicationStatus": "needs-review"
+  "topics": [
+    "Chemistry of Life: water, macromolecules, enzymes",
+    "Cell Structure and Function: organelles, membranes, transport",
+    "Cellular Energetics: respiration, photosynthesis, free energy",
+    "Cell Communication and Cell Cycle: signaling, feedback, mitosis",
+    "Heredity: inheritance, meiosis, genetic variation",
+    "Gene Expression and Regulation: DNA/RNA/protein synthesis, regulation, biotechnology",
+    "Natural Selection: evolution, phylogeny, population genetics",
+    "Ecology: populations, communities, ecosystems, biogeochemical cycles",
+    "UIL Biology: anatomy/physiology, plant biology, diversity/classification"
+  ],
+  "publicationStatus": "ap-aligned-needs-source-review",
+  "allowsMultipleTopics": true
 }
