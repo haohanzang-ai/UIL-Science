@@ -4,7 +4,6 @@
    Minimal-chrome pages (study mode): <body data-chrome="minimal">
    ============================================================ */
 (function(){
-  var AUTH_KEY = 'uil-site-auth-v1';
   var AUTH_HASH = '2e1832febe539da82cd9e58d5413cbfcd700bc9acc454d1fe65d20dad89e2cb7';
   var NAV = [
     {id:'home',          href:'study.html',              label:'Study Home',       icon:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>'},
@@ -57,7 +56,7 @@
 
   function ensureSiteAuth(){
     try {
-      if(localStorage.getItem(AUTH_KEY) === AUTH_HASH) return;
+      localStorage.removeItem('uil-site-auth-v1');
     } catch(e) {}
     addAuthStyles();
     document.body.classList.add('auth-locked');
@@ -88,7 +87,6 @@
           input.select();
           return;
         }
-        try { localStorage.setItem(AUTH_KEY, AUTH_HASH); } catch(e) {}
         document.body.classList.remove('auth-locked');
         overlay.remove();
       }).catch(function(err){
