@@ -184,6 +184,13 @@
     return [q.year, q.contestLevel, q.set].filter(Boolean).join(' ');
   }
 
+  function correctChoice(q) {
+    var label = q.officialAnswer || '';
+    var choices = Array.isArray(q.choices) ? q.choices : [];
+    var found = choices.find(function(c){ return (c.label || '') === label; });
+    return { label: label, text: found ? (found.text || '') : '' };
+  }
+
   function topicPills(q) {
     var topics = q.categorization && Array.isArray(q.categorization.topics) ? q.categorization.topics : [];
     if (!topics.length) return '<div class="topic-pills"><span>Topic needs source review</span></div>';
@@ -626,15 +633,22 @@
     }
     if (ui.index >= missed.length) ui.index = missed.length - 1;
     var q = missed[ui.index];
+    var answer = correctChoice(q);
     root.innerHTML =
-      '<section class="flashcard"><p class="overline">Flashcard '+(ui.index + 1)+' of '+missed.length+'</p><h2>'+formatScienceText(q.stem)+'</h2>'+(ui.showSolution ? '<div class="flash-answer">Answer: '+escapeHtml(q.officialAnswer || 'Unavailable')+'</div>' : '')+
-      '<div class="question-actions"><button class="btn" id="prev-question" '+(ui.index <= 0 ? 'disabled' : '')+'>Previous</button><button class="btn primary" id="solution-button">Reveal</button><button class="btn" id="next-question" '+(ui.index >= missed.length - 1 ? 'disabled' : '')+'>Next</button></div></section>';
+      '<section class="flashcard-wrap"><p class="overline">Flashcard '+(ui.index + 1)+' of '+missed.length+'</p>'+
+      '<button class="flashcard-flip '+(ui.showSolution ? 'flipped' : '')+'" id="flashcard-card" type="button" aria-pressed="'+(ui.showSolution ? 'true' : 'false')+'" aria-label="'+(ui.showSolution ? 'Show question side' : 'Reveal answer side')+'">'+
+        '<span class="flashcard-face flashcard-front"><span class="flash-label">Question</span><strong>'+formatScienceText(q.stem)+'</strong><small>Click to reveal the answer.</small></span>'+
+        '<span class="flashcard-face flashcard-back"><span class="flash-label">Answer</span><strong>'+escapeHtml(answer.label || 'Unavailable')+(answer.text ? '. '+formatScienceText(answer.text) : '')+'</strong><small>Click to return to the question.</small></span>'+
+      '</button>'+
+      '<div class="question-actions"><button class="btn" id="prev-question" '+(ui.index <= 0 ? 'disabled' : '')+'>Previous</button><button class="btn primary" id="solution-button">'+(ui.showSolution ? 'Show Question' : 'Reveal Answer')+'</button><button class="btn" id="next-question" '+(ui.index >= missed.length - 1 ? 'disabled' : '')+'>Next</button></div></section>';
     var prev = document.getElementById('prev-question');
     var next = document.getElementById('next-question');
     var reveal = document.getElementById('solution-button');
+    var card = document.getElementById('flashcard-card');
     if (prev) prev.addEventListener('click', function(){ ui.index = Math.max(0, ui.index - 1); ui.showSolution = false; flashcardsView(); });
     if (next) next.addEventListener('click', function(){ ui.index = Math.min(missed.length - 1, ui.index + 1); ui.showSolution = false; flashcardsView(); });
     if (reveal) reveal.addEventListener('click', function(){ ui.showSolution = !ui.showSolution; flashcardsView(); });
+    if (card) card.addEventListener('click', function(){ ui.showSolution = !ui.showSolution; flashcardsView(); });
   }
 
   function guideView(){
