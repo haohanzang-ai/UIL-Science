@@ -4,6 +4,8 @@
    Minimal-chrome pages (study mode): <body data-chrome="minimal">
    ============================================================ */
 (function(){
+  var AUTH_KEY = 'uil-site-auth-v1';
+  var AUTH_HASH = '2e1832febe539da82cd9e58d5413cbfcd700bc9acc454d1fe65d20dad89e2cb7';
   var NAV = [
     {id:'home',          href:'study.html',              label:'Study Home',       icon:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>'},
     {id:'exam',          href:'study.html?view=exam',    label:'Full UIL Exam',    icon:'<circle cx="12" cy="12" r="9"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/>'},
@@ -29,8 +31,76 @@
       '<div class="side-foot"><span class="badge-lock">Student workspace</span></div>';
   }
 
+  function addAuthStyles(){
+    if(document.getElementById('site-auth-styles')) return;
+    var style = document.createElement('style');
+    style.id = 'site-auth-styles';
+    style.textContent =
+      'body.auth-locked{overflow:hidden}' +
+      'body.auth-locked .app{filter:blur(2px);pointer-events:none;user-select:none}' +
+      '.site-auth{position:fixed;inset:0;z-index:10000;display:grid;place-items:center;background:#f6f7f8;color:#182230;padding:20px}' +
+      '.site-auth-card{width:min(440px,100%);background:#fff;border:1px solid #d8dee7;border-radius:10px;padding:28px;box-shadow:0 18px 50px rgba(16,24,40,.16)}' +
+      '.site-auth-card h1{font-size:26px;margin:0 0 8px;letter-spacing:0}.site-auth-card p{margin:0 0 18px;color:#5d6b7c}' +
+      '.site-auth-card label{display:block;font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#5d6b7c;margin-bottom:8px}' +
+      '.site-auth-card input{width:100%;min-height:46px;border:1px solid #d8dee7;border-radius:8px;padding:10px 12px;font:inherit;color:#182230}' +
+      '.site-auth-card button{width:100%;min-height:46px;margin-top:14px;border:0;border-radius:8px;background:#2454a6;color:#fff;font-weight:800;font:inherit;cursor:pointer}' +
+      '.site-auth-error{min-height:22px;margin-top:8px;color:#b42318;font-size:13px;font-weight:700}';
+    document.head.appendChild(style);
+  }
+
+  function sha256(value){
+    if(!window.crypto || !crypto.subtle || !window.TextEncoder) return Promise.reject(new Error('Password check is unavailable in this browser.'));
+    return crypto.subtle.digest('SHA-256', new TextEncoder().encode(value)).then(function(buffer){
+      return Array.prototype.map.call(new Uint8Array(buffer), function(b){ return b.toString(16).padStart(2, '0'); }).join('');
+    });
+  }
+
+  function ensureSiteAuth(){
+    try {
+      if(localStorage.getItem(AUTH_KEY) === AUTH_HASH) return;
+    } catch(e) {}
+    addAuthStyles();
+    document.body.classList.add('auth-locked');
+    var overlay = document.createElement('div');
+    overlay.className = 'site-auth';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-labelledby', 'site-auth-title');
+    overlay.innerHTML =
+      '<form class="site-auth-card" id="site-auth-form">' +
+        '<h1 id="site-auth-title">UIL Science</h1>' +
+        '<p>Enter the site password to continue.</p>' +
+        '<label for="site-auth-password">Password</label>' +
+        '<input id="site-auth-password" type="password" autocomplete="current-password" required />' +
+        '<div class="site-auth-error" id="site-auth-error" role="alert"></div>' +
+        '<button type="submit">Unlock site</button>' +
+      '</form>';
+    document.body.appendChild(overlay);
+    var form = document.getElementById('site-auth-form');
+    var input = document.getElementById('site-auth-password');
+    var error = document.getElementById('site-auth-error');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      error.textContent = '';
+      sha256(input.value).then(function(hash){
+        if(hash !== AUTH_HASH) {
+          error.textContent = 'Incorrect password.';
+          input.select();
+          return;
+        }
+        try { localStorage.setItem(AUTH_KEY, AUTH_HASH); } catch(e) {}
+        document.body.classList.remove('auth-locked');
+        overlay.remove();
+      }).catch(function(err){
+        error.textContent = err.message || 'Password check failed.';
+      });
+    });
+    input.focus();
+  }
+
   document.addEventListener('DOMContentLoaded', function(){
     var body = document.body;
+    ensureSiteAuth();
     if(body.dataset.chrome === 'minimal') return; // study mode: no shell
 
     var active = body.dataset.page || '';
