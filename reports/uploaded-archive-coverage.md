@@ -1,6 +1,6 @@
 # Uploaded Archive Coverage
 
-The uploaded UIL Science archive was scanned for source-paired science questions. Importable records require a readable test source and a paired official answer key.
+The uploaded UIL Science archive was scanned for readable science questions. All parseable uploaded questions are accessible in the student interface. Records with weaker extraction, missing answer-key support, figure dependencies, or other issues are marked `needs-review`.
 
 ## Imported source groups
 
@@ -14,11 +14,11 @@ The uploaded UIL Science archive was scanned for source-paired science questions
 - 2025 Set A/B
 - 2026 Set A/B
 
-## Blocked or partially blocked
+## Accessible But Needs Review
 
 - 2022 Set B and 2023 Set A test PDFs contain no extractable text in the current repository toolchain.
-- 2018 Region question text extracted, but its answer-key page is not machine-readable enough to verify answer letters, so no questions from that set are published.
-- Some figure/table/diagram-dependent questions remain gated until visual crop review is implemented.
+- 2018 Region question text extracted, but its answer-key page is not machine-readable enough to verify answer letters, so records from that set are accessible with review status instead of verified status.
+- Some figure/table/diagram-dependent questions are accessible but remain marked needs-review until visual crop review is implemented.
 - Some older packet questions remain in review when text extraction did not produce exactly five choices or an A-E official answer.
 
 ## Not imported as published questions

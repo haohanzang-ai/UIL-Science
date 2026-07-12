@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "policy": "Explanations and topic categorizations must not be presented as authoritative unless supported by the required subject sources.",
+  "subjects": {
+    "biology": {
+      "requiredSources": [
+        {
+          "name": "Campbell Biology, latest available edition",
+          "role": "primary textbook source for biology concept explanations",
+          "url": "https://www.pearson.com/en-us/subject-catalog/p/campbell-biology/P200000007019/9780135988046"
+        },
+        {
+          "name": "College Board AP Biology Course and Exam Description",
+          "role": "primary AP framework source for topic categorization",
+          "url": "https://apstudents.collegeboard.org/courses/ap-biology"
+        }
+      ]
+    },
+    "chemistry": {
+      "requiredSources": [
+        {
+          "name": "College Board AP Chemistry Course and Exam Description",
+          "role": "primary AP framework source for topic categorization",
+          "url": "https://apstudents.collegeboard.org/courses/ap-chemistry"
+        },
+        {
+          "name": "Princeton Review AP Chemistry",
+          "role": "secondary AP-prep explanation cross-check when an approved copy/source is available"
+        },
+        {
+          "name": "OpenStax Chemistry 2e",
+          "role": "fallback general chemistry textbook when Princeton Review support is unavailable",
+          "url": "https://openstax.org/details/books/chemistry-2e"
+        }
+      ]
+    },
+    "physics": {
+      "requiredSources": [
+        {
+          "name": "College Board AP Physics Course and Exam Descriptions",
+          "role": "primary AP framework source for topic categorization",
+          "urls": [
+            "https://apstudents.collegeboard.org/courses/ap-physics-1-algebra-based",
+            "https://apstudents.collegeboard.org/courses/ap-physics-2-algebra-based"
+          ]
+        },
+        {
+          "name": "OpenStax College Physics 2e",
+          "role": "fallback peer-reviewed introductory physics textbook for explanations",
+          "url": "https://openstax.org/details/books/college-physics-2e"
+        }
+      ]
+    }
+  },
+  "displayRules": [
+    "Question text and choices may be accessible from uploaded source files with review status shown.",
+    "Official answer letters may be used only when parsed from a paired official answer key.",
+    "Explanations must remain hidden or labeled non-authoritative until claim-level support is recorded.",
+    "Topic/unit labels must remain hidden or labeled needs-authoritative-source-review until mapped to required sources."
+  ]
+}

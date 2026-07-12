@@ -109,8 +109,8 @@
     var q = fetch('data/processed/published-questions.json').then(function(r){ return r.ok ? r.json() : { questions:[] }; }).catch(function(){ return { questions:[] }; });
     var e = fetch('data/processed/published-exams.json').then(function(r){ return r.ok ? r.json() : { exams:[] }; }).catch(function(){ return { exams:[] }; });
     var both = await Promise.all([q,e]);
-    catalog.questions = Array.isArray(both[0].questions) ? both[0].questions.filter(function(x){ return x && x.published === true && x.verificationStatus === 'verified'; }) : [];
-    catalog.exams = Array.isArray(both[1].exams) ? both[1].exams.filter(function(x){ return x && x.published === true && x.verificationStatus === 'verified'; }) : [];
+    catalog.questions = Array.isArray(both[0].questions) ? both[0].questions.filter(function(x){ return x && x.accessible !== false; }) : [];
+    catalog.exams = Array.isArray(both[1].exams) ? both[1].exams.filter(function(x){ return x && x.accessible !== false; }) : [];
   }
 
   function nameGate(){
@@ -159,10 +159,10 @@
   function home(profile){
     var progress = getProgress();
     var cards = [
-      ['Full UIL Exam','exam','Complete historical exams only appear after all 60 questions, answers, figures, and hashes pass validation.'],
-      ['Biology','biology','Study verified Biology questions by unit and topic.'],
-      ['Chemistry','chemistry','Study verified Chemistry questions by unit and topic.'],
-      ['Physics','physics','Study verified Physics, astronomy, directed reading, and beyond-AP questions without forced AP mapping.'],
+      ['Full UIL Exam','exam','Browse uploaded exam groups with imported questions and review status.'],
+      ['Biology','biology','Study imported Biology questions from uploaded sources.'],
+      ['Chemistry','chemistry','Study imported Chemistry questions from uploaded sources.'],
+      ['Physics','physics','Study imported Physics, astronomy, directed reading, and beyond-AP questions from uploaded sources.'],
       ['Weak Topics','weak','Generated only from your submitted verified attempts.'],
       ['Flashcards','flashcards','Generated only from your missed verified questions and supported explanations.'],
       ['My Progress','progress','Accuracy, mastery, bookmarks, and review schedule from your own attempts.'],
@@ -176,8 +176,8 @@
     }).join('');
     root.innerHTML =
       '<div class="grid g4" style="margin-bottom:18px">'+
-      statusCard('Verified exams', String(catalog.exams.length), 'Must be complete 60-question historical exams.')+
-      statusCard('Published questions', String(catalog.questions.length), 'Only verified records are counted.')+
+      statusCard('Uploaded exams', String(catalog.exams.length), 'Exam groups with parseable imported questions.')+
+      statusCard('Accessible questions', String(catalog.questions.length), 'All parseable uploaded records are counted.')+
       statusCard('Attempts', String(progress.attempts.length), 'Local-only until Firebase is configured.')+
       statusCard('Storage', 'Local', 'No centralized sync or dashboard access yet.')+
       '</div><div class="grid g4">'+cards+'</div>';
@@ -192,7 +192,7 @@
 
   function subjectView(def){
     var rows = catalog.questions.filter(function(q){ return q.subject === def.subject; });
-    if (!rows.length) return unavailable(def.title, 'No '+def.title+' questions are published because no repository source has passed the source, transcription, answer, figure, categorization, and explanation gates.');
+    if (!rows.length) return unavailable(def.title, 'No '+def.title+' questions are currently parseable from the uploaded source files.');
     var selections = getSelections().selections || {};
     root.innerHTML = '<div class="grid g2">'+rows.map(function(q){
       var choices = (q.choices || []).map(function(c){
@@ -200,7 +200,8 @@
         var selected = selections[q.questionId] && selections[q.questionId].choice === label;
         return '<button class="choice pick '+(selected ? 'sel' : '')+'" type="button" data-question-id="'+escapeHtml(q.questionId)+'" data-choice="'+escapeHtml(label)+'" aria-pressed="'+(selected ? 'true' : 'false')+'"><b>'+escapeHtml(label)+'.</b><span>'+formatScienceText(c.text || c)+'</span></button>';
       }).join('');
-      return '<div class="card question-card"><div class="cardhead"><h3>'+escapeHtml(q.sourceQuestionCode || q.questionId)+'</h3><span class="tag neutral">Official source</span></div><p class="qstem">'+formatScienceText(q.stem)+'</p><div class="choices">'+choices+'</div><p class="faint" style="font-size:12px;margin-top:12px">Selection is saved locally. Answer and explanation stay hidden until an attempt/review flow is enabled.</p></div>';
+      var status = q.published ? '<span class="tag neutral">Source-paired</span>' : '<span class="tag warn">Needs review</span>';
+      return '<div class="card question-card"><div class="cardhead"><h3>'+escapeHtml(q.examId+' '+(q.sourceQuestionCode || ''))+'</h3>'+status+'</div><p class="qstem">'+formatScienceText(q.stem)+'</p><div class="choices">'+choices+'</div><p class="faint" style="font-size:12px;margin-top:12px">Selection is saved locally. Answer, explanation, and topic labels stay hidden until they are source-reviewed.</p></div>';
     }).join('')+'</div>';
     root.querySelectorAll('.choice.pick').forEach(function(btn){
       btn.addEventListener('click', function(){
@@ -217,8 +218,10 @@
   }
 
   function examView(){
-    if (!catalog.exams.length) return unavailable('Full UIL Exam', 'No complete historical exam is published. A full exam remains hidden until all 60 questions, official answers, figures, and the exam content hash pass validation.');
-    root.innerHTML = '<div class="grid g2">'+catalog.exams.map(function(e){ return '<div class="card"><h3>'+escapeHtml(e.title)+'</h3><p class="muted">'+escapeHtml(e.examId)+'</p></div>'; }).join('')+'</div>';
+    if (!catalog.exams.length) return unavailable('Full UIL Exam', 'No uploaded exam group has parseable imported questions yet.');
+    root.innerHTML = '<div class="grid g2">'+catalog.exams.map(function(e){
+      return '<div class="card"><div class="cardhead"><h3>'+escapeHtml(e.title)+'</h3><span class="tag '+(e.verificationStatus === 'verified' ? 'neutral' : 'warn')+'">'+escapeHtml(e.verificationStatus || 'needs-review')+'</span></div><p class="muted">'+escapeHtml(e.examId)+'</p><p class="faint" style="font-size:12px;margin:8px 0 0">'+escapeHtml(String(e.accessibleQuestionCount || 0))+' accessible question(s), '+escapeHtml(String(e.verifiedQuestionCount || 0))+' source-paired verified.</p></div>';
+    }).join('')+'</div>';
   }
 
   function progressView(){
@@ -238,7 +241,7 @@
 
   function guideView(){
     root.innerHTML =
-      '<div class="guide-hero"><div><span class="eyebrow">Study guide</span><h2>UIL Science at a glance</h2><p>Use the verified question bank for practice, then review by subject and missed concepts.</p></div><span class="tag neutral">Source-gated</span></div>'+
+      '<div class="guide-hero"><div><span class="eyebrow">Study guide</span><h2>UIL Science at a glance</h2><p>Use the accessible uploaded question bank for practice, then review status badges before relying on explanations or topic labels.</p></div><span class="tag neutral">Source-aware</span></div>'+
       '<div class="note warn" style="margin-bottom:16px"><div>Current official UIL procedures still need final source review before being presented as rule guidance.</div></div>'+
       '<div class="grid g2 guide-grid">'+
       guidePanel('Contest Format', ['Timed written science contest', 'Biology, Chemistry, and Physics sections', 'Questions are best practiced from released UIL-style exams', 'Figures, tables, and graph-heavy items stay gated until visually checked'])+

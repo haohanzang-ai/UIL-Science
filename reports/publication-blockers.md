@@ -1,6 +1,6 @@
-# Publication Blockers
+# Review Notes
 
-- Full exam mode remains blocked for any exam that has fewer than 60 safely published questions.
-- Figure-dependent questions remain blocked until crop validation is implemented.
-- AP CED topic-code evidence is still missing from repository sources.
-- Claim-level explanation citations remain required before showing explanations as verified.
+- Student access is no longer blocked by the prior publication validation gate.
+- Figure-dependent questions are accessible but remain marked needs-review until visual crop review is implemented.
+- Topic categorization must be backed by the required source policy before it is shown as legitimate.
+- Explanation claims must be checked against the official UIL key plus the required subject sources before being shown as authoritative.

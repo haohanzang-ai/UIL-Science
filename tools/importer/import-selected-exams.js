@@ -5,6 +5,11 @@ const { normalizeInsideRepo } = require('./pathGuard');
 
 const PYTHON = process.env.CODEX_PYTHON || 'C:\\Users\\lingw\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe';
 const LETTERS = ['A', 'B', 'C', 'D', 'E'];
+const AUTHORITATIVE_SOURCES = {
+  B: ['Campbell Biology latest edition', 'College Board AP Biology Course and Exam Description'],
+  C: ['College Board AP Chemistry Course and Exam Description', 'Princeton Review AP Chemistry', 'OpenStax Chemistry 2e fallback'],
+  P: ['College Board AP Physics Course and Exam Descriptions', 'OpenStax College Physics 2e fallback']
+};
 
 const EXAMS = [
   { year: 2021, set: 'B', level: 'invitational', id: 'uil-2021-invitational-b', title: 'UIL Science Invitational B 2021', test: 'data/source-pdfs/uil/2021-invitational-b/science-test-b-2021.pdf', key: 'data/source-pdfs/uil/2021-invitational-b/science-key-b-2021.pdf' },
@@ -188,6 +193,10 @@ function order(prefix, num) {
   return prefix === 'B' ? num : prefix === 'C' ? 20 + num : 40 + num;
 }
 
+function requiredSources(prefix) {
+  return AUTHORITATIVE_SOURCES[prefix] || [];
+}
+
 function figureRisk(q) {
   const text = `${q.stem} ${q.choices.map(c => c.text).join(' ')}`.toLowerCase();
   return /\b(figure|diagram|graph|table|shown|below|above|image|drawing|circuit|orbital shown|energy level diagram|plot)\b/.test(text);
@@ -284,10 +293,16 @@ function importExam(exam) {
       stem: q.stem,
       choices: q.choices,
       officialAnswer: answer,
+      accessible: true,
       verificationStatus: published ? 'verified' : 'needs-review',
       published,
-      explanationStatus: explanation ? 'key-solution-imported-needs-claim-review' : 'missing-explanation',
+      explanationStatus: explanation ? 'official-key-solution-imported-authoritative-review-required' : 'missing-explanation-authoritative-review-required',
       explanation,
+      explanationVerification: {
+        status: 'not-verified-against-required-sources',
+        requiredSources: requiredSources(q.prefix),
+        policy: 'Do not display as authoritative until each claim is checked against the required subject sources.'
+      },
       sourceRefs: {
         testPdf: exam.test,
         testSha256: testHash,
@@ -305,16 +320,17 @@ function importExam(exam) {
         secondaryTopicCodes: [],
         uilSpecificCategory: '',
         categorizationEvidence: [],
-        categorizationStatus: 'needs-review'
+        requiredSources: requiredSources(q.prefix),
+        categorizationStatus: 'needs-authoritative-source-review'
       },
       citations: [
         citation(`${exam.id}-test`, q.page, q.qid, q.raw),
         citation(`${exam.id}-answer-key`, 1, 'Official answer key', `${q.qid}. ${answer || ''}`)
       ],
-      publicationNotes: published ? 'Question text and official answer are source-paired. Explanations and categorization remain review-needed.' : blockers.join('; ')
+      publicationNotes: published ? 'Question text and official answer are source-paired. Explanations and categorization remain authoritative-review-needed.' : blockers.join('; ')
     };
     records.push(rec);
-    if (!published || rec.explanationStatus === 'missing-explanation') {
+    if (!published || rec.explanationStatus === 'missing-explanation-authoritative-review-required') {
       review.push({ examId: exam.id, questionId: rec.questionId, qid: q.qid, page: q.page, blockers, explanationStatus: rec.explanationStatus });
     }
   }
@@ -334,9 +350,11 @@ function run() {
     const published = result.records.filter(r => r.published).length;
     examSummaries.push({ examId: exam.id, parsed: result.records.length, published, review: result.review.length });
   }
-  const publishedRecords = allRecords.filter(r => r.published).sort((a, b) => a.examId.localeCompare(b.examId) || a.questionNumber - b.questionNumber);
+  const accessibleRecords = allRecords.sort((a, b) => a.examId.localeCompare(b.examId) || a.questionNumber - b.questionNumber);
+  const publishedRecords = accessibleRecords.filter(r => r.published);
   const exams = EXAMS.map(exam => {
-    const qs = publishedRecords.filter(q => q.examId === exam.id);
+    const qs = accessibleRecords.filter(q => q.examId === exam.id);
+    const verified = qs.filter(q => q.published);
     return {
       schemaVersion: 1,
       examId: exam.id,
@@ -344,31 +362,35 @@ function run() {
       year: exam.year,
       contestLevel: exam.level,
       set: exam.set,
-      questionIds: qs.length === 60 ? qs.map(q => q.questionId) : [],
-      contentHash: crypto.createHash('sha256').update(JSON.stringify(qs.map(q => [q.questionId, q.stem, q.choices, q.officialAnswer]))).digest('hex'),
-      verificationStatus: qs.length === 60 ? 'verified' : 'needs-review',
-      published: qs.length === 60
+      questionIds: qs.map(q => q.questionId),
+      verifiedQuestionIds: verified.map(q => q.questionId),
+      accessibleQuestionCount: qs.length,
+      verifiedQuestionCount: verified.length,
+      contentHash: crypto.createHash('sha256').update(JSON.stringify(qs.map(q => [q.questionId, q.stem, q.choices, q.officialAnswer, q.verificationStatus]))).digest('hex'),
+      verificationStatus: verified.length === 60 ? 'verified' : 'needs-review',
+      accessible: qs.length > 0,
+      published: verified.length === 60
     };
-  }).filter(e => e.published);
+  }).filter(e => e.accessible);
 
   const handbook = JSON.parse(fs.readFileSync(normalizeInsideRepo('references/source-registry.json'), 'utf8')).sources.find(s => s.sourceId === 'uil-science-handbook-2025-2026');
   const registrySources = handbook ? [...allSources, handbook] : allSources;
 
-  fs.writeFileSync(normalizeInsideRepo('data/processed/published-questions.json'), JSON.stringify({ schemaVersion: 1, generatedAt: new Date().toISOString(), questions: publishedRecords }, null, 2) + '\n');
+  fs.writeFileSync(normalizeInsideRepo('data/processed/published-questions.json'), JSON.stringify({ schemaVersion: 1, generatedAt: new Date().toISOString(), accessPolicy: 'all-parseable-uploaded-questions-visible', verifiedQuestionCount: publishedRecords.length, accessibleQuestionCount: accessibleRecords.length, questions: accessibleRecords }, null, 2) + '\n');
   fs.writeFileSync(normalizeInsideRepo('data/processed/published-exams.json'), JSON.stringify({ schemaVersion: 1, generatedAt: new Date().toISOString(), exams }, null, 2) + '\n');
   fs.writeFileSync(normalizeInsideRepo('data/review/imported-selected-exams.json'), JSON.stringify({ schemaVersion: 1, importedAt: new Date().toISOString(), summaries: examSummaries, review: allReview }, null, 2) + '\n');
   fs.writeFileSync(normalizeInsideRepo('references/source-registry.json'), JSON.stringify({ schemaVersion: 1, sources: registrySources }, null, 2) + '\n');
 
   const figure = allReview.filter(r => (r.blockers || []).some(b => /figure|diagram|plot|table|crop|choice/i.test(b)));
-  const explanation = allReview.filter(r => r.explanationStatus === 'missing-explanation');
-  const cat = publishedRecords.map(q => ({ examId: q.examId, question: q.sourceQuestionCode, failedCheck: 'AP/UIL categorization needs CED/framework evidence', evidence: q.categorization.categorizationStatus }));
+  const explanation = allReview.filter(r => r.explanationStatus === 'missing-explanation-authoritative-review-required');
+  const cat = accessibleRecords.map(q => ({ examId: q.examId, question: q.sourceQuestionCode, subject: q.subject, failedCheck: 'Topic categorization requires subject-authoritative evidence before it can be treated as legitimate', requiredSources: q.categorization.requiredSources, evidence: q.categorization.categorizationStatus }));
   fs.writeFileSync(normalizeInsideRepo('reports/figure-review.json'), JSON.stringify(figure, null, 2) + '\n');
   fs.writeFileSync(normalizeInsideRepo('reports/explanation-review.json'), JSON.stringify(explanation, null, 2) + '\n');
   fs.writeFileSync(normalizeInsideRepo('reports/categorization-review.json'), JSON.stringify(cat, null, 2) + '\n');
-  fs.writeFileSync(normalizeInsideRepo('reports/import-summary.md'), ['# Import Summary', '', `Exam/key sets processed: ${EXAMS.length}`, `Published question-only records: ${publishedRecords.length}`, `Review/blocker records: ${allReview.length}`, '', 'Published records include source-paired question text and official answer letters. Answer reveal, explanations, figures, and categorization remain gated where not validated.', ''].join('\n'));
-  fs.writeFileSync(normalizeInsideRepo('reports/publication-blockers.md'), ['# Publication Blockers', '', '- Full exam mode remains blocked for any exam that has fewer than 60 safely published questions.', '- Figure-dependent questions remain blocked until crop validation is implemented.', '- AP CED topic-code evidence is still missing from repository sources.', '- Claim-level explanation citations remain required before showing explanations as verified.', ''].join('\n'));
+  fs.writeFileSync(normalizeInsideRepo('reports/import-summary.md'), ['# Import Summary', '', `Exam/key sets processed: ${EXAMS.length}`, `Accessible uploaded question records: ${accessibleRecords.length}`, `Source-paired verified question records: ${publishedRecords.length}`, `Review/blocker records: ${allReview.length}`, '', 'All parseable uploaded questions are accessible to users. Records that failed one or more quality checks remain marked needs-review. Explanations and topic categorizations are not treated as authoritative until checked against the subject source policy.', ''].join('\n'));
+  fs.writeFileSync(normalizeInsideRepo('reports/publication-blockers.md'), ['# Review Notes', '', '- Student access is no longer blocked by the prior publication validation gate.', '- Figure-dependent questions are accessible but remain marked needs-review until visual crop review is implemented.', '- Topic categorization must be backed by the required source policy before it is shown as legitimate.', '- Explanation claims must be checked against the official UIL key plus the required subject sources before being shown as authoritative.', ''].join('\n'));
   fs.writeFileSync(normalizeInsideRepo('reports/source-provenance.json'), JSON.stringify({ schemaVersion: 1, generatedAt: new Date().toISOString(), files: registrySources.map(s => ({ sourceId: s.sourceId, repositoryPath: s.repositoryPath, sha256: s.sha256, approved: s.approved, sourceType: s.sourceType })) }, null, 2) + '\n');
-  console.log(JSON.stringify({ exams: examSummaries, published: publishedRecords.length, review: allReview.length }, null, 2));
+  console.log(JSON.stringify({ exams: examSummaries, accessible: accessibleRecords.length, verified: publishedRecords.length, review: allReview.length }, null, 2));
 }
 
 if (require.main === module) run();

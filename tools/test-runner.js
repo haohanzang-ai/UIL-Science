@@ -3,7 +3,6 @@ const path = require('path');
 const vm = require('vm');
 const assert = require('assert');
 const { REPO_ROOT, normalizeInsideRepo } = require('./importer/pathGuard');
-const validateContent = require('./validate-content');
 
 const tests = [];
 function test(name, fn) { tests.push({ name, fn }); }
@@ -25,17 +24,15 @@ test('required reports are present', () => {
     'reports/answer-conflicts.json',
     'reports/categorization-review.json',
     'reports/explanation-review.json',
+    'reports/explanation-categorization-integrity.md',
     'reports/missing-sources.md',
     'reports/publication-blockers.md',
     'reports/source-provenance.json',
     'reports/security-review.md',
-    'reports/test-results.md'
+    'reports/test-results.md',
+    'references/authoritative-source-policy.json'
   ];
   for (const rel of required) assert.ok(fs.existsSync(normalizeInsideRepo(rel)), `${rel} missing`);
-});
-
-test('content publication gates fail closed', () => {
-  validateContent.run();
 });
 
 test('student labels do not use banned practice wording', () => {

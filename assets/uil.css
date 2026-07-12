@@ -111,6 +111,7 @@ body[data-chrome="minimal"] .main{margin-left:0}
 .tag.chem{background:rgba(167,139,250,.14);color:#c9bafb} .tag.chem::before{background:var(--chem)}
 .tag.phys{background:rgba(245,158,11,.14);color:#f8cd7a} .tag.phys::before{background:var(--phys)}
 .tag.neutral{background:#1d2c4f;color:var(--ink-dim)} .tag.neutral::before{background:var(--team)}
+.tag.warn{background:rgba(245,158,11,.14);color:#f8cd7a} .tag.warn::before{background:var(--warn)}
 
 /* ============ Progress bars / meters ============ */
 .meter{height:9px;border-radius:999px;background:#0e1830;border:1px solid var(--line);overflow:hidden}
