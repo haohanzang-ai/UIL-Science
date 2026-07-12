@@ -5,6 +5,7 @@
    ============================================================ */
 (function(){
   var AUTH_HASH = '2e1832febe539da82cd9e58d5413cbfcd700bc9acc454d1fe65d20dad89e2cb7';
+  var AUTH_COOKIE = 'uil_site_auth';
   var NAV = [
     {id:'home',          href:'study.html',              label:'Study Home',       icon:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>'},
     {id:'exam',          href:'study.html?view=exam',    label:'Full UIL Exam',    icon:'<circle cx="12" cy="12" r="9"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/>'},
@@ -54,10 +55,19 @@
     });
   }
 
+  function readCookie(name){
+    return document.cookie.split(';').map(function(part){ return part.trim(); }).reduce(function(found, part){
+      if(found) return found;
+      return part.indexOf(name + '=') === 0 ? decodeURIComponent(part.slice(name.length + 1)) : '';
+    }, '');
+  }
+
+  function setSessionCookie(name, value){
+    document.cookie = name + '=' + encodeURIComponent(value) + '; path=/; SameSite=Lax' + (location.protocol === 'https:' ? '; Secure' : '');
+  }
+
   function ensureSiteAuth(){
-    try {
-      localStorage.removeItem('uil-site-auth-v1');
-    } catch(e) {}
+    if(readCookie(AUTH_COOKIE) === AUTH_HASH) return;
     addAuthStyles();
     document.body.classList.add('auth-locked');
     var overlay = document.createElement('div');
@@ -87,6 +97,7 @@
           input.select();
           return;
         }
+        setSessionCookie(AUTH_COOKIE, AUTH_HASH);
         document.body.classList.remove('auth-locked');
         overlay.remove();
       }).catch(function(err){
