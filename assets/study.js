@@ -542,10 +542,10 @@
     if (ui.examId) return activeExam(ui.examId);
     if (!catalog.exams.length) return unavailable('Full UIL Exam', 'No exam group is available in the current study files.');
     root.innerHTML =
-      '<section class="exam-intro"><div><p class="overline">Full UIL Exam</p><h2>Choose a historical exam set</h2><p>Each card shows only the imported availability already present in the study files.</p></div><div class="exam-facts"><span>60 questions</span><span>20 per subject</span><span>120 minutes</span></div></section>'+
+      '<section class="exam-intro"><div><p class="overline">Full UIL Exam</p><h2>Choose a historical exam set</h2><p>Every imported exam set with available questions can be opened. Cards show the actual available question count.</p></div><div class="exam-facts"><span>Historical sets</span><span>Original format: 60 questions</span><span>120 minutes</span></div></section>'+
       '<section class="exam-grid">'+catalog.exams.map(function(e){
-        var complete = Number(e.accessibleQuestionCount || 0) >= 50;
-        return '<article class="exam-card '+(complete ? '' : 'incomplete')+'"><div><h3>'+escapeHtml(e.title)+'</h3><p>'+escapeHtml([e.year, e.contestLevel, e.set].filter(Boolean).join(' '))+'</p></div><strong>'+escapeHtml(String(e.accessibleQuestionCount || 0))+' questions</strong>'+(complete ? '<a class="btn primary" href="'+pageUrl('exam', { exam:e.examId })+'">Start exam</a>' : '<button class="btn" type="button" disabled>Incomplete</button>')+'</article>';
+        var count = Number(e.accessibleQuestionCount || 0);
+        return '<article class="exam-card"><div><h3>'+escapeHtml(e.title)+'</h3><p>'+escapeHtml([e.year, e.contestLevel, e.set].filter(Boolean).join(' '))+'</p></div><strong>'+escapeHtml(String(count))+' available question'+(count === 1 ? '' : 's')+'</strong>'+(count > 0 ? '<a class="btn primary" href="'+pageUrl('exam', { exam:e.examId })+'">Start exam</a>' : '<button class="btn" type="button" disabled>No questions available</button>')+'</article>';
       }).join('')+'</section>';
   }
 
