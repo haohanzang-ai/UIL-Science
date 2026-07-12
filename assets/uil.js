@@ -44,9 +44,9 @@
       '.site-auth-card label{display:block;font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#5d6b7c;margin-bottom:8px}' +
       '.site-auth-card input{width:100%;min-height:46px;border:1px solid #d8dee7;border-radius:8px;padding:10px 12px;font:inherit;color:#182230}' +
       '.site-auth-password-row{position:relative}.site-auth-password-row input{padding-right:52px}' +
-      '.site-auth-eye{position:absolute;right:6px;top:6px;width:34px;min-height:34px;margin:0;border:1px solid #d8dee7;border-radius:7px;background:#fff;color:#5d6b7c;font-size:15px;line-height:1;display:grid;place-items:center}' +
+      '.site-auth-eye{position:absolute;right:6px;top:6px;width:34px;height:34px;min-height:34px;margin:0!important;padding:0;border:1px solid #d8dee7;border-radius:7px;background:#fff;color:#5d6b7c;font-size:15px;line-height:1;display:grid;place-items:center}' +
       '.site-auth-eye[aria-pressed="true"]{background:#eaf1ff;color:#2454a6;border-color:#bfd0f3}' +
-      '.site-auth-card button{width:100%;min-height:46px;margin-top:14px;border:0;border-radius:8px;background:#2454a6;color:#fff;font-weight:800;font:inherit;cursor:pointer}' +
+      '.site-auth-submit{width:100%;min-height:46px;margin-top:14px;border:0;border-radius:8px;background:#2454a6;color:#fff;font-weight:800;font:inherit;cursor:pointer}' +
       '.site-auth-error{min-height:22px;margin-top:8px;color:#b42318;font-size:13px;font-weight:700}';
     document.head.appendChild(style);
   }
@@ -86,7 +86,7 @@
         '<div class="site-auth-password-row"><input id="site-auth-password" type="password" autocomplete="current-password" required />' +
         '<button class="site-auth-eye" id="site-auth-eye" type="button" aria-label="Show password" aria-pressed="false">◉</button></div>' +
         '<div class="site-auth-error" id="site-auth-error" role="alert"></div>' +
-        '<button type="submit">Unlock site</button>' +
+        '<button class="site-auth-submit" type="submit">Unlock site</button>' +
       '</form>';
     document.body.appendChild(overlay);
     var form = document.getElementById('site-auth-form');
