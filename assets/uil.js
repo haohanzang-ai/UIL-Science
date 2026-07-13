@@ -16,7 +16,8 @@
     {id:'flashcards',    href:'study.html?view=flashcards', label:'Flashcards',    icon:'<rect x="3" y="6" width="14" height="12" rx="2"/><path d="M7 3h14v12"/>'},
     {id:'progress',      href:'study.html?view=progress', label:'My Progress',     icon:'<path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10c.7.7 1 1.4 1 2h6c0-.6.3-1.3 1-2a6 6 0 0 0-4-10z"/>'},
     {id:'guide',         href:'study.html?view=guide',   label:'UIL Science Guide', icon:'<path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9.5 12l2 2 3.5-4"/>'},
-    {id:'settings',      href:'study.html?view=settings', label:'Settings',         icon:'<circle cx="12" cy="12" r="3"/><path d="M4 12h2M18 12h2M12 4v2M12 18v2M6.6 6.6 8 8M16 16l1.4 1.4M17.4 6.6 16 8M8 16l-1.4 1.4"/>'}
+    {id:'settings',      href:'study.html?view=settings', label:'Settings',         icon:'<circle cx="12" cy="12" r="3"/><path d="M4 12h2M18 12h2M12 4v2M12 18v2M6.6 6.6 8 8M16 16l1.4 1.4M17.4 6.6 16 8M8 16l-1.4 1.4"/>'},
+    {id:'troubleshoot',  href:'study.html?view=troubleshoot', label:'Troubleshooting', icon:'<circle cx="12" cy="12" r="9"/><path d="M12 7v6"/><path d="M12 17h.01"/>'}
   ];
 
   function buildSidebar(active){

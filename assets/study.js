@@ -6,6 +6,7 @@
   var ANSWERS_KEY = 'uil-public-choice-selections-v1';
   var STUDY_STATE_KEY = 'uil-public-study-state-v1';
   var EXAM_ATTEMPTS_KEY = 'uil-public-exam-attempts-v1';
+  var ISSUE_REPORTS_KEY = 'uil-public-issue-reports-v1';
   var WELCOME_GUIDE_KEY = 'uil-welcome-guide-hidden-v1';
   var WELCOME_SESSION_KEY = 'uil-welcome-guide-dismissed-session-v1';
   var MAX_NAME = 40;
@@ -35,7 +36,8 @@
     flashcards: { title:'Flashcards' },
     progress: { title:'My Progress' },
     guide: { title:'UIL Science Guide' },
-    settings: { title:'Settings' }
+    settings: { title:'Settings' },
+    troubleshoot: { title:'Troubleshooting' }
   };
 
   function uid(){
@@ -522,7 +524,8 @@
       ['Weak Topics','weak','Review areas based on submitted answers.'],
       ['Flashcards','flashcards','Study missed-question prompts when available.'],
       ['My Progress','progress','Review attempts, subject summaries, and bookmarks.'],
-      ['UIL Science Guide','guide','Read contest format and study priorities.']
+      ['UIL Science Guide','guide','Read contest format and study priorities.'],
+      ['Troubleshooting','troubleshoot','Report website or question issues.']
     ].map(function(c){
       return '<a class="tool-link" href="'+pageUrl(c[1])+'"><strong>'+escapeHtml(c[0])+'</strong><span>'+escapeHtml(c[2])+'</span></a>';
     }).join('');
@@ -1186,6 +1189,140 @@
     });
   }
 
+  function getIssueReports(){
+    var state = readScopedJson(ISSUE_REPORTS_KEY, { schemaVersion:1, reports:[] });
+    state.reports = Array.isArray(state.reports) ? state.reports : [];
+    return state;
+  }
+
+  function saveIssueReport(report){
+    var state = getIssueReports();
+    state.reports.unshift(report);
+    state.reports = state.reports.slice(0, 20);
+    saveScopedJson(ISSUE_REPORTS_KEY, state);
+  }
+
+  function reportContext(){
+    var profile = getProfile();
+    return {
+      pageUrl: location.href,
+      view: view,
+      examId: params.get('exam') || ui.examId || '',
+      attemptId: params.get('attempt') || ui.examAttemptId || '',
+      questionId: params.get('q') || '',
+      profileId: profile && profile.uid ? profile.uid : '',
+      browser: navigator.userAgent,
+      viewport: window.innerWidth + 'x' + window.innerHeight,
+      online: navigator.onLine,
+      createdAt: new Date().toISOString()
+    };
+  }
+
+  function buildIssueReport(form){
+    var category = form.elements.category.value;
+    var severity = form.elements.severity.value;
+    var description = form.elements.description.value.trim();
+    var expected = form.elements.expected.value.trim();
+    var steps = form.elements.steps.value.trim();
+    if (!description) throw new Error('Describe what went wrong before creating a report.');
+    return {
+      reportId: 'issue-' + uid(),
+      category: category,
+      severity: severity,
+      description: description,
+      expected: expected,
+      steps: steps,
+      context: reportContext()
+    };
+  }
+
+  function issueReportText(report){
+    return [
+      'UIL Science Issue Report',
+      'Report ID: ' + report.reportId,
+      'Created: ' + report.context.createdAt,
+      'Category: ' + report.category,
+      'Severity: ' + report.severity,
+      '',
+      'What went wrong:',
+      report.description,
+      '',
+      'What should have happened:',
+      report.expected || 'Not provided',
+      '',
+      'Steps to reproduce:',
+      report.steps || 'Not provided',
+      '',
+      'Page/context:',
+      'URL: ' + report.context.pageUrl,
+      'View: ' + report.context.view,
+      'Exam: ' + (report.context.examId || 'none'),
+      'Attempt: ' + (report.context.attemptId || 'none'),
+      'Question: ' + (report.context.questionId || 'none'),
+      'Viewport: ' + report.context.viewport,
+      'Online: ' + report.context.online,
+      'Browser: ' + report.context.browser
+    ].join('\n');
+  }
+
+  function troubleshootingView(){
+    var saved = getIssueReports().reports.slice(0, 5);
+    root.innerHTML =
+      '<section class="settings-page troubleshoot-page">'+
+        '<section class="card refined-card"><p class="overline">Troubleshooting</p><h2>Report a website issue</h2><p class="muted">Use this when something on the website looks wrong, a question seems broken, an answer choice will not save, a figure is missing, or an exam does not behave correctly.</p>'+
+          '<form id="issue-form" class="issue-form" novalidate>'+
+            '<label>Issue type<select name="category"><option>Website bug</option><option>Question issue</option><option>Answer choice issue</option><option>Missing figure</option><option>Exam/timer issue</option><option>Progress issue</option><option>Other</option></select></label>'+
+            '<label>How serious is it?<select name="severity"><option>Normal</option><option>Blocks studying</option><option>Incorrect science/content</option><option>Urgent</option></select></label>'+
+            '<label>What went wrong?<textarea name="description" rows="5" maxlength="1200" required placeholder="Describe the problem clearly."></textarea></label>'+
+            '<label>What should have happened?<textarea name="expected" rows="3" maxlength="800" placeholder="Optional"></textarea></label>'+
+            '<label>Steps to reproduce<textarea name="steps" rows="4" maxlength="1000" placeholder="Optional: list what you clicked or typed."></textarea></label>'+
+            '<div class="field-error" id="issue-error" role="alert"></div>'+
+            '<div class="question-actions"><button class="btn primary" type="submit">Create report</button><button class="btn" id="copy-report" type="button" disabled>Copy report</button><button class="btn" id="download-report" type="button" disabled>Download report</button></div>'+
+          '</form>'+
+        '</section>'+
+        '<section class="card refined-card"><h2>Report preview</h2><pre class="issue-preview" id="issue-preview">Create a report to see the details that will be copied or downloaded.</pre><p class="muted">Reports stay in this browser until copied or downloaded. Nothing is sent automatically.</p></section>'+
+        '<section class="card refined-card"><h2>Recent local reports</h2>'+(saved.length ? saved.map(function(r){ return '<div class="bookmark-row"><span>'+escapeHtml(r.context.createdAt)+'</span><strong>'+escapeHtml(r.category)+' - '+escapeHtml(r.severity)+'</strong><small>'+escapeHtml(r.description).slice(0,140)+'</small></div>'; }).join('') : '<p class="muted">No reports created in this browser yet.</p>')+'</section>'+
+      '</section>';
+    var latest = null;
+    var form = document.getElementById('issue-form');
+    var error = document.getElementById('issue-error');
+    var preview = document.getElementById('issue-preview');
+    var copy = document.getElementById('copy-report');
+    var download = document.getElementById('download-report');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      try {
+        latest = buildIssueReport(form);
+        saveIssueReport(latest);
+        preview.textContent = issueReportText(latest);
+        copy.disabled = false;
+        download.disabled = false;
+        error.textContent = 'Report created. Copy or download it to share.';
+      } catch(err) {
+        error.textContent = err.message;
+      }
+    });
+    copy.addEventListener('click', function(){
+      if (!latest) return;
+      var text = issueReportText(latest);
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function(){ error.textContent = 'Report copied.'; }).catch(function(){ error.textContent = 'Copy failed. Use the preview text instead.'; });
+      } else {
+        error.textContent = 'Clipboard is unavailable. Use the preview text instead.';
+      }
+    });
+    download.addEventListener('click', function(){
+      if (!latest) return;
+      var blob = new Blob([issueReportText(latest)], { type:'text/plain' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = latest.reportId + '.txt';
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 0);
+    });
+  }
+
   function unavailable(kind, detail){
     root.innerHTML = emptyState(kind+' unavailable', detail, '<a class="btn primary" href="study.html">Back to study home</a>');
   }
@@ -1210,6 +1347,7 @@
     if (view === 'progress') return progressView();
     if (view === 'guide') return guideView();
     if (view === 'settings') return settingsView();
+    if (view === 'troubleshoot') return troubleshootingView();
     view = 'home';
     return home(profile);
   }
