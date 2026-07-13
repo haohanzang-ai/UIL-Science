@@ -4,7 +4,7 @@
    Minimal-chrome pages (study mode): <body data-chrome="minimal">
    ============================================================ */
 (function(){
-  var AUTH_HASH = '2e1832febe539da82cd9e58d5413cbfcd700bc9acc454d1fe65d20dad89e2cb7';
+  var AUTH_HASH = '112d2fb99c4ccd8c17ee13074af3a2b662d2131234b55326211b3f866001b6b7';
   var AUTH_COOKIE = 'uil_site_auth';
   var NAV = [
     {id:'home',          href:'study.html',              label:'Study Home',       icon:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>'},
@@ -105,7 +105,7 @@
     form.addEventListener('submit', function(e){
       e.preventDefault();
       error.textContent = '';
-      sha256(input.value).then(function(hash){
+      sha256(String(input.value || '').toLowerCase()).then(function(hash){
         if(hash !== AUTH_HASH) {
           error.textContent = 'Incorrect password.';
           input.select();
