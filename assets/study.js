@@ -5,6 +5,8 @@
   var PROGRESS_KEY = 'uil-public-progress-v1';
   var ANSWERS_KEY = 'uil-public-choice-selections-v1';
   var STUDY_STATE_KEY = 'uil-public-study-state-v1';
+  var WELCOME_GUIDE_KEY = 'uil-welcome-guide-hidden-v1';
+  var WELCOME_SESSION_KEY = 'uil-welcome-guide-dismissed-session-v1';
   var MAX_NAME = 40;
   var LOAD_TIMEOUT_MS = 12000;
   var root = document.getElementById('root');
@@ -330,6 +332,29 @@
     return '<div class="empty refined"><div class="h">'+escapeHtml(heading)+'</div><div class="d">'+escapeHtml(detail)+'</div>'+(action || '')+'</div>';
   }
 
+  function shouldShowWelcomeGuide(){
+    try {
+      if (localStorage.getItem(WELCOME_GUIDE_KEY) === 'true') return false;
+      if (sessionStorage.getItem(WELCOME_SESSION_KEY) === 'true') return false;
+    } catch(e) {}
+    return true;
+  }
+
+  function welcomeGuidePanel(force){
+    if (!force && !shouldShowWelcomeGuide()) return '';
+    return '<section class="welcome-guide" id="welcome-guide" aria-labelledby="welcome-guide-title" tabindex="-1">'+
+      '<div class="welcome-guide-head"><div><p class="overline">First-time guide</p><h2 id="welcome-guide-title">Welcome to UIL Science</h2></div><button class="btn sm ghost" id="welcome-close" type="button">Close</button></div>'+
+      '<p>This website helps you prepare for UIL Science by practicing real questions from previous competitions. You can study Biology, Chemistry, or Physics individually, review topics you have missed, use flashcards, or take a complete timed UIL exam.</p>'+
+      '<p>You do not have to follow a fixed order. Start wherever you feel comfortable, and your progress will help you see which topics need more attention.</p>'+
+      '<ol class="welcome-steps">'+
+        '<li><strong>Choose how to study</strong><span>Open a subject, review weak topics, use flashcards, or take a full exam.</span></li>'+
+        '<li><strong>Learn from each question</strong><span>Try the question first. In regular study mode, you may request a hint or open the verified explanation when available.</span></li>'+
+        '<li><strong>Track what to improve</strong><span>My Progress shows your accuracy, mastered units, and topics that need more review.</span></li>'+
+      '</ol>'+
+      '<div class="welcome-actions"><button class="btn primary" id="welcome-got-it" type="button">Got it</button><button class="btn" id="welcome-never" type="button">Never show this again</button><a class="btn ghost" href="'+pageUrl('guide')+'#how-site-works">Open UIL Science Guide</a></div>'+
+    '</section>';
+  }
+
   function home(profile){
     var progress = getProgress();
     var selections = getSelections().selections || {};
@@ -354,8 +379,9 @@
     root.innerHTML =
       '<section class="hero-study">'+
         '<div><p class="overline">Study home</p><h2>Welcome back, '+escapeHtml(profile.displayName)+'</h2><p>Choose a subject, continue a saved selection, or start from a historical UIL exam set.</p></div>'+
-        '<div class="hero-actions">'+(resumeId ? '<a class="btn primary" href="'+pageUrl(catalog.byId[resumeId].subject, { q: resumeId })+'">Continue studying</a>' : '<a class="btn primary" href="'+pageUrl('biology')+'">Start with Biology</a>')+'</div>'+
+        '<div class="hero-actions">'+(resumeId ? '<a class="btn primary" href="'+pageUrl(catalog.byId[resumeId].subject, { q: resumeId })+'">Continue studying</a>' : '<a class="btn primary" href="'+pageUrl('biology')+'">Start with Biology</a>')+'<button class="btn ghost" id="open-welcome-guide" type="button">How this website works</button></div>'+
       '</section>'+
+      '<div id="welcome-guide-slot">'+welcomeGuidePanel(false)+'</div>'+
       '<section class="subject-grid">'+subjectCards+'</section>'+
       '<section class="exam-band">'+
         '<div><p class="overline">Full UIL Exam</p><h2>60 questions, 20 per subject, 120 minutes</h2><p>Select a historical exam set with available question records. Incomplete imported sets are shown honestly.</p></div>'+
@@ -368,6 +394,42 @@
         stateCard('Submitted answers', String(progress.attempts.length), 'Used for progress')+
         stateCard('Bookmarks', String(progress.bookmarks.length), 'Saved for review')+
       '</section>';
+    bindWelcomeGuide();
+  }
+
+  function bindWelcomeGuide(){
+    var slot = document.getElementById('welcome-guide-slot');
+    var opener = document.getElementById('open-welcome-guide');
+    var lastOpener = null;
+    function wire(){
+      var panel = document.getElementById('welcome-guide');
+      if (!panel) return;
+      var close = function(mode){
+        try {
+          if (mode === 'never') localStorage.setItem(WELCOME_GUIDE_KEY, 'true');
+          else sessionStorage.setItem(WELCOME_SESSION_KEY, 'true');
+        } catch(e) {}
+        panel.remove();
+        if (lastOpener) lastOpener.focus();
+      };
+      var closeBtn = document.getElementById('welcome-close');
+      var gotIt = document.getElementById('welcome-got-it');
+      var never = document.getElementById('welcome-never');
+      if (closeBtn) closeBtn.addEventListener('click', function(){ close('session'); });
+      if (gotIt) gotIt.addEventListener('click', function(){ close('session'); });
+      if (never) never.addEventListener('click', function(){ close('never'); });
+      panel.addEventListener('keydown', function(e){ if (e.key === 'Escape') close('session'); });
+    }
+    if (opener && slot) {
+      opener.addEventListener('click', function(){
+        lastOpener = opener;
+        slot.innerHTML = welcomeGuidePanel(true);
+        wire();
+        var panel = document.getElementById('welcome-guide');
+        if (panel) panel.focus();
+      });
+    }
+    wire();
   }
 
   function filteredSubjectRows(subject){
@@ -740,13 +802,28 @@
 
   function guideView(){
     root.innerHTML =
-      '<nav class="toc" aria-label="Guide sections"><a href="#format">Format</a><a href="#scoring">Scoring</a><a href="#subjects">Subjects</a><a href="#workflow">Study workflow</a></nav>'+
+      '<nav class="toc" aria-label="Guide sections"><a href="#how-site-works">How this website works</a><a href="#format">Contest format</a><a href="#scoring">Scoring</a><a href="#materials">Rules and materials</a><a href="#workflow">Study advice</a><a href="#references">References</a></nav>'+
       '<section class="guide-page">'+
-        guideSection('format','Contest Format',['UIL Science is a timed written contest.','Questions are organized across Biology, Chemistry, and Physics.','Historical exam selection depends on the available imported exam records.'])+
-        guideSection('scoring','Scoring',['Use the official scoring rules provided for your competition when available.','A common released-format pattern is positive credit for correct answers, a penalty for incorrect answers, and no penalty for blanks.','Practice blanking only when the risk of the penalty outweighs your confidence.'])+
-        guideSection('subjects','Subject Priorities',['Biology: cells, genetics, evolution, ecology, anatomy, physiology, and vocabulary.','Chemistry: stoichiometry, atomic structure, bonding, equilibrium, acids and bases, and periodic trends.','Physics: mechanics, electricity, waves, optics, thermodynamics, modern physics, astronomy, and directed reading.'])+
-        guideSection('workflow','Study Workflow',['Start with one subject and answer one question at a time.','Use missed answers to identify weak units.','Bookmark questions that need another pass.','Use full exam sets for timing and section-switching practice.'])+
-        '<details class="collapse"><summary>Official references</summary><div class="body"><p>Use the official UIL materials and source packets already included with this site when checking contest rules or source wording.</p></div></details>'+
+        '<section id="how-site-works" class="guide-section"><h2>How this website works</h2><ul>'+
+          '<li><strong>Biology, Chemistry, and Physics:</strong> Study archived questions by subject and topic.</li>'+
+          '<li><strong>Full UIL Exam:</strong> Take a historical exam in its original order. UIL Science exams use a 120-minute contest format.</li>'+
+          '<li><strong>Weak Topics:</strong> Review concepts where previous answers show more work is needed.</li>'+
+          '<li><strong>Flashcards:</strong> Review important terms, formulas, and concepts already available in the website.</li>'+
+          '<li><strong>My Progress:</strong> View real accuracy, completed questions, mastered units, and weak areas.</li>'+
+          '<li><strong>Hints and solutions:</strong> Available during normal study when verified content exists, but hidden during active full exams.</li>'+
+          '<li><strong>Saving progress:</strong> Progress is stored automatically on the current school laptop and browser.</li>'+
+          '<li><strong>Switch Student:</strong> Use this when another student needs to use the same laptop.</li>'+
+        '</ul></section>'+
+        '<section class="guide-divider" aria-label="About the UIL Science contest"><h2>About the UIL Science contest</h2></section>'+
+        guideSection('format','Contest Format',['Timed written science contest.','The platform source guide lists a 2-hour time limit.','Questions are organized across Biology, Chemistry, and Physics.','Historical exam selection depends on the available imported exam records.'])+
+        guideSection('subjects','Biology, Chemistry, and Physics Distribution',['The study interface presents Biology, Chemistry, and Physics separately.','Full exam sets preserve the imported historical order.','Use subject pages to focus on one area, then use full exams for timing and section switching.'])+
+        guideSection('scoring','Scoring and Team Scoring',['The existing competitor guide records the common UIL Science scoring pattern as +6 correct, 0 blank, and -2 wrong.','The existing guide also notes that results can matter for individual, subject specialist, and team outcomes.','Use official meet instructions when scoring rules are announced by contest officials.'])+
+        guideSection('advancement','Advancement',['The existing competitor guide says there are multiple ways to matter in UIL Science: individual, subject specialist, and team.','Follow the current UIL handbook and contest director instructions for advancement details.'])+
+        guideSection('materials','Calculator and Material Rules',['The existing competitor guide says to bring an approved scientific calculator only.','It also notes up to two approved calculators, spare batteries, and a silent timing device with no audible signal.','Verify your exact calculator model against the current UIL-approved Science calculator list each season.'])+
+        guideSection('testday','Test-Day Procedures',['Bring the correct calculator to every practice and meet.','Know the contest start time and location.','Follow the contest director instructions at the meet.'])+
+        guideSection('workflow','Study Advice',['Start with one subject and answer one question at a time.','Use missed answers to identify weak units.','Bookmark questions that need another pass.','Use full exam sets for timing and section-switching practice.'])+
+        guideSection('reading','Directed Reading',['Physics includes astronomy and directed-reading concepts when they appear in the existing question data.','Treat directed-reading items as UIL-specific when they do not map cleanly to AP units.'])+
+        '<details id="references" class="collapse"><summary>Official UIL references and last verified date</summary><div class="body"><p>Use the official UIL Science contest page, the UIL Science Handbook, and Section 952 of the Constitution and Contest Rules when checking current rules.</p><p>Existing repository guide note: last reviewed June 2026.</p></div></details>'+
       '</section>';
   }
 
