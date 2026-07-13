@@ -1,0 +1,1199 @@
+{
+  "generatedAt": "2026-07-13T01:02:22.522Z",
+  "totals": {
+    "exams": 29,
+    "complete": 8,
+    "partial": 10,
+    "blocked": 11
+  },
+  "exams": [
+    {
+      "examId": "uil-2021-invitational-b",
+      "title": "UIL Science Invitational B 2021",
+      "year": 2021,
+      "contestLevel": "invitational",
+      "set": "B",
+      "status": "usable-partial",
+      "availableQuestions": 59,
+      "subjectCounts": {
+        "biology": 20,
+        "chemistry": 19,
+        "physics": 20
+      },
+      "missingQuestions": [
+        27
+      ],
+      "sourcePdfs": [
+        "data/source-pdfs/uil/2021-invitational-b/science-test-b-2021.pdf"
+      ],
+      "samePdf": true,
+      "duplicateQuestionIds": [],
+      "answerIssues": [],
+      "figureIssues": []
+    },
+    {
+      "examId": "uil-2022-set-a",
+      "title": "UIL Science Set A 2022",
+      "year": 2022,
+      "contestLevel": "uil-set",
+      "set": "A",
+      "status": "usable-partial",
+      "availableQuestions": 59,
+      "subjectCounts": {
+        "biology": 20,
+        "chemistry": 19,
+        "physics": 20
+      },
+      "missingQuestions": [
+        36
+      ],
+      "sourcePdfs": [
+        "data/source-pdfs/uil/2022-set-a/science-test-a-2022.pdf"
+      ],
+      "samePdf": true,
+      "duplicateQuestionIds": [],
+      "answerIssues": [],
+      "figureIssues": []
+    },
+    {
+      "examId": "uil-2022-vcm-1",
+      "title": "UIL Science Virtual Challenge Meet 1 2022",
+      "year": 2022,
+      "contestLevel": "virtual-challenge",
+      "set": "VCM 1",
+      "status": "blocked",
+      "availableQuestions": 42,
+      "subjectCounts": {
+        "biology": 3,
+        "chemistry": 20,
+        "physics": 19
+      },
+      "missingQuestions": [
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        18,
+        19,
+        20,
+        52
+      ],
+      "sourcePdfs": [
+        "data/source-docx/uil/2022-vcm-1/science-test-vcm-1-2022.docx"
+      ],
+      "samePdf": true,
+      "duplicateQuestionIds": [],
+      "answerIssues": [],
+      "figureIssues": []
+    },
+    {
+      "examId": "uil-2022-vcm-2",
+      "title": "UIL Science Virtual Challenge Meet 2 2022",
+      "year": 2022,
+      "contestLevel": "virtual-challenge",
+      "set": "VCM 2",
+      "status": "blocked",
+      "availableQuestions": 51,
+      "subjectCounts": {
+        "biology": 11,
+        "chemistry": 20,
+        "physics": 20
+      },
+      "missingQuestions": [
+        3,
+        4,
+        6,
+        7,
+        10,
+        12,
+        18,
+        19,
+        20
+      ],
+      "sourcePdfs": [
+        "data/source-pdfs/uil/2022-vcm-2/science-test-vcm-2-2022.pdf"
+      ],
+      "samePdf": true,
+      "duplicateQuestionIds": [],
+      "answerIssues": [
+        "uil-2022-vcm-2-b14"
+      ],
+      "figureIssues": []
+    },
+    {
+      "examId": "uil-2022-vcm-3",
+      "title": "UIL Science Virtual Challenge Meet 3 2022",
+      "year": 2022,
+      "contestLevel": "virtual-challenge",
+      "set": "VCM 3",
+      "status": "blocked",
+      "availableQuestions": 50,
+      "subjectCounts": {
+        "biology": 10,
+        "chemistry": 20,
+        "physics": 20
+      },
+      "missingQuestions": [
+        1,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        14,
+        20
+      ],
+      "sourcePdfs": [
+        "data/source-pdfs/uil/2022-vcm-3/science-test-vcm-3-2022.pdf"
+      ],
+      "samePdf": true,
+      "duplicateQuestionIds": [],
+      "answerIssues": [
+        "uil-2022-vcm-3-b17",
+        "uil-2022-vcm-3-b18"
+      ],
+      "figureIssues": []
+    },
+    {
+      "examId": "uil-2023-invitational-a",
+      "title": "UIL Science Invitational A 2023",
+      "year": 2023,
+      "contestLevel": "invitational",
+      "set": "A",
+      "status": "complete",
+      "availableQuestions": 60,
+      "subjectCounts": {
+        "biology": 20,
+        "chemistry": 20,
+        "physics": 20
+      },
+      "missingQuestions": [],
+      "sourcePdfs": [
+        "data/source-pdfs/uil/2023-invitational-a/science-study-packet-a-2023.pdf"
+      ],
+      "samePdf": true,
+      "duplicateQuestionIds": [],
+      "answerIssues": [],
+      "figureIssues": []
+    },
+    {
+      "examId": "uil-2023-invitational-b",
+      "title": "UIL Science Invitational B 2023",
+      "year": 2023,
+      "contestLevel": "invitational",
+      "set": "B",
+      "status": "usable-partial",
+      "availableQuestions": 59,
+      "subjectCounts": {
+        "biology": 20,
+        "chemistry": 20,
+        "physics": 19
+      },
+      "missingQuestions": [
+        50
+      ],
+      "sourcePdfs": [
+        "data/source-pdfs/uil/2023-invitational-b/science-study-packet-b-2023.pdf"
+      ],
+      "samePdf": true,
+      "duplicateQuestionIds": [],
+      "answerIssues": [],
+      "figureIssues": []
+    },
+    {
+      "examId": "uil-2023-district",
+      "title": "UIL Science District 2023",
+      "year": 2023,
+      "contestLevel": "district",
+      "set": "District",
+      "status": "complete",
+      "availableQuestions": 60,
+      "subjectCounts": {
+        "biology": 20,
+        "chemistry": 20,
+        "physics": 20
+      },
+      "missingQuestions": [],
+      "sourcePdfs": [
+        "data/source-pdfs/uil/2023-district/science-study-packet-district-2023.pdf"
+      ],
+      "samePdf": true,
+      "duplicateQuestionIds": [],
+      "answerIssues": [],
+      "figureIssues": []
+    },
+    {
+      "examId": "uil-2023-state",
+      "title": "UIL Science State 2023",
+      "year": 2023,
+      "contestLevel": "state",
+      "set": "State",
+      "status": "complete",
+      "availableQuestions": 60,
+      "subjectCounts": {
+        "biology": 20,
+        "chemistry": 20,
+        "physics": 20
+      },
+      "missingQuestions": [],
+      "sourcePdfs": [
+        "data/source-pdfs/uil/2023-state/science-study-packet-state-2023.pdf"
+      ],
+      "samePdf": true,
+      "duplicateQuestionIds": [],
+      "answerIssues": [],
+      "figureIssues": []
+    },
+    {
+      "examId": "uil-2024-invitational-a",
+      "title": "UIL Science Invitational A 2024",
+      "year": 2024,
+      "contestLevel": "invitational",
+      "set": "A",
+      "status": "complete",
+      "availableQuestions": 60,
+      "subjectCounts": {
+        "biology": 20,
+        "chemistry": 20,
+        "physics": 20
+      },
+      "missingQuestions": [],
+      "sourcePdfs": [
+        "data/source-pdfs/uil/2024-set-a/science-test-a-2024.pdf"
+      ],
+      "samePdf": true,
+      "duplicateQuestionIds": [],
+      "answerIssues": [],
+      "figureIssues": []
+    },
+    {
+      "examId": "uil-2024-set-b",
+      "title": "UIL Science Set B 2024",
+      "year": 2024,
+      "contestLevel": "uil-set",
+      "set": "B",
+      "status": "usable-partial",
+      "availableQuestions": 59,
+      "subjectCounts": {
+        "biology": 20,
+        "chemistry": 20,
+        "physics": 19
+      },
+      "missingQuestions": [
+        55
+      ],
+      "sourcePdfs": [
+        "data/source-pdfs/uil/2024-set-b/science-test-b-2024.pdf"
+      ],
+      "samePdf": true,
+      "duplicateQuestionIds": [],
+      "answerIssues": [],
+      "figureIssues": []
+    },
+    {
+      "examId": "uil-2024-district",
+      "title": "UIL Science District 2024",
+      "year": 2024,
+      "contestLevel": "district",
+      "set": "District",
+      "status": "usable-partial",
+      "availableQuestions": 59,
+      "subjectCounts": {
+        "biology": 20,
+        "chemistry": 19,
+        "physics": 20
+      },
+      "missingQuestions": [
+        40
+      ],
+      "sourcePdfs": [
+        "data/source-pdfs/uil/2024-district/science-study-packet-district-2024.pdf"
+      ],
+      "samePdf": true,
+      "duplicateQuestionIds": [],
+      "answerIssues": [],
+      "figureIssues": []
+    },
+    {
+      "examId": "uil-2025-set-a",
+      "title": "UIL Science Set A 2025",
+      "year": 2025,
+      "contestLevel": "uil-set",
+      "set": "A",
+      "status": "usable-partial",
+      "availableQuestions": 59,
+      "subjectCounts": {
+        "biology": 19,
+        "chemistry": 20,
+        "physics": 20
+      },
+      "missingQuestions": [
+        20
+      ],
+      "sourcePdfs": [
+        "data/source-pdfs/uil/2025-set-a/science-test-a-2025.pdf"
+      ],
+      "samePdf": true,
+      "duplicateQuestionIds": [],
+      "answerIssues": [],
+      "figureIssues": []
+    },
+    {
+      "examId": "uil-2025-set-b",
+      "title": "UIL Science Set B 2025",
+      "year": 2025,
+      "contestLevel": "uil-set",
+      "set": "B",
+      "status": "complete",
+      "availableQuestions": 60,
+      "subjectCounts": {
+        "biology": 20,
+        "chemistry": 20,
+        "physics": 20
+      },
+      "missingQuestions": [],
+      "sourcePdfs": [
+        "data/source-pdfs/uil/2025-set-b/science-test-b-2025.pdf"
+      ],
+      "samePdf": true,
+      "duplicateQuestionIds": [],
+      "answerIssues": [],
+      "figureIssues": []
+    },
+    {
+      "examId": "uil-2026-set-a",
+      "title": "UIL Science Set A 2026",
+      "year": 2026,
+      "contestLevel": "uil-set",
+      "set": "A",
+      "status": "complete",
+      "availableQuestions": 60,
+      "subjectCounts": {
+        "biology": 20,
+        "chemistry": 20,
+        "physics": 20
+      },
+      "missingQuestions": [],
+      "sourcePdfs": [
+        "data/source-pdfs/uil/2026-set-a/science-test-a-2026.pdf"
+      ],
+      "samePdf": true,
+      "duplicateQuestionIds": [],
+      "answerIssues": [],
+      "figureIssues": []
+    },
+    {
+      "examId": "uil-2026-set-b",
+      "title": "UIL Science Set B 2026",
+      "year": 2026,
+      "contestLevel": "uil-set",
+      "set": "B",
+      "status": "complete",
+      "availableQuestions": 60,
+      "subjectCounts": {
+        "biology": 20,
+        "chemistry": 20,
+        "physics": 20
+      },
+      "missingQuestions": [],
+      "sourcePdfs": [
+        "data/source-pdfs/uil/2026-set-b/science-test-b-2026.pdf"
+      ],
+      "samePdf": true,
+      "duplicateQuestionIds": [],
+      "answerIssues": [],
+      "figureIssues": []
+    },
+    {
+      "examId": "uil-2016-invitational-a",
+      "title": "UIL Science Invitational A 2016",
+      "year": 2016,
+      "contestLevel": "invitational",
+      "set": "A",
+      "status": "blocked",
+      "availableQuestions": 51,
+      "subjectCounts": {
+        "biology": 11,
+        "chemistry": 20,
+        "physics": 20
+      },
+      "missingQuestions": [
+        1,
+        2,
+        5,
+        8,
+        10,
+        15,
+        17,
+        18,
+        19
+      ],
+      "sourcePdfs": [
+        "data/source-pdfs/uil/2016-invitational-a/science-test-a-2016.pdf"
+      ],
+      "samePdf": true,
+      "duplicateQuestionIds": [],
+      "answerIssues": [],
+      "figureIssues": []
+    },
+    {
+      "examId": "uil-2016-invitational-b",
+      "title": "UIL Science Invitational B 2016",
+      "year": 2016,
+      "contestLevel": "invitational",
+      "set": "B",
+      "status": "complete",
+      "availableQuestions": 60,
+      "subjectCounts": {
+        "biology": 20,
+        "chemistry": 20,
+        "physics": 20
+      },
+      "missingQuestions": [],
+      "sourcePdfs": [
+        "data/source-pdfs/uil/2016-invitational-b/science-test-b-2016.pdf"
+      ],
+      "samePdf": true,
+      "duplicateQuestionIds": [],
+      "answerIssues": [],
+      "figureIssues": []
+    },
+    {
+      "examId": "uil-2016-district-1",
+      "title": "UIL Science District 1 2016",
+      "year": 2016,
+      "contestLevel": "district",
+      "set": "District 1",
+      "status": "blocked",
+      "availableQuestions": 56,
+      "subjectCounts": {
+        "biology": 17,
+        "chemistry": 19,
+        "physics": 20
+      },
+      "missingQuestions": [
+        3,
+        5,
+        6,
+        34
+      ],
+      "sourcePdfs": [
+        "data/source-pdfs/uil/2016-combined/science-2016-inv-district-region-study.pdf"
+      ],
+      "samePdf": true,
+      "duplicateQuestionIds": [],
+      "answerIssues": [
+        "uil-2016-district-1-b02",
+        "uil-2016-district-1-b11"
+      ],
+      "figureIssues": []
+    },
+    {
+      "examId": "uil-2016-district-2",
+      "title": "UIL Science District 2 2016",
+      "year": 2016,
+      "contestLevel": "district",
+      "set": "District 2",
+      "status": "blocked",
+      "availableQuestions": 56,
+      "subjectCounts": {
+        "biology": 17,
+        "chemistry": 19,
+        "physics": 20
+      },
+      "missingQuestions": [
+        1,
+        2,
+        6,
+        34
+      ],
+      "sourcePdfs": [
+        "data/source-pdfs/uil/2016-combined/science-2016-inv-district-region-study.pdf"
+      ],
+      "samePdf": true,
+      "duplicateQuestionIds": [],
+      "answerIssues": [
+        "uil-2016-district-2-b11"
+      ],
+      "figureIssues": []
+    },
+    {
+      "examId": "uil-2016-region",
+      "title": "UIL Science Region 2016",
+      "year": 2016,
+      "contestLevel": "region",
+      "set": "Region",
+      "status": "usable-partial",
+      "availableQuestions": 57,
+      "subjectCounts": {
+        "biology": 17,
+        "chemistry": 20,
+        "physics": 20
+      },
+      "missingQuestions": [
+        7,
+        10,
+        15
+      ],
+      "sourcePdfs": [
+        "data/source-pdfs/uil/2016-combined/science-2016-inv-district-region-study.pdf"
+      ],
+      "samePdf": true,
+      "duplicateQuestionIds": [],
+      "answerIssues": [],
+      "figureIssues": []
+    },
+    {
+      "examId": "uil-2018-invitational-b",
+      "title": "UIL Science Invitational B 2018",
+      "year": 2018,
+      "contestLevel": "invitational",
+      "set": "B",
+      "status": "usable-partial",
+      "availableQuestions": 59,
+      "subjectCounts": {
+        "biology": 20,
+        "chemistry": 19,
+        "physics": 20
+      },
+      "missingQuestions": [
+        30
+      ],
+      "sourcePdfs": [
+        "data/source-pdfs/uil/2017-set-b/science-test-b-2017.pdf"
+      ],
+      "samePdf": true,
+      "duplicateQuestionIds": [],
+      "answerIssues": [],
+      "figureIssues": []
+    },
+    {
+      "examId": "uil-2018-region",
+      "title": "UIL Science Region 2018",
+      "year": 2018,
+      "contestLevel": "region",
+      "set": "Region",
+      "status": "blocked",
+      "availableQuestions": 47,
+      "subjectCounts": {
+        "biology": 17,
+        "chemistry": 13,
+        "physics": 17
+      },
+      "missingQuestions": [
+        1,
+        9,
+        13,
+        21,
+        25,
+        26,
+        29,
+        31,
+        36,
+        38,
+        41,
+        45,
+        51
+      ],
+      "sourcePdfs": [
+        "data/source-pdfs/uil/2018-region/science-region-2018.pdf"
+      ],
+      "samePdf": true,
+      "duplicateQuestionIds": [],
+      "answerIssues": [
+        "uil-2018-region-b02",
+        "uil-2018-region-b03",
+        "uil-2018-region-b04",
+        "uil-2018-region-b05",
+        "uil-2018-region-b06",
+        "uil-2018-region-b07",
+        "uil-2018-region-b08",
+        "uil-2018-region-b10",
+        "uil-2018-region-b11",
+        "uil-2018-region-b12",
+        "uil-2018-region-b14",
+        "uil-2018-region-b15",
+        "uil-2018-region-b16",
+        "uil-2018-region-b17",
+        "uil-2018-region-b18",
+        "uil-2018-region-b19",
+        "uil-2018-region-b20",
+        "uil-2018-region-c02",
+        "uil-2018-region-c03",
+        "uil-2018-region-c04",
+        "uil-2018-region-c07",
+        "uil-2018-region-c08",
+        "uil-2018-region-c10",
+        "uil-2018-region-c12",
+        "uil-2018-region-c13",
+        "uil-2018-region-c14",
+        "uil-2018-region-c15",
+        "uil-2018-region-c17",
+        "uil-2018-region-c19",
+        "uil-2018-region-c20",
+        "uil-2018-region-p02",
+        "uil-2018-region-p03",
+        "uil-2018-region-p04",
+        "uil-2018-region-p06",
+        "uil-2018-region-p07",
+        "uil-2018-region-p08",
+        "uil-2018-region-p09",
+        "uil-2018-region-p10",
+        "uil-2018-region-p12",
+        "uil-2018-region-p13",
+        "uil-2018-region-p14",
+        "uil-2018-region-p15",
+        "uil-2018-region-p16",
+        "uil-2018-region-p17",
+        "uil-2018-region-p18",
+        "uil-2018-region-p19",
+        "uil-2018-region-p20"
+      ],
+      "figureIssues": []
+    },
+    {
+      "examId": "uil-2015-invitational-a",
+      "title": "UIL Science Invitational A 2015",
+      "year": 2015,
+      "contestLevel": "invitational",
+      "set": "A",
+      "status": "usable-partial",
+      "availableQuestions": 59,
+      "subjectCounts": {
+        "biology": 20,
+        "chemistry": 19,
+        "physics": 20
+      },
+      "missingQuestions": [
+        32
+      ],
+      "sourcePdfs": [
+        "data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf"
+      ],
+      "samePdf": true,
+      "duplicateQuestionIds": [],
+      "answerIssues": [],
+      "figureIssues": []
+    },
+    {
+      "examId": "uil-2015-invitational-b",
+      "title": "UIL Science Invitational B 2015",
+      "year": 2015,
+      "contestLevel": "invitational",
+      "set": "B",
+      "status": "blocked",
+      "availableQuestions": 38,
+      "subjectCounts": {
+        "biology": 0,
+        "chemistry": 18,
+        "physics": 20
+      },
+      "missingQuestions": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        34,
+        40
+      ],
+      "sourcePdfs": [
+        "data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf"
+      ],
+      "samePdf": true,
+      "duplicateQuestionIds": [],
+      "answerIssues": [],
+      "figureIssues": []
+    },
+    {
+      "examId": "uil-2015-district-1",
+      "title": "UIL Science District 1 2015",
+      "year": 2015,
+      "contestLevel": "district",
+      "set": "District 1",
+      "status": "usable-partial",
+      "availableQuestions": 55,
+      "subjectCounts": {
+        "biology": 15,
+        "chemistry": 20,
+        "physics": 20
+      },
+      "missingQuestions": [
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "sourcePdfs": [
+        "data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf"
+      ],
+      "samePdf": true,
+      "duplicateQuestionIds": [],
+      "answerIssues": [],
+      "figureIssues": []
+    },
+    {
+      "examId": "uil-2015-district-2",
+      "title": "UIL Science District 2 2015",
+      "year": 2015,
+      "contestLevel": "district",
+      "set": "District 2",
+      "status": "blocked",
+      "availableQuestions": 52,
+      "subjectCounts": {
+        "biology": 12,
+        "chemistry": 20,
+        "physics": 20
+      },
+      "missingQuestions": [
+        6,
+        7,
+        8,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "sourcePdfs": [
+        "data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf"
+      ],
+      "samePdf": true,
+      "duplicateQuestionIds": [],
+      "answerIssues": [],
+      "figureIssues": []
+    },
+    {
+      "examId": "uil-2015-region",
+      "title": "UIL Science Region 2015",
+      "year": 2015,
+      "contestLevel": "region",
+      "set": "Region",
+      "status": "blocked",
+      "availableQuestions": 52,
+      "subjectCounts": {
+        "biology": 14,
+        "chemistry": 18,
+        "physics": 20
+      },
+      "missingQuestions": [
+        1,
+        2,
+        4,
+        16,
+        17,
+        19,
+        34,
+        38
+      ],
+      "sourcePdfs": [
+        "data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf"
+      ],
+      "samePdf": true,
+      "duplicateQuestionIds": [],
+      "answerIssues": [
+        "uil-2015-region-b03",
+        "uil-2015-region-b15",
+        "uil-2015-region-c01"
+      ],
+      "figureIssues": []
+    },
+    {
+      "examId": "uil-2015-state",
+      "title": "UIL Science State 2015",
+      "year": 2015,
+      "contestLevel": "state",
+      "set": "State",
+      "status": "blocked",
+      "availableQuestions": 54,
+      "subjectCounts": {
+        "biology": 16,
+        "chemistry": 18,
+        "physics": 20
+      },
+      "missingQuestions": [
+        3,
+        15,
+        17,
+        18,
+        22,
+        31
+      ],
+      "sourcePdfs": [
+        "data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf"
+      ],
+      "samePdf": true,
+      "duplicateQuestionIds": [],
+      "answerIssues": [
+        "uil-2015-state-b06",
+        "uil-2015-state-b16",
+        "uil-2015-state-c12",
+        "uil-2015-state-c13",
+        "uil-2015-state-c17"
+      ],
+      "figureIssues": []
+    }
+  ],
+  "missingQuestions": [
+    {
+      "examId": "uil-2021-invitational-b",
+      "missingQuestions": [
+        27
+      ]
+    },
+    {
+      "examId": "uil-2022-set-a",
+      "missingQuestions": [
+        36
+      ]
+    },
+    {
+      "examId": "uil-2022-vcm-1",
+      "missingQuestions": [
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        18,
+        19,
+        20,
+        52
+      ]
+    },
+    {
+      "examId": "uil-2022-vcm-2",
+      "missingQuestions": [
+        3,
+        4,
+        6,
+        7,
+        10,
+        12,
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "examId": "uil-2022-vcm-3",
+      "missingQuestions": [
+        1,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        14,
+        20
+      ]
+    },
+    {
+      "examId": "uil-2023-invitational-b",
+      "missingQuestions": [
+        50
+      ]
+    },
+    {
+      "examId": "uil-2024-set-b",
+      "missingQuestions": [
+        55
+      ]
+    },
+    {
+      "examId": "uil-2024-district",
+      "missingQuestions": [
+        40
+      ]
+    },
+    {
+      "examId": "uil-2025-set-a",
+      "missingQuestions": [
+        20
+      ]
+    },
+    {
+      "examId": "uil-2016-invitational-a",
+      "missingQuestions": [
+        1,
+        2,
+        5,
+        8,
+        10,
+        15,
+        17,
+        18,
+        19
+      ]
+    },
+    {
+      "examId": "uil-2016-district-1",
+      "missingQuestions": [
+        3,
+        5,
+        6,
+        34
+      ]
+    },
+    {
+      "examId": "uil-2016-district-2",
+      "missingQuestions": [
+        1,
+        2,
+        6,
+        34
+      ]
+    },
+    {
+      "examId": "uil-2016-region",
+      "missingQuestions": [
+        7,
+        10,
+        15
+      ]
+    },
+    {
+      "examId": "uil-2018-invitational-b",
+      "missingQuestions": [
+        30
+      ]
+    },
+    {
+      "examId": "uil-2018-region",
+      "missingQuestions": [
+        1,
+        9,
+        13,
+        21,
+        25,
+        26,
+        29,
+        31,
+        36,
+        38,
+        41,
+        45,
+        51
+      ]
+    },
+    {
+      "examId": "uil-2015-invitational-a",
+      "missingQuestions": [
+        32
+      ]
+    },
+    {
+      "examId": "uil-2015-invitational-b",
+      "missingQuestions": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        34,
+        40
+      ]
+    },
+    {
+      "examId": "uil-2015-district-1",
+      "missingQuestions": [
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "examId": "uil-2015-district-2",
+      "missingQuestions": [
+        6,
+        7,
+        8,
+        12,
+        13,
+        14,
+        15,
+        16
+      ]
+    },
+    {
+      "examId": "uil-2015-region",
+      "missingQuestions": [
+        1,
+        2,
+        4,
+        16,
+        17,
+        19,
+        34,
+        38
+      ]
+    },
+    {
+      "examId": "uil-2015-state",
+      "missingQuestions": [
+        3,
+        15,
+        17,
+        18,
+        22,
+        31
+      ]
+    }
+  ],
+  "answerConflicts": [
+    {
+      "examId": "uil-2022-vcm-2",
+      "questionIds": [
+        "uil-2022-vcm-2-b14"
+      ]
+    },
+    {
+      "examId": "uil-2022-vcm-3",
+      "questionIds": [
+        "uil-2022-vcm-3-b17",
+        "uil-2022-vcm-3-b18"
+      ]
+    },
+    {
+      "examId": "uil-2016-district-1",
+      "questionIds": [
+        "uil-2016-district-1-b02",
+        "uil-2016-district-1-b11"
+      ]
+    },
+    {
+      "examId": "uil-2016-district-2",
+      "questionIds": [
+        "uil-2016-district-2-b11"
+      ]
+    },
+    {
+      "examId": "uil-2018-region",
+      "questionIds": [
+        "uil-2018-region-b02",
+        "uil-2018-region-b03",
+        "uil-2018-region-b04",
+        "uil-2018-region-b05",
+        "uil-2018-region-b06",
+        "uil-2018-region-b07",
+        "uil-2018-region-b08",
+        "uil-2018-region-b10",
+        "uil-2018-region-b11",
+        "uil-2018-region-b12",
+        "uil-2018-region-b14",
+        "uil-2018-region-b15",
+        "uil-2018-region-b16",
+        "uil-2018-region-b17",
+        "uil-2018-region-b18",
+        "uil-2018-region-b19",
+        "uil-2018-region-b20",
+        "uil-2018-region-c02",
+        "uil-2018-region-c03",
+        "uil-2018-region-c04",
+        "uil-2018-region-c07",
+        "uil-2018-region-c08",
+        "uil-2018-region-c10",
+        "uil-2018-region-c12",
+        "uil-2018-region-c13",
+        "uil-2018-region-c14",
+        "uil-2018-region-c15",
+        "uil-2018-region-c17",
+        "uil-2018-region-c19",
+        "uil-2018-region-c20",
+        "uil-2018-region-p02",
+        "uil-2018-region-p03",
+        "uil-2018-region-p04",
+        "uil-2018-region-p06",
+        "uil-2018-region-p07",
+        "uil-2018-region-p08",
+        "uil-2018-region-p09",
+        "uil-2018-region-p10",
+        "uil-2018-region-p12",
+        "uil-2018-region-p13",
+        "uil-2018-region-p14",
+        "uil-2018-region-p15",
+        "uil-2018-region-p16",
+        "uil-2018-region-p17",
+        "uil-2018-region-p18",
+        "uil-2018-region-p19",
+        "uil-2018-region-p20"
+      ]
+    },
+    {
+      "examId": "uil-2015-region",
+      "questionIds": [
+        "uil-2015-region-b03",
+        "uil-2015-region-b15",
+        "uil-2015-region-c01"
+      ]
+    },
+    {
+      "examId": "uil-2015-state",
+      "questionIds": [
+        "uil-2015-state-b06",
+        "uil-2015-state-b16",
+        "uil-2015-state-c12",
+        "uil-2015-state-c13",
+        "uil-2015-state-c17"
+      ]
+    }
+  ],
+  "figureProblems": [],
+  "duplicateQuestions": []
+}

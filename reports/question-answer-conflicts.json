@@ -1,0 +1,737 @@
+{
+  "generatedAt": "2026-07-13T01:02:22.335Z",
+  "conflicts": [
+    {
+      "questionId": "uil-2015-region-b03",
+      "examId": "uil-2015-region",
+      "officialAnswer": "E",
+      "labels": [
+        "A",
+        "A",
+        "B",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "questionId": "uil-2015-region-b15",
+      "examId": "uil-2015-region",
+      "officialAnswer": "D",
+      "labels": [
+        "A",
+        "A",
+        "B",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "questionId": "uil-2015-region-c01",
+      "examId": "uil-2015-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2015-state-b06",
+      "examId": "uil-2015-state",
+      "officialAnswer": "D",
+      "labels": [
+        "A",
+        "A",
+        "B",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "questionId": "uil-2015-state-b16",
+      "examId": "uil-2015-state",
+      "officialAnswer": "D",
+      "labels": [
+        "A",
+        "A",
+        "B",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "questionId": "uil-2015-state-c12",
+      "examId": "uil-2015-state",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "C",
+        "E",
+        "B",
+        "D"
+      ]
+    },
+    {
+      "questionId": "uil-2015-state-c13",
+      "examId": "uil-2015-state",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "E",
+        "B",
+        "C",
+        "D"
+      ]
+    },
+    {
+      "questionId": "uil-2015-state-c17",
+      "examId": "uil-2015-state",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2016-district-1-b02",
+      "examId": "uil-2016-district-1",
+      "officialAnswer": "D",
+      "labels": [
+        "A",
+        "A",
+        "B",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "questionId": "uil-2016-district-1-b11",
+      "examId": "uil-2016-district-1",
+      "officialAnswer": "D",
+      "labels": [
+        "A",
+        "A",
+        "B",
+        "C",
+        "B"
+      ]
+    },
+    {
+      "questionId": "uil-2016-district-2-b11",
+      "examId": "uil-2016-district-2",
+      "officialAnswer": "D",
+      "labels": [
+        "A",
+        "B",
+        "A",
+        "C",
+        "B"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-b02",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-b03",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-b04",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-b05",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-b06",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-b07",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-b08",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-b10",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-b11",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-b12",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-b14",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-b15",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-b16",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-b17",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-b18",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-b19",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-b20",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-c02",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-c03",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-c04",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-c07",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-c08",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-c10",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-c12",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-c13",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-c14",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-c15",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-c17",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-c19",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-c20",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-p02",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-p03",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-p04",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-p06",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-p07",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-p08",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-p09",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-p10",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-p12",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-p13",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-p14",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-p15",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-p16",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-p17",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-p18",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-p19",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2018-region-p20",
+      "examId": "uil-2018-region",
+      "officialAnswer": null,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "questionId": "uil-2022-vcm-2-b14",
+      "examId": "uil-2022-vcm-2",
+      "officialAnswer": "D",
+      "labels": [
+        "A",
+        "B",
+        "A",
+        "C",
+        "B"
+      ]
+    },
+    {
+      "questionId": "uil-2022-vcm-3-b17",
+      "examId": "uil-2022-vcm-3",
+      "officialAnswer": "D",
+      "labels": [
+        "A",
+        "A",
+        "C",
+        "B",
+        "B"
+      ]
+    },
+    {
+      "questionId": "uil-2022-vcm-3-b18",
+      "examId": "uil-2022-vcm-3",
+      "officialAnswer": "C",
+      "labels": [
+        "A",
+        "D",
+        "B",
+        "E",
+        "A"
+      ]
+    }
+  ]
+}

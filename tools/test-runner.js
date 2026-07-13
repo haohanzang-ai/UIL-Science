@@ -3,6 +3,7 @@ const path = require('path');
 const vm = require('vm');
 const assert = require('assert');
 const { REPO_ROOT, normalizeInsideRepo } = require('./importer/pathGuard');
+const { validateExams } = require('./validate-exams');
 
 const tests = [];
 function test(name, fn) { tests.push({ name, fn }); }
@@ -28,11 +29,39 @@ test('required reports are present', () => {
     'reports/missing-sources.md',
     'reports/publication-blockers.md',
     'reports/source-provenance.json',
+    'reports/exam-validation.json',
+    'reports/exam-validation.md',
     'reports/security-review.md',
     'reports/test-results.md',
     'references/authoritative-source-policy.json'
   ];
   for (const rel of required) assert.ok(fs.existsSync(normalizeInsideRepo(rel)), `${rel} missing`);
+});
+
+test('exam availability follows completeness thresholds', () => {
+  const report = validateExams();
+  assert.equal(report.totals.exams, 29);
+  assert.equal(report.totals.complete, 8);
+  assert.equal(report.totals.partial, 10);
+  assert.equal(report.totals.blocked, 11);
+  for (const exam of report.exams) {
+    if (exam.status === 'complete') {
+      assert.equal(exam.availableQuestions, 60, `${exam.examId} complete count`);
+      assert.equal(exam.subjectCounts.biology, 20, `${exam.examId} biology count`);
+      assert.equal(exam.subjectCounts.chemistry, 20, `${exam.examId} chemistry count`);
+      assert.equal(exam.subjectCounts.physics, 20, `${exam.examId} physics count`);
+    }
+    if (exam.status === 'usable-partial') {
+      assert.ok(exam.availableQuestions >= 55 && exam.availableQuestions <= 59, `${exam.examId} partial threshold`);
+      assert.ok(exam.missingQuestions.length > 0, `${exam.examId} missing list`);
+    }
+    if (exam.availableQuestions < 55) assert.equal(exam.status, 'blocked', `${exam.examId} under threshold`);
+  }
+});
+
+test('study page removes visible Switch Student feature', () => {
+  const haystack = read('study.html') + read('assets/study.js') + read('assets/uil.js');
+  assert.equal(/Switch Student|Switch student/.test(haystack), false);
 });
 
 test('student labels do not use banned practice wording', () => {

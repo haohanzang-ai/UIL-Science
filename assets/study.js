@@ -5,6 +5,7 @@
   var PROGRESS_KEY = 'uil-public-progress-v1';
   var ANSWERS_KEY = 'uil-public-choice-selections-v1';
   var STUDY_STATE_KEY = 'uil-public-study-state-v1';
+  var EXAM_ATTEMPTS_KEY = 'uil-public-exam-attempts-v1';
   var WELCOME_GUIDE_KEY = 'uil-welcome-guide-hidden-v1';
   var WELCOME_SESSION_KEY = 'uil-welcome-guide-dismissed-session-v1';
   var MAX_NAME = 40;
@@ -13,10 +14,11 @@
   var title = document.getElementById('page-title');
   var subtitle = document.getElementById('page-subtitle');
   var switchBtn = document.getElementById('switch-user');
+  var examTimerHandle = null;
   var params = new URLSearchParams(location.search);
   var view = params.get('view') || 'home';
   var catalog = { questions: [], exams: [], byId: {} };
-  var ui = { filters: {}, index: 0, submitted: false, showHint: false, showSolution: false, examId: params.get('exam') || '', examSubmitted: false };
+  var ui = { filters: {}, index: 0, submitted: false, showHint: false, showSolution: false, showLesson: false, examId: params.get('exam') || '', examAttemptId: params.get('attempt') || '', examMode: params.get('mode') || '' };
 
   var SUBJECTS = {
     biology: { title:'Biology', accent:'bio', description:'Cells, genetics, evolution, ecology, anatomy, physiology, and UIL-specific life science vocabulary.' },
@@ -32,7 +34,8 @@
     weak: { title:'Weak Topics' },
     flashcards: { title:'Flashcards' },
     progress: { title:'My Progress' },
-    guide: { title:'UIL Science Guide' }
+    guide: { title:'UIL Science Guide' },
+    settings: { title:'Settings' }
   };
 
   function uid(){
@@ -58,15 +61,37 @@
     try { localStorage.setItem(key, JSON.stringify(value)); } catch(e) {}
   }
 
+  function scopedKey(base){
+    var p = getProfile();
+    return p && p.uid ? base + ':' + p.uid : base;
+  }
+
+  function readScopedJson(base, fallback){
+    var key = scopedKey(base);
+    var value = readJson(key, null);
+    if (value) return value;
+    var legacy = readJson(base, null);
+    if (legacy && getProfile()) {
+      saveJson(key, legacy);
+      try { localStorage.removeItem(base); } catch(e) {}
+      return legacy;
+    }
+    return fallback;
+  }
+
+  function saveScopedJson(base, value){
+    saveJson(scopedKey(base), value);
+  }
+
   function restoreStudyState(){
-    var saved = readJson(STUDY_STATE_KEY, {});
+    var saved = readScopedJson(STUDY_STATE_KEY, {});
     ui.filters = saved.filters && typeof saved.filters === 'object' ? saved.filters : {};
     if (!params.get('exam') && saved.examId && view === 'exam') ui.examId = saved.examId;
     if (!params.get('q') && saved.last && saved.last.view === view && Number.isFinite(saved.last.index)) ui.index = saved.last.index;
   }
 
   function saveStudyState(extra){
-    var saved = readJson(STUDY_STATE_KEY, {});
+    var saved = readScopedJson(STUDY_STATE_KEY, {});
     saved.filters = ui.filters;
     saved.examId = ui.examId || saved.examId || '';
     saved.last = {
@@ -75,7 +100,7 @@
       questionId: extra && extra.questionId || '',
       updatedAt: new Date().toISOString()
     };
-    saveJson(STUDY_STATE_KEY, saved);
+    saveScopedJson(STUDY_STATE_KEY, saved);
   }
 
   function getProfile(){
@@ -97,8 +122,20 @@
     return profile;
   }
 
+  function updateProfileName(name){
+    var profile = getProfile();
+    if (!profile) return setProfile(name);
+    var displayName = String(name || '').trim().replace(/\s+/g, ' ');
+    if (!displayName) throw new Error('Enter your name to begin.');
+    if (displayName.length > MAX_NAME) throw new Error('Name must be '+MAX_NAME+' characters or fewer.');
+    profile.displayName = displayName;
+    profile.updatedAt = new Date().toISOString();
+    saveJson(PROFILE_KEY, profile);
+    return profile;
+  }
+
   function getProgress(){
-    var p = readJson(PROGRESS_KEY, { schemaVersion:1, attempts:[], bookmarks:[] });
+    var p = readScopedJson(PROGRESS_KEY, { schemaVersion:1, attempts:[], bookmarks:[] });
     p.attempts = Array.isArray(p.attempts) ? p.attempts : [];
     p.bookmarks = Array.isArray(p.bookmarks) ? p.bookmarks : [];
     return p;
@@ -106,11 +143,11 @@
 
   function saveProgress(p){
     p.schemaVersion = 1;
-    saveJson(PROGRESS_KEY, p);
+    saveScopedJson(PROGRESS_KEY, p);
   }
 
   function getSelections(){
-    var s = readJson(ANSWERS_KEY, { schemaVersion:1, selections:{} });
+    var s = readScopedJson(ANSWERS_KEY, { schemaVersion:1, selections:{} });
     s.selections = s.selections && typeof s.selections === 'object' ? s.selections : {};
     return s;
   }
@@ -118,12 +155,14 @@
   function setSelection(questionId, choice){
     var state = getSelections();
     state.selections[questionId] = { choice: choice, selectedAt: new Date().toISOString() };
-    saveJson(ANSWERS_KEY, state);
+    saveScopedJson(ANSWERS_KEY, state);
   }
 
   function recordAttempt(q, choice){
     var p = getProgress();
+    var eventId = q.questionId + ':' + choice + ':' + new Date().toISOString().slice(0, 19);
     p.attempts.push({
+      eventId: eventId,
       questionId: q.questionId,
       examId: q.examId,
       subject: q.subject,
@@ -154,8 +193,6 @@
     var html = escapeHtml(s || '').replace(/\u2212/g, '-').replace(/\n/g, '<br>');
     html = html.replace(/(?:\u00d7|x)\s*10\s*([+-]?\d+)/gi, '&times; 10<sup>$1</sup>');
     html = html.replace(/\b10\^?([+-]\d+)\b/g, '10<sup>$1</sup>');
-    html = html.replace(/([A-Z][a-z]?)(\d+)/g, '$1<sub>$2</sub>');
-    html = html.replace(/\)(\d+)/g, ')<sub>$1</sub>');
     html = html.replace(/([a-zA-Z])\^([+-]?\d+)/g, '$1<sup>$2</sup>');
     html = html.replace(/\b(deg|degrees?)\s*C\b/gi, '&deg;C');
     return html;
@@ -180,10 +217,15 @@
       fetchJson('data/processed/published-exams.json', { exams:[] })
     ]);
     var both = await Promise.race([loading, timeout(LOAD_TIMEOUT_MS)]);
-    catalog.questions = Array.isArray(both[0].questions) ? both[0].questions.filter(function(x){ return x && x.accessible !== false; }) : [];
+    catalog.questions = Array.isArray(both[0].questions) ? both[0].questions.filter(function(x){ return x && x.accessible !== false && questionHasValidAnswer(x); }) : [];
     catalog.exams = Array.isArray(both[1].exams) ? both[1].exams.filter(function(x){ return x && x.accessible !== false; }) : [];
     catalog.byId = {};
     catalog.questions.forEach(function(q){ catalog.byId[q.questionId] = q; });
+  }
+
+  function questionHasValidAnswer(q){
+    if (!q || !q.officialAnswer || !Array.isArray(q.choices)) return false;
+    return q.choices.map(function(c){ return typeof c === 'string' ? c : c && c.label; }).indexOf(q.officialAnswer) >= 0;
   }
 
   function countSubject(subject){
@@ -212,6 +254,99 @@
     var choices = Array.isArray(q.choices) ? q.choices : [];
     var found = choices.find(function(c){ return (c.label || '') === label; });
     return { label: label, text: found ? (found.text || '') : '' };
+  }
+
+  function examRows(exam){
+    return (exam && Array.isArray(exam.questionIds) ? exam.questionIds : []).map(function(id){ return catalog.byId[id]; }).filter(Boolean);
+  }
+
+  function examStats(exam){
+    var rows = examRows(exam);
+    var counts = { biology:0, chemistry:0, physics:0 };
+    var nums = {};
+    var pdfs = {};
+    rows.forEach(function(q){ counts[q.subject] = (counts[q.subject] || 0) + 1; nums[q.questionNumber || 0] = true; if (q.sourceRefs && q.sourceRefs.testPdf) pdfs[q.sourceRefs.testPdf] = true; });
+    var missing = [];
+    for (var i = 1; i <= 60; i++) if (!nums[i]) missing.push(i);
+    var samePdf = Object.keys(pdfs).length <= 1;
+    var complete = rows.length === 60 && counts.biology === 20 && counts.chemistry === 20 && counts.physics === 20 && !missing.length && samePdf;
+    var partial = !complete && rows.length >= 55 && rows.length <= 59;
+    partial = partial && samePdf;
+    return { rows: rows, counts: counts, missing: missing, complete: complete, partial: partial, blocked: !complete && !partial, samePdf: samePdf, status: complete ? 'Complete' : partial ? 'Usable partial' : 'Unavailable' };
+  }
+
+  function examVersion(exam){
+    return [exam.examId, exam.contentHash || '', (exam.questionIds || []).join('|')].join(':');
+  }
+
+  function getExamStore(){
+    var store = readScopedJson(EXAM_ATTEMPTS_KEY, { schemaVersion:1, attempts:[] });
+    store.attempts = Array.isArray(store.attempts) ? store.attempts : [];
+    return store;
+  }
+
+  function saveExamStore(store){
+    store.schemaVersion = 1;
+    saveScopedJson(EXAM_ATTEMPTS_KEY, store);
+  }
+
+  function findExamAttempt(id){
+    return getExamStore().attempts.find(function(a){ return a.attemptId === id; }) || null;
+  }
+
+  function activeAttemptForExam(examId){
+    return getExamStore().attempts.filter(function(a){ return a.examId === examId && a.status === 'active'; }).sort(function(a,b){ return String(b.startedAt).localeCompare(String(a.startedAt)); })[0] || null;
+  }
+
+  function submittedAttemptsForExam(examId){
+    return getExamStore().attempts.filter(function(a){ return a.examId === examId && a.status === 'submitted'; });
+  }
+
+  function putExamAttempt(attempt){
+    var store = getExamStore();
+    var index = store.attempts.findIndex(function(a){ return a.attemptId === attempt.attemptId; });
+    attempt.updatedAt = new Date().toISOString();
+    if (index >= 0) store.attempts[index] = attempt;
+    else store.attempts.push(attempt);
+    saveExamStore(store);
+  }
+
+  function newExamAttempt(exam, minutes){
+    var now = Date.now();
+    var duration = Math.max(5, Math.min(120, Number(minutes) || 120));
+    var attempt = {
+      attemptId: 'exam-' + uid(),
+      examId: exam.examId,
+      examVersion: examVersion(exam),
+      durationMinutes: duration,
+      startedAt: new Date(now).toISOString(),
+      deadlineAt: new Date(now + duration * 60000).toISOString(),
+      status: 'active',
+      currentIndex: 0,
+      answers: {},
+      flagged: {},
+      submittedAt: '',
+      autoSubmitted: false
+    };
+    putExamAttempt(attempt);
+    return attempt;
+  }
+
+  function submitExamAttempt(attempt, auto){
+    if (!attempt || attempt.status === 'submitted') return attempt;
+    attempt.status = 'submitted';
+    attempt.submittedAt = new Date().toISOString();
+    attempt.autoSubmitted = !!auto;
+    putExamAttempt(attempt);
+    return attempt;
+  }
+
+  function formatTime(ms){
+    var total = Math.max(0, Math.ceil(ms / 1000));
+    var h = Math.floor(total / 3600);
+    var m = Math.floor((total % 3600) / 60);
+    var s = total % 60;
+    return (h ? h + ':' + String(m).padStart(2,'0') : String(m)) + ':' + String(s).padStart(2,'0');
   }
 
   function topicPills(q) {
@@ -255,6 +390,25 @@
     return Math.round((correct / attempts.length) * 100);
   }
 
+  function uniqueStats(rows){
+    var ids = {};
+    rows.forEach(function(q){ ids[q.questionId] = true; });
+    var latest = {};
+    getProgress().attempts.forEach(function(a){ if (ids[a.questionId]) latest[a.questionId] = a; });
+    var keys = Object.keys(latest);
+    var correct = keys.filter(function(id){ return latest[id].correct; }).length;
+    return { attempted: keys.length, correct: correct, accuracy: keys.length ? Math.round(correct / keys.length * 100) : null };
+  }
+
+  function masteryStatus(rows){
+    var stats = uniqueStats(rows);
+    var sessions = {};
+    getProgress().attempts.forEach(function(a){ if (rows.some(function(q){ return q.questionId === a.questionId; })) sessions[String(a.submittedAt || '').slice(0,10)] = true; });
+    if (!stats.attempted) return 'Not Started';
+    if (stats.attempted >= 10 && stats.accuracy >= 85 && Object.keys(sessions).length >= 2) return 'Mastered';
+    return 'Developing';
+  }
+
   function byUnique(rows, getter){
     var seen = {};
     rows.forEach(function(row){
@@ -282,7 +436,7 @@
     document.body.classList.add('name-mode');
     title.textContent = 'Welcome to UIL Science';
     subtitle.textContent = 'Build a focused study workspace for released UIL Science questions.';
-    switchBtn.hidden = true;
+    if (switchBtn) switchBtn.hidden = true;
     root.innerHTML =
       '<section class="name-card" aria-labelledby="name-title">'+
         '<div class="name-mark">UIL Science</div>'+
@@ -314,11 +468,7 @@
 
   function shell(profile){
     document.body.classList.remove('name-mode');
-    switchBtn.hidden = false;
-    switchBtn.onclick = function(){
-      localStorage.removeItem(PROFILE_KEY);
-      nameGate();
-    };
+    if (switchBtn) switchBtn.hidden = true;
     var def = VIEWS[view] || VIEWS.home;
     title.textContent = def.title;
     subtitle.textContent = profile.displayName ? 'Studying as '+profile.displayName : 'Focused UIL Science study';
@@ -344,12 +494,12 @@
     if (!force && !shouldShowWelcomeGuide()) return '';
     return '<section class="welcome-guide" id="welcome-guide" aria-labelledby="welcome-guide-title" tabindex="-1">'+
       '<div class="welcome-guide-head"><div><p class="overline">First-time guide</p><h2 id="welcome-guide-title">Welcome to UIL Science</h2></div><button class="btn sm ghost" id="welcome-close" type="button">Close</button></div>'+
-      '<p>This website helps you prepare for UIL Science by practicing real questions from previous competitions. You can study Biology, Chemistry, or Physics individually, review topics you have missed, use flashcards, or take a complete timed UIL exam.</p>'+
-      '<p>You do not have to follow a fixed order. Start wherever you feel comfortable, and your progress will help you see which topics need more attention.</p>'+
+      '<p>This website helps you prepare with real questions from previous UIL Science competitions. Study Biology, Chemistry, or Physics, review topics you have missed, use flashcards, or take a complete timed exam.</p>'+
+      '<p>There is no required order. Start wherever you feel comfortable, and the website will help you identify what to review next.</p>'+
       '<ol class="welcome-steps">'+
-        '<li><strong>Choose how to study</strong><span>Open a subject, review weak topics, use flashcards, or take a full exam.</span></li>'+
-        '<li><strong>Learn from each question</strong><span>Try the question first. In regular study mode, you may request a hint or open the verified explanation when available.</span></li>'+
-        '<li><strong>Track what to improve</strong><span>My Progress shows your accuracy, mastered units, and topics that need more review.</span></li>'+
+        '<li><strong>Choose how to study.</strong><span>Open a subject, review weak topics, use flashcards, or take a full exam.</span></li>'+
+        '<li><strong>Try questions and use verified help when needed.</strong><span>Hints and explanations appear during regular study when verified content exists.</span></li>'+
+        '<li><strong>Review your progress and weak topics.</strong><span>My Progress shows accuracy, mastered units, and areas to revisit.</span></li>'+
       '</ol>'+
       '<div class="welcome-actions"><button class="btn primary" id="welcome-got-it" type="button">Got it</button><button class="btn" id="welcome-never" type="button">Never show this again</button><a class="btn ghost" href="'+pageUrl('guide')+'#how-site-works">Open UIL Science Guide</a></div>'+
     '</section>';
@@ -384,14 +534,14 @@
       '<div id="welcome-guide-slot">'+welcomeGuidePanel(false)+'</div>'+
       '<section class="subject-grid">'+subjectCards+'</section>'+
       '<section class="exam-band">'+
-        '<div><p class="overline">Full UIL Exam</p><h2>60 questions, 20 per subject, 120 minutes</h2><p>Select a historical exam set with available question records. Incomplete imported sets are shown honestly.</p></div>'+
+        '<div><p class="overline">Full UIL Exam</p><h2>Practice with timed historical exams</h2><p>Choose a complete exam or a clearly labeled partial set when only part of the source import is currently verified.</p></div>'+
         '<a class="btn secondary" href="'+pageUrl('exam')+'">Choose an exam</a>'+
       '</section>'+
       '<section class="support-grid">'+support+'</section>'+
       '<section class="stats-row">'+
-        stateCard('Available questions', String(catalog.questions.length), 'From current study files')+
-        stateCard('Exam groups', String(catalog.exams.length), 'Historical sets')+
-        stateCard('Submitted answers', String(progress.attempts.length), 'Used for progress')+
+        stateCard('Study questions', String(catalog.questions.length), 'Ready to practice')+
+        stateCard('Exam sets', String(catalog.exams.filter(function(e){ return !examStats(e).blocked; }).length), 'Complete or partial')+
+        stateCard('Practice answers', String(progress.attempts.length), 'Submitted locally')+
         stateCard('Bookmarks', String(progress.bookmarks.length), 'Saved for review')+
       '</section>';
     bindWelcomeGuide();
@@ -527,6 +677,7 @@
       '</div>'+
       (ui.showHint ? hintPanel(q) : '')+
       (ui.showSolution ? solutionPanel(q) : '')+
+      (ui.showLesson ? lessonPanel(q) : '')+
       palette(rows, index, mode)+
     '</article>';
   }
@@ -545,10 +696,23 @@
 
   function solutionPanel(q){
     var refs = Array.isArray(q.citations) && q.citations.length ? q.citations : [];
+    var label = q.explanationStatus === 'official' ? 'Official UIL explanation' : q.explanationStatus === 'verified' ? 'Verified textbook-based explanation' : q.explanationStatus === 'captain-reviewed' ? 'Captain-reviewed explanation' : 'Explanation unavailable';
     return '<aside class="study-panel"><h3>Solution</h3>'+
-      '<p class="trust-label">'+escapeHtml(q.explanationStatus === 'not-imported' ? 'Explanation unavailable' : 'Official explanation')+'</p>'+
+      '<p class="trust-label">'+escapeHtml(label)+'</p>'+
       '<p>'+(q.explanation ? formatScienceText(q.explanation) : 'A worked explanation has not been imported for this question. Use the answer key and source packet when troubleshooting.')+'</p>'+
-      '<details><summary>References</summary>'+(refs.length ? '<ul>'+refs.map(function(r){ return '<li>'+escapeHtml([r.sourceId, r.page ? 'page '+r.page : ''].filter(Boolean).join(', '))+'</li>'; }).join('')+'</ul>' : '<p>No reference details are available for this question.</p>')+'</details>'+
+      '<details><summary>References</summary>'+(refs.length ? '<ul>'+refs.map(function(r){ return '<li>'+escapeHtml([r.title || r.sourceId, r.organization || r.author, r.edition, r.section, r.page ? 'page '+r.page : '', r.sourceLink || ''].filter(Boolean).join(', '))+'</li>'; }).join('')+'</ul>' : '<p>No reference details are available for this question.</p>')+'</details>'+
+      '</aside>';
+  }
+
+  function lessonPanel(q){
+    if (!q.lesson || q.lesson.verified !== true) {
+      return '<aside class="study-panel"><h3>Learn This Topic</h3><p class="trust-label">Verified lesson unavailable</p><p>A separate mini-lesson has not been verified for this question yet. Use the answer key, explanation label, and references that are already attached to the question.</p></aside>';
+    }
+    return '<aside class="study-panel"><h3>Learn This Topic</h3>'+
+      '<p><strong>Essential background:</strong> '+formatScienceText(q.lesson.background || '')+'</p>'+
+      '<p><strong>Core concept:</strong> '+formatScienceText(q.lesson.concept || '')+'</p>'+
+      '<p><strong>Reasoning:</strong> '+formatScienceText(q.lesson.reasoning || '')+'</p>'+
+      '<p><strong>Common mistake:</strong> '+formatScienceText(q.lesson.commonMistake || '')+'</p>'+
       '</aside>';
   }
 
@@ -617,7 +781,7 @@
           bookmarked: data.get('bookmarked') === 'on',
           due: data.get('due') === 'on'
         };
-        ui.index = 0; ui.submitted = false; ui.showHint = false; ui.showSolution = false;
+        ui.index = 0; ui.submitted = false; ui.showHint = false; ui.showSolution = false; ui.showLesson = false;
         saveStudyState();
         subjectView(subject);
       });
@@ -670,19 +834,19 @@
       }, 0);
     });
     var prev = document.getElementById('prev-question');
-    if (prev) prev.addEventListener('click', function(){ ui.index = Math.max(0, ui.index - 1); ui.submitted = false; ui.showHint = false; ui.showSolution = false; saveStudyState({ questionId: rows[ui.index] && rows[ui.index].questionId }); rerender(); });
+    if (prev) prev.addEventListener('click', function(){ ui.index = Math.max(0, ui.index - 1); ui.submitted = false; ui.showHint = false; ui.showSolution = false; ui.showLesson = false; saveStudyState({ questionId: rows[ui.index] && rows[ui.index].questionId }); rerender(); });
     var next = document.getElementById('next-question');
-    if (next) next.addEventListener('click', function(){ ui.index = Math.min(rows.length - 1, ui.index + 1); ui.submitted = false; ui.showHint = false; ui.showSolution = false; saveStudyState({ questionId: rows[ui.index] && rows[ui.index].questionId }); rerender(); });
+    if (next) next.addEventListener('click', function(){ ui.index = Math.min(rows.length - 1, ui.index + 1); ui.submitted = false; ui.showHint = false; ui.showSolution = false; ui.showLesson = false; saveStudyState({ questionId: rows[ui.index] && rows[ui.index].questionId }); rerender(); });
     var hint = document.getElementById('hint-button');
     if (hint) hint.addEventListener('click', function(){ ui.showHint = !ui.showHint; rerender(); });
     var solution = document.getElementById('solution-button');
     if (solution) solution.addEventListener('click', function(){ ui.showSolution = !ui.showSolution; rerender(); });
     var learn = document.getElementById('learn-button');
-    if (learn) learn.addEventListener('click', function(){ ui.showSolution = true; rerender(); });
+    if (learn) learn.addEventListener('click', function(){ ui.showLesson = !ui.showLesson; rerender(); });
     var bookmark = document.getElementById('bookmark');
     if (bookmark) bookmark.addEventListener('click', function(){ toggleBookmark(q.questionId); rerender(); });
     root.querySelectorAll('.question-palette button').forEach(function(btn){
-      btn.addEventListener('click', function(){ ui.index = Number(btn.getAttribute('data-go')) || 0; ui.submitted = false; ui.showHint = false; ui.showSolution = false; saveStudyState({ questionId: rows[ui.index] && rows[ui.index].questionId }); rerender(); });
+      btn.addEventListener('click', function(){ ui.index = Number(btn.getAttribute('data-go')) || 0; ui.submitted = false; ui.showHint = false; ui.showSolution = false; ui.showLesson = false; saveStudyState({ questionId: rows[ui.index] && rows[ui.index].questionId }); rerender(); });
     });
     root.querySelectorAll('.figure-zoom').forEach(function(btn){
       btn.addEventListener('click', function(){ figureDialog(btn.getAttribute('data-figure-src')); });
@@ -693,83 +857,227 @@
   }
 
   function examView(){
-    if (ui.examId) return activeExam(ui.examId);
+    if (ui.examAttemptId) return activeExamAttempt(ui.examAttemptId);
+    if (ui.examId) return examSetup(ui.examId);
     if (!catalog.exams.length) return unavailable('Full UIL Exam', 'No exam group is available in the current study files.');
+    var available = catalog.exams.map(function(e){ return { exam:e, stats:examStats(e) }; }).filter(function(x){ return !x.stats.blocked; });
     root.innerHTML =
-      '<section class="exam-intro"><div><p class="overline">Full UIL Exam</p><h2>Choose a historical exam set</h2><p>Every imported exam set with available questions can be opened. Cards show the actual available question count.</p></div><div class="exam-facts"><span>Historical sets</span><span>Original format: 60 questions</span><span>120 minutes</span></div></section>'+
-      '<section class="exam-grid">'+catalog.exams.map(function(e){
-        var count = Number(e.accessibleQuestionCount || 0);
-        return '<article class="exam-card"><div><h3>'+escapeHtml(e.title)+'</h3><p>'+escapeHtml([e.year, e.contestLevel, e.set].filter(Boolean).join(' '))+'</p></div><strong>'+escapeHtml(String(count))+' available question'+(count === 1 ? '' : 's')+'</strong>'+(count > 0 ? '<a class="btn primary" href="'+pageUrl('exam', { exam:e.examId })+'">Start exam</a>' : '<button class="btn" type="button" disabled>No questions available</button>')+'</article>';
+      '<section class="exam-intro"><div><p class="overline">Full UIL Exam</p><h2>Choose a historical exam set</h2><p>Complete exams have 60 verified questions. Usable partial exams have 55 to 59 verified questions and show exactly what is missing.</p></div><div class="exam-facts"><span>'+available.length+' available</span><span>Official scoring: +6 / -2 / 0</span><span>120 minutes</span></div></section>'+
+      '<section class="exam-grid">'+available.map(function(x){
+        var e = x.exam, stats = x.stats, submitted = submittedAttemptsForExam(e.examId).length, active = activeAttemptForExam(e.examId);
+        return '<article class="exam-card '+(stats.partial ? 'partial' : '')+'"><div><span class="tag '+(stats.complete ? 'bio' : 'warn')+'">'+stats.status+'</span><h3>'+escapeHtml(e.title)+'</h3><p>'+escapeHtml([e.year, e.contestLevel, e.set].filter(Boolean).join(' '))+'</p></div>'+
+          '<div class="exam-card-data"><strong>'+stats.rows.length+'/60 questions</strong><span>Bio '+stats.counts.biology+' | Chem '+stats.counts.chemistry+' | Physics '+stats.counts.physics+'</span>'+(stats.missing.length ? '<small>Missing: '+stats.missing.join(', ')+'</small>' : '<small>All questions available</small>')+'<small>'+(submitted ? 'Retake available' : 'First attempt')+(active ? ' | unfinished attempt' : '')+'</small></div>'+
+          '<a class="btn primary" href="'+pageUrl('exam', { exam:e.examId })+'">Configure Exam</a></article>';
       }).join('')+'</section>';
   }
 
-  function activeExam(examId){
+  function examSetup(examId){
     var exam = catalog.exams.find(function(e){ return e.examId === examId; });
     if (!exam) return unavailable('Exam unavailable', 'This exam set is not available in the current study files.');
-    var rows = (exam.questionIds || []).map(function(id){ return catalog.byId[id]; }).filter(Boolean);
-    if (!rows.length) return unavailable('Exam unavailable', 'This exam set does not have available questions.');
-    if (ui.index >= rows.length) ui.index = rows.length - 1;
-    ui.examId = examId;
-    saveStudyState({ questionId: rows[ui.index] && rows[ui.index].questionId });
-    var selections = getSelections().selections || {};
-    var answered = rows.filter(function(q){ return selections[q.questionId]; }).length;
+    var stats = examStats(exam);
+    if (stats.blocked) return unavailable('Exam unavailable', 'This exam has fewer than 55 verified questions in the current repository import.');
+    var active = activeAttemptForExam(examId);
+    var remaining = active ? new Date(active.deadlineAt).getTime() - Date.now() : 0;
     root.innerHTML =
-      '<section class="exam-active-head"><div><p class="overline">Active exam</p><h2>'+escapeHtml(exam.title)+'</h2><p>Answer selections are saved automatically in this browser.</p></div><div class="exam-timer"><strong>120:00</strong><span>minutes</span></div><div class="exam-progress"><strong>'+answered+'/'+rows.length+'</strong><span>answered</span></div></section>'+
-      (ui.examSubmitted ? examSummary(rows) : '')+
-      questionCard(rows[ui.index], rows, ui.index, 'exam')+
-      '<div class="submit-exam-row"><button class="btn primary" id="submit-exam" type="button">Submit exam</button></div>';
-    bindQuestion(rows, function(){ activeExam(examId); });
-    var submitExam = document.getElementById('submit-exam');
-    if (submitExam) submitExam.addEventListener('click', function(){
-      var missing = rows.length - answered;
-      if (missing && !confirm('You still have '+missing+' unanswered question'+(missing === 1 ? '' : 's')+'. Submit anyway?')) return;
-      ui.submitted = true;
-      ui.examSubmitted = true;
-      activeExam(examId);
+      '<section class="exam-setup"><div><p class="overline">Exam setup</p><h2>'+escapeHtml(exam.title)+'</h2><p>'+escapeHtml(stats.status)+'. '+(stats.partial ? stats.rows.length+' of 60 questions are currently available. Missing: '+stats.missing.join(', ')+'.' : 'All 60 questions are available.')+'</p></div>'+
+      '<div class="exam-setup-grid">'+stateCard('Questions', stats.rows.length+'/60', 'Available')+stateCard('Biology', String(stats.counts.biology), 'Questions')+stateCard('Chemistry', String(stats.counts.chemistry), 'Questions')+stateCard('Physics', String(stats.counts.physics), 'Questions')+'</div>'+
+      '<form id="exam-setup-form" class="exam-setup-form"><fieldset><legend>Time</legend><label><input type="radio" name="duration" value="120" checked> 120 minutes - Official UIL timing</label><label><input type="radio" name="duration" value="90"> 90 minutes - Custom timed session</label><label><input type="radio" name="duration" value="60"> 60 minutes - Custom timed session</label><label><input type="radio" name="duration" value="45"> 45 minutes - Custom timed session</label><label><input type="radio" name="duration" value="30"> 30 minutes - Custom timed session</label><label class="field">Custom minutes<input id="custom-duration" name="customDuration" type="number" min="5" max="120" step="1" placeholder="5-120"></label></fieldset>'+
+      '<p class="muted">Official scoring: correct +6, incorrect -2, blank 0. Explanations stay hidden until final submission.</p>'+
+      (active ? '<div class="note"><div><strong>Unfinished attempt</strong><p>Started '+escapeHtml(new Date(active.startedAt).toLocaleString())+'. Remaining time: '+formatTime(remaining)+'.</p><a class="btn primary" href="'+pageUrl('exam', { exam:examId, attempt:active.attemptId })+'">Resume Exam</a><button class="btn" id="restart-exam" type="button">Restart Exam</button></div></div>' : '<button class="btn primary" id="start-exam" type="submit">Start Exam</button>')+
+      '</form></section>';
+    var form = document.getElementById('exam-setup-form');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var custom = Number(document.getElementById('custom-duration').value);
+      var selected = form.querySelector('input[name="duration"]:checked');
+      var minutes = custom || Number(selected && selected.value) || 120;
+      var attempt = newExamAttempt(exam, minutes);
+      location.href = pageUrl('exam', { exam:examId, attempt:attempt.attemptId });
+    });
+    var restart = document.getElementById('restart-exam');
+    if (restart) restart.addEventListener('click', function(){
+      if (!confirm('Restart this exam? The unfinished local attempt will be replaced by a clean attempt.')) return;
+      if (active) { active.status = 'abandoned'; putExamAttempt(active); }
+      var attempt = newExamAttempt(exam, 120);
+      location.href = pageUrl('exam', { exam:examId, attempt:attempt.attemptId });
     });
   }
 
-  function examSummary(rows){
-    var selections = getSelections().selections || {};
-    var answeredRows = rows.filter(function(q){ return selections[q.questionId]; });
-    var correct = answeredRows.filter(function(q){ return selections[q.questionId].choice === q.officialAnswer; }).length;
-    return '<section class="exam-summary" tabindex="-1"><h2>Session summary</h2><p>'+answeredRows.length+' answered out of '+rows.length+'. '+correct+' correct among answered questions.</p></section>';
+  function activeExamAttempt(attemptId){
+    var attempt = findExamAttempt(attemptId);
+    if (!attempt) return unavailable('Exam attempt unavailable', 'This local exam attempt could not be found.');
+    var exam = catalog.exams.find(function(e){ return e.examId === attempt.examId; });
+    if (!exam) return unavailable('Exam unavailable', 'This exam set is not available in the current study files.');
+    var stats = examStats(exam), rows = stats.rows;
+    if (attempt.status === 'active' && new Date(attempt.deadlineAt).getTime() <= Date.now()) submitExamAttempt(attempt, true);
+    if (attempt.status === 'submitted') return examResults(exam, attempt);
+    if (attempt.currentIndex >= rows.length) attempt.currentIndex = rows.length - 1;
+    ui.index = attempt.currentIndex || 0;
+    var answered = Object.keys(attempt.answers || {}).length;
+    root.innerHTML =
+      '<section class="exam-active-head"><div><p class="overline">Active exam</p><h2>'+escapeHtml(exam.title)+'</h2><p>Answers autosave. Hints and explanations are hidden until submission.</p></div><div class="exam-timer"><strong id="exam-time">'+formatTime(new Date(attempt.deadlineAt).getTime() - Date.now())+'</strong><span>remaining</span></div><div class="exam-progress"><strong>'+answered+'/'+rows.length+'</strong><span>answered</span></div><div class="autosave-status" id="autosave-status">Saved</div></section>'+
+      examQuestionCard(rows[ui.index], rows, ui.index, attempt)+
+      '<div class="submit-exam-row"><button class="btn primary" id="submit-exam" type="button">Submit Exam</button></div>';
+    bindExamQuestion(rows, attempt);
+    startExamTimer(attempt.attemptId);
+  }
+
+  function examQuestionCard(q, rows, index, attempt){
+    var selected = attempt.answers && attempt.answers[q.questionId];
+    var flagged = attempt.flagged && attempt.flagged[q.questionId];
+    var choices = (q.choices || []).map(function(c){
+      var label = c.label || '';
+      return '<button class="choice pick '+(selected === label ? 'sel ' : '')+'" type="button" data-choice="'+escapeHtml(label)+'" aria-pressed="'+(selected === label ? 'true' : 'false')+'"><b>'+escapeHtml(label)+'</b><span>'+formatScienceText(c.text || c)+'</span><span class="choice-status">'+(selected === label ? 'Selected' : '')+'</span></button>';
+    }).join('');
+    return '<article class="focus-card exam-question" data-question-id="'+escapeHtml(q.questionId)+'">'+
+      '<div class="question-meta"><span class="tag '+subjectClass(q.subject)+'">'+escapeHtml((SUBJECTS[q.subject] && SUBJECTS[q.subject].title) || q.subject)+'</span><span>Original #'+escapeHtml(q.questionNumber || index + 1)+'</span><span>'+escapeHtml(unitName(q))+'</span><span>'+escapeHtml(displaySet(q))+'</span></div>'+
+      '<div class="question-top"><div><p class="overline">Question '+(index + 1)+' of '+rows.length+'</p><h2>'+escapeHtml(q.sourceQuestionCode || ('Question '+(q.questionNumber || index + 1)))+'</h2></div><button class="btn sm ghost" id="flag-question" type="button" aria-pressed="'+(flagged ? 'true' : 'false')+'">'+(flagged ? 'Flagged' : 'Flag for review')+'</button></div>'+
+      '<div class="qstem">'+formatScienceText(q.stem || 'Question text unavailable.')+'</div>'+figureMarkup(q)+
+      '<div class="choices" role="group" aria-label="Answer choices">'+choices+'</div>'+
+      '<div class="question-actions sticky-actions"><button class="btn" id="prev-question" type="button" '+(index <= 0 ? 'disabled' : '')+'>Previous</button><button class="btn" id="next-question" type="button" '+(index >= rows.length - 1 ? 'disabled' : '')+'>Next Question</button></div>'+
+      examPalette(rows, index, attempt)+'</article>';
+  }
+
+  function examPalette(rows, index, attempt){
+    return '<nav class="question-palette exam-palette" aria-label="Exam question palette">'+rows.map(function(q, i){
+      var answered = attempt.answers && attempt.answers[q.questionId];
+      var flagged = attempt.flagged && attempt.flagged[q.questionId];
+      return '<button type="button" class="'+(i === index ? 'on ' : '')+(answered ? 'answered ' : '')+(flagged ? 'flagged ' : '')+'" data-go="'+i+'" aria-label="Question '+(i + 1)+(answered ? ', answered' : ', blank')+(flagged ? ', flagged' : '')+'">'+(i + 1)+(flagged ? '*' : '')+'</button>';
+    }).join('')+'</nav>';
+  }
+
+  function bindExamQuestion(rows, attempt){
+    var q = rows[ui.index];
+    root.querySelectorAll('.choice.pick').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        attempt.answers = attempt.answers || {};
+        attempt.answers[q.questionId] = btn.getAttribute('data-choice');
+        putExamAttempt(attempt);
+        activeExamAttempt(attempt.attemptId);
+      });
+    });
+    var prev = document.getElementById('prev-question');
+    var next = document.getElementById('next-question');
+    if (prev) prev.addEventListener('click', function(){ attempt.currentIndex = Math.max(0, ui.index - 1); putExamAttempt(attempt); activeExamAttempt(attempt.attemptId); });
+    if (next) next.addEventListener('click', function(){ attempt.currentIndex = Math.min(rows.length - 1, ui.index + 1); putExamAttempt(attempt); activeExamAttempt(attempt.attemptId); });
+    var flag = document.getElementById('flag-question');
+    if (flag) flag.addEventListener('click', function(){ attempt.flagged = attempt.flagged || {}; attempt.flagged[q.questionId] = !attempt.flagged[q.questionId]; putExamAttempt(attempt); activeExamAttempt(attempt.attemptId); });
+    root.querySelectorAll('.question-palette button').forEach(function(btn){ btn.addEventListener('click', function(){ attempt.currentIndex = Number(btn.getAttribute('data-go')) || 0; putExamAttempt(attempt); activeExamAttempt(attempt.attemptId); }); });
+    root.querySelectorAll('.figure-zoom').forEach(function(btn){ btn.addEventListener('click', function(){ figureDialog(btn.getAttribute('data-figure-src')); }); });
+    var submit = document.getElementById('submit-exam');
+    if (submit) submit.addEventListener('click', function(){
+      var blanks = rows.length - Object.keys(attempt.answers || {}).length;
+      if (!confirm('Submit this exam? Answered: '+(rows.length - blanks)+'. Blank: '+blanks+'.'+(blanks ? ' Blank answers score 0.' : ''))) return;
+      submitExamAttempt(attempt, false);
+      activeExamAttempt(attempt.attemptId);
+    });
+  }
+
+  function startExamTimer(attemptId){
+    var timer = document.getElementById('exam-time');
+    if (!timer) return;
+    if (examTimerHandle) clearTimeout(examTimerHandle);
+    var tick = function(){
+      var a = findExamAttempt(attemptId);
+      if (!a || a.status !== 'active') return;
+      var remaining = new Date(a.deadlineAt).getTime() - Date.now();
+      timer.textContent = formatTime(remaining);
+      if (remaining <= 0) {
+        submitExamAttempt(a, true);
+        activeExamAttempt(attemptId);
+        return;
+      }
+      examTimerHandle = setTimeout(tick, 1000);
+    };
+    examTimerHandle = setTimeout(tick, 1000);
+  }
+
+  function examResults(exam, attempt){
+    var stats = examStats(exam), rows = stats.rows, answers = attempt.answers || {};
+    var correct = 0, incorrect = 0, blank = 0, bySubject = { biology:{correct:0, incorrect:0, blank:0}, chemistry:{correct:0, incorrect:0, blank:0}, physics:{correct:0, incorrect:0, blank:0} };
+    rows.forEach(function(q){
+      var choice = answers[q.questionId];
+      var bucket = bySubject[q.subject] || { correct:0, incorrect:0, blank:0 };
+      if (!choice) { blank++; bucket.blank++; }
+      else if (choice === q.officialAnswer) { correct++; bucket.correct++; }
+      else { incorrect++; bucket.incorrect++; }
+    });
+    var score = correct * 6 - incorrect * 2;
+    root.innerHTML =
+      '<section class="exam-summary" tabindex="-1"><p class="overline">Results and review</p><h2>'+escapeHtml(exam.title)+'</h2><p>'+escapeHtml(stats.status)+(attempt.autoSubmitted ? ' - automatically submitted when time expired.' : '')+'</p>'+
+      '<div class="stats-row">'+stateCard('Raw score', String(score), '+6 / -2 / 0')+stateCard('Correct', String(correct), 'Answered right')+stateCard('Incorrect', String(incorrect), 'Answered wrong')+stateCard('Blank', String(blank), 'No answer')+'</div>'+
+      '<div class="exam-review-subjects">'+Object.keys(bySubject).map(function(s){ var b = bySubject[s]; return '<div><strong>'+escapeHtml(SUBJECTS[s].title)+'</strong><span>'+b.correct+' correct, '+b.incorrect+' incorrect, '+b.blank+' blank</span></div>'; }).join('')+'</div>'+
+      (stats.partial ? '<p class="note warn"><strong>Partial exam:</strong> This score is not scaled to 60 questions.</p>' : '')+'</section>'+
+      '<section class="exam-review-list">'+rows.map(function(q, i){ var chosen = answers[q.questionId] || ''; var answer = correctChoice(q); return '<article class="review-row"><h3>'+(i + 1)+'. '+escapeHtml(q.sourceQuestionCode || ('Question '+(q.questionNumber || i + 1)))+'</h3><p>'+formatScienceText(q.stem || '')+'</p><p><strong>Your answer:</strong> '+escapeHtml(chosen || 'Blank')+' <strong>Answer key:</strong> '+escapeHtml(answer.label)+(answer.text ? ' - '+formatScienceText(answer.text) : '')+'</p>'+solutionPanel(q)+'</article>'; }).join('')+'</section>';
   }
 
   function progressView(){
     var p = getProgress();
     var subjectRows = ['biology','chemistry','physics'].map(function(s){
       var rows = catalog.questions.filter(function(q){ return q.subject === s; });
-      var acc = accuracyForQuestions(rows);
-      return '<div class="progress-line"><span>'+escapeHtml(SUBJECTS[s].title)+'</span><div class="meter '+SUBJECTS[s].accent+'"><i style="width:'+(acc || 0)+'%"></i></div><strong>'+(acc == null ? 'Not started' : acc+'%')+'</strong></div>';
+      var stats = uniqueStats(rows);
+      return '<div class="progress-line"><span>'+escapeHtml(SUBJECTS[s].title)+'</span><div class="meter '+SUBJECTS[s].accent+'"><i style="width:'+(stats.accuracy || 0)+'%"></i></div><strong>'+(stats.accuracy == null ? 'Not started' : stats.accuracy+'%')+'</strong><small>'+masteryStatus(rows)+' | '+stats.attempted+' unique</small></div>';
     }).join('');
     var bookmarks = p.bookmarks.map(function(id){ return catalog.byId[id]; }).filter(Boolean).slice(0, 8);
+    var examScores = getExamStore().attempts.filter(function(a){ return a.status === 'submitted'; }).length;
     root.innerHTML =
-      '<section class="stats-row">'+stateCard('Submitted answers', String(p.attempts.length), 'All subjects')+stateCard('Bookmarks', String(p.bookmarks.length), 'Saved questions')+stateCard('Accuracy', overallAccuracy(), 'Submitted answers')+stateCard('Recent exams', '0', 'No exam scores submitted')+'</section>'+
+      '<section class="stats-row">'+stateCard('Practice attempts', String(p.attempts.length), 'Total submissions')+stateCard('Bookmarks', String(p.bookmarks.length), 'Saved questions')+stateCard('Unique accuracy', overallAccuracy(), 'Latest per question')+stateCard('Full-exam scores', String(examScores), 'Submitted attempts')+'</section>'+
       '<section class="card refined-card"><h2>Subject summaries</h2>'+subjectRows+'</section>'+
       '<section class="two-col"><div class="card refined-card"><h2>Developing or weak units</h2>'+weakList()+'</div><div class="card refined-card"><h2>Bookmarks</h2>'+(bookmarks.length ? bookmarks.map(function(q){ return '<a class="bookmark-row" href="'+pageUrl(q.subject, { q:q.questionId })+'"><span>'+escapeHtml(displaySet(q))+'</span><strong>'+escapeHtml(q.sourceQuestionCode || q.questionId)+'</strong></a>'; }).join('') : '<p class="muted">No bookmarks yet.</p>')+'</div></section>';
   }
 
   function overallAccuracy(){
-    var a = getProgress().attempts;
-    if (!a.length) return 'Not started';
-    return Math.round(a.filter(function(x){ return x.correct; }).length / a.length * 100)+'%';
+    var stats = uniqueStats(catalog.questions);
+    return stats.accuracy == null ? 'Not started' : stats.accuracy+'%';
   }
 
   function weakList(){
-    var p = getProgress();
-    var misses = {};
-    p.attempts.forEach(function(a){ if (a.correct === false) misses[(a.subject || '')+'|'+(a.unitName || 'Uncategorized')] = (misses[(a.subject || '')+'|'+(a.unitName || 'Uncategorized')] || 0) + 1; });
-    var rows = Object.keys(misses).sort(function(a,b){ return misses[b] - misses[a]; }).slice(0, 8);
+    var groups = {};
+    getProgress().attempts.forEach(function(a){
+      var key = (a.subject || '')+'|'+(a.unitName || 'Uncategorized');
+      groups[key] = groups[key] || { total:0, correct:0, unique:{}, recent:[] };
+      groups[key].total++;
+      if (a.correct) groups[key].correct++;
+      groups[key].unique[a.questionId] = a.correct;
+      groups[key].recent.push(a.correct);
+    });
+    var rows = Object.keys(groups).map(function(key){
+      var g = groups[key], uniqueIds = Object.keys(g.unique), uniqueCorrect = uniqueIds.filter(function(id){ return g.unique[id]; }).length;
+      var acc = uniqueIds.length ? Math.round(uniqueCorrect / uniqueIds.length * 100) : 100;
+      var recent = g.recent.slice(-5), recentMisses = recent.filter(function(x){ return !x; }).length;
+      return { key:key, score:(100 - acc) + recentMisses * 6 + Math.min(20, uniqueIds.length), acc:acc, unique:uniqueIds.length, recentMisses:recentMisses };
+    }).filter(function(x){ return x.unique >= 2 && x.acc < 85; }).sort(function(a,b){ return b.score - a.score; }).slice(0, 8);
     if (!rows.length) return '<p class="muted">Weak areas appear after submitted missed answers.</p>';
-    return rows.map(function(key){
-      var parts = key.split('|');
-      return '<a class="bookmark-row" href="'+pageUrl(parts[0] || 'biology')+'"><span>'+escapeHtml((SUBJECTS[parts[0]] && SUBJECTS[parts[0]].title) || parts[0])+'</span><strong>'+escapeHtml(parts[1])+'</strong><small>'+misses[key]+' missed attempt'+(misses[key] === 1 ? '' : 's')+'</small></a>';
+    return rows.map(function(row){
+      var parts = row.key.split('|');
+      return '<a class="bookmark-row" href="'+pageUrl(parts[0] || 'biology')+'"><span>'+escapeHtml((SUBJECTS[parts[0]] && SUBJECTS[parts[0]].title) || parts[0])+'</span><strong>'+escapeHtml(parts[1])+'</strong><small>'+row.acc+'% latest unique accuracy across '+row.unique+' questions; '+row.recentMisses+' recent miss'+(row.recentMisses === 1 ? '' : 'es')+'.</small></a>';
     }).join('');
   }
 
   function weakView(){
-    root.innerHTML = '<section class="card refined-card"><h2>Weak Topics</h2>'+weakList()+'</section>';
+    root.innerHTML = '<section class="two-col"><div class="card refined-card"><h2>Weak Topics</h2>'+weakList()+'</div><div class="card refined-card"><h2>Due for Review</h2>'+dueForReviewList()+'</div></section>';
+  }
+
+  function dueForReviewList(){
+    var byQuestion = {};
+    getProgress().attempts.forEach(function(a){ (byQuestion[a.questionId] = byQuestion[a.questionId] || []).push(a); });
+    var now = Date.now();
+    var rows = Object.keys(byQuestion).map(function(id){
+      var attempts = byQuestion[id].sort(function(a,b){ return String(a.submittedAt).localeCompare(String(b.submittedAt)); });
+      var last = attempts[attempts.length - 1];
+      var streak = 0;
+      for (var i = attempts.length - 1; i >= 0; i--) {
+        if (attempts[i].correct) streak++;
+        else break;
+      }
+      var interval = last.correct ? (streak >= 3 ? 21 : streak === 2 ? 14 : 7) : (attempts.length >= 2 ? 3 : 1);
+      var dueAt = new Date(new Date(last.submittedAt).getTime() + interval * 86400000);
+      return { question: catalog.byId[id], dueAt: dueAt, last:last, interval:interval };
+    }).filter(function(x){ return x.question && x.dueAt.getTime() <= now; }).sort(function(a,b){ return a.dueAt - b.dueAt; }).slice(0, 8);
+    if (!rows.length) return '<p class="muted">No questions are due today. Incorrect answers are scheduled sooner; repeated correct answers are spaced farther apart.</p>';
+    return rows.map(function(x){
+      return '<a class="bookmark-row" href="'+pageUrl(x.question.subject, { q:x.question.questionId })+'"><span>'+escapeHtml(displaySet(x.question))+'</span><strong>'+escapeHtml(x.question.sourceQuestionCode || x.question.questionId)+'</strong><small>Due '+x.dueAt.toLocaleDateString()+'. Last result: '+(x.last.correct ? 'correct' : 'incorrect')+'.</small></a>';
+    }).join('');
   }
 
   function flashcardsView(){
@@ -812,7 +1120,7 @@
           '<li><strong>My Progress:</strong> View real accuracy, completed questions, mastered units, and weak areas.</li>'+
           '<li><strong>Hints and solutions:</strong> Available during normal study when verified content exists, but hidden during active full exams.</li>'+
           '<li><strong>Saving progress:</strong> Progress is stored automatically on the current school laptop and browser.</li>'+
-          '<li><strong>Switch Student:</strong> Use this when another student needs to use the same laptop.</li>'+
+          '<li><strong>Editable profile name:</strong> Use Settings to update your display name without losing progress.</li>'+
         '</ul></section>'+
         '<section class="guide-divider" aria-label="About the UIL Science contest"><h2>About the UIL Science contest</h2></section>'+
         guideSection('format','Contest Format',['Timed written science contest.','The platform source guide lists a 2-hour time limit.','Questions are organized across Biology, Chemistry, and Physics.','Historical exam selection depends on the available imported exam records.'])+
@@ -829,6 +1137,53 @@
 
   function guideSection(id, heading, items){
     return '<section id="'+id+'" class="guide-section"><h2>'+escapeHtml(heading)+'</h2><ul>'+items.map(function(item){ return '<li>'+escapeHtml(item)+'</li>'; }).join('')+'</ul></section>';
+  }
+
+  function settingsView(){
+    var profile = getProfile();
+    root.innerHTML =
+      '<section class="settings-page">'+
+        '<section class="card refined-card"><p class="overline">Profile</p><h2>Student settings</h2><p class="muted">Your progress is attached to this browser profile ID, not to your display name.</p>'+
+          '<form id="settings-name-form" class="settings-form" novalidate>'+
+            '<div class="field"><label for="settings-display-name">Display name</label><input id="settings-display-name" maxlength="'+MAX_NAME+'" value="'+escapeHtml(profile.displayName)+'" /></div>'+
+            '<div class="field-error" id="settings-name-error" role="alert"></div>'+
+            '<button class="btn primary" type="submit">Save name</button>'+
+          '</form>'+
+        '</section>'+
+        '<section class="card refined-card danger-zone"><p class="overline">Local browser data</p><h2>Reset Local Profile</h2><p class="muted">This removes the local profile, local practice progress, answer selections, study filters, and exam attempts stored in this browser. It does not delete any centralized account data.</p>'+
+          '<button class="btn ghost danger" id="reset-local-profile" type="button">Reset Local Profile</button>'+
+          '<div id="reset-confirm" class="reset-confirm" hidden><p><strong>Confirm reset?</strong> This cannot be undone on this browser.</p><button class="btn danger" id="confirm-reset-local-profile" type="button">Yes, reset local profile</button><button class="btn" id="cancel-reset-local-profile" type="button">Cancel</button></div>'+
+        '</section>'+
+      '</section>';
+    var form = document.getElementById('settings-name-form');
+    var input = document.getElementById('settings-display-name');
+    var error = document.getElementById('settings-name-error');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      try {
+        updateProfileName(input.value);
+        shell(getProfile());
+        error.textContent = 'Saved.';
+      } catch(err) {
+        error.textContent = err.message;
+        input.setAttribute('aria-invalid', 'true');
+      }
+    });
+    var startReset = document.getElementById('reset-local-profile');
+    var confirm = document.getElementById('reset-confirm');
+    var cancel = document.getElementById('cancel-reset-local-profile');
+    var yes = document.getElementById('confirm-reset-local-profile');
+    startReset.addEventListener('click', function(){ confirm.hidden = false; yes.focus(); });
+    cancel.addEventListener('click', function(){ confirm.hidden = true; startReset.focus(); });
+    yes.addEventListener('click', function(){
+      var p = getProfile();
+      var keys = [PROFILE_KEY, scopedKey(PROGRESS_KEY), scopedKey(ANSWERS_KEY), scopedKey(STUDY_STATE_KEY), scopedKey(EXAM_ATTEMPTS_KEY), WELCOME_SESSION_KEY];
+      keys.forEach(function(k){ try { localStorage.removeItem(k); sessionStorage.removeItem(k); } catch(e) {} });
+      if (p && p.uid) {
+        [PROGRESS_KEY, ANSWERS_KEY, STUDY_STATE_KEY, EXAM_ATTEMPTS_KEY].forEach(function(base){ try { localStorage.removeItem(base + ':' + p.uid); } catch(e) {} });
+      }
+      nameGate();
+    });
   }
 
   function unavailable(kind, detail){
@@ -854,6 +1209,7 @@
     if (view === 'flashcards') return flashcardsView();
     if (view === 'progress') return progressView();
     if (view === 'guide') return guideView();
+    if (view === 'settings') return settingsView();
     view = 'home';
     return home(profile);
   }
