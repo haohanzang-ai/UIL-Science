@@ -16,6 +16,10 @@ Open **http://localhost:3000** (not the file:// path) so the pages can call the 
 The database (`server/data/uil.db`) is created automatically and **starts empty** —
 no fake data. `npm run reset-db` wipes it.
 
+Coach/admin endpoints require `ADMIN_TOKEN`. The frontend stores the token in
+session storage after you enter it on coach-only pages. For local demos only, you
+can start with `ENABLE_DEMO_COACH_AUTH=true`; production ignores that shortcut.
+
 ## Load your real questions
 
 ```bash
@@ -83,6 +87,6 @@ the scan crop + integrity detail, and supports edit (`PATCH /api/questions/:id`)
 - **OCR / AI tagging (workflow steps 1–7):** this server ingests already-extracted
   questions (importer or `PATCH`). Point your OCR/AI job's output at the same JSON
   shape or call the API. The status flags + confidences record what really ran.
-- **Auth:** identity is a prototype header (`x-student-id`, `x-role`). Replace with
-  your team login before deploying. Also restrict static serving so `/server/*`
-  source isn't exposed (serve only the page files in production).
+- **Auth:** student identity is still prototype/local. Coach/admin actions require
+  `ADMIN_TOKEN`, but this should still be replaced with your team login before
+  storing real student records. Static serving already returns 404 for `/server/*`.

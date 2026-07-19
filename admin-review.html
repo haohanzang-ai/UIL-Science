@@ -115,8 +115,16 @@
   function renderCoachGate(){
     elSummary.innerHTML = '';
     elList.innerHTML = '';
-    elDetail.innerHTML = '<div class="empty"><div class="emo">!</div><div class="h">Coach access required</div><div class="d">This prototype uses a local role header for coach tools. Student profiles are not promoted automatically.</div><button class="btn primary" id="coach-mode">Use coach mode</button></div>';
-    document.getElementById('coach-mode').onclick = function(){ API.setRole('coach'); location.reload(); };
+    elDetail.innerHTML =
+      '<div class="empty"><div class="emo">!</div><div class="h">Coach access required</div><div class="d">Enter the admin token configured on the backend to review and approve questions.</div>'+
+      '<form id="admin-token-form" class="field" style="max-width:420px;margin:16px auto 0;text-align:left">'+
+      '<label for="admin-token">Admin token</label><input id="admin-token" type="password" autocomplete="current-password" required>'+
+      '<button class="btn primary" style="margin-top:12px;width:100%" type="submit">Unlock coach tools</button></form></div>';
+    document.getElementById('admin-token-form').onsubmit = function(e){
+      e.preventDefault();
+      API.setAdminToken(document.getElementById('admin-token').value);
+      location.reload();
+    };
   }
 
   async function loadSummary(){

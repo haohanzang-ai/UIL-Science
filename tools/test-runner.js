@@ -38,6 +38,12 @@ test('required reports are present', () => {
   for (const rel of required) assert.ok(fs.existsSync(normalizeInsideRepo(rel)), `${rel} missing`);
 });
 
+test('overnight audit harness is available', () => {
+  assert.ok(fs.existsSync(normalizeInsideRepo('tools/overnight-audit.js')), 'tools/overnight-audit.js missing');
+  const pkg = JSON.parse(read('package.json'));
+  assert.equal(pkg.scripts['audit:overnight'], 'node tools/overnight-audit.js');
+});
+
 test('exam availability follows completeness thresholds', () => {
   const report = validateExams();
   assert.equal(report.totals.exams, 29);
@@ -71,6 +77,13 @@ test('student labels do not use banned practice wording', () => {
 
 test('navigation has no deceptive hash links', () => {
   assert.equal(/href:"#|href:'#'|href="#"/.test(read('assets/uil.js')), false);
+});
+
+test('study UI exposes reliable source policy', () => {
+  const haystack = read('assets/study.js');
+  assert.ok(/Campbell Biology/.test(haystack), 'Campbell Biology trust source missing');
+  assert.ok(/College Board AP Biology|AP Classroom/.test(haystack), 'College Board/AP Classroom trust source missing');
+  assert.ok(/Generated help is hidden/.test(haystack), 'generated-help source guard missing');
 });
 
 test('inline scripts parse', () => {

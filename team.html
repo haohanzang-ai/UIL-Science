@@ -176,7 +176,7 @@
   }
 
   function coachGate(){
-    return '<div class="empty"><div class="h">Coach access required</div><div class="d">This prototype uses the local role header. Switch this browser to coach mode to view team records.</div><button class="btn primary" onclick="localStorage.setItem(\'uil-role\',\'coach\');location.reload()">Use coach mode</button></div>';
+    return '<div class="empty"><div class="h">Coach access required</div><div class="d">Enter the admin token configured on the backend to view team records.</div><form id="admin-token-form" class="field" style="max-width:420px;margin:16px auto 0;text-align:left"><label for="admin-token">Admin token</label><input id="admin-token" type="password" autocomplete="current-password" required><button class="btn primary" style="margin-top:12px;width:100%" type="submit">Unlock team dashboard</button></form></div>';
   }
 
   function offlineCard(){
@@ -209,6 +209,14 @@
       return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
     });
   }
+
+  root.addEventListener('submit', function(e){
+    if(e.target && e.target.id === 'admin-token-form'){
+      e.preventDefault();
+      API.setAdminToken(document.getElementById('admin-token').value);
+      location.reload();
+    }
+  });
 
   boot().catch(function(e){ root.innerHTML = errorCard(e.message || 'Could not load team data.'); });
 })();

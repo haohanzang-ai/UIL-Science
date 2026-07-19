@@ -609,7 +609,7 @@
     var f = ui.filters[subject] || {};
     var secondaries = {};
     allRows.forEach(function(q){ secondaryTopics(q).forEach(function(t){ secondaries[t] = true; }); });
-    return '<details class="filter-shell" open><summary>Filters <span>'+rows.length+' result'+(rows.length === 1 ? '' : 's')+'</span></summary><form class="filter-panel" id="filter-form">'+
+    return '<details class="filter-shell"><summary>Focus <span>'+rows.length+' result'+(rows.length === 1 ? '' : 's')+'</span></summary><form class="filter-panel" id="filter-form">'+
       '<div class="filter-head"><strong>'+rows.length+' result'+(rows.length === 1 ? '' : 's')+'</strong><button class="btn sm ghost" type="button" id="reset-filters">Reset</button></div>'+
       '<label>Unit<select name="unit">'+optionList(byUnique(allRows, unitName), f.unit, 'All units')+'</select></label>'+
       '<label>Primary topic<select name="topic">'+optionList(byUnique(allRows, topicName), f.topic, 'All topics')+'</select></label>'+
@@ -648,6 +648,37 @@
     }).join('')+'</section>';
   }
 
+  function trustedSources(subject){
+    if (subject === 'biology') return ['Campbell Biology', 'College Board AP Biology / AP Classroom', 'Official UIL test and answer key'];
+    if (subject === 'chemistry') return ['College Board AP Chemistry / AP Classroom', 'Approved AP Chemistry source', 'Official UIL test and answer key'];
+    if (subject === 'physics') return ['College Board AP Physics / AP Classroom', 'OpenStax College Physics when needed', 'Official UIL test and answer key'];
+    return ['Official UIL test and answer key'];
+  }
+
+  function reliabilityPanel(subject, q){
+    var sources = trustedSources(subject);
+    var status = q && q.categorization && q.categorization.sourceReviewStatus === 'needs-authoritative-source-review' ? 'Needs source review' : 'Source policy attached';
+    return '<aside class="reliability-panel" aria-label="Reliable source policy">'+
+      '<p class="overline">Verified Sources</p>'+
+      '<h2>Answers stay source-grounded</h2>'+
+      '<p>Generated help is hidden unless it is supported by approved references. Current status: <strong>'+escapeHtml(status)+'</strong>.</p>'+
+      '<ul>'+sources.map(function(s){ return '<li>'+escapeHtml(s)+'</li>'; }).join('')+'</ul>'+
+    '</aside>';
+  }
+
+  function nextBestRows(subject, rows){
+    var progress = getProgress();
+    var selections = getSelections().selections || {};
+    var missed = rows.filter(function(q){ return isMissed(q.questionId); }).slice(0, 3);
+    var newRows = rows.filter(function(q){ return !selections[q.questionId]; }).slice(0, 3);
+    var bookmarked = rows.filter(function(q){ return progress.bookmarks.indexOf(q.questionId) >= 0; }).slice(0, 3);
+    var pool = missed.length ? missed : newRows.length ? newRows : bookmarked;
+    if (!pool.length) pool = rows.slice(0, 3);
+    return '<section class="next-best-panel"><p class="overline">Next best</p><h2>Adaptive queue</h2>'+
+      pool.map(function(q){ return '<button class="next-best-row" type="button" data-question-id="'+escapeHtml(q.questionId)+'"><strong>'+escapeHtml(q.sourceQuestionCode || q.questionId)+'</strong><span>'+escapeHtml(unitName(q))+'</span></button>'; }).join('')+
+      '<p class="muted">Prioritizes missed, unanswered, and bookmarked questions from your local attempts.</p></section>';
+  }
+
   function questionCard(q, rows, index, mode){
     var selections = getSelections().selections || {};
     var selected = selections[q.questionId] && selections[q.questionId].choice;
@@ -665,7 +696,6 @@
     }).join('');
     return '<article class="focus-card" data-question-id="'+escapeHtml(q.questionId)+'">'+
       '<div class="question-meta"><span class="tag '+subjectClass(q.subject)+'">'+escapeHtml((SUBJECTS[q.subject] && SUBJECTS[q.subject].title) || q.subject)+'</span><span>'+escapeHtml(unitName(q))+'</span><span>'+escapeHtml(topicName(q))+'</span><span>'+escapeHtml(displaySet(q))+'</span></div>'+
-      topicPills(q)+
       '<div class="question-top"><div><p class="overline">Question '+(index + 1)+' of '+rows.length+'</p><h2>'+escapeHtml(q.sourceQuestionCode || ('Question '+(q.questionNumber || index + 1)))+'</h2></div><button class="btn sm ghost" id="bookmark" type="button" aria-pressed="'+(bookmarked ? 'true' : 'false')+'">'+(bookmarked ? 'Bookmarked' : 'Bookmark')+'</button></div>'+
       '<div class="qstem">'+formatScienceText(q.stem || 'Question text unavailable.')+'</div>'+
       figureMarkup(q)+
@@ -699,11 +729,12 @@
 
   function solutionPanel(q){
     var refs = Array.isArray(q.citations) && q.citations.length ? q.citations : [];
-    var label = q.explanationStatus === 'official' ? 'Official UIL explanation' : q.explanationStatus === 'verified' ? 'Verified textbook-based explanation' : q.explanationStatus === 'captain-reviewed' ? 'Captain-reviewed explanation' : 'Explanation unavailable';
+    var trusted = ['official', 'official-key-solution-imported', 'verified', 'captain-reviewed'].indexOf(q.explanationStatus) >= 0;
+    var label = q.explanationStatus === 'official' ? 'Official UIL explanation' : q.explanationStatus === 'official-key-solution-imported' ? 'Official key solution imported' : q.explanationStatus === 'verified' ? 'Verified textbook-based explanation' : q.explanationStatus === 'captain-reviewed' ? 'Captain-reviewed explanation' : 'Explanation unavailable';
     return '<aside class="study-panel"><h3>Solution</h3>'+
       '<p class="trust-label">'+escapeHtml(label)+'</p>'+
-      '<p>'+(q.explanation ? formatScienceText(q.explanation) : 'A worked explanation has not been imported for this question. Use the answer key and source packet when troubleshooting.')+'</p>'+
-      '<details><summary>References</summary>'+(refs.length ? '<ul>'+refs.map(function(r){ return '<li>'+escapeHtml([r.title || r.sourceId, r.organization || r.author, r.edition, r.section, r.page ? 'page '+r.page : '', r.sourceLink || ''].filter(Boolean).join(', '))+'</li>'; }).join('')+'</ul>' : '<p>No reference details are available for this question.</p>')+'</details>'+
+      '<p>'+(q.explanation && trusted ? formatScienceText(q.explanation) : 'A worked explanation has not been imported and verified for this question. Use the answer key and source packet when troubleshooting.')+'</p>'+
+      '<details open><summary>References</summary>'+(refs.length ? '<ul>'+refs.map(function(r){ return '<li>'+escapeHtml([r.title || r.sourceId, r.organization || r.author, r.edition, r.section, r.page ? 'page '+r.page : '', r.sourceLink || ''].filter(Boolean).join(', '))+'</li>'; }).join('')+'</ul>' : '<p>No reference details are available for this question.</p>')+'</details>'+
       '</aside>';
   }
 
@@ -754,12 +785,20 @@
     var rows = filteredSubjectRows(subject);
     if (ui.index >= rows.length) ui.index = Math.max(0, rows.length - 1);
     saveStudyState({ questionId: rows[ui.index] && rows[ui.index].questionId });
+    var current = rows[ui.index];
     root.innerHTML =
-      '<section class="subject-hero '+def.accent+'"><div><span class="tag '+def.accent+'">'+escapeHtml(def.title)+'</span><h2>'+escapeHtml(def.title)+'</h2><p>'+escapeHtml(def.description)+'</p></div>'+
+      '<section class="subject-cockpit '+def.accent+'"><div><span class="tag '+def.accent+'">'+escapeHtml(def.title)+'</span><h2>'+escapeHtml(def.title)+'</h2><p>'+escapeHtml(def.description)+'</p></div>'+
       '<div class="subject-summary">'+stateCard('Questions', String(allRows.length), 'Available now')+stateCard('Progress', progressSummary(allRows), 'Submitted answers')+'</div></section>'+
-      unitOverview(subject, allRows)+
-      renderFilters(subject, allRows, rows)+
-      (rows.length ? questionCard(rows[ui.index], rows, ui.index, 'subject') : emptyState('No matching questions', 'Adjust or reset the filters to see questions again.', '<button class="btn primary" id="empty-reset" type="button">Reset filters</button>'));
+      '<section class="study-workspace">'+
+        '<div class="study-main">'+(rows.length ? questionCard(current, rows, ui.index, 'subject') : emptyState('No matching questions', 'Adjust or reset the filters to see questions again.', '<button class="btn primary" id="empty-reset" type="button">Reset filters</button>'))+'</div>'+
+        '<aside class="study-side">'+
+          renderFilters(subject, allRows, rows)+
+          '<details class="unit-drawer"><summary>Units</summary>'+unitOverview(subject, allRows)+'</details>'+
+          (current ? reliabilityPanel(subject, current) : '')+
+          (rows.length ? nextBestRows(subject, rows) : '')+
+          (current ? '<section class="topic-panel"><p class="overline">Topic Map</p>'+topicPills(current)+'</section>' : '')+
+        '</aside>'+
+      '</section>';
     bindSubject(subject, rows);
   }
 
@@ -808,6 +847,17 @@
         ui.index = 0;
         saveStudyState();
         subjectView(subject);
+      });
+    });
+    root.querySelectorAll('.next-best-row').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var id = btn.getAttribute('data-question-id');
+        var next = rows.findIndex(function(q){ return q.questionId === id; });
+        if (next >= 0) {
+          ui.index = next; ui.submitted = false; ui.showHint = false; ui.showSolution = false; ui.showLesson = false;
+          saveStudyState({ questionId: id });
+          subjectView(subject);
+        }
       });
     });
     bindQuestion(rows, function(){ subjectView(subject); });

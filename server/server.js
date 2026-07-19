@@ -9,6 +9,8 @@ const { db, init, all, get, run, integrityBadge } = require('./db');
 const { grade, scoreLoss, guessingThreshold } = require('./scoring');
 
 const app = express();
+const adminToken = process.env.ADMIN_TOKEN || '';
+const demoCoachAuth = process.env.ENABLE_DEMO_COACH_AUTH === 'true' && process.env.NODE_ENV !== 'production';
 const allowedOrigins = (process.env.CORS_ORIGINS || 'https://haohanzang-ai.github.io,http://localhost:3000,http://127.0.0.1:3000')
   .split(',')
   .map(s => s.trim())
@@ -18,7 +20,7 @@ app.use((req, res, next) => {
   if (origin && allowedOrigins.includes(origin)) {
     res.setHeader('Access-Control-Allow-Origin', origin);
     res.setHeader('Vary', 'Origin');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type,x-student-id,x-role');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type,x-student-id,x-admin-token,Authorization');
     res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PATCH,OPTIONS');
   }
   if (req.method === 'OPTIONS') return res.sendStatus(204);
@@ -26,14 +28,32 @@ app.use((req, res, next) => {
 });
 app.use(express.json({ limit: '2mb' }));
 
-// ---- tiny identity middleware (replace with real auth in production) ----
+function timingSafeEqual(a, b) {
+  if (!a || !b || a.length !== b.length) return false;
+  var diff = 0;
+  for (var i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return diff === 0;
+}
+
+function adminTokenFrom(req) {
+  var bearer = String(req.header('authorization') || '').match(/^Bearer\s+(.+)$/i);
+  return String(req.header('x-admin-token') || (bearer && bearer[1]) || '').trim();
+}
+
+function hasAdminAccess(req) {
+  if (adminToken && timingSafeEqual(adminTokenFrom(req), adminToken)) return true;
+  if (demoCoachAuth && req.header('x-role') === 'coach') return true;
+  return false;
+}
+
+// ---- lightweight identity middleware ----
 app.use('/api', (req, res, next) => {
   req.studentId = parseInt(req.header('x-student-id') || '', 10) || null;
-  req.role = req.header('x-role') || 'student';
+  req.role = hasAdminAccess(req) ? 'coach' : 'student';
   next();
 });
 function requireCoach(req, res, next) {
-  if (req.role === 'coach' || req.role === 'admin') return next();
+  if (req.role === 'coach') return next();
   return res.status(403).json({ error: 'Coach or admin role required.' });
 }
 // wrap async handlers so errors become clean 500s

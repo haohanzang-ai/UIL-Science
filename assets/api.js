@@ -28,7 +28,8 @@
   function headers(){
     var h = { 'Content-Type': 'application/json' };
     var sid = localStorage.getItem('uil-student-id'); if (sid) h['x-student-id'] = sid;
-    var role = localStorage.getItem('uil-role'); if (role) h['x-role'] = role;
+    var token = sessionStorage.getItem('uil-admin-token');
+    if (token) h['Authorization'] = 'Bearer ' + token;
     return h;
   }
   async function readJson(res){
@@ -59,12 +60,13 @@
     // identity
     me:        ()        => req('GET','/api/me'),
     createStudent: (s)   => req('POST','/api/students', s),
-    role:      ()        => localStorage.getItem('uil-role') || 'student',
-    setRole:   (r)       => localStorage.setItem('uil-role', r),
+    role:      ()        => sessionStorage.getItem('uil-admin-token') ? 'coach' : 'student',
+    setAdminToken:(token) => sessionStorage.setItem('uil-admin-token', String(token || '').trim()),
+    clearAdminToken:()   => sessionStorage.removeItem('uil-admin-token'),
     studentId: ()        => localStorage.getItem('uil-student-id'),
     setStudent:(id)      => localStorage.setItem('uil-student-id', id),
     clearStudent:()      => localStorage.removeItem('uil-student-id'),
-    isCoach:   ()        => ['coach','admin'].includes(localStorage.getItem('uil-role')),
+    isCoach:   ()        => !!sessionStorage.getItem('uil-admin-token'),
     baseUrl:   ()        => API_BASE,
 
     // questions / admin

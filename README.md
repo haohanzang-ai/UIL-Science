@@ -37,7 +37,9 @@ questions and students take real attempts. No placeholder stats are invented.
 
 ## Status / next steps
 
-- Identity is a prototype header (`x-student-id` / `x-role`) — replace with real
-  team login before deployment.
-- `team.html` and the leaderboard still use sample data pending real wiring.
+- Student identity is still prototype/local. Coach and admin APIs require
+  `ADMIN_TOKEN`; replace this with real team login before storing real student
+  records.
+- `team.html` and the leaderboard read real API data and show empty states until
+  students, questions, and submitted attempts exist.
 - OCR / AI extraction are integration points feeding the importer / `PATCH` API.

@@ -42,6 +42,10 @@ service runs everything.
    - **Build Command:** `npm install`
    - **Start Command:** `node server.js`
    - **Instance type:** Free
+   - **Environment variables:**
+     - `NODE_ENV=production`
+     - `ADMIN_TOKEN=<long random value for coach/admin pages>`
+     - `CORS_ORIGINS=https://haohanzang-ai.github.io`
 4. Click **Create Web Service**. Render installs dependencies and starts it.
    When it's live you'll get a URL like `https://uil-science.onrender.com`.
 5. Open that URL → the dashboard loads with empty states (no data yet).
@@ -61,7 +65,9 @@ or restart, so student attempts and approved questions would be lost. Pick one:
 Tell me which you prefer and I'll adapt `server/db.js` accordingly.
 
 ### Before real students use it
-- Replace the prototype identity headers (`x-student-id` / `x-role`) with real
-  team login.
-- Restrict static serving so `/server/*` source isn't publicly served.
+- Treat the GitHub Pages password gate as a casual privacy screen only; do not
+  put secrets or sensitive student records in static files.
+- Replace the prototype student identity with real team login before storing
+  centralized student records.
+- Rotate `ADMIN_TOKEN` if it is shared too widely, and keep it out of GitHub.
 - Import your real, approved questions (`server/import-format.md`).
