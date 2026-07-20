@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-07-19T05:21:39.556Z",
+  "generatedAt": "2026-07-20T02:45:00.569Z",
   "totals": {
     "exams": 29,
-    "complete": 8,
+    "complete": 7,
     "partial": 10,
-    "blocked": 11
+    "blocked": 12
   },
   "exams": [
     {
@@ -28,6 +28,7 @@
       ],
       "samePdf": true,
       "duplicateQuestionIds": [],
+      "blockedQuestionIds": [],
       "answerIssues": [],
       "figureIssues": []
     },
@@ -38,13 +39,14 @@
       "contestLevel": "uil-set",
       "set": "A",
       "status": "usable-partial",
-      "availableQuestions": 59,
+      "availableQuestions": 58,
       "subjectCounts": {
-        "biology": 20,
+        "biology": 19,
         "chemistry": 19,
         "physics": 20
       },
       "missingQuestions": [
+        15,
         36
       ],
       "sourcePdfs": [
@@ -52,6 +54,7 @@
       ],
       "samePdf": true,
       "duplicateQuestionIds": [],
+      "blockedQuestionIds": [],
       "answerIssues": [],
       "figureIssues": []
     },
@@ -93,6 +96,7 @@
       ],
       "samePdf": true,
       "duplicateQuestionIds": [],
+      "blockedQuestionIds": [],
       "answerIssues": [],
       "figureIssues": []
     },
@@ -103,19 +107,28 @@
       "contestLevel": "virtual-challenge",
       "set": "VCM 2",
       "status": "blocked",
-      "availableQuestions": 51,
+      "availableQuestions": 42,
       "subjectCounts": {
-        "biology": 11,
+        "biology": 2,
         "chemistry": 20,
         "physics": 20
       },
       "missingQuestions": [
+        1,
+        2,
         3,
         4,
+        5,
         6,
         7,
+        8,
+        9,
         10,
+        11,
         12,
+        14,
+        15,
+        17,
         18,
         19,
         20
@@ -125,9 +138,8 @@
       ],
       "samePdf": true,
       "duplicateQuestionIds": [],
-      "answerIssues": [
-        "uil-2022-vcm-2-b14"
-      ],
+      "blockedQuestionIds": [],
+      "answerIssues": [],
       "figureIssues": []
     },
     {
@@ -137,15 +149,17 @@
       "contestLevel": "virtual-challenge",
       "set": "VCM 3",
       "status": "blocked",
-      "availableQuestions": 50,
+      "availableQuestions": 44,
       "subjectCounts": {
-        "biology": 10,
+        "biology": 4,
         "chemistry": 20,
         "physics": 20
       },
       "missingQuestions": [
         1,
+        2,
         4,
+        5,
         6,
         7,
         8,
@@ -153,6 +167,10 @@
         10,
         11,
         14,
+        15,
+        17,
+        18,
+        19,
         20
       ],
       "sourcePdfs": [
@@ -160,10 +178,8 @@
       ],
       "samePdf": true,
       "duplicateQuestionIds": [],
-      "answerIssues": [
-        "uil-2022-vcm-3-b17",
-        "uil-2022-vcm-3-b18"
-      ],
+      "blockedQuestionIds": [],
+      "answerIssues": [],
       "figureIssues": []
     },
     {
@@ -185,6 +201,7 @@
       ],
       "samePdf": true,
       "duplicateQuestionIds": [],
+      "blockedQuestionIds": [],
       "answerIssues": [],
       "figureIssues": []
     },
@@ -209,6 +226,7 @@
       ],
       "samePdf": true,
       "duplicateQuestionIds": [],
+      "blockedQuestionIds": [],
       "answerIssues": [],
       "figureIssues": []
     },
@@ -231,6 +249,7 @@
       ],
       "samePdf": true,
       "duplicateQuestionIds": [],
+      "blockedQuestionIds": [],
       "answerIssues": [],
       "figureIssues": []
     },
@@ -253,6 +272,7 @@
       ],
       "samePdf": true,
       "duplicateQuestionIds": [],
+      "blockedQuestionIds": [],
       "answerIssues": [],
       "figureIssues": []
     },
@@ -275,6 +295,7 @@
       ],
       "samePdf": true,
       "duplicateQuestionIds": [],
+      "blockedQuestionIds": [],
       "answerIssues": [],
       "figureIssues": []
     },
@@ -285,13 +306,14 @@
       "contestLevel": "uil-set",
       "set": "B",
       "status": "usable-partial",
-      "availableQuestions": 59,
+      "availableQuestions": 58,
       "subjectCounts": {
-        "biology": 20,
+        "biology": 19,
         "chemistry": 20,
         "physics": 19
       },
       "missingQuestions": [
+        19,
         55
       ],
       "sourcePdfs": [
@@ -299,6 +321,7 @@
       ],
       "samePdf": true,
       "duplicateQuestionIds": [],
+      "blockedQuestionIds": [],
       "answerIssues": [],
       "figureIssues": []
     },
@@ -323,6 +346,7 @@
       ],
       "samePdf": true,
       "duplicateQuestionIds": [],
+      "blockedQuestionIds": [],
       "answerIssues": [],
       "figureIssues": []
     },
@@ -347,6 +371,7 @@
       ],
       "samePdf": true,
       "duplicateQuestionIds": [],
+      "blockedQuestionIds": [],
       "answerIssues": [],
       "figureIssues": []
     },
@@ -369,6 +394,7 @@
       ],
       "samePdf": true,
       "duplicateQuestionIds": [],
+      "blockedQuestionIds": [],
       "answerIssues": [],
       "figureIssues": []
     },
@@ -391,6 +417,7 @@
       ],
       "samePdf": true,
       "duplicateQuestionIds": [],
+      "blockedQuestionIds": [],
       "answerIssues": [],
       "figureIssues": []
     },
@@ -413,6 +440,7 @@
       ],
       "samePdf": true,
       "duplicateQuestionIds": [],
+      "blockedQuestionIds": [],
       "answerIssues": [],
       "figureIssues": []
     },
@@ -423,19 +451,29 @@
       "contestLevel": "invitational",
       "set": "A",
       "status": "blocked",
-      "availableQuestions": 51,
+      "availableQuestions": 41,
       "subjectCounts": {
-        "biology": 11,
+        "biology": 1,
         "chemistry": 20,
         "physics": 20
       },
       "missingQuestions": [
         1,
         2,
+        3,
+        4,
         5,
+        6,
+        7,
         8,
+        9,
         10,
+        11,
+        12,
+        13,
+        14,
         15,
+        16,
         17,
         18,
         19
@@ -445,6 +483,7 @@
       ],
       "samePdf": true,
       "duplicateQuestionIds": [],
+      "blockedQuestionIds": [],
       "answerIssues": [],
       "figureIssues": []
     },
@@ -454,19 +493,22 @@
       "year": 2016,
       "contestLevel": "invitational",
       "set": "B",
-      "status": "complete",
-      "availableQuestions": 60,
+      "status": "usable-partial",
+      "availableQuestions": 59,
       "subjectCounts": {
-        "biology": 20,
+        "biology": 19,
         "chemistry": 20,
         "physics": 20
       },
-      "missingQuestions": [],
+      "missingQuestions": [
+        13
+      ],
       "sourcePdfs": [
         "data/source-pdfs/uil/2016-invitational-b/science-test-b-2016.pdf"
       ],
       "samePdf": true,
       "duplicateQuestionIds": [],
+      "blockedQuestionIds": [],
       "answerIssues": [],
       "figureIssues": []
     },
@@ -477,16 +519,20 @@
       "contestLevel": "district",
       "set": "District 1",
       "status": "blocked",
-      "availableQuestions": 56,
+      "availableQuestions": 52,
       "subjectCounts": {
-        "biology": 17,
+        "biology": 13,
         "chemistry": 19,
         "physics": 20
       },
       "missingQuestions": [
+        1,
+        2,
         3,
         5,
         6,
+        8,
+        11,
         34
       ],
       "sourcePdfs": [
@@ -494,10 +540,8 @@
       ],
       "samePdf": true,
       "duplicateQuestionIds": [],
-      "answerIssues": [
-        "uil-2016-district-1-b02",
-        "uil-2016-district-1-b11"
-      ],
+      "blockedQuestionIds": [],
+      "answerIssues": [],
       "figureIssues": []
     },
     {
@@ -507,16 +551,18 @@
       "contestLevel": "district",
       "set": "District 2",
       "status": "blocked",
-      "availableQuestions": 56,
+      "availableQuestions": 54,
       "subjectCounts": {
-        "biology": 17,
+        "biology": 15,
         "chemistry": 19,
         "physics": 20
       },
       "missingQuestions": [
         1,
         2,
+        5,
         6,
+        11,
         34
       ],
       "sourcePdfs": [
@@ -524,9 +570,8 @@
       ],
       "samePdf": true,
       "duplicateQuestionIds": [],
-      "answerIssues": [
-        "uil-2016-district-2-b11"
-      ],
+      "blockedQuestionIds": [],
+      "answerIssues": [],
       "figureIssues": []
     },
     {
@@ -535,23 +580,29 @@
       "year": 2016,
       "contestLevel": "region",
       "set": "Region",
-      "status": "usable-partial",
-      "availableQuestions": 57,
+      "status": "blocked",
+      "availableQuestions": 52,
       "subjectCounts": {
-        "biology": 17,
-        "chemistry": 20,
+        "biology": 14,
+        "chemistry": 18,
         "physics": 20
       },
       "missingQuestions": [
+        1,
+        6,
         7,
+        8,
         10,
-        15
+        15,
+        30,
+        31
       ],
       "sourcePdfs": [
         "data/source-pdfs/uil/2016-combined/science-2016-inv-district-region-study.pdf"
       ],
       "samePdf": true,
       "duplicateQuestionIds": [],
+      "blockedQuestionIds": [],
       "answerIssues": [],
       "figureIssues": []
     },
@@ -576,6 +627,7 @@
       ],
       "samePdf": true,
       "duplicateQuestionIds": [],
+      "blockedQuestionIds": [],
       "answerIssues": [],
       "figureIssues": []
     },
@@ -586,81 +638,79 @@
       "contestLevel": "region",
       "set": "Region",
       "status": "blocked",
-      "availableQuestions": 47,
+      "availableQuestions": 0,
       "subjectCounts": {
-        "biology": 17,
-        "chemistry": 13,
-        "physics": 17
+        "biology": 0,
+        "chemistry": 0,
+        "physics": 0
       },
       "missingQuestions": [
         1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
         9,
+        10,
+        11,
+        12,
         13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
         21,
+        22,
+        23,
+        24,
         25,
         26,
+        27,
+        28,
         29,
+        30,
         31,
+        32,
+        33,
+        34,
+        35,
         36,
+        37,
         38,
+        39,
+        40,
         41,
+        42,
+        43,
+        44,
         45,
-        51
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
       ],
-      "sourcePdfs": [
-        "data/source-pdfs/uil/2018-region/science-region-2018.pdf"
-      ],
+      "sourcePdfs": [],
       "samePdf": true,
       "duplicateQuestionIds": [],
-      "answerIssues": [
-        "uil-2018-region-b02",
-        "uil-2018-region-b03",
-        "uil-2018-region-b04",
-        "uil-2018-region-b05",
-        "uil-2018-region-b06",
-        "uil-2018-region-b07",
-        "uil-2018-region-b08",
-        "uil-2018-region-b10",
-        "uil-2018-region-b11",
-        "uil-2018-region-b12",
-        "uil-2018-region-b14",
-        "uil-2018-region-b15",
-        "uil-2018-region-b16",
-        "uil-2018-region-b17",
-        "uil-2018-region-b18",
-        "uil-2018-region-b19",
-        "uil-2018-region-b20",
-        "uil-2018-region-c02",
-        "uil-2018-region-c03",
-        "uil-2018-region-c04",
-        "uil-2018-region-c07",
-        "uil-2018-region-c08",
-        "uil-2018-region-c10",
-        "uil-2018-region-c12",
-        "uil-2018-region-c13",
-        "uil-2018-region-c14",
-        "uil-2018-region-c15",
-        "uil-2018-region-c17",
-        "uil-2018-region-c19",
-        "uil-2018-region-c20",
-        "uil-2018-region-p02",
-        "uil-2018-region-p03",
-        "uil-2018-region-p04",
-        "uil-2018-region-p06",
-        "uil-2018-region-p07",
-        "uil-2018-region-p08",
-        "uil-2018-region-p09",
-        "uil-2018-region-p10",
-        "uil-2018-region-p12",
-        "uil-2018-region-p13",
-        "uil-2018-region-p14",
-        "uil-2018-region-p15",
-        "uil-2018-region-p16",
-        "uil-2018-region-p17",
-        "uil-2018-region-p18",
-        "uil-2018-region-p19",
-        "uil-2018-region-p20"
-      ],
+      "blockedQuestionIds": [],
+      "answerIssues": [],
       "figureIssues": []
     },
     {
@@ -670,20 +720,22 @@
       "contestLevel": "invitational",
       "set": "A",
       "status": "usable-partial",
-      "availableQuestions": 59,
+      "availableQuestions": 58,
       "subjectCounts": {
         "biology": 20,
-        "chemistry": 19,
+        "chemistry": 18,
         "physics": 20
       },
       "missingQuestions": [
-        32
+        32,
+        34
       ],
       "sourcePdfs": [
         "data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf"
       ],
       "samePdf": true,
       "duplicateQuestionIds": [],
+      "blockedQuestionIds": [],
       "answerIssues": [],
       "figureIssues": []
     },
@@ -694,10 +746,10 @@
       "contestLevel": "invitational",
       "set": "B",
       "status": "blocked",
-      "availableQuestions": 38,
+      "availableQuestions": 37,
       "subjectCounts": {
         "biology": 0,
-        "chemistry": 18,
+        "chemistry": 17,
         "physics": 20
       },
       "missingQuestions": [
@@ -721,6 +773,7 @@
         18,
         19,
         20,
+        30,
         34,
         40
       ],
@@ -729,6 +782,7 @@
       ],
       "samePdf": true,
       "duplicateQuestionIds": [],
+      "blockedQuestionIds": [],
       "answerIssues": [],
       "figureIssues": []
     },
@@ -757,6 +811,7 @@
       ],
       "samePdf": true,
       "duplicateQuestionIds": [],
+      "blockedQuestionIds": [],
       "answerIssues": [],
       "figureIssues": []
     },
@@ -767,16 +822,18 @@
       "contestLevel": "district",
       "set": "District 2",
       "status": "blocked",
-      "availableQuestions": 52,
+      "availableQuestions": 50,
       "subjectCounts": {
-        "biology": 12,
+        "biology": 10,
         "chemistry": 20,
         "physics": 20
       },
       "missingQuestions": [
+        1,
         6,
         7,
         8,
+        10,
         12,
         13,
         14,
@@ -788,6 +845,7 @@
       ],
       "samePdf": true,
       "duplicateQuestionIds": [],
+      "blockedQuestionIds": [],
       "answerIssues": [],
       "figureIssues": []
     },
@@ -798,20 +856,24 @@
       "contestLevel": "region",
       "set": "Region",
       "status": "blocked",
-      "availableQuestions": 52,
+      "availableQuestions": 48,
       "subjectCounts": {
-        "biology": 14,
-        "chemistry": 18,
+        "biology": 12,
+        "chemistry": 16,
         "physics": 20
       },
       "missingQuestions": [
         1,
         2,
+        3,
         4,
+        15,
         16,
         17,
         19,
+        21,
         34,
+        36,
         38
       ],
       "sourcePdfs": [
@@ -819,11 +881,8 @@
       ],
       "samePdf": true,
       "duplicateQuestionIds": [],
-      "answerIssues": [
-        "uil-2015-region-b03",
-        "uil-2015-region-b15",
-        "uil-2015-region-c01"
-      ],
+      "blockedQuestionIds": [],
+      "answerIssues": [],
       "figureIssues": []
     },
     {
@@ -833,32 +892,34 @@
       "contestLevel": "state",
       "set": "State",
       "status": "blocked",
-      "availableQuestions": 54,
+      "availableQuestions": 47,
       "subjectCounts": {
-        "biology": 16,
-        "chemistry": 18,
+        "biology": 12,
+        "chemistry": 15,
         "physics": 20
       },
       "missingQuestions": [
+        1,
         3,
+        6,
         15,
+        16,
         17,
         18,
+        19,
         22,
-        31
+        31,
+        32,
+        33,
+        37
       ],
       "sourcePdfs": [
         "data/source-pdfs/uil/2015-combined/science-2015-inv-district-region-state-study.pdf"
       ],
       "samePdf": true,
       "duplicateQuestionIds": [],
-      "answerIssues": [
-        "uil-2015-state-b06",
-        "uil-2015-state-b16",
-        "uil-2015-state-c12",
-        "uil-2015-state-c13",
-        "uil-2015-state-c17"
-      ],
+      "blockedQuestionIds": [],
+      "answerIssues": [],
       "figureIssues": []
     }
   ],
@@ -872,6 +933,7 @@
     {
       "examId": "uil-2022-set-a",
       "missingQuestions": [
+        15,
         36
       ]
     },
@@ -901,12 +963,21 @@
     {
       "examId": "uil-2022-vcm-2",
       "missingQuestions": [
+        1,
+        2,
         3,
         4,
+        5,
         6,
         7,
+        8,
+        9,
         10,
+        11,
         12,
+        14,
+        15,
+        17,
         18,
         19,
         20
@@ -916,7 +987,9 @@
       "examId": "uil-2022-vcm-3",
       "missingQuestions": [
         1,
+        2,
         4,
+        5,
         6,
         7,
         8,
@@ -924,6 +997,10 @@
         10,
         11,
         14,
+        15,
+        17,
+        18,
+        19,
         20
       ]
     },
@@ -936,6 +1013,7 @@
     {
       "examId": "uil-2024-set-b",
       "missingQuestions": [
+        19,
         55
       ]
     },
@@ -956,21 +1034,41 @@
       "missingQuestions": [
         1,
         2,
+        3,
+        4,
         5,
+        6,
+        7,
         8,
+        9,
         10,
+        11,
+        12,
+        13,
+        14,
         15,
+        16,
         17,
         18,
         19
       ]
     },
     {
+      "examId": "uil-2016-invitational-b",
+      "missingQuestions": [
+        13
+      ]
+    },
+    {
       "examId": "uil-2016-district-1",
       "missingQuestions": [
+        1,
+        2,
         3,
         5,
         6,
+        8,
+        11,
         34
       ]
     },
@@ -979,16 +1077,23 @@
       "missingQuestions": [
         1,
         2,
+        5,
         6,
+        11,
         34
       ]
     },
     {
       "examId": "uil-2016-region",
       "missingQuestions": [
+        1,
+        6,
         7,
+        8,
         10,
-        15
+        15,
+        30,
+        31
       ]
     },
     {
@@ -1001,24 +1106,72 @@
       "examId": "uil-2018-region",
       "missingQuestions": [
         1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
         9,
+        10,
+        11,
+        12,
         13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
         21,
+        22,
+        23,
+        24,
         25,
         26,
+        27,
+        28,
         29,
+        30,
         31,
+        32,
+        33,
+        34,
+        35,
         36,
+        37,
         38,
+        39,
+        40,
         41,
+        42,
+        43,
+        44,
         45,
-        51
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
       ]
     },
     {
       "examId": "uil-2015-invitational-a",
       "missingQuestions": [
-        32
+        32,
+        34
       ]
     },
     {
@@ -1044,6 +1197,7 @@
         18,
         19,
         20,
+        30,
         34,
         40
       ]
@@ -1061,9 +1215,11 @@
     {
       "examId": "uil-2015-district-2",
       "missingQuestions": [
+        1,
         6,
         7,
         8,
+        10,
         12,
         13,
         14,
@@ -1076,124 +1232,38 @@
       "missingQuestions": [
         1,
         2,
+        3,
         4,
+        15,
         16,
         17,
         19,
+        21,
         34,
+        36,
         38
       ]
     },
     {
       "examId": "uil-2015-state",
       "missingQuestions": [
+        1,
         3,
+        6,
         15,
+        16,
         17,
         18,
+        19,
         22,
-        31
+        31,
+        32,
+        33,
+        37
       ]
     }
   ],
-  "answerConflicts": [
-    {
-      "examId": "uil-2022-vcm-2",
-      "questionIds": [
-        "uil-2022-vcm-2-b14"
-      ]
-    },
-    {
-      "examId": "uil-2022-vcm-3",
-      "questionIds": [
-        "uil-2022-vcm-3-b17",
-        "uil-2022-vcm-3-b18"
-      ]
-    },
-    {
-      "examId": "uil-2016-district-1",
-      "questionIds": [
-        "uil-2016-district-1-b02",
-        "uil-2016-district-1-b11"
-      ]
-    },
-    {
-      "examId": "uil-2016-district-2",
-      "questionIds": [
-        "uil-2016-district-2-b11"
-      ]
-    },
-    {
-      "examId": "uil-2018-region",
-      "questionIds": [
-        "uil-2018-region-b02",
-        "uil-2018-region-b03",
-        "uil-2018-region-b04",
-        "uil-2018-region-b05",
-        "uil-2018-region-b06",
-        "uil-2018-region-b07",
-        "uil-2018-region-b08",
-        "uil-2018-region-b10",
-        "uil-2018-region-b11",
-        "uil-2018-region-b12",
-        "uil-2018-region-b14",
-        "uil-2018-region-b15",
-        "uil-2018-region-b16",
-        "uil-2018-region-b17",
-        "uil-2018-region-b18",
-        "uil-2018-region-b19",
-        "uil-2018-region-b20",
-        "uil-2018-region-c02",
-        "uil-2018-region-c03",
-        "uil-2018-region-c04",
-        "uil-2018-region-c07",
-        "uil-2018-region-c08",
-        "uil-2018-region-c10",
-        "uil-2018-region-c12",
-        "uil-2018-region-c13",
-        "uil-2018-region-c14",
-        "uil-2018-region-c15",
-        "uil-2018-region-c17",
-        "uil-2018-region-c19",
-        "uil-2018-region-c20",
-        "uil-2018-region-p02",
-        "uil-2018-region-p03",
-        "uil-2018-region-p04",
-        "uil-2018-region-p06",
-        "uil-2018-region-p07",
-        "uil-2018-region-p08",
-        "uil-2018-region-p09",
-        "uil-2018-region-p10",
-        "uil-2018-region-p12",
-        "uil-2018-region-p13",
-        "uil-2018-region-p14",
-        "uil-2018-region-p15",
-        "uil-2018-region-p16",
-        "uil-2018-region-p17",
-        "uil-2018-region-p18",
-        "uil-2018-region-p19",
-        "uil-2018-region-p20"
-      ]
-    },
-    {
-      "examId": "uil-2015-region",
-      "questionIds": [
-        "uil-2015-region-b03",
-        "uil-2015-region-b15",
-        "uil-2015-region-c01"
-      ]
-    },
-    {
-      "examId": "uil-2015-state",
-      "questionIds": [
-        "uil-2015-state-b06",
-        "uil-2015-state-b16",
-        "uil-2015-state-c12",
-        "uil-2015-state-c13",
-        "uil-2015-state-c17"
-      ]
-    }
-  ],
+  "answerConflicts": [],
   "figureProblems": [],
   "duplicateQuestions": []
 }

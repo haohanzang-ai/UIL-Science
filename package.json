@@ -8,6 +8,7 @@
     "test": "node tools/test-runner.js",
     "validate:content": "node tools/validate-content.js",
     "audit:overnight": "node tools/overnight-audit.js",
+    "quarantine:structural": "node tools/quarantine-structural-records.js",
     "import:repo": "node tools/importer/importer.js"
   },
   "dependencies": {

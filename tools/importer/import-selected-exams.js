@@ -6,9 +6,9 @@ const { normalizeInsideRepo } = require('./pathGuard');
 const PYTHON = process.env.CODEX_PYTHON || 'C:\\Users\\lingw\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe';
 const LETTERS = ['A', 'B', 'C', 'D', 'E'];
 const AUTHORITATIVE_SOURCES = {
-  B: ['Campbell Biology latest edition', 'College Board AP Biology Course and Exam Description'],
-  C: ['College Board AP Chemistry Course and Exam Description', 'Princeton Review AP Chemistry', 'OpenStax Chemistry 2e fallback'],
-  P: ['College Board AP Physics Course and Exam Descriptions', 'OpenStax College Physics 2e fallback']
+  B: ['Campbell Biology, latest available edition', 'College Board AP Biology Course and Exam Description'],
+  C: ['College Board AP Chemistry Course and Exam Description', 'Princeton Review AP Chemistry', 'OpenStax Chemistry 2e'],
+  P: ['College Board AP Physics Course and Exam Descriptions', 'OpenStax College Physics 2e']
 };
 
 const EXAMS = [
@@ -269,15 +269,18 @@ function importExam(exam) {
   }
   const records = [];
   for (const q of parsed.values()) {
-    const blockers = [];
+    const structuralBlockers = [];
     const answer = answers[q.qid];
-    if (!answer) blockers.push('missing official answer');
-    if (q.choices.length !== 5) blockers.push('choice count is not 5');
-    if (!q.choices.some(choice => choice.label === answer)) blockers.push('official answer absent from extracted choices');
-    if (!LETTERS.includes(answer)) blockers.push('official answer is not A-E');
-    if (!q.stem || q.stem.length < 10) blockers.push('stem too short');
+    const labels = q.choices.map(choice => choice.label);
+    if (!answer) structuralBlockers.push('missing official answer');
+    if (q.choices.length !== 5) structuralBlockers.push('choice count is not 5');
+    if (new Set(labels).size !== labels.length) structuralBlockers.push('duplicate extracted choice labels');
+    if (!q.choices.some(choice => choice.label === answer)) structuralBlockers.push('official answer absent from extracted choices');
+    if (!LETTERS.includes(answer)) structuralBlockers.push('official answer is not A-E');
+    if (!q.stem || q.stem.length < 10) structuralBlockers.push('stem too short');
+    const blockers = structuralBlockers.slice();
     if (figureRisk(q)) blockers.push('possible figure/table/diagram dependency requires visual crop validation');
-    const published = true;
+    const published = structuralBlockers.length === 0;
     const explanation = solutions[q.qid] || '';
     const rec = {
       schemaVersion: 1,
@@ -293,8 +296,8 @@ function importExam(exam) {
       stem: q.stem,
       choices: q.choices,
       officialAnswer: answer,
-      accessible: true,
-      verificationStatus: 'available',
+      accessible: published,
+      verificationStatus: published ? 'available' : 'needs-review',
       published,
       explanationStatus: explanation ? 'official-key-solution-imported' : 'not-imported',
       explanation,
@@ -350,7 +353,8 @@ function run() {
     const published = result.records.filter(r => r.published).length;
     examSummaries.push({ examId: exam.id, parsed: result.records.length, published, troubleshooting: result.troubleshooting.length });
   }
-  const accessibleRecords = allRecords.sort((a, b) => a.examId.localeCompare(b.examId) || a.questionNumber - b.questionNumber);
+  const sortedRecords = allRecords.sort((a, b) => a.examId.localeCompare(b.examId) || a.questionNumber - b.questionNumber);
+  const accessibleRecords = sortedRecords.filter(q => q.published === true && q.accessible !== false);
   const exams = EXAMS.map(exam => {
     const qs = accessibleRecords.filter(q => q.examId === exam.id);
     return {
@@ -372,7 +376,7 @@ function run() {
   const handbook = JSON.parse(fs.readFileSync(normalizeInsideRepo('references/source-registry.json'), 'utf8')).sources.find(s => s.sourceId === 'uil-science-handbook-2025-2026');
   const registrySources = handbook ? [...allSources, handbook] : allSources;
 
-  fs.writeFileSync(normalizeInsideRepo('data/processed/published-questions.json'), JSON.stringify({ schemaVersion: 1, generatedAt: new Date().toISOString(), accessPolicy: 'all-parseable-uploaded-questions-visible', accessibleQuestionCount: accessibleRecords.length, questions: accessibleRecords }, null, 2) + '\n');
+  fs.writeFileSync(normalizeInsideRepo('data/processed/published-questions.json'), JSON.stringify({ schemaVersion: 1, generatedAt: new Date().toISOString(), accessPolicy: 'structurally-valid-source-backed-questions-visible', accessibleQuestionCount: accessibleRecords.length, questions: sortedRecords }, null, 2) + '\n');
   fs.writeFileSync(normalizeInsideRepo('data/processed/published-exams.json'), JSON.stringify({ schemaVersion: 1, generatedAt: new Date().toISOString(), exams }, null, 2) + '\n');
   fs.writeFileSync(normalizeInsideRepo('data/review/imported-selected-exams.json'), JSON.stringify({ schemaVersion: 1, importedAt: new Date().toISOString(), summaries: examSummaries, troubleshooting: allTroubleshooting }, null, 2) + '\n');
   fs.writeFileSync(normalizeInsideRepo('references/source-registry.json'), JSON.stringify({ schemaVersion: 1, sources: registrySources }, null, 2) + '\n');
@@ -383,8 +387,8 @@ function run() {
   fs.writeFileSync(normalizeInsideRepo('reports/figure-review.json'), JSON.stringify(figure, null, 2) + '\n');
   fs.writeFileSync(normalizeInsideRepo('reports/explanation-review.json'), JSON.stringify(explanation, null, 2) + '\n');
   fs.writeFileSync(normalizeInsideRepo('reports/categorization-review.json'), JSON.stringify(cat, null, 2) + '\n');
-  fs.writeFileSync(normalizeInsideRepo('reports/import-summary.md'), ['# Import Summary', '', `Exam/key sets processed: ${EXAMS.length}`, `Accessible uploaded question records: ${accessibleRecords.length}`, `Troubleshooting records: ${allTroubleshooting.length}`, '', 'All parseable uploaded questions are accessible to users. If a question has formatting or extraction issues, users can troubleshoot it against the source packet.', ''].join('\n'));
-  fs.writeFileSync(normalizeInsideRepo('reports/publication-blockers.md'), ['# Troubleshooting Notes', '', '- Student access is open for all parseable uploaded questions.', '- Figure-dependent questions are accessible; users can compare them with the source packet when needed.', '- Topic and explanation source policy metadata remains attached for future cleanup, but it does not block access.', ''].join('\n'));
+  fs.writeFileSync(normalizeInsideRepo('reports/import-summary.md'), ['# Import Summary', '', `Exam/key sets processed: ${EXAMS.length}`, `Accessible uploaded question records: ${accessibleRecords.length}`, `Quarantined structural records: ${sortedRecords.length - accessibleRecords.length}`, `Troubleshooting records: ${allTroubleshooting.length}`, '', 'Only source-backed records with five unique A-E choices and a matching official answer are student-visible. Quarantined records remain in the processed data for source-packet repair.', ''].join('\n'));
+  fs.writeFileSync(normalizeInsideRepo('reports/publication-blockers.md'), ['# Publication Blockers', '', '- Records with missing answers, mismatched answers, duplicate choice labels, invalid choice counts, or unusable stems remain quarantined.', '- Figure-dependent questions remain available only when their answer structure is valid; users can compare them with the source packet when needed.', '- Topic and explanation source policy metadata remains attached for future cleanup, but does not make unreviewed instructional content authoritative.', ''].join('\n'));
   fs.writeFileSync(normalizeInsideRepo('reports/source-provenance.json'), JSON.stringify({ schemaVersion: 1, generatedAt: new Date().toISOString(), files: registrySources.map(s => ({ sourceId: s.sourceId, repositoryPath: s.repositoryPath, sha256: s.sha256, approved: s.approved, sourceType: s.sourceType })) }, null, 2) + '\n');
   console.log(JSON.stringify({ exams: examSummaries, accessible: accessibleRecords.length, troubleshooting: allTroubleshooting.length }, null, 2));
 }

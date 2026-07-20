@@ -1,5 +1,6 @@
 const fs = require('fs');
 const { normalizeInsideRepo } = require('./importer/pathGuard');
+const { questionStructureIssues } = require('./question-integrity');
 
 function readJson(rel) {
   return JSON.parse(fs.readFileSync(normalizeInsideRepo(rel), 'utf8'));
@@ -27,7 +28,9 @@ function validateExams() {
     const ids = Array.isArray(exam.questionIds) ? exam.questionIds : [];
     const seen = new Set();
     const duplicates = ids.filter(id => seen.has(id) ? true : (seen.add(id), false));
-    const rows = ids.map(id => byId.get(id)).filter(Boolean);
+    const allRows = ids.map(id => byId.get(id)).filter(Boolean);
+    const blockedQuestionIds = allRows.filter(q => q.published !== true || q.accessible === false || questionStructureIssues(q).length).map(q => q.questionId);
+    const rows = allRows.filter(q => q.published === true && q.accessible !== false && questionStructureIssues(q).length === 0);
     const counts = { biology: 0, chemistry: 0, physics: 0 };
     const nums = new Set();
     const sourcePdfs = new Set();
@@ -64,13 +67,14 @@ function validateExams() {
       sourcePdfs: [...sourcePdfs],
       samePdf,
       duplicateQuestionIds: duplicates,
+      blockedQuestionIds,
       answerIssues,
       figureIssues
     };
     report.exams.push(entry);
     if (missing.length) report.missingQuestions.push({ examId: exam.examId, missingQuestions: missing });
     if (duplicates.length) report.duplicateQuestions.push({ examId: exam.examId, duplicateQuestionIds: duplicates });
-    if (answerIssues.length) report.answerConflicts.push({ examId: exam.examId, questionIds: answerIssues });
+    if (answerIssues.length || blockedQuestionIds.length) report.answerConflicts.push({ examId: exam.examId, questionIds: [...new Set([...answerIssues, ...blockedQuestionIds])] });
     if (figureIssues.length) report.figureProblems.push({ examId: exam.examId, questionIds: figureIssues });
   }
 

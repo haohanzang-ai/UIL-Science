@@ -219,7 +219,7 @@
       fetchJson('data/processed/published-exams.json', { exams:[] })
     ]);
     var both = await Promise.race([loading, timeout(LOAD_TIMEOUT_MS)]);
-    catalog.questions = Array.isArray(both[0].questions) ? both[0].questions.filter(function(x){ return x && x.accessible !== false && questionHasValidAnswer(x); }) : [];
+    catalog.questions = Array.isArray(both[0].questions) ? both[0].questions.filter(function(x){ return x && x.published === true && x.accessible !== false && questionHasValidAnswer(x); }) : [];
     catalog.exams = Array.isArray(both[1].exams) ? both[1].exams.filter(function(x){ return x && x.accessible !== false; }) : [];
     catalog.byId = {};
     catalog.questions.forEach(function(q){ catalog.byId[q.questionId] = q; });
@@ -227,7 +227,11 @@
 
   function questionHasValidAnswer(q){
     if (!q || !q.officialAnswer || !Array.isArray(q.choices)) return false;
-    return q.choices.map(function(c){ return typeof c === 'string' ? c : c && c.label; }).indexOf(q.officialAnswer) >= 0;
+    var labels = q.choices.map(function(c){ return typeof c === 'string' ? '' : c && c.label; });
+    if (labels.length !== 5) return false;
+    if (labels.some(function(label){ return ['A','B','C','D','E'].indexOf(label) < 0; })) return false;
+    if (labels.some(function(label, index){ return labels.indexOf(label) !== index; })) return false;
+    return labels.indexOf(q.officialAnswer) >= 0;
   }
 
   function countSubject(subject){
@@ -650,8 +654,8 @@
 
   function trustedSources(subject){
     if (subject === 'biology') return ['Campbell Biology', 'College Board AP Biology / AP Classroom', 'Official UIL test and answer key'];
-    if (subject === 'chemistry') return ['College Board AP Chemistry / AP Classroom', 'Approved AP Chemistry source', 'Official UIL test and answer key'];
-    if (subject === 'physics') return ['College Board AP Physics / AP Classroom', 'OpenStax College Physics when needed', 'Official UIL test and answer key'];
+    if (subject === 'chemistry') return ['College Board AP Chemistry / AP Classroom', 'Princeton Review AP Chemistry when approved; otherwise OpenStax Chemistry 2e', 'Official UIL test and answer key'];
+    if (subject === 'physics') return ['College Board AP Physics / AP Classroom', 'OpenStax College Physics 2e when needed', 'Official UIL test and answer key'];
     return ['Official UIL test and answer key'];
   }
 
@@ -723,14 +727,68 @@
   }
 
   function hintPanel(q){
-    var hint = q.hint || '';
-    return '<aside class="study-panel"><h3>Hint</h3><p>'+(hint ? formatScienceText(hint) : 'A hint is not available for this question.')+'</p></aside>';
+    var trusted = instructionalContentIsVerified(q, 'hint');
+    return '<aside class="study-panel"><h3>Hint</h3><p class="trust-label">'+(trusted ? 'Verified source-backed hint' : 'Verified hint unavailable')+'</p><p>'+(trusted ? formatScienceText(q.hint) : 'A source-verified hint is not available for this question.')+'</p></aside>';
+  }
+
+  var approvedInstructionalSources = {
+    biologyTextbook: ['Campbell Biology, latest available edition', 'Campbell Biology latest edition'],
+    biologyFramework: ['College Board AP Biology Course and Exam Description'],
+    chemistryFramework: ['College Board AP Chemistry Course and Exam Description'],
+    chemistryFallback: ['Princeton Review AP Chemistry', 'OpenStax Chemistry 2e', 'OpenStax Chemistry 2e fallback'],
+    physicsFramework: ['College Board AP Physics Course and Exam Descriptions'],
+    physicsFallback: ['OpenStax College Physics 2e', 'OpenStax College Physics 2e fallback']
+  };
+
+  function normalizedSourceName(value){
+    return String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');
+  }
+
+  function sourceListIncludesApprovedName(list, approvedNames){
+    var supplied = (list || []).map(normalizedSourceName);
+    return approvedNames.some(function(name){ return supplied.indexOf(normalizedSourceName(name)) >= 0; });
+  }
+
+  function subjectSourceNamesSatisfied(subject, names){
+    if (subject === 'biology') return sourceListIncludesApprovedName(names, approvedInstructionalSources.biologyTextbook) && sourceListIncludesApprovedName(names, approvedInstructionalSources.biologyFramework);
+    if (subject === 'chemistry') return sourceListIncludesApprovedName(names, approvedInstructionalSources.chemistryFramework) && sourceListIncludesApprovedName(names, approvedInstructionalSources.chemistryFallback);
+    if (subject === 'physics') return sourceListIncludesApprovedName(names, approvedInstructionalSources.physicsFramework) && sourceListIncludesApprovedName(names, approvedInstructionalSources.physicsFallback);
+    return false;
+  }
+
+  function verifiedEvidenceSupportsSubject(subject, verification){
+    var evidence = verification && verification.sourceEvidence;
+    var verifiedEvidenceStatuses = ['verified', 'source-verified', 'claim-level-verified'];
+    if (!Array.isArray(evidence) || !evidence.length) return false;
+    if (evidence.some(function(item){
+      return !item || verifiedEvidenceStatuses.indexOf(item.verificationStatus) < 0 || item.supportType !== 'direct' ||
+        !String(item.sourceName || '').trim() || !String(item.locator || '').trim() || !String(item.supportingExcerpt || '').trim();
+    })) return false;
+    return subjectSourceNamesSatisfied(subject, evidence.map(function(item){ return item.sourceName; }));
+  }
+
+  function sourceRequirementsSatisfied(subject, verification){
+    var verifiedSourceStatuses = ['claim-level-verified', 'official-source-verified', 'verified'];
+    if (!verification || verifiedSourceStatuses.indexOf(verification.status) < 0) return false;
+    var required = verification.requiredSources || [];
+    return subjectSourceNamesSatisfied(subject, required) && verifiedEvidenceSupportsSubject(subject, verification);
+  }
+
+  function explanationIsVerified(q){
+    var trustedStatuses = ['official', 'official-key-solution-imported', 'verified', 'captain-reviewed'];
+    return Boolean(q && q.explanation && trustedStatuses.indexOf(q.explanationStatus) >= 0 && sourceRequirementsSatisfied(q.subject, q.explanationVerification));
+  }
+
+  function instructionalContentIsVerified(q, field){
+    if (!q || !q[field]) return false;
+    if (field === 'lesson' && q.lesson.verified !== true) return false;
+    return sourceRequirementsSatisfied(q.subject, q[field+'Verification']);
   }
 
   function solutionPanel(q){
     var refs = Array.isArray(q.citations) && q.citations.length ? q.citations : [];
-    var trusted = ['official', 'official-key-solution-imported', 'verified', 'captain-reviewed'].indexOf(q.explanationStatus) >= 0;
-    var label = q.explanationStatus === 'official' ? 'Official UIL explanation' : q.explanationStatus === 'official-key-solution-imported' ? 'Official key solution imported' : q.explanationStatus === 'verified' ? 'Verified textbook-based explanation' : q.explanationStatus === 'captain-reviewed' ? 'Captain-reviewed explanation' : 'Explanation unavailable';
+    var trusted = explanationIsVerified(q);
+    var label = trusted ? (q.explanationStatus === 'official' ? 'Official UIL explanation' : q.explanationStatus === 'official-key-solution-imported' ? 'Official key solution verified' : q.explanationStatus === 'verified' ? 'Verified textbook-based explanation' : 'Captain-reviewed explanation') : (q.explanation ? 'Explanation pending source verification' : 'Explanation unavailable');
     return '<aside class="study-panel"><h3>Solution</h3>'+
       '<p class="trust-label">'+escapeHtml(label)+'</p>'+
       '<p>'+(q.explanation && trusted ? formatScienceText(q.explanation) : 'A worked explanation has not been imported and verified for this question. Use the answer key and source packet when troubleshooting.')+'</p>'+
@@ -739,7 +797,7 @@
   }
 
   function lessonPanel(q){
-    if (!q.lesson || q.lesson.verified !== true) {
+    if (!instructionalContentIsVerified(q, 'lesson')) {
       return '<aside class="study-panel"><h3>Learn This Topic</h3><p class="trust-label">Verified lesson unavailable</p><p>A separate mini-lesson has not been verified for this question yet. Use the answer key, explanation label, and references that are already attached to the question.</p></aside>';
     }
     return '<aside class="study-panel"><h3>Learn This Topic</h3>'+

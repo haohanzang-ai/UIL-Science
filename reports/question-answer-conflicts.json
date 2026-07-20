@@ -1,6 +1,66 @@
 {
-  "generatedAt": "2026-07-13T01:02:22.335Z",
+  "generatedAt": "2026-07-20T02:45:00.475Z",
   "conflicts": [
+    {
+      "questionId": "uil-2015-district-2-b01",
+      "examId": "uil-2015-district-2",
+      "officialAnswer": "A",
+      "labels": [
+        "A",
+        "A",
+        "B",
+        "B",
+        "C"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
+    {
+      "questionId": "uil-2015-district-2-b10",
+      "examId": "uil-2015-district-2",
+      "officialAnswer": "C",
+      "labels": [
+        "A",
+        "B",
+        "A",
+        "C",
+        "B"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
+    {
+      "questionId": "uil-2015-invitational-a-c14",
+      "examId": "uil-2015-invitational-a",
+      "officialAnswer": "B",
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "B",
+        "C"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
+    {
+      "questionId": "uil-2015-invitational-b-c10",
+      "examId": "uil-2015-invitational-b",
+      "officialAnswer": "C",
+      "labels": [
+        "A",
+        "A",
+        "B",
+        "B",
+        "C"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
     {
       "questionId": "uil-2015-region-b03",
       "examId": "uil-2015-region",
@@ -11,6 +71,10 @@
         "B",
         "B",
         "C"
+      ],
+      "issues": [
+        "duplicate-choice-labels",
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -23,6 +87,10 @@
         "B",
         "B",
         "C"
+      ],
+      "issues": [
+        "duplicate-choice-labels",
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -35,6 +103,39 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
+      ]
+    },
+    {
+      "questionId": "uil-2015-region-c16",
+      "examId": "uil-2015-region",
+      "officialAnswer": "B",
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "A"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
+    {
+      "questionId": "uil-2015-state-b01",
+      "examId": "uil-2015-state",
+      "officialAnswer": "B",
+      "labels": [
+        "A",
+        "A",
+        "B",
+        "B",
+        "C"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
       ]
     },
     {
@@ -47,6 +148,10 @@
         "B",
         "B",
         "C"
+      ],
+      "issues": [
+        "duplicate-choice-labels",
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -59,6 +164,25 @@
         "B",
         "B",
         "C"
+      ],
+      "issues": [
+        "duplicate-choice-labels",
+        "official-answer-not-in-choices"
+      ]
+    },
+    {
+      "questionId": "uil-2015-state-b19",
+      "examId": "uil-2015-state",
+      "officialAnswer": "B",
+      "labels": [
+        "A",
+        "A",
+        "B",
+        "B",
+        "C"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
       ]
     },
     {
@@ -71,6 +195,9 @@
         "E",
         "B",
         "D"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -83,6 +210,9 @@
         "B",
         "C",
         "D"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -95,6 +225,24 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
+      ]
+    },
+    {
+      "questionId": "uil-2016-district-1-b01",
+      "examId": "uil-2016-district-1",
+      "officialAnswer": "A",
+      "labels": [
+        "A",
+        "B",
+        "A",
+        "C",
+        "B"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
       ]
     },
     {
@@ -107,6 +255,25 @@
         "B",
         "B",
         "C"
+      ],
+      "issues": [
+        "duplicate-choice-labels",
+        "official-answer-not-in-choices"
+      ]
+    },
+    {
+      "questionId": "uil-2016-district-1-b08",
+      "examId": "uil-2016-district-1",
+      "officialAnswer": "A",
+      "labels": [
+        "A",
+        "A",
+        "B",
+        "B",
+        "C"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
       ]
     },
     {
@@ -119,6 +286,25 @@
         "B",
         "C",
         "B"
+      ],
+      "issues": [
+        "duplicate-choice-labels",
+        "official-answer-not-in-choices"
+      ]
+    },
+    {
+      "questionId": "uil-2016-district-2-b05",
+      "examId": "uil-2016-district-2",
+      "officialAnswer": "B",
+      "labels": [
+        "A",
+        "A",
+        "B",
+        "C",
+        "B"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
       ]
     },
     {
@@ -131,6 +317,250 @@
         "A",
         "C",
         "B"
+      ],
+      "issues": [
+        "duplicate-choice-labels",
+        "official-answer-not-in-choices"
+      ]
+    },
+    {
+      "questionId": "uil-2016-invitational-a-b03",
+      "examId": "uil-2016-invitational-a",
+      "officialAnswer": "D",
+      "labels": [
+        "D",
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
+    {
+      "questionId": "uil-2016-invitational-a-b04",
+      "examId": "uil-2016-invitational-a",
+      "officialAnswer": "C",
+      "labels": [
+        "A",
+        "A",
+        "B",
+        "C",
+        "B"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
+    {
+      "questionId": "uil-2016-invitational-a-b06",
+      "examId": "uil-2016-invitational-a",
+      "officialAnswer": "B",
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "A",
+        "D"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
+    {
+      "questionId": "uil-2016-invitational-a-b07",
+      "examId": "uil-2016-invitational-a",
+      "officialAnswer": "D",
+      "labels": [
+        "C",
+        "A",
+        "D",
+        "B",
+        "C"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
+    {
+      "questionId": "uil-2016-invitational-a-b09",
+      "examId": "uil-2016-invitational-a",
+      "officialAnswer": "A",
+      "labels": [
+        "D",
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
+    {
+      "questionId": "uil-2016-invitational-a-b11",
+      "examId": "uil-2016-invitational-a",
+      "officialAnswer": "C",
+      "labels": [
+        "A",
+        "A",
+        "B",
+        "C",
+        "B"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
+    {
+      "questionId": "uil-2016-invitational-a-b12",
+      "examId": "uil-2016-invitational-a",
+      "officialAnswer": "D",
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "A",
+        "D"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
+    {
+      "questionId": "uil-2016-invitational-a-b13",
+      "examId": "uil-2016-invitational-a",
+      "officialAnswer": "B",
+      "labels": [
+        "B",
+        "C",
+        "A",
+        "D",
+        "B"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
+    {
+      "questionId": "uil-2016-invitational-a-b14",
+      "examId": "uil-2016-invitational-a",
+      "officialAnswer": "C",
+      "labels": [
+        "A",
+        "B",
+        "A",
+        "B",
+        "C"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
+    {
+      "questionId": "uil-2016-invitational-a-b16",
+      "examId": "uil-2016-invitational-a",
+      "officialAnswer": "C",
+      "labels": [
+        "C",
+        "A",
+        "B",
+        "D",
+        "C"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
+    {
+      "questionId": "uil-2016-invitational-b-b13",
+      "examId": "uil-2016-invitational-b",
+      "officialAnswer": "C",
+      "labels": [
+        "A",
+        "A",
+        "B",
+        "B",
+        "C"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
+    {
+      "questionId": "uil-2016-region-b01",
+      "examId": "uil-2016-region",
+      "officialAnswer": "A",
+      "labels": [
+        "A",
+        "A",
+        "B",
+        "B",
+        "C"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
+    {
+      "questionId": "uil-2016-region-b06",
+      "examId": "uil-2016-region",
+      "officialAnswer": "C",
+      "labels": [
+        "A",
+        "A",
+        "B",
+        "B",
+        "C"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
+    {
+      "questionId": "uil-2016-region-b08",
+      "examId": "uil-2016-region",
+      "officialAnswer": "A",
+      "labels": [
+        "A",
+        "B",
+        "A",
+        "C",
+        "D"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
+    {
+      "questionId": "uil-2016-region-c10",
+      "examId": "uil-2016-region",
+      "officialAnswer": "A",
+      "labels": [
+        "A",
+        "D",
+        "B",
+        "E",
+        "A"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
+    {
+      "questionId": "uil-2016-region-c11",
+      "examId": "uil-2016-region",
+      "officialAnswer": "C",
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "A",
+        "D"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
       ]
     },
     {
@@ -143,6 +573,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -155,6 +588,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -167,6 +603,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -179,6 +618,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -191,6 +633,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -203,6 +648,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -215,6 +663,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -227,6 +678,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -239,6 +693,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -251,6 +708,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -263,6 +723,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -275,6 +738,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -287,6 +753,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -299,6 +768,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -311,6 +783,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -323,6 +798,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -335,6 +813,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -347,6 +828,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -359,6 +843,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -371,6 +858,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -383,6 +873,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -395,6 +888,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -407,6 +903,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -419,6 +918,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -431,6 +933,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -443,6 +948,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -455,6 +963,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -467,6 +978,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -479,6 +993,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -491,6 +1008,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -503,6 +1023,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -515,6 +1038,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -527,6 +1053,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -539,6 +1068,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -551,6 +1083,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -563,6 +1098,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -575,6 +1113,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -587,6 +1128,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -599,6 +1143,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -611,6 +1158,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -623,6 +1173,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -635,6 +1188,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -647,6 +1203,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -659,6 +1218,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -671,6 +1233,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -683,6 +1248,9 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -695,6 +1263,114 @@
         "C",
         "D",
         "E"
+      ],
+      "issues": [
+        "official-answer-not-in-choices"
+      ]
+    },
+    {
+      "questionId": "uil-2022-set-a-b15",
+      "examId": "uil-2022-set-a",
+      "officialAnswer": "A",
+      "labels": [
+        "A",
+        "A",
+        "B",
+        "B",
+        "C"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
+    {
+      "questionId": "uil-2022-vcm-2-b01",
+      "examId": "uil-2022-vcm-2",
+      "officialAnswer": "A",
+      "labels": [
+        "A",
+        "C",
+        "A",
+        "B",
+        "B"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
+    {
+      "questionId": "uil-2022-vcm-2-b02",
+      "examId": "uil-2022-vcm-2",
+      "officialAnswer": "B",
+      "labels": [
+        "B",
+        "A",
+        "C",
+        "B",
+        "C"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
+    {
+      "questionId": "uil-2022-vcm-2-b05",
+      "examId": "uil-2022-vcm-2",
+      "officialAnswer": "C",
+      "labels": [
+        "A",
+        "C",
+        "B",
+        "D",
+        "A"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
+    {
+      "questionId": "uil-2022-vcm-2-b08",
+      "examId": "uil-2022-vcm-2",
+      "officialAnswer": "C",
+      "labels": [
+        "A",
+        "B",
+        "A",
+        "C",
+        "B"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
+    {
+      "questionId": "uil-2022-vcm-2-b09",
+      "examId": "uil-2022-vcm-2",
+      "officialAnswer": "A",
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "A"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
+    {
+      "questionId": "uil-2022-vcm-2-b11",
+      "examId": "uil-2022-vcm-2",
+      "officialAnswer": "A",
+      "labels": [
+        "B",
+        "C",
+        "A",
+        "C",
+        "D"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
       ]
     },
     {
@@ -707,6 +1383,85 @@
         "A",
         "C",
         "B"
+      ],
+      "issues": [
+        "duplicate-choice-labels",
+        "official-answer-not-in-choices"
+      ]
+    },
+    {
+      "questionId": "uil-2022-vcm-2-b15",
+      "examId": "uil-2022-vcm-2",
+      "officialAnswer": "A",
+      "labels": [
+        "C",
+        "A",
+        "B",
+        "D",
+        "C"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
+    {
+      "questionId": "uil-2022-vcm-2-b17",
+      "examId": "uil-2022-vcm-2",
+      "officialAnswer": "B",
+      "labels": [
+        "B",
+        "A",
+        "C",
+        "B",
+        "C"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
+    {
+      "questionId": "uil-2022-vcm-3-b02",
+      "examId": "uil-2022-vcm-3",
+      "officialAnswer": "C",
+      "labels": [
+        "B",
+        "C",
+        "D",
+        "A",
+        "B"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
+    {
+      "questionId": "uil-2022-vcm-3-b05",
+      "examId": "uil-2022-vcm-3",
+      "officialAnswer": "A",
+      "labels": [
+        "B",
+        "C",
+        "A",
+        "C",
+        "D"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
+    {
+      "questionId": "uil-2022-vcm-3-b15",
+      "examId": "uil-2022-vcm-3",
+      "officialAnswer": "A",
+      "labels": [
+        "A",
+        "C",
+        "B",
+        "D",
+        "A"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
       ]
     },
     {
@@ -719,6 +1474,10 @@
         "C",
         "B",
         "B"
+      ],
+      "issues": [
+        "duplicate-choice-labels",
+        "official-answer-not-in-choices"
       ]
     },
     {
@@ -731,6 +1490,40 @@
         "B",
         "E",
         "A"
+      ],
+      "issues": [
+        "duplicate-choice-labels",
+        "official-answer-not-in-choices"
+      ]
+    },
+    {
+      "questionId": "uil-2022-vcm-3-b19",
+      "examId": "uil-2022-vcm-3",
+      "officialAnswer": "B",
+      "labels": [
+        "A",
+        "D",
+        "A",
+        "B",
+        "E"
+      ],
+      "issues": [
+        "duplicate-choice-labels"
+      ]
+    },
+    {
+      "questionId": "uil-2024-set-b-b19",
+      "examId": "uil-2024-set-b",
+      "officialAnswer": "E",
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "issues": [
+        "stem-too-short"
       ]
     }
   ]
